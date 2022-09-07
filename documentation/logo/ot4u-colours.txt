@@ -1,0 +1,7 @@
+#751c00 - Kenyan Copper (Shadow)
+#ffcdbd - Apricot (Midtone)
+#ffb299 - Macaroni & Cheese (Dark Midtone)
+#ffece5 - Linen (Light Midtone)  => Page background?
+#99ffb2 - Teal Deer (Light Accent)
+#b299ff - Pale Violet (Highlight)
+#191970 - Midnight Blue (Dark Accent)
