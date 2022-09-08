@@ -1,10 +1,59 @@
 /*~~~~~~~  Home Page  ~~~~~~~*/
 
-.homePage
-	background-image: url(../../media/occupational-therapist-playing-with-child.jpg)
-	background-repeat: no-repeat
-	background-size: contain
-	background-position: center
-	height: calc(100vh - #{$menuDepth})
+.home
+	&Page
+		background-image: url(../../media/occupational-therapist-playing-with-child.jpg)
+		background-repeat: no-repeat
+		background-size: contain
+		background-position: center
+		height: calc(100vh - #{$menuDepth})
+		position: relative
+		text-align: center
+		display: flex
+		align-items: center
+		flex-direction: column
+	&Title
+		position: absolute
+		top: 5rem
+		text-shadow: 2px 2px $midtoneDark
+		font-size: 2.5rem
+		line-height: 2.7rem
+		@include respond(360)
+			top: 8rem
+		@include respond(400)
+			top: 11rem
+			font-size: 3rem
+		@include respond(tabletPortrait)
+			font-size: 3.5rem
+			top: 15rem
+		@include respond(tabletLandscape)
+			font-size: 4.5rem
+			line-height: 4.7rem
+			top: 17rem
+		@include respond(notebook)
+			top: 4rem
+			font-size: 3.3rem
+			line-height: 3.7rem
+	&Button
+		position: absolute
+		bottom: 8rem
+		a
+			font-size: 1.25rem
+		@include respond(360)
+			bottom: 11rem
+		@include respond(400)
+			bottom: 14rem
+			a
+				font-size: 2rem
+		@include respond(tabletPortrait)
+			bottom: 18rem
+			a
+				font-size: 2.7rem
+		@include respond(tabletLandscape)
+			bottom: 25rem
+			a
+				font-size: 3.4rem
+		@include respond(notebook)
+			bottom: 5rem
 
 /*===== END  Home Page  =====*/
