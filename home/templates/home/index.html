@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Home{% endblock %}
+
+{% block content %}
+	<div class="titleWrapper">
+		<div class="headingTitle">
+			<h1 class="headingCollection">
+				Occupational Therapies for everyone & for every problem
+			</h1>
+			<h4 class="buttonWrapper">
+				<a href="{% url 'home' %}" class="btn shopNowButton">Book Now</a>
+			</h4>
+		</div>
+	</div>
+{% endblock %}

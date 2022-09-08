@@ -1,0 +1,56 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    {% block meta %}
+        <!-- Allow support of older Internet Explorer versions and 
+        eliminate validation errors when validating our HTML -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block corecss %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+        <script src="https://kit.fontawesome.com/56b4ac2d56.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>OT4U | {% block extra_title %}{% endblock %}</title>
+  </head>
+  <body>
+    <header class="headerContainer fixedTop">
+    	<div id="topNav" class="linkWrapper">
+    		<div class="link linkLogo">
+    			<a href="{% url 'home' %}" class="navLink mainLogoLink">
+    				<img  class="" src="{{ MEDIA_URL }}logo.png" alt="Colourful OT4U logo">
+    			</a>
+    		</div>
+     	<div class="siteNav">
+    		{#% include 'includes/navbar.html' %#}
+    	</div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    {% endblock %}
+
+    
+  </body>
+</html>
