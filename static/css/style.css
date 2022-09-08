@@ -418,6 +418,16 @@ body {
 }
 
 /*===== END  Navbar  ===== */
+/*~~~~~~~  Home Page  ~~~~~~~ */
+.homePage {
+  background-image: url(../../media/occupational-therapist-playing-with-child.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: calc(100vh - 130px);
+}
+
+/*===== END  Home Page  ===== */
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
