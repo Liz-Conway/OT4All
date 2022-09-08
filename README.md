@@ -237,13 +237,16 @@ When filling a form in the OT4U application, the user can reset the form.  This 
 <a id="python-structure"></a>
 The Django structure for the amber application is broken into ? apps.
 
-1. maintenance
+1. **maintenance**
+
 	This app contains all the code for pages that the Site Owner will interact with.
 
-2. services
+2. **services**
+
 	The app contains all the code for pages that allow a Client to view and book an OT Service.
 	
-3.	profiles
+3.	**profiles**
+
 	This app contains all the code for managing user accounts, including defining roles to be used for authentication.
 
 
@@ -262,7 +265,7 @@ The Django structure for the amber application is broken into ? apps.
 
 ### Customer Journey Maps
 <a id="cjm"></a>
-![Customer Journey Map for Occupational Therapist](documentation/ux/customer-journey-map/natalia-campbell.png)
+![Customer Journey Map for Client](documentation/ux/customer-journey-map/client.png)
 
 ### Wireframes
 <a id="wireframes"></a>
@@ -276,7 +279,7 @@ The Django structure for the amber application is broken into ? apps.
 
 **OT Services**
 
-![Add Client page wireframe](documentation/ux/wireframes/OTServices.png)
+![OT Services page wireframe](documentation/ux/wireframes/OTServices.png)
 
 **OT Service Detail**
 
@@ -301,7 +304,7 @@ The Django structure for the amber application is broken into ? apps.
 
 **Order Confirmation**
 
-![Order Confirmation page wireframe](documentation/ux/wireframes/Order Confirmation.png)
+![Order Confirmation page wireframe](documentation/ux/wireframes/OrderConfirmation.png)
 
 
 ### Site Map
@@ -406,7 +409,7 @@ All static files are hosted with **WhiteNoise**.  [WhiteNoise](http://whitenoise
 * Code review
 * Done
 
-When a Story is being coded it is moved from the **ToDo** list into the **In Process** list.  When the code is finished for a story it is moved into the **Testing** list.  Once a story has been tested it is moved to the **Code Review** list.  When all the code has been reviewed by peers and  with the mentor is it moved to the **Done** list and is completed.
+When a Story is being coded it is moved from the **ToDo** list into the **In Process** list.  When the code is finished for a story it is moved into the **Testing** list.  Once a story has been tested it is moved to the **Code Review** list.  When the OT4U application as a whole has been reviewed by peers and with the mentor, all the User Stories are moved to the **Done** list and the OT4U application is considered completed.
 
 At the end of the project, all User Stories will be in the **Done** list and the project will be finished.
 
@@ -560,8 +563,8 @@ Javascript was validated using [JSHint](https://jshint.com/)
 * [jQuery UI](https://jqueryui.com/)
 	- **jQuery UI** is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.
 * [SASS](https://sass.com/) ?????
-	- **SASS** is a ????.
-	- **Koala** is used to compile the SASS files into CSS, and auto-prefix particular CSS properties.
+	- **SASS** is a GUI application for Less, Sass, Compass and CoffeeScript compilation, to help web developers to use them more efficientl.
+	- **[Koala](http://koala-app.com/)** is used to compile the SASS files into CSS, and auto-prefix particular CSS properties.
 
 * [Heroku](https://heroku.com/)
     - **Heroku** is used to host and run the OT4U application.
@@ -656,6 +659,14 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 
 
 ### Pictures
+
+| Picture                    | Name | Owner           | Downloaded and/or adapted from|
+| --- | --- | --- | --- |
+|<img src="media/occupational-therapist-playing-with-child.jpg" alt="OT playing with child" width="30" height="30">| Occupational Therapist playing with child          | Karolina Grabowska | [Pexels.com](https://www.pexels.com/photo/a-mother-and-daughter-playing-with-balloons-7296526/)|
+|<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Pawel Czerwinski  | [UnSplash.com](https://unsplash.com/photos/2TKN70nMMts)|
+|<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Evgeni Lazarev  | [Pexels.com](https://www.pexels.com/photo/shopping-cart-on-asphalt-8971727/)|
+|<img src="media/empty-basket.jpg" alt="empty shopping basket" width="30" height="30">| Empty shopping cart          | PxHere  | [PxHere.com](https://pxhere.com/en/photo/721180)|
+|<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Ivan Samkov   | [Pexels.com](https://www.pexels.com/photo/food-people-laptop-internet-7621354/)|
 
 ### Others
 An incredible mentor : Daisy McGirr
