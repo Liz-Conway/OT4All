@@ -1,0 +1,66 @@
+			<!-- Hamburger menu for mobile devices -->
+			<input type="checkbox" class="navigationCheckbox" id="naviToggle">
+	       	<label class="navigationButton" for="naviToggle">
+				<span class="navigationIcon">&nbsp;menu</span>
+			</label>
+	       	<div class="navigationBackground">
+	       		&nbsp;
+	       	</div>
+    	<div class="mainNav" id="navigationNav">
+			<!-- Site navbar -->
+			<ul class="navigationList">
+				<li class="navigationItem">
+					    <menu class="mainMenu">
+					    <menuitem id="homeLink">
+						    <a class="navLink" href="{% url 'home' %}" 
+						    		aria-haspopup="true" aria-expanded="false">
+						        Home
+						    </a>
+					</menuitem>
+					    </menu>
+				</li>
+				<li class="navigationItem">
+				    <menu class="mainMenu dropMenu">
+					    <menuitem>
+						        <span id="therapiesLabel">Therapies</span>
+						    <menu class="subMenu" aria-labelledby="therapiesLabel">
+						    	<!-- Pass a 'style' parameter to the "therapies" URL -->
+						    	<!-- These parameters will use the "name" field from the
+						    	Type model so we have a programmatic way to access them
+						    	Of course we could also use the type id.
+								But this makes the URLs a little more semantic which is nice for the user -->
+						    	<menuitem><a href="{% url 'home'%}?style=equine">Equine Therapy</a></menuitem>
+						    	<menuitem><a href="{% url 'home'%}?style=literacy">Literacy Therapy</a></menuitem>
+						    	<menuitem><a href="{% url 'home'%}?style=selfcare">Self Care Therapy</a></menuitem>
+								<!-- The "therapies" URL is followed by a question mark
+								to indicate we're about to pass the 'style' parameter.
+								Followed by "equine", "literacy", and "selfcare" separated by a comma.
+								This syntax ensures we end up with a comma-separated string in the view. -->
+						    	<menuitem><a href="{% url 'home'%}?style=equine,literacy,selfcare">All Therapies</a></menuitem>
+					    	</menu>
+					    </menuitem>
+				    </menu>
+				</li>
+				<li class="navigationItem">
+				    <menu class="mainMenu">
+					    <menuitem>
+					    	<a href="{% url 'home'%}">Approach</a>
+					    </menuitem>
+				    </menu>
+				</li>
+				<li class="navigationItem">
+				    <menu class="mainMenu">
+					    <menuitem>
+					    	<a href="{% url 'home'%}">About</a>
+					    </menuitem>
+				    </menu>
+				</li>
+				<li class="navigationItem">
+				    <menu class="mainMenu">
+					    <menuitem>
+					    	<a href="{% url 'home'%}">Get in Touch</a>
+					    </menuitem>
+				    </menu>
+				</li>
+			</ul>
+    	</div>
