@@ -31,10 +31,12 @@ menu
 	@include respond(notebook)
 		position: absolute
 		margin-top: -3rem
-	& > menuitem > a
-		min-width: 50%
-		&:hover
-			background-color: $midtoneLight
+	& > menuitem
+		& > a
+			min-width: 50%
+			&:hover
+				background-color: $midtoneLight
+				border: 1px solid $midtone
 
 .mainMenu
 	/* Need a bottom margin otherwise the menu is written
