@@ -474,6 +474,7 @@ menu menuitem a {
 }
 .subMenu > menuitem > a:hover {
   background-color: #ffece5;
+  border: 1px solid #ffcdbd;
 }
 
 .mainMenu {
