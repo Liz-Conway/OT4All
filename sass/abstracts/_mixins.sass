@@ -1,0 +1,28 @@
+@mixin flexCentre($direction:row)
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: $direction
+
+// Adjusted from https://www.powdertothepeople.tv/2015/06/29/functional-scss/
+// NB Equilateral triangle if base is 0.86 x height
+@mixin arrow($height, $base, $color, $direction)
+	width: 0
+	height: 0
+	border: $base solid transparent
+	@if $direction == "down"
+		border-top: $height solid $color
+	@if $direction == "up"
+		border-bottom: $height solid $color
+	@if $direction == "left"
+		border-right: $height solid $color
+	@if $direction == "right"
+		border-left: $height solid $color
+		
+@mixin cardWidth($numCards, $gap)
+	// Will not have a gap afer the last card in a row
+	// So calculate the portion of the gap to allocate to each card
+	$cardGap: $gap * ($numCards - 1) / $numCards
+	// Calculate the width of each card
+	// based on how many card in a row and the gap allocated to each card
+	flex: 0 1 calc(100%/#{$numCards} - #{$cardGap})

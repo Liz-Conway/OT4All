@@ -1,0 +1,212 @@
+/*~~~~~~~  Navbar  ~~~~~~~*/
+#navigationNav
+	// background-color: $midtone
+
+	position: fixed
+	top: $mobileNavTop
+	left: 0
+	z-index: 1500
+
+	/*Hide the navigation initially*/
+	opacity: 0
+	/*It is not enough to have an opacity of zero*/
+	/*The elements are still there and are clickable, so we need to set the width to zero as well*/
+	width: 0
+	transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+	@include respond(notebook)
+		background-color: $midtone
+		width: 100%
+		height: auto
+		opacity: 1
+		position: relative
+		top: 0
+
+#naviToggle
+	display: none
+
+.navigation
+	&Button
+		display: inline
+		background-color: $white
+		/*Make this slightly larger than the navigationBackground, to be sure to cover it*/
+		width: 7rem
+		height: 7rem
+		border-radius: 50%
+		position: fixed
+		top: 1rem
+		right: 1rem
+		z-index: 2000
+		box-shadow: 0 1rem 3rem rgba($black, .1)
+		text-align: center		/* Align the "hamburger" icon horizontally */
+		cursor: pointer
+		@include respond(notebook)
+			display: none
+
+
+
+	&Background
+		/*Coloured background for the navigation*/
+		/*It will start as a small circle behind the white circle containing the "hamburger" icon*/
+		/*It will expand to fill the screen when the "hamburger" icon is clicked*/
+		display: block
+		width: 6rem
+		height: 6rem
+		border-radius: 50%
+		/*Stays in the same position even if we scroll down the page*/
+		position: fixed
+		top: 1.5rem
+		right: 1.5rem
+		background-image: radial-gradient($midtone, $midtoneDark)
+		z-index: 1000
+
+		/*Custom transition function, uses a cubic bezier curve for ease-in and ease-out*/
+		/*See easings.net & cubic-bezier.com*/
+		transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1)
+		@include respond(notebook)
+			display: none
+
+	&List
+		list-style: none
+		text-align: center
+		display: flex
+		flex-direction: row
+		margin-top: 10rem
+		margin-right: auto
+		margin-left: auto
+		// background-color: #bada55
+		@include flexCentre(column)
+
+		@include respond(notebook)
+			// background-color: $white
+			margin: 0
+			flex-direction: row
+
+	&Link
+		//width: 0
+		transform: translateX(-200px)
+		&:link, &:visited
+			display: inline-block
+			font:
+				size: 3rem
+				weight: $thinWt
+			padding: 1rem 2rem
+			color: $accentDark
+			text:
+				decoration: none
+				transform: uppercase
+			background:
+				image: linear-gradient(120deg, transparent 0%, transparent 50%, $highlight 50%)
+				/*Increasing the background shoves the RHS of the linear gradient off the element, so it is invisible*/
+				size: 235%
+			transition: all .4s
+			@include respond(notebook)
+				font-size: 1.8rem
+				transform: none
+		&:hover, &:active
+			background-position: 100%
+			color: $midtone
+			transform: translateX(1rem)
+
+	&Item
+		margin: 1rem
+		/*Hide the navigation list item initially*/
+		width: 0
+		@include respond(notebook)
+			width: initial
+
+	// Functionality
+	&Checkbox:checked ~ &Background
+		transform: scale(80)
+
+	&Checkbox:checked ~ #navigationNav
+		opacity: 1
+		width: 100%
+
+	// Icon
+	&Icon
+		display: inline-block
+		position: relative
+		margin-top: 3.5rem
+		color: $white
+
+		/*A bar before the span, the span is a bar, a bar after the span*/
+		/*Each bar is 3rem x 2px and is coloured dark grey*/
+		&, &::before, &::after
+			width: 3rem
+			/*Always stays the same height, no matter what the base font size is*/
+			height: 2px
+			background-color: $greyDark
+			display: inline-block
+
+		/*For ::before and ::after to show they need content and display properties to be set*/
+		&::before, &::after
+			content: ""
+			position: absolute
+			left: 0
+			transition: all .2s
+
+		&::before
+			top: -.8rem
+			/*By default elements will rotate around the centre.*/
+			/*If you want to rotate around the edge you can set the transform-origin*/
+			/*transform-origin: right*/
+
+		&::after
+			top: .8rem
+			/*transform-origin: left*/
+		@include respond(notebook)
+			display: none
+
+	&Button:hover &Icon::before
+		top: -1rem
+	&Button:hover &Icon::after
+		top: 1rem
+
+	&Checkbox:checked + &Button > &Icon
+		/*When the button is clicked change the "hamburger" to a cross*/
+		/*When the checkbox is selected - get its adjacent sibling and */
+		/*select the child element of the adjacent sibling*/
+		/*Step 1 make the middle bar invisible (this is the span in the navigationIcon)*/
+		background-color: transparent
+
+	&Checkbox:checked + &Button > &Icon::before
+		/*Step 2 make the top bar rotate (this is the navigationIcon::before)*/
+		/*Rotate 180 degrees - 45 degrees : Takes longer, so looks better*/
+		transform: rotate(135deg)
+		top: 0
+
+	&Checkbox:checked + &Button > &Icon::after
+		/*Step 3 make the bottom bar rotate (this is the navigationIcon::after)*/
+		/*Rotate 180 degrees - 45 degrees : Takes longer, so looks better*/
+		transform: rotate(-135deg)
+		top: 0
+
+	&Active
+		background-color: $accentLight
+
+	&.navigationActive
+		background-color: $accentLight
+
+.nonMobile
+	display: none
+	@include respond(notebook)
+		display: initial
+
+.mobileOnly
+	@include respond(notebook)
+		display: none
+
+.nav
+	&List
+		list-style: none
+		text-align: center
+		display: flex
+		flex-direction: row
+		justify-content: space-around
+		margin-right: 8rem
+		padding-top: 1rem
+		@include respond(notebook)
+			margin-right: 0
+		//@include flexCentre(column)
+
+/*===== END  Navbar  =====*/
