@@ -1,0 +1,578 @@
+/*~~~~~~~  Typography  ~~~~~~~ */
+@import url("https://fonts.googleapis.com/css2?family=Gabriela&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  font-family: Gabriela;
+  font-weight: 400;
+  /* For accessibility - The WCAG criteria states that line-height should be at least 1.5 */
+  /* The WCAG criteria is meant for "body" text, not headings. */
+  /* So we can calculate the proper line height for all elements : */
+  /* Instead of calculating the line height by multiplying the font-size with a number like 1.5, */
+  /* this alternative uses the font-size as a base, and adds a fixed amount of space to each line. */
+  line-height: calc(1em + 0.7rem);
+  color: #751c00;
+}
+
+/*===== END  Typography  ===== */
+/*~~~~~~~  Reset  ~~~~~~~ */
+/* Josh's Custom CSS Reset
+ * https://www.joshwcomeau.com/css/custom-css-reset */
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* The height of an element is calculated based on its CHILDREN.
+ * So setting height: 100% on an element will cause it to be 100% of the child's height.
+ * This setting causes the height to be calculated from the parent */
+html, body {
+  height: 100%;
+}
+
+body {
+  /* MacOS browsers like Chrome and Safari still use subpixel antialiasing by default. */
+  /* We need to explicitly turn it off. */
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  /*display: block*/      /* Will remove extra space from under an image - Use flexbox on its parent instead */
+  /* Keep large images from overflowing, if theyre placed in a container that isnt wide enough to contain them. */
+  max-width: 100%;
+}
+
+/* by default, buttons and inputs don't inherit typographical styles from their parents. */
+/* Instead, they have their own weird styles. */
+/* Form inputs shouldn't have their own typographical styles! */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* The overflow-wrap property lets us tweak the line-wrapping algorithm, */
+/* and give it permission to use hard wraps when no soft wrap opportunties can be found */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/*===== END  Reset  ===== */
+html {
+  /* Since browser default font-size is 16px */
+  /* Set it to 10px (on a desktop) to make converting px to rem easier. */
+  /* Use a percentage so that if a user changes the font size */
+  /* on their browser or zooms the font sizes,  */
+  /* paddings and margins adjust accordingly. */
+  /* This defines what 1rem is */
+  /* For mobile 1st design we will use 8px for the mobile device */
+  font-size: 50%;
+}
+@media only screen and (min-width: 50em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (min-width: 75em) {
+  html {
+    font-size: 62.5%;
+  }
+}
+@media only screen and (min-width: 93.75em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  /* Inheritable properties */
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* Set up page for sticky footer */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* Mobile devices do not honour the "vh" property properly */
+  /* So setting the view height to less than 100 for mobile devices */
+  min-height: 92vh;
+  /* Non-inheritable properties */
+  padding: 0;
+  background-color: #ffece5;
+}
+@media only screen and (min-width: 75em) {
+  body {
+    min-height: 100vh;
+  }
+}
+
+/*~~~~~~~  Utilities  ~~~~~~~ */
+.centreText {
+  text-align: center;
+}
+
+.marginBottomSmall {
+  margin-bottom: 1.5rem;
+}
+.marginBottomMedium {
+  /* Mobile first - so smaller values first */
+  margin-bottom: 3rem;
+}
+@media only screen and (min-width: 50em) {
+  .marginBottomMedium {
+    margin-bottom: 4rem;
+  }
+}
+.marginBottomBig {
+  margin-bottom: 5rem;
+}
+@media only screen and (min-width: 50em) {
+  .marginBottomBig {
+    margin-bottom: 8rem;
+  }
+}
+
+.marginTopSmall {
+  margin-top: 1.5rem;
+}
+.marginTopMedium {
+  margin-top: 4rem;
+}
+.marginTopBig {
+  margin-top: 8rem;
+}
+.marginTopHuge {
+  margin-top: 10rem;
+}
+
+.invisible {
+  display: none;
+}
+
+/*===== END  Utilities  ===== */
+/*~~~~~~~  Navbar  ~~~~~~~ */
+#navigationNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  /*Hide the navigation initially */
+  opacity: 0;
+  /*It is not enough to have an opacity of zero */
+  /*The elements are still there and are clickable, so we need to set the width to zero as well */
+  width: 0;
+  -webkit-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+@media only screen and (min-width: 59.375em) {
+  #navigationNav {
+    background-color: #ffcdbd;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    position: relative;
+    top: 0;
+  }
+}
+
+#naviToggle {
+  display: none;
+}
+
+.navigationButton {
+  display: inline;
+  background-color: #FFFFFF;
+  /*Make this slightly larger than the navigationBackground, to be sure to cover it */
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2000;
+  -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+}
+@media only screen and (min-width: 59.375em) {
+  .navigationButton {
+    display: none;
+  }
+}
+.navigationBackground {
+  /*Coloured background for the navigation */
+  /*It will start as a small circle behind the white circle containing the "hamburger" icon */
+  /*It will expand to fill the screen when the "hamburger" icon is clicked */
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  /*Stays in the same position even if we scroll down the page */
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-image: radial-gradient(#ffcdbd, #ffb299);
+  z-index: 1000;
+  /*Custom transition function, uses a cubic bezier curve for ease-in and ease-out */
+  /*See easings.net & cubic-bezier.com */
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+@media only screen and (min-width: 59.375em) {
+  .navigationBackground {
+    display: none;
+  }
+}
+.navigationList {
+  list-style: none;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 10rem;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+@media only screen and (min-width: 59.375em) {
+  .navigationList {
+    margin: 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+.navigationLink {
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+}
+.navigationLink:link, .navigationLink:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #191970;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #b299ff 50%);
+  /*Increasing the background shoves the RHS of the linear gradient off the element, so it is invisible */
+  background-size: 235%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+@media only screen and (min-width: 59.375em) {
+  .navigationLink:link, .navigationLink:visited {
+    font-size: 1.8rem;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+.navigationLink:hover, .navigationLink:active {
+  background-position: 100%;
+  color: #ffcdbd;
+  -webkit-transform: translateX(1rem);
+          transform: translateX(1rem);
+}
+.navigationItem {
+  margin: 1rem;
+  /*Hide the navigation list item initially */
+  width: 0;
+}
+@media only screen and (min-width: 59.375em) {
+  .navigationItem {
+    width: initial;
+  }
+}
+.navigationCheckbox:checked ~ .navigationBackground {
+  -webkit-transform: scale(80);
+          transform: scale(80);
+}
+.navigationCheckbox:checked ~ #navigationNav {
+  opacity: 1;
+  width: 100%;
+}
+.navigationIcon {
+  display: inline-block;
+  position: relative;
+  margin-top: 3.5rem;
+  color: #FFFFFF;
+  /*A bar before the span, the span is a bar, a bar after the span */
+  /*Each bar is 3rem x 2px and is coloured dark grey */
+  /*For ::before and ::after to show they need content and display properties to be set */
+}
+.navigationIcon, .navigationIcon::before, .navigationIcon::after {
+  width: 3rem;
+  /*Always stays the same height, no matter what the base font size is */
+  height: 2px;
+  background-color: #333333;
+  display: inline-block;
+}
+.navigationIcon::before, .navigationIcon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.navigationIcon::before {
+  top: -0.8rem;
+  /*By default elements will rotate around the centre. */
+  /*If you want to rotate around the edge you can set the transform-origin */
+  /*transform-origin: right */
+}
+.navigationIcon::after {
+  top: 0.8rem;
+  /*transform-origin: left */
+}
+@media only screen and (min-width: 59.375em) {
+  .navigationIcon {
+    display: none;
+  }
+}
+.navigationButton:hover .navigationIcon::before {
+  top: -1rem;
+}
+.navigationButton:hover .navigationIcon::after {
+  top: 1rem;
+}
+.navigationCheckbox:checked + .navigationButton > .navigationIcon {
+  /*When the button is clicked change the "hamburger" to a cross */
+  /*When the checkbox is selected - get its adjacent sibling and */
+  /*select the child element of the adjacent sibling */
+  /*Step 1 make the middle bar invisible (this is the span in the navigationIcon) */
+  background-color: transparent;
+}
+.navigationCheckbox:checked + .navigationButton > .navigationIcon::before {
+  /*Step 2 make the top bar rotate (this is the navigationIcon::before) */
+  /*Rotate 180 degrees - 45 degrees : Takes longer, so looks better */
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  top: 0;
+}
+.navigationCheckbox:checked + .navigationButton > .navigationIcon::after {
+  /*Step 3 make the bottom bar rotate (this is the navigationIcon::after) */
+  /*Rotate 180 degrees - 45 degrees : Takes longer, so looks better */
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  top: 0;
+}
+.navigationActive {
+  background-color: #99ffb2;
+}
+.navigation.navigationActive {
+  background-color: #99ffb2;
+}
+
+.nonMobile {
+  display: none;
+}
+@media only screen and (min-width: 59.375em) {
+  .nonMobile {
+    display: initial;
+  }
+}
+
+@media only screen and (min-width: 59.375em) {
+  .mobileOnly {
+    display: none;
+  }
+}
+
+.navList {
+  list-style: none;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-right: 8rem;
+  padding-top: 1rem;
+}
+@media only screen and (min-width: 59.375em) {
+  .navList {
+    margin-right: 0;
+  }
+}
+
+/*===== END  Navbar  ===== */
+/*~~~~~~~  Dropdown Menu  ~~~~~~~ */
+li.navigationItem {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+/* HTML Nav Styles */
+menuitem {
+  cursor: pointer;
+  z-index: 4000;
+}
+
+menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+menu.topMenu {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+menu.topMenu > menuitem > a {
+  padding-left: 0;
+}
+menu menuitem a {
+  white-space: nowrap;
+  display: block;
+}
+
+/*	this is the initial state of all subMenus.
+ * we set it to max-height: 0, and hide the overflowed content. */
+.subMenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  background-color: #ffb299;
+}
+@media only screen and (min-width: 59.375em) {
+  .subMenu {
+    position: absolute;
+    margin-top: -3rem;
+  }
+}
+.subMenu > menuitem > a {
+  min-width: 50%;
+}
+.subMenu > menuitem > a:hover {
+  background-color: #ffece5;
+}
+
+.mainMenu {
+  /* Need a bottom margin otherwise the menu is written
+   * on top of the rest of the page */
+}
+@media only screen and (min-width: 59.375em) {
+  .mainMenu {
+    /*	Showing the submenu shoves the rest of the page down
+     * So remove the bottom margin on the main menu to counter-act this */
+  }
+  .mainMenu:hover {
+    margin-bottom: 0;
+  }
+}
+.mainMenu > menuitem > span {
+  white-space: nowrap;
+}
+.mainMenu a, .mainMenu span {
+  font-size: 2.5rem;
+}
+@media only screen and (min-width: 59.375em) {
+  .mainMenu a, .mainMenu span {
+    font-size: 2.2rem;
+  }
+}
+
+/*	when hovering over a .mainMenu item,
+ * display the subMenu inside it.
+ * we're changing the subMenu's max-height from 0 to 200px; */
+.mainMenu menuitem:hover .subMenu {
+  /*	In the mobile view we want the "appearing" submenu to
+   * shove the other main menu items down */
+  display: block;
+  max-height: 200px;
+  -webkit-transform: translateY(1.3rem);
+          transform: translateY(1.3rem);
+  /*	In the desktop view we want the "appearing" submenu to */
+}
+@media only screen and (min-width: 59.375em) {
+  .mainMenu menuitem:hover .subMenu {
+    position: absolute;
+    margin-top: -3rem;
+    -webkit-transform: translateY(4rem);
+            transform: translateY(4rem);
+  }
+}
+
+menu a {
+  color: #751c00;
+  min-width: 9rem;
+  -webkit-transition: background 0.5s, color 0.5s, -webkit-transform 0.5s;
+  transition: background 0.5s, color 0.5s, -webkit-transform 0.5s;
+  transition: background 0.5s, color 0.5s, transform 0.5s;
+  transition: background 0.5s, color 0.5s, transform 0.5s, -webkit-transform 0.5s;
+  margin: 0;
+  text-align: left;
+  padding-left: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1rem;
+  border-radius: 3px;
+}
+
+.mainMenu > menuitem {
+  position: relative;
+}
+
+/* Place an arrow underneath the mainMenu text */
+.dropMenu:hover > menuitem::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 8.5px solid transparent;
+  border-top: 10px solid #751c00;
+  left: 50%;
+  top: 19px;
+}
+@media only screen and (min-width: 59.375em) {
+  .dropMenu:hover > menuitem::after {
+    top: 21px;
+  }
+}
+
+/* For "search" & "My Account" dropdowns */
+.topMenu > menuitem > menu > menuitem {
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+  opacity: 0;
+}
+
+.topMenu > menuitem:hover > menu > menuitem,
+.topMenu > menuitem.hover > menu > menuitem {
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+  opacity: 1;
+}
+
+/*===== END Dropdown Menu   ===== */
+
+/*# sourceMappingURL=style.css.map */

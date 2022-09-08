@@ -1,0 +1,114 @@
+/*~~~~~~~  Dropdown Menu  ~~~~~~~*/
+
+li.navigationItem
+	min-width: fit-content
+
+/* HTML Nav Styles */
+menuitem
+	cursor: pointer
+	z-index: 4000
+
+menu
+	display: flex
+	flex-direction: column
+
+	&.topMenu
+		flex-direction: row
+		& > menuitem > a
+			padding-left: 0
+
+	& menuitem a
+		white-space: nowrap
+		display: block
+
+/*	this is the initial state of all subMenus.
+	we set it to max-height: 0, and hide the overflowed content.
+.subMenu
+	overflow: hidden
+	max-height: 0
+	transition: all 0.5s ease-out
+	background-color: $midtoneDark
+	@include respond(notebook)
+		position: absolute
+		margin-top: -3rem
+	& > menuitem > a
+		min-width: 50%
+		&:hover
+			background-color: $midtoneLight
+
+.mainMenu
+	/* Need a bottom margin otherwise the menu is written
+		on top of the rest of the page
+	//margin-bottom: 2.5rem
+	@include respond(notebook)
+		/*	Showing the submenu shoves the rest of the page down
+			So remove the bottom margin on the main menu to counter-act this
+		&:hover
+			margin-bottom: 0
+	& > menuitem > span
+		white-space: nowrap
+
+	& a, span
+		font-size: 2.5rem
+		@include respond(notebook)
+			font-size: 2.2rem
+
+
+/*	when hovering over a .mainMenu item,
+	display the subMenu inside it.
+	we're changing the subMenu's max-height from 0 to 200px;
+.mainMenu menuitem:hover .subMenu
+	/*	In the mobile view we want the "appearing" submenu to
+		shove the other main menu items down
+	display: block
+	max-height: 200px
+	transform: translateY(1.3rem)
+	/*	In the desktop view we want the "appearing" submenu to
+	overlap the existing page items and not shove anything down
+	@include respond(notebook)
+		position: absolute
+		margin-top: -3rem
+		transform: translateY(4rem)
+
+
+// User Styles Below Not Required
+
+menu a
+	color: $shadow
+	min-width: 9rem
+	transition: background 0.5s, color 0.5s, transform 0.5s
+	margin: 0
+	text-align: left
+	padding-left: 1.5rem
+	padding-top: .5rem
+	padding-bottom: .5rem
+	padding-right: 1rem
+	border-radius: 3px
+
+.mainMenu > menuitem
+	position: relative
+
+/* Place an arrow underneath the mainMenu text */
+.dropMenu:hover > menuitem::after
+	content:  ''
+	position: absolute
+	@include arrow(10px, 8.5px, $shadow, down)
+	left: 50%
+	top: 19px
+	@include respond(notebook)
+		top: 21px
+
+
+
+/* For "search" & "My Account" dropdowns */
+.topMenu > menuitem > menu > menuitem
+	transition: opacity 0.6s
+	opacity: 0
+
+.topMenu > menuitem:hover > menu > menuitem,
+.topMenu > menuitem.hover > menu > menuitem
+	transition: opacity 0.6s
+	opacity:  1
+
+
+/*===== END Dropdown Menu   =====*/
