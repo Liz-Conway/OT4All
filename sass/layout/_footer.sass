@@ -1,11 +1,71 @@
-/*~~~~~~~  Footer  ~~~~~~~*/
 footer
 	/*Sticky footer*/
 	margin-top: auto
-	background-color: $shadow
-	color: $highlight
-	display: flex
-	align-items: center
-	// Mobile 1st
-	flex-direction: column
-/*===== END  Footer  =====*/
+
+.footer
+	background-color: $midtone
+	padding: 4rem 0 2rem 0
+	font:
+		size: 1.4rem
+		family: $roboto
+	color: $shadow
+
+	&LogoBox
+		text-align: center
+		margin-bottom: 4rem
+
+	&Logo
+		width: $logoWidth
+		height: auto
+
+	&Row
+		display: flex
+		flex-direction: row
+		// justify-content: space-between
+		max-width: 114rem
+		margin: 0 auto
+	&Block
+		width: calc((100% - #{$logoWidth / 2}) / 2)
+		&:first-child
+			margin-right: $logoWidth / 2
+
+	&Navigation
+		border-top: 1px solid $greyDark
+		padding-top: 2rem
+		/*This works because 'inline-block' does not occupy the full width.*/
+		/*It only occupies the width of the elements in its container.*/
+		display: inline-block
+
+	&List
+		list-style: none
+
+	&Item
+		display: inline-block
+		&:not(:last-child)
+			margin-right: 1.5rem
+
+	&Link
+		&:link, &:visited
+			color: $greyLight
+			background-color: $greyDark
+			text-decoration: none
+			text-transform: uppercase
+			display: inline-block
+			transition: all .2s
+		&:hover, &:active
+			color: $highlight
+			box-shadow: 0 1rem 2rem rgba($accentLight, .4)
+			transform: rotate(5deg) scale(1.3)
+
+	&Copyright
+		border-top: 1px solid $greyDark
+		padding-top: 2rem
+		/*This works because 'inline-block' does not occupy the full width.*/
+		/*It only occupies the width of the elements in its container.*/
+		display: inline-block
+		width: 80%
+		line-height: 2.2rem
+
+	& .footerBlock:last-child
+		display: flex
+		justify-content: flex-end
