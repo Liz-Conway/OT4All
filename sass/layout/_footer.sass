@@ -1,3 +1,4 @@
+/*~~~~~~~  Footer  ~~~~~~~*/
 footer
 	/*Sticky footer*/
 	margin-top: auto
@@ -68,14 +69,15 @@ footer
 
 	&Link
 		&:link, &:visited
-			color: $greyLight
-			background-color: $accentDark
+			color: $highlight
+			background-color: $shadow
 			text-decoration: none
 			text-transform: uppercase
 			display: inline-block
+			padding: 1rem 3px
 			transition: all .2s
 		&:hover, &:active
-			color: $highlight
+			color: $midtoneDark
 			box-shadow: 0 1rem 2rem rgba($accentLight, .4)
 			transform: rotate(5deg) scale(1.3)
 
@@ -86,3 +88,11 @@ footer
 		/*It only occupies the width of the elements in its container.*/
 		display: inline-block
 		line-height: 2.2rem
+		.copy
+			/* Make inline-block so we can set top margins
+			display: inline-block
+			margin-top: 2rem
+		a:first-of-type
+			border-bottom: 3px solid $midtone
+
+/*===== END  Footer  =====*/
