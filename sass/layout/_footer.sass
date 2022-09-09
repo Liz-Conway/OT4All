@@ -9,6 +9,11 @@ footer
 		size: 1.4rem
 		family: $roboto
 	color: $shadow
+	@include respond(tabletPortrait)
+		font-size: 1.8rem
+	@include respond(tabletPortrait)
+		font-size: 2rem
+
 
 	&LogoBox
 		text-align: center
@@ -20,14 +25,24 @@ footer
 
 	&Row
 		display: flex
-		flex-direction: row
-		// justify-content: space-between
+		flex-direction: column
 		max-width: 114rem
 		margin: 0 auto
+		// width: $logoWidth
+		@include respond(notebook)
+			flex-direction: row
 	&Block
-		width: calc((100% - #{$logoWidth / 2}) / 2)
+		display: flex
+		justify-content: center
 		&:first-child
-			margin-right: $logoWidth / 2
+			margin-bottom: 2rem
+		@include respond(notebook)
+			flex-direction: row
+			width: calc((100% - #{$logoWidth / 2}) / 2)
+			&:first-child
+				margin-right: $logoWidth / 2
+			&:last-child
+				justify-content: flex-end
 
 	&Navigation
 		border-top: 1px solid $greyDark
@@ -38,16 +53,23 @@ footer
 
 	&List
 		list-style: none
+		display: flex
+		flex-direction: column
+		@include respond(notebook)
+			flex-direction: row
 
 	&Item
 		display: inline-block
 		&:not(:last-child)
 			margin-right: 1.5rem
+			margin-bottom: .5rem
+			@include respond(notebook)
+				margin-bottom: 0
 
 	&Link
 		&:link, &:visited
 			color: $greyLight
-			background-color: $greyDark
+			background-color: $accentDark
 			text-decoration: none
 			text-transform: uppercase
 			display: inline-block
@@ -63,9 +85,4 @@ footer
 		/*This works because 'inline-block' does not occupy the full width.*/
 		/*It only occupies the width of the elements in its container.*/
 		display: inline-block
-		width: 80%
 		line-height: 2.2rem
-
-	& .footerBlock:last-child
-		display: flex
-		justify-content: flex-end
