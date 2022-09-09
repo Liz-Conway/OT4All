@@ -1,0 +1,42 @@
+    	<div class="headerNav">
+    		<div class="headerNavLogo">
+    			<a href="{% url 'home' %}" class="navLink mainLogoLink">
+    				<img  class="logoImage" src="{{ MEDIA_URL }}logo.png" alt="Colourful OT4U logo">
+    			</a>
+    		</div>
+
+    		<!-- Profile and shopping cart links -->
+    		<div class="headerNavShopAcc">
+    			<ul class="shopAccounts">
+                    <li>
+	                    <div class="shopAccountsDropdown">
+	                        <i class="fas fa-user fa-lg" id="accountIcon"></i>
+	                        <menu class="headMenu">
+	                        	<menuitem>
+									<a id="accountOptions">My Profile</a>
+									<menu class="subMenu">
+			                                <menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
+											<menuitem><a href="{% url 'home' %}">Register</a></menuitem>
+											<menuitem><a href="{% url 'home' %}">Login</a></menuitem>
+									</menu>
+								</menuitem>
+							</menu>
+	                    </div>
+                    </li>
+    				<li>
+    		            <a class="navLink" href="{% url 'home' %}">
+                            <div class="cartSection">
+                                <div><i class="fas fa-shopping-cart fa-lg accountIcon"></i></div>
+                                <p>
+                                    {% if grand_total %}
+                                        €{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        €0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+    				</li>
+    			</ul>
+    		</div>
+ 		</div>   		

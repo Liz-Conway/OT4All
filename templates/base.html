@@ -33,13 +33,9 @@
     <title>OT4U | {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="headerContainer fixedTop">
-    	<div id="topNav" class="linkWrapper">
-    		<div class="link linkLogo">
-    			<a href="{% url 'home' %}" class="navLink mainLogoLink">
-    				<img  class="logoImage" src="{{ MEDIA_URL }}logo.png" alt="Colourful OT4U logo">
-    			</a>
-    		</div>
+    <header>
+ 
+    		{% include 'includes/header-nav.html' %}
      	<div class="siteNav">
     		{% include 'includes/navbar.html' %}
     	</div>
