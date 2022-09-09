@@ -435,6 +435,16 @@ footer {
   font-family: "Roboto Slab", "Helvetica Neue", sans-serif;
   color: #751c00;
 }
+@media only screen and (min-width: 37.5em) {
+  .footer {
+    font-size: 1.8rem;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .footer {
+    font-size: 2rem;
+  }
+}
 .footerLogoBox {
   text-align: center;
   margin-bottom: 4rem;
@@ -447,18 +457,48 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   max-width: 114rem;
   margin: 0 auto;
 }
+@media only screen and (min-width: 59.375em) {
+  .footerRow {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
 .footerBlock {
-  width: calc((100% - 7.5rem) / 2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .footerBlock:first-child {
-  margin-right: 7.5rem;
+  margin-bottom: 2rem;
+}
+@media only screen and (min-width: 59.375em) {
+  .footerBlock {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: calc((100% - 7.5rem) / 2);
+  }
+  .footerBlock:first-child {
+    margin-right: 7.5rem;
+  }
+  .footerBlock:last-child {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
 }
 .footerNavigation {
   border-top: 1px solid #333333;
@@ -469,16 +509,37 @@ footer {
 }
 .footerList {
   list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media only screen and (min-width: 59.375em) {
+  .footerList {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 .footerItem {
   display: inline-block;
 }
 .footerItem:not(:last-child) {
   margin-right: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+@media only screen and (min-width: 59.375em) {
+  .footerItem:not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 .footerLink:link, .footerLink:visited {
   color: #f4f2f2;
-  background-color: #333333;
+  background-color: #191970;
   text-decoration: none;
   text-transform: uppercase;
   display: inline-block;
@@ -498,16 +559,7 @@ footer {
   /*This works because 'inline-block' does not occupy the full width. */
   /*It only occupies the width of the elements in its container. */
   display: inline-block;
-  width: 80%;
   line-height: 2.2rem;
-}
-.footer .footerBlock:last-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
 /*~~~~~~~  Home Page  ~~~~~~~ */
