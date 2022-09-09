@@ -37,7 +37,7 @@
     	<div id="topNav" class="linkWrapper">
     		<div class="link linkLogo">
     			<a href="{% url 'home' %}" class="navLink mainLogoLink">
-    				<img  class="" src="{{ MEDIA_URL }}logo.png" alt="Colourful OT4U logo">
+    				<img  class="logoImage" src="{{ MEDIA_URL }}logo.png" alt="Colourful OT4U logo">
     			</a>
     		</div>
      	<div class="siteNav">
@@ -49,6 +49,10 @@
 	    {% block content %}
 	    {% endblock %}
     </main>
+    
+    <footer class="footer">
+    	{% include 'includes/footer.html' %}
+    </footer>
 
     {% block postloadjs %}
     {% endblock %}
