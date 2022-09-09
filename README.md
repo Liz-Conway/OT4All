@@ -132,7 +132,7 @@ The user stories have been divided into different epics:
 5. Purchase Sessions
 6. Maintain Configuration
 
-<img src="documentation/agile-planning/user-story-map.png" alt="OT4U User Stories" width="100%"/>
+<img src="documentation/agile-planning/user-stories.png" alt="OT4U User Stories" width="100%"/>
 
 
 ## Features
