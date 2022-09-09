@@ -573,6 +573,75 @@ footer {
 }
 
 /*===== END  Footer  ===== */
+/*~~~~~~~  Header  ~~~~~~~ */
+.headerNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.headerNavLogo {
+  margin-right: auto;
+}
+
+.shopAccounts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+}
+.shopAccountsIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.3rem;
+}
+.shopAccountsLabel {
+  font-size: 1.8rem;
+  margin-left: -4rem;
+  /*	Match the padding from the menu a for "My Profile" */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.shopAccountsDropdown {
+  min-width: 9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.shopAccounts li:not(:last-child) {
+  margin-right: 2rem;
+}
+
+#cartIcon {
+  color: #191970;
+}
+
+.cartSection {
+  min-width: 9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/*===== END  Header  ===== */
 /*~~~~~~~  Home Page  ~~~~~~~ */
 .homePage {
   background-image: url(../../media/occupational-therapist-playing-with-child.jpg);
@@ -696,13 +765,13 @@ menu {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-menu.topMenu {
+menu.headMenu {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
 }
-menu.topMenu > menuitem > a {
+menu.headMenu > menuitem > a {
   padding-left: 0;
 }
 menu menuitem a {
@@ -799,7 +868,9 @@ menu a {
   position: relative;
 }
 
-/* Place an arrow underneath the mainMenu text */
+.dropMenu {
+  /* Place an arrow underneath the mainMenu text */
+}
 .dropMenu:hover > menuitem::after {
   content: "";
   position: absolute;
@@ -808,23 +879,38 @@ menu a {
   border: 8.5px solid transparent;
   border-top: 10px solid #751c00;
   left: 50%;
-  top: 19px;
+  top: 23px;
 }
 @media only screen and (min-width: 59.375em) {
   .dropMenu:hover > menuitem::after {
-    top: 21px;
+    top: 28px;
+  }
+}
+.dropMenuTopLink {
+  text-align: center;
+  /*	Since touch devices do not have a "hover" event
+   * We need to click on the "Therapies" label to open the submenu
+   * However this will activate the link and the user will never see the subMenu
+   * We need to disable the pointer on the anchor in mobile view.
+   * The parent menu is still clickable and will show the subMenu, but the anchor will not be activated. */
+  pointer-events: none;
+}
+@media only screen and (min-width: 59.375em) {
+  .dropMenuTopLink {
+    /* Re-enable the "Therapies" anchor for non-touch screens */
+    pointer-events: auto;
   }
 }
 
-/* For "search" & "My Account" dropdowns */
-.topMenu > menuitem > menu > menuitem {
+/* For "search" & "My Account" dropdown */
+.headMenu > menuitem > menu > menuitem {
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   opacity: 0;
 }
 
-.topMenu > menuitem:hover > menu > menuitem,
-.topMenu > menuitem.hover > menu > menuitem {
+.headMenu > menuitem:hover > menu > menuitem,
+.headMenu > menuitem.hover > menu > menuitem {
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   opacity: 1;

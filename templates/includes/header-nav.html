@@ -10,10 +10,10 @@
     			<ul class="shopAccounts">
                     <li>
 	                    <div class="shopAccountsDropdown">
-	                        <i class="fas fa-user fa-lg" id="accountIcon"></i>
+	                        <i class="fas fa-user shopAccountsIcon" id="accountIcon"></i>
 	                        <menu class="headMenu">
 	                        	<menuitem>
-									<a id="accountOptions">My Profile</a>
+									<a id="accountOptions" class="shopAccountsLabel">My Profile</a>
 									<menu class="subMenu">
 			                                <menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
 											<menuitem><a href="{% url 'home' %}">Register</a></menuitem>
@@ -26,12 +26,12 @@
     				<li>
     		            <a class="navLink" href="{% url 'home' %}">
                             <div class="cartSection">
-                                <div><i class="fas fa-shopping-cart fa-lg accountIcon"></i></div>
-                                <p>
+                                <i class="fas fa-shopping-cart shopAccountsIcon" id="cartIcon"></i>
+                                <p class="shopAccountsLabel">
                                     {% if grand_total %}
                                         €{{ grand_total|floatformat:2 }}
                                     {% else %}
-                                        €0.00
+                                        €1000.00
                                     {% endif %}
                                 </p>
                             </div>
