@@ -417,7 +417,99 @@ body {
   }
 }
 
+.logoImage {
+  width: 15rem;
+  height: auto;
+}
+
 /*===== END  Navbar  ===== */
+footer {
+  /*Sticky footer */
+  margin-top: auto;
+}
+
+.footer {
+  background-color: #ffcdbd;
+  padding: 4rem 0 2rem 0;
+  font-size: 1.4rem;
+  font-family: "Roboto Slab", "Helvetica Neue", sans-serif;
+  color: #751c00;
+}
+.footerLogoBox {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.footerLogo {
+  width: 15rem;
+  height: auto;
+}
+.footerRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-width: 114rem;
+  margin: 0 auto;
+}
+.footerBlock {
+  width: calc((100% - 7.5rem) / 2);
+}
+.footerBlock:first-child {
+  margin-right: 7.5rem;
+}
+.footerNavigation {
+  border-top: 1px solid #333333;
+  padding-top: 2rem;
+  /*This works because 'inline-block' does not occupy the full width. */
+  /*It only occupies the width of the elements in its container. */
+  display: inline-block;
+}
+.footerList {
+  list-style: none;
+}
+.footerItem {
+  display: inline-block;
+}
+.footerItem:not(:last-child) {
+  margin-right: 1.5rem;
+}
+.footerLink:link, .footerLink:visited {
+  color: #f4f2f2;
+  background-color: #333333;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.footerLink:hover, .footerLink:active {
+  color: #b299ff;
+  -webkit-box-shadow: 0 1rem 2rem rgba(153, 255, 178, 0.4);
+          box-shadow: 0 1rem 2rem rgba(153, 255, 178, 0.4);
+  -webkit-transform: rotate(5deg) scale(1.3);
+          transform: rotate(5deg) scale(1.3);
+}
+.footerCopyright {
+  border-top: 1px solid #333333;
+  padding-top: 2rem;
+  /*This works because 'inline-block' does not occupy the full width. */
+  /*It only occupies the width of the elements in its container. */
+  display: inline-block;
+  width: 80%;
+  line-height: 2.2rem;
+}
+.footer .footerBlock:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 /*~~~~~~~  Home Page  ~~~~~~~ */
 .homePage {
   background-image: url(../../media/occupational-therapist-playing-with-child.jpg);
@@ -733,4 +825,5 @@ menu a {
 }
 
 /*===== END  Button  ===== */
+
 /*# sourceMappingURL=style.css.map */
