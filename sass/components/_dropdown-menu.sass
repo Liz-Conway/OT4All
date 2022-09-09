@@ -12,7 +12,7 @@ menu
 	display: flex
 	flex-direction: column
 
-	&.topMenu
+	&.headMenu
 		flex-direction: row
 		& > menuitem > a
 			padding-left: 0
@@ -90,25 +90,36 @@ menu a
 .mainMenu > menuitem
 	position: relative
 
-/* Place an arrow underneath the mainMenu text */
-.dropMenu:hover > menuitem::after
-	content:  ''
-	position: absolute
-	@include arrow(10px, 8.5px, $shadow, down)
-	left: 50%
-	top: 19px
-	@include respond(notebook)
-		top: 21px
+.dropMenu
+	/* Place an arrow underneath the mainMenu text */
+	&:hover > menuitem::after
+		content:  ''
+		position: absolute
+		@include arrow(10px, 8.5px, $shadow, down)
+		left: 50%
+		top: 23px
+		@include respond(notebook)
+			top: 28px
 
+	&TopLink
+		text-align: center
+		/*	Since touch devices do not have a "hover" event
+			We need to click on the "Therapies" label to open the submenu
+			However this will activate the link and the user will never see the subMenu
+			We need to disable the pointer on the anchor in mobile view.
+			The parent menu is still clickable and will show the subMenu, but the anchor will not be activated.
+		pointer-events: none
+		@include respond(notebook)
+			/* Re-enable the "Therapies" anchor for non-touch screens
+			pointer-events: auto
 
-
-/* For "search" & "My Account" dropdowns */
-.topMenu > menuitem > menu > menuitem
+/* For "search" & "My Account" dropdown */
+.headMenu > menuitem > menu > menuitem
 	transition: opacity 0.6s
 	opacity: 0
 
-.topMenu > menuitem:hover > menu > menuitem,
-.topMenu > menuitem.hover > menu > menuitem
+.headMenu > menuitem:hover > menu > menuitem,
+.headMenu > menuitem.hover > menu > menuitem
 	transition: opacity 0.6s
 	opacity:  1
 

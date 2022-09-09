@@ -22,8 +22,8 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu dropMenu">
 					    <menuitem>
-						        <span id="therapiesLabel">Therapies</span>
-						    <menu class="subMenu" aria-labelledby="therapiesLabel">
+						        <a href="{% url 'home' %}" class="dropMenuTopLink" id="therapiesMenuLabel">Therapies</a>
+						    <menu class="subMenu" aria-labelledby="therapiesMenuLabel">
 						    	<!-- Pass a 'style' parameter to the "therapies" URL -->
 						    	<!-- These parameters will use the "name" field from the
 						    	Type model so we have a programmatic way to access them
