@@ -138,3 +138,5 @@ media/empty-cart2.jpg
 media/empty-cart3.jpg
 media/emptyBasket.jpg
 documentation/logo/
+*.orig
+media/original/
