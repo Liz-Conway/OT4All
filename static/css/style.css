@@ -604,30 +604,11 @@ footer {
 }
 .shopAccountsLabel {
   font-size: 1.8rem;
-  margin-left: -4rem;
   /*	Match the padding from the menu a for "My Profile" */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.shopAccountsDropdown {
-  min-width: 9rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-.shopAccounts li:not(:last-child) {
-  margin-right: 2rem;
-}
-
-#cartIcon {
-  color: #191970;
-}
-
-.cartSection {
+.shopAccountsBlock {
   min-width: 9rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -639,6 +620,13 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cartIcon {
+  color: #191970;
 }
 
 /*===== END  Header  ===== */
