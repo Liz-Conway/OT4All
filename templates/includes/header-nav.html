@@ -4,6 +4,15 @@
     				<img  class="logoImage" src="{{ MEDIA_URL }}logo.png" alt="Colourful OT4U logo">
     			</a>
     		</div>
+    		<!-- Search form -->
+       		<form action="#" class="search">
+       			<input type="text" class="searchInput" placeholder="Search Therapies">
+       			<button class="searchButton">
+       				<span class="searchIcon">
+                        <i class="fas fa-search"></i>
+                    </span>
+       			</button>
+       		</form>
 
     		<!-- Profile and shopping cart links -->
     		<div class="headerNavShopAcc">
@@ -30,6 +39,8 @@
                                 <p class="shopAccountsLabel">
                                     {% if grand_total %}
                                         €{{ grand_total }}
+                                    {% else %}
+                                    	€1000
                                     {% endif %}
                                 </p>
                             </div>

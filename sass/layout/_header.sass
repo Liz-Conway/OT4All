@@ -3,6 +3,16 @@
 .headerNav
 	display: flex
 	flex-direction: row
+	/* Not enough space to display all items in one row so wrap them
+	flex-wrap: wrap
+	/*	Margin to give space for the hamburger button
+	margin-right: 4rem
+	/* Need the element to be positioned for z-index to work
+	position: relative
+	z-index: 20
+	@include respond(tabletPortrait)
+		/* All items will fit on one row so no need to wrap
+		flex-wrap: nowrap
 	&Logo
 		margin-right: auto
 
@@ -10,6 +20,10 @@
 	display: flex
 	flex-direction: row
 	list-style: none
+	/* Minimum margin to keep 'My Profile' & Cart on the top row
+	margin-right: 3rem
+	@include respond(notebook)
+		margin-right: 0
 
 	&Icon
 		font-size: 2rem
@@ -18,13 +32,12 @@
 
 	&Label
 		font-size: 1.8rem
-		// margin-left: -4rem
 		/*	Match the padding from the menu a for "My Profile"
 		padding-top: .5rem
 		padding-bottom: .5rem
 
 	&Block
-		min-width: 9rem
+		// min-width: 9rem
 		display: flex
 		flex-direction: column
 		justify-content: space-between
