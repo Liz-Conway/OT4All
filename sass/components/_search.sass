@@ -1,0 +1,73 @@
+.search
+	flex: 0 0 80%
+
+	display: flex
+	align-items: center
+	justify-content: center
+	/* Since the search box will appear over the header and the mobile menu,
+		both of which have different backgrounds,
+		Need to set its background to transparent
+	background-color: transparent
+	margin-right: auto
+	margin-left: auto
+	/* Last one - move all the way to the end
+		So that it will wrap onto the next row in the mobile view
+	order: 1
+	@include respond(tabletPortrait)
+		/* Move back inline with the rest of the top nav */
+		order: 0
+		flex: 0 0 40%
+
+	&Input
+		/* Input does NOT inherit font family or size automatically */
+		font:
+			family: inherit
+			size: $baseFontSize
+		color: inherit
+		background-color: $greyLight
+		/* Set to a high number to give round ends to rectangle */
+		border-radius: 100px
+		/*	Add a border to make the search field show up against the light background
+		border: 1px solid $greyInvalid
+		padding: .7rem 2rem
+		width: 90%
+		transition: all .2s
+		/* Move the button on top of this input  */
+		margin-right: -3.25rem
+
+		&:focus
+			outline: none
+			width: 100%
+			background-color: $greyHelp
+			&::placeholder
+				/*	Change the colour of the placeholder text
+					when the background gets darker
+					to ensure there is enough contrast
+				color: $greyInvalid
+
+		&::placeholder
+			/* Change the colour of the placeholder text
+				to give enough contrast
+				https://www.w3schools.com/howto/howto_css_placeholder.asp
+			font-weight: 100
+			color: $grey
+
+	&Input:focus + &Button
+		/* When the input gets focus
+			Change the background colour of its sibling(+) button
+		background-color: $greyHelp
+
+	&Button
+		border: none
+		background-color: $greyLight
+
+		// &:focus
+		// 	outline: none
+
+		&:active
+			transform: translateY(2px)
+
+	&Icon
+		height: 2rem
+		width: 2rem
+		font-size: 1.4rem

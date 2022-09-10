@@ -185,15 +185,16 @@ body {
   display: inline;
   background-color: #FFFFFF;
   /*Make this slightly larger than the navigationBackground, to be sure to cover it */
-  width: 7rem;
-  height: 7rem;
+  width: 6.5rem;
+  height: 6.5rem;
   border-radius: 50%;
   position: fixed;
   top: 1rem;
-  right: 1rem;
+  right: 0.5rem;
   z-index: 2000;
   -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  /* Align the "hamburger" icon horizontally */
   text-align: center;
   cursor: pointer;
 }
@@ -207,15 +208,15 @@ body {
   /*It will start as a small circle behind the white circle containing the "hamburger" icon */
   /*It will expand to fill the screen when the "hamburger" icon is clicked */
   display: block;
-  width: 6rem;
-  height: 6rem;
+  width: 5.5rem;
+  height: 5.5rem;
   border-radius: 50%;
   /*Stays in the same position even if we scroll down the page */
   position: fixed;
   top: 1.5rem;
-  right: 1.5rem;
+  right: 1rem;
   background-image: radial-gradient(#ffcdbd, #ffb299);
-  z-index: 1000;
+  z-index: 10;
   /*Custom transition function, uses a cubic bezier curve for ease-in and ease-out */
   /*See easings.net & cubic-bezier.com */
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -582,6 +583,21 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  /* Not enough space to display all items in one row so wrap them */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /*	Margin to give space for the hamburger button */
+  margin-right: 4rem;
+  /* Need the element to be positioned for z-index to work */
+  position: relative;
+  z-index: 20;
+}
+@media only screen and (min-width: 37.5em) {
+  .headerNav {
+    /* All items will fit on one row so no need to wrap */
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
 }
 .headerNavLogo {
   margin-right: auto;
@@ -596,6 +612,13 @@ footer {
       -ms-flex-direction: row;
           flex-direction: row;
   list-style: none;
+  /* Minimum margin to keep 'My Profile' & Cart on the top row */
+  margin-right: 3rem;
+}
+@media only screen and (min-width: 59.375em) {
+  .shopAccounts {
+    margin-right: 0;
+  }
 }
 .shopAccountsIcon {
   font-size: 2rem;
@@ -609,7 +632,6 @@ footer {
   padding-bottom: 0.5rem;
 }
 .shopAccountsBlock {
-  min-width: 9rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -741,7 +763,7 @@ li.navigationItem {
 /* HTML Nav Styles */
 menuitem {
   cursor: pointer;
-  z-index: 4000;
+  z-index: 40;
 }
 
 menu {
@@ -962,5 +984,133 @@ menu a {
 }
 
 /*===== END  Button  ===== */
+.search {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 80%;
+          flex: 0 0 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* Since the search box will appear over the header and the mobile menu,
+   * both of which have different backgrounds,
+   * Need to set its background to transparent */
+  background-color: transparent;
+  margin-right: auto;
+  margin-left: auto;
+  /* Last one - move all the way to the end
+   * So that it will wrap onto the next row in the mobile view */
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+@media only screen and (min-width: 37.5em) {
+  .search {
+    /* Move back inline with the rest of the top nav */
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+  }
+}
+.searchInput {
+  /* Input does NOT inherit font family or size automatically */
+  font-family: inherit;
+  font-size: 1.6rem;
+  color: inherit;
+  background-color: #f4f2f2;
+  /* Set to a high number to give round ends to rectangle */
+  border-radius: 100px;
+  /*	Add a border to make the search field show up against the light background */
+  border: 1px solid #aab7c4;
+  padding: 0.7rem 2rem;
+  width: 90%;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  /* Move the button on top of this input  */
+  margin-right: -3.25rem;
+}
+.searchInput:focus {
+  outline: none;
+  width: 100%;
+  background-color: #808080;
+}
+.searchInput:focus::-webkit-input-placeholder {
+  /*	Change the colour of the placeholder text
+   * when the background gets darker
+   * to ensure there is enough contrast */
+  color: #aab7c4;
+}
+.searchInput:focus:-ms-input-placeholder {
+  /*	Change the colour of the placeholder text
+   * when the background gets darker
+   * to ensure there is enough contrast */
+  color: #aab7c4;
+}
+.searchInput:focus::-ms-input-placeholder {
+  /*	Change the colour of the placeholder text
+   * when the background gets darker
+   * to ensure there is enough contrast */
+  color: #aab7c4;
+}
+.searchInput:focus::placeholder {
+  /*	Change the colour of the placeholder text
+   * when the background gets darker
+   * to ensure there is enough contrast */
+  color: #aab7c4;
+}
+.searchInput::-webkit-input-placeholder {
+  /* Change the colour of the placeholder text
+   * to give enough contrast
+   * https://www.w3schools.com/howto/howto_css_placeholder.asp */
+  font-weight: 100;
+  color: #999999;
+}
+.searchInput:-ms-input-placeholder {
+  /* Change the colour of the placeholder text
+   * to give enough contrast
+   * https://www.w3schools.com/howto/howto_css_placeholder.asp */
+  font-weight: 100;
+  color: #999999;
+}
+.searchInput::-ms-input-placeholder {
+  /* Change the colour of the placeholder text
+   * to give enough contrast
+   * https://www.w3schools.com/howto/howto_css_placeholder.asp */
+  font-weight: 100;
+  color: #999999;
+}
+.searchInput::placeholder {
+  /* Change the colour of the placeholder text
+   * to give enough contrast
+   * https://www.w3schools.com/howto/howto_css_placeholder.asp */
+  font-weight: 100;
+  color: #999999;
+}
+.searchInput:focus + .searchButton {
+  /* When the input gets focus
+   * Change the background colour of its sibling(+) button */
+  background-color: #808080;
+}
+.searchButton {
+  border: none;
+  background-color: #f4f2f2;
+}
+.searchButton:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+.searchIcon {
+  height: 2rem;
+  width: 2rem;
+  font-size: 1.4rem;
+}
 
 /*# sourceMappingURL=style.css.map */
