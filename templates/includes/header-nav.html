@@ -9,7 +9,7 @@
     		<div class="headerNavShopAcc">
     			<ul class="shopAccounts">
                     <li>
-	                    <div class="shopAccountsDropdown">
+	                    <div class="shopAccountsBlock">
 	                        <i class="fas fa-user shopAccountsIcon" id="accountIcon"></i>
 	                        <menu class="headMenu">
 	                        	<menuitem>
@@ -25,13 +25,11 @@
                     </li>
     				<li>
     		            <a class="navLink" href="{% url 'home' %}">
-                            <div class="cartSection">
-                                <i class="fas fa-shopping-cart shopAccountsIcon" id="cartIcon"></i>
+                            <div class="shopAccountsBlock">
+                                <i class="fas fa-{% if grand_total %}shopping-cart{% else %}cart-plus{% endif %} shopAccountsIcon" id="cartIcon"></i>
                                 <p class="shopAccountsLabel">
                                     {% if grand_total %}
-                                        €{{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        €1000.00
+                                        €{{ grand_total }}
                                     {% endif %}
                                 </p>
                             </div>
