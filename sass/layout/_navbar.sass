@@ -1,17 +1,21 @@
 /*~~~~~~~  Navbar  ~~~~~~~*/
 #navigationNav
-	// background-color: $midtone
 
+	/*	Setting the "position" property allows us to use z-index
 	position: fixed
-	top: $mobileNavTop
+	/*	NO top value will centre the menu vertically on mobile screens
 	left: 0
-	z-index: 1500
+	z-index: 15
 
 	/*Hide the navigation initially*/
 	opacity: 0
 	/*It is not enough to have an opacity of zero*/
-	/*The elements are still there and are clickable, so we need to set the width to zero as well*/
+	/*The elements are still there and are clickable
+		Need to set the width to zero as well
+		the menu elements are hidden but on the left edge of the screen & clickable
+		Need to move the menu off screen completely, so none of the menus are clickable
 	width: 0
+	transform: translateX(-300px)
 	transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55)
 	@include respond(notebook)
 		background-color: $midtone
@@ -20,6 +24,9 @@
 		opacity: 1
 		position: relative
 		top: 0
+		/*	In the mobile version the menu is initially push off the screen
+			This is not done on the desktop version - so have to translate to position 0
+		transform: translateX(0)
 
 #naviToggle
 	display: none
@@ -29,15 +36,16 @@
 		display: inline
 		background-color: $white
 		/*Make this slightly larger than the navigationBackground, to be sure to cover it*/
-		width: 7rem
-		height: 7rem
+		width: 6.5rem
+		height: 6.5rem
 		border-radius: 50%
 		position: fixed
 		top: 1rem
-		right: 1rem
+		right: .5rem
 		z-index: 2000
 		box-shadow: 0 1rem 3rem rgba($black, .1)
-		text-align: center		/* Align the "hamburger" icon horizontally */
+		/* Align the "hamburger" icon horizontally */
+		text-align: center
 		cursor: pointer
 		@include respond(notebook)
 			display: none
@@ -49,15 +57,15 @@
 		/*It will start as a small circle behind the white circle containing the "hamburger" icon*/
 		/*It will expand to fill the screen when the "hamburger" icon is clicked*/
 		display: block
-		width: 6rem
-		height: 6rem
+		width: 5.5rem
+		height: 5.5rem
 		border-radius: 50%
 		/*Stays in the same position even if we scroll down the page*/
 		position: fixed
 		top: 1.5rem
-		right: 1.5rem
+		right: 1rem
 		background-image: radial-gradient($midtone, $midtoneDark)
-		z-index: 1000
+		z-index: 10
 
 		/*Custom transition function, uses a cubic bezier curve for ease-in and ease-out*/
 		/*See easings.net & cubic-bezier.com*/
@@ -82,7 +90,6 @@
 			flex-direction: row
 
 	&Link
-		//width: 0
 		transform: translateX(-200px)
 		&:link, &:visited
 			display: inline-block
@@ -119,8 +126,14 @@
 		transform: scale(80)
 
 	&Checkbox:checked ~ #navigationNav
-		opacity: 1
+		/*	When the 'hamburger' menu is clicked
+			1) Make the menu full width
 		width: 100%
+		/*	2) Show the menu
+		opacity: 1
+		/*	3) The menu is initially shoved off the edge of the viewport
+			Need to move it back into the middle
+		transform: translateX(0)
 
 	// Icon
 	&Icon
@@ -212,5 +225,5 @@
 .logoImage
 	width: 15rem
 	height: auto
-	
+
 /*===== END  Navbar  =====*/

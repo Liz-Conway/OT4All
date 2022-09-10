@@ -1,0 +1,51 @@
+    	<div class="headerNav">
+    		<div class="headerNavLogo">
+    			<a href="{% url 'home' %}" class="navLink mainLogoLink">
+    				<img  class="logoImage" src="{{ MEDIA_URL }}logo.png" alt="Colourful OT4U logo">
+    			</a>
+    		</div>
+    		<!-- Search form -->
+       		<form action="#" class="search">
+       			<input type="text" class="searchInput" placeholder="Search Therapies">
+       			<button class="searchButton">
+       				<span class="searchIcon">
+                        <i class="fas fa-search"></i>
+                    </span>
+       			</button>
+       		</form>
+
+    		<!-- Profile and shopping cart links -->
+    		<div class="headerNavShopAcc">
+    			<ul class="shopAccounts">
+                    <li>
+	                    <div class="shopAccountsBlock">
+	                        <i class="fas fa-user shopAccountsIcon" id="accountIcon"></i>
+	                        <menu class="mainMenu">
+	                        	<menuitem>
+									<a id="accountOptions" class="shopAccountsLabel dropMenuTopLink">My Profile</a>
+									<menu class="subMenu">
+			                                <menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
+											<menuitem><a href="{% url 'home' %}">Register</a></menuitem>
+											<menuitem><a href="{% url 'home' %}">Login</a></menuitem>
+									</menu>
+								</menuitem>
+							</menu>
+	                    </div>
+                    </li>
+    				<li>
+    		            <a class="navLink" href="{% url 'home' %}">
+                            <div class="shopAccountsBlock">
+                                <i class="fas fa-{% if grand_total %}shopping-cart{% else %}cart-plus{% endif %} shopAccountsIcon" id="cartIcon"></i>
+                                <p class="shopAccountsLabel">
+                                    {% if grand_total %}
+                                        €{{ grand_total }}
+                                    {% else %}
+                                    	€1000
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+    				</li>
+    			</ul>
+    		</div>
+ 		</div>   		
