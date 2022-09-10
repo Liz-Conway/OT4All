@@ -154,15 +154,21 @@ body {
 /*===== END  Utilities  ===== */
 /*~~~~~~~  Navbar  ~~~~~~~ */
 #navigationNav {
+  /*	Setting the "position" property allows us to use z-index */
   position: fixed;
-  top: 0;
+  /*	NO top value will centre the menu vertically on mobile screens */
   left: 0;
-  z-index: 1500;
+  z-index: 15;
   /*Hide the navigation initially */
   opacity: 0;
   /*It is not enough to have an opacity of zero */
-  /*The elements are still there and are clickable, so we need to set the width to zero as well */
+  /*The elements are still there and are clickable
+   * Need to set the width to zero as well
+   * the menu elements are hidden but on the left edge of the screen & clickable
+   * Need to move the menu off screen completely, so none of the menus are clickable */
   width: 0;
+  -webkit-transform: translateX(-300px);
+          transform: translateX(-300px);
   -webkit-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
@@ -174,6 +180,10 @@ body {
     opacity: 1;
     position: relative;
     top: 0;
+    /*	In the mobile version the menu is initially push off the screen
+     * This is not done on the desktop version - so have to translate to position 0 */
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 
@@ -307,8 +317,15 @@ body {
           transform: scale(80);
 }
 .navigationCheckbox:checked ~ #navigationNav {
-  opacity: 1;
+  /*	When the 'hamburger' menu is clicked
+   * 1) Make the menu full width */
   width: 100%;
+  /*	2) Show the menu */
+  opacity: 1;
+  /*	3) The menu is initially shoved off the edge of the viewport
+   * Need to move it back into the middle */
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 .navigationIcon {
   display: inline-block;
@@ -625,7 +642,9 @@ footer {
   margin-bottom: 0.5rem;
   margin-top: 1.3rem;
 }
-.shopAccountsLabel {
+.shopAccountsBlock .shopAccountsLabel {
+  /*	Need both classes to increase the specifity
+   * to over-ride the text sizing from ".mainMenu a" */
   font-size: 1.8rem;
   /*	Match the padding from the menu a for "My Profile" */
   padding-top: 0.5rem;
@@ -802,14 +821,48 @@ menu menuitem a {
   .subMenu {
     position: absolute;
     margin-top: -3rem;
+    z-index: 50;
   }
 }
 .subMenu > menuitem > a {
   min-width: 50%;
+  /*	Minimum width that will not force the top menu to break */
+  width: 12.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0;
+}
+@media only screen and (min-width: 59.375em) {
+  .subMenu > menuitem > a {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding-left: 1.5rem;
+    padding-right: 0.5rem;
+  }
 }
 .subMenu > menuitem > a:hover {
   background-color: #ffece5;
   border: 1px solid #ffcdbd;
+}
+#accountOptions + .subMenu {
+  /* The non-mobile .subMenu is translated in the Y axis
+   * Switch this off by translating by 0 */
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+@media only screen and (min-width: 59.375em) {
+  #accountOptions + .subMenu {
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+  }
+}
+#accountOptions + .subMenu a {
+  font-size: 1.2rem;
+}
+@media only screen and (min-width: 59.375em) {
+  #accountOptions + .subMenu a {
+    font-size: 1.7rem;
+  }
 }
 
 .mainMenu {
@@ -825,20 +878,17 @@ menu menuitem a {
     margin-bottom: 0;
   }
 }
-.mainMenu > menuitem > span {
-  white-space: nowrap;
-}
-.mainMenu a, .mainMenu span {
+.mainMenu a {
   font-size: 2.5rem;
 }
 @media only screen and (min-width: 59.375em) {
-  .mainMenu a, .mainMenu span {
+  .mainMenu a {
     font-size: 2.2rem;
   }
 }
 
 /*	when hovering over a .mainMenu item,
- * display the subMenu inside it.
+ * display the subMenu below it.
  * we're changing the subMenu's max-height from 0 to 200px; */
 .mainMenu menuitem:hover .subMenu {
   /*	In the mobile view we want the "appearing" submenu to
@@ -847,6 +897,7 @@ menu menuitem a {
   max-height: 200px;
   -webkit-transform: translateY(1.3rem);
           transform: translateY(1.3rem);
+  width: auto;
   /*	In the desktop view we want the "appearing" submenu to */
 }
 @media only screen and (min-width: 59.375em) {
@@ -876,6 +927,9 @@ menu a {
 
 .mainMenu > menuitem {
   position: relative;
+}
+.mainMenu > menuitem > .subMenu {
+  width: 0;
 }
 
 .dropMenu {

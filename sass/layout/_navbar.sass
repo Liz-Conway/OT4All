@@ -1,17 +1,21 @@
 /*~~~~~~~  Navbar  ~~~~~~~*/
 #navigationNav
-	// background-color: $midtone
 
+	/*	Setting the "position" property allows us to use z-index
 	position: fixed
-	top: $mobileNavTop
+	/*	NO top value will centre the menu vertically on mobile screens
 	left: 0
-	z-index: 1500
+	z-index: 15
 
 	/*Hide the navigation initially*/
 	opacity: 0
 	/*It is not enough to have an opacity of zero*/
-	/*The elements are still there and are clickable, so we need to set the width to zero as well*/
+	/*The elements are still there and are clickable
+		Need to set the width to zero as well
+		the menu elements are hidden but on the left edge of the screen & clickable
+		Need to move the menu off screen completely, so none of the menus are clickable
 	width: 0
+	transform: translateX(-300px)
 	transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55)
 	@include respond(notebook)
 		background-color: $midtone
@@ -20,6 +24,9 @@
 		opacity: 1
 		position: relative
 		top: 0
+		/*	In the mobile version the menu is initially push off the screen
+			This is not done on the desktop version - so have to translate to position 0
+		transform: translateX(0)
 
 #naviToggle
 	display: none
@@ -83,7 +90,6 @@
 			flex-direction: row
 
 	&Link
-		//width: 0
 		transform: translateX(-200px)
 		&:link, &:visited
 			display: inline-block
@@ -120,8 +126,14 @@
 		transform: scale(80)
 
 	&Checkbox:checked ~ #navigationNav
-		opacity: 1
+		/*	When the 'hamburger' menu is clicked
+			1) Make the menu full width
 		width: 100%
+		/*	2) Show the menu
+		opacity: 1
+		/*	3) The menu is initially shoved off the edge of the viewport
+			Need to move it back into the middle
+		transform: translateX(0)
 
 	// Icon
 	&Icon
