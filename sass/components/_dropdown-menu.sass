@@ -31,12 +31,32 @@ menu
 	@include respond(notebook)
 		position: absolute
 		margin-top: -3rem
+		z-index: 50
 	& > menuitem
 		& > a
 			min-width: 50%
+			/*	Minimum width that will not force the top menu to break
+			width: 12.25rem
+			padding-left: .5rem
+			padding-right: 0
+			@include respond(notebook)
+				width: fit-content
+				padding-left: 1.5rem
+				padding-right: .5rem
 			&:hover
 				background-color: $midtoneLight
 				border: 1px solid $midtone
+
+	#accountOptions + &
+		/* The non-mobile .subMenu is translated in the Y axis
+			Switch this off by translating by 0
+		transform: translateY(0)
+		@include respond(notebook)
+			transform: translateY(3rem)
+		a
+			font-size: 1.2rem
+			@include respond(notebook)
+				font-size: 1.7rem
 
 .mainMenu
 	/* Need a bottom margin otherwise the menu is written
@@ -47,17 +67,15 @@ menu
 			So remove the bottom margin on the main menu to counter-act this
 		&:hover
 			margin-bottom: 0
-	& > menuitem > span
-		white-space: nowrap
 
-	& a, span
+	& a
 		font-size: 2.5rem
 		@include respond(notebook)
 			font-size: 2.2rem
 
 
 /*	when hovering over a .mainMenu item,
-	display the subMenu inside it.
+	display the subMenu below it.
 	we're changing the subMenu's max-height from 0 to 200px;
 .mainMenu menuitem:hover .subMenu
 	/*	In the mobile view we want the "appearing" submenu to
@@ -65,15 +83,13 @@ menu
 	display: block
 	max-height: 200px
 	transform: translateY(1.3rem)
+	width: auto
 	/*	In the desktop view we want the "appearing" submenu to
 	overlap the existing page items and not shove anything down
 	@include respond(notebook)
 		position: absolute
 		margin-top: -3rem
 		transform: translateY(4rem)
-
-
-// User Styles Below Not Required
 
 menu a
 	color: $shadow
@@ -89,6 +105,8 @@ menu a
 
 .mainMenu > menuitem
 	position: relative
+	> .subMenu
+		width: 0
 
 .dropMenu
 	/* Place an arrow underneath the mainMenu text */
