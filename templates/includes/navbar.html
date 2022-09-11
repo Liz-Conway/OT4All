@@ -22,7 +22,7 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu dropMenu">
 					    <menuitem>
-						        <a href="{% url 'home' %}" class="dropMenuTopLink" id="therapiesMenuLabel">Therapies</a>
+						        <a href="{% url 'therapies' %}" class="dropMenuTopLink" id="therapiesMenuLabel">Therapies</a>
 						    <menu class="subMenu" aria-labelledby="therapiesMenuLabel">
 						    	<!-- Pass a 'style' parameter to the "therapies" URL -->
 						    	<!-- These parameters will use the "name" field from the
@@ -36,7 +36,7 @@
 								to indicate we're about to pass the 'style' parameter.
 								Followed by "equine", "literacy", and "selfcare" separated by a comma.
 								This syntax ensures we end up with a comma-separated string in the view. -->
-						    	<menuitem><a href="{% url 'home'%}?style=equine,literacy,selfcare">All Therapies</a></menuitem>
+						    	<menuitem><a href="{% url 'therapies'%}?style=equine,literacy,selfcare">All Therapies</a></menuitem>
 					    	</menu>
 					    </menuitem>
 				    </menu>
