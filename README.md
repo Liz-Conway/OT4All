@@ -669,6 +669,15 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Evgeni Lazarev  | [Pexels.com](https://www.pexels.com/photo/shopping-cart-on-asphalt-8971727/)|
 |<img src="media/empty-basket.jpg" alt="empty shopping basket" width="30" height="30">| Empty shopping cart          | PxHere  | [PxHere.com](https://pxhere.com/en/photo/721180)|
 |<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Ivan Samkov   | [Pexels.com](https://www.pexels.com/photo/food-people-laptop-internet-7621354/)|
+|<img src="media/girl-hugging-horse.jpg" alt="girl hugging a horse" width="30" height="30">| Girl hugging a horse          | Philippe Oursel   | [UnSplash.com](https://unsplash.com/photos/U6Mr3wF8JOk)|
+|<img src="media/hippotherapy-large.jpg" alt="girl sitting on horse receiving hippotherapy" width="30" height="30">| Hippotherapy          | Natalia Campbell   | Personal photo |
+|<img src="media/riding-skills.jpg" alt="rider showing horse riding skills" width="30" height="30">| Horse Riding Skills         | @coldbeer   | [Pexels.com](https://www.pexels.com/search/riding%20skills/)|
+|<img src="media/teach-reading.jpg" alt="OT teaching child to read" width="30" height="30">| Teach Reading          | Andrea Piacquadio   | [Pexels.com](https://www.pexels.com/photo/elder-sister-and-brother-studying-at-home-3769981/)|
+|<img src="media/writing.jpg" alt="boy writing" width="30" height="30">| Writing          | Yogesh Rahamatkar  | [UnSplash.com](https://unsplash.com/photos/SQdDlk2laPs)|
+|<img src="media/pen-control.jpg" alt="lady writing with prosthetic hand" width="30" height="30">| Pen Control          | Anna Shvets   | [Pexels.com](https://www.pexels.com/photo/woman-with-modern-prosthesis-of-hand-writing-in-notebook-5614155/)|
+|<img src="media/self-feedingt.jpg" alt="ot teaching child to feed themself" width="30" height="30">| Self Feeding          | Vanessa Loring   | [Pexels.com](https://www.pexels.com/photo/food-people-laptop-internet-7621354/)|
+|<img src="media/cooking.jpg" alt="hands preparing food for cooking" width="30" height="30">| Cooking          | Maarten van den Heuvel   | [UnSplash.com](https://unsplash.com/photos/EzH46XCDQRY)|
+|<img src="media/cooking.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Cooking          | PxHere   | [PxHere.com](https://pxhere.com/en/photo/1061452)|
 
 ### Others
 An incredible mentor : Daisy McGirr
