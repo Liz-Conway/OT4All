@@ -1,0 +1,48 @@
+/*~~~~~~~  Card  ~~~~~~~*/
+
+.therapyCard
+	display: flex
+	/* Layout card in a grid
+		https://www.youtube.com/watch?v=vQAvjof1oe4
+	flex: 0 1 250px
+	flex-direction: column
+	position: relative
+
+	&Body
+		p
+			margin-bottom: 0
+		flex: auto 1 1
+
+	&Footer
+		background-color: $midtone
+		padding-top: 0
+		text-align: left
+		p
+			margin-bottom: 0
+			font:
+				weight: $boldWt
+				// size: 1.3rem
+			color: $shadow
+			opacity: .7
+		small
+			color: $grey
+
+	&Style
+		color: $shadow
+		font:
+			size: 1.2rem
+			family: $baseFontFamily
+
+		a
+			text-decoration-color: $grey
+			text-decoration-line: underline
+			text-decoration-style: solid
+			text-decoration-thickness: auto
+			&:visited, &:link
+				color: $grey
+
+	img
+		height: 21rem
+
+
+/*===== END  Card  =====*/
