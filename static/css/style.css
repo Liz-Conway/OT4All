@@ -790,6 +790,56 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
+@media only screen and (min-width: 32.25em) {
+  .therapyContainer {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 33.9375em) {
+  .therapyContainer {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 40.3125em) {
+  .therapyContainer {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 48.875em) {
+  .therapyContainer {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 51.75em) {
+  .therapyContainer {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 61.4375em) {
+  .therapyContainer {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 68.75em) {
+  .therapyContainer {
+    width: 96%;
+  }
+}
+@media only screen and (min-width: 82.8125em) {
+  .therapyContainer {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 90.625em) {
+  .therapyContainer {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 105.1875em) {
+  .therapyContainer {
+    width: 80%;
+  }
+}
 .therapyList {
   display: -webkit-box;
   display: -ms-flexbox;
