@@ -7,16 +7,31 @@
 	flex: 0 1 250px
 	flex-direction: column
 	position: relative
+	border-radius: $borderRadius
+	box-shadow: $boxShadowDark
+	p
+		font-size: $baseFontSize
+		margin-bottom: .75rem
 
 	&Body
-		p
-			margin-bottom: 0
+		/* Push the cardFooter to the bottom of the card
 		flex: auto 1 1
+		h2
+			padding: 1rem 0
+			font-size: 2rem
+		padding: 0 1rem
 
 	&Footer
+		display: flex
+		flex-direction: column
+		align-items: flex-start
 		background-color: $midtone
-		padding-top: 0
+		padding: .75rem 1rem
 		text-align: left
+		/* Since the footer hides the card's border-radius on the bottom
+			Need to set its border radius on the bottom too
+		border-bottom-left-radius: $borderRadius
+		border-bottom-right-radius: $borderRadius
 		p
 			margin-bottom: 0
 			font:
@@ -26,6 +41,8 @@
 			opacity: .7
 		small
 			color: $grey
+		.bookButton
+			align-self: flex-end
 
 	&Style
 		color: $shadow
@@ -43,6 +60,10 @@
 
 	img
 		height: 21rem
+		/* Since the image hides the card's border-radius on the top
+			Need to set its border radius on the top too
+		border-top-left-radius: $borderRadius
+		border-top-right-radius: $borderRadius
 
 
 /*===== END  Card  =====*/

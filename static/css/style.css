@@ -773,19 +773,17 @@ footer {
 
 /*===== END  Home Page  ===== */
 /*~~~~~~~  Therapies Page  ~~~~~~~ */
-.therapyTitle {
+.therapyTitle h1 {
   text-align: center;
-  margin-top: 1rem;
-}
-.therapyTitle h2 {
-  font-size: 2rem;
+  margin-top: 3rem;
+  font-size: 3rem;
   font-weight: 500;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
 }
 .therapyTitle hr {
   width: 50%;
-  margin: 0.5rem auto 1rem auto;
+  margin: 1.5rem auto 0 auto;
 }
 .therapyContainer {
   width: 80%;
@@ -1217,19 +1215,43 @@ menu a {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+}
+.therapyCard p {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
 }
 .therapyCardBody {
+  /* Push the cardFooter to the bottom of the card */
   -webkit-box-flex: 1;
       -ms-flex: auto 1 1;
           flex: auto 1 1;
+  padding: 0 1rem;
 }
-.therapyCardBody p {
-  margin-bottom: 0;
+.therapyCardBody h2 {
+  padding: 1rem 0;
+  font-size: 2rem;
 }
 .therapyCardFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   background-color: #ffcdbd;
-  padding-top: 0;
+  padding: 0.75rem 1rem;
   text-align: left;
+  /* Since the footer hides the card's border-radius on the bottom
+   * Need to set its border radius on the bottom too */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .therapyCardFooter p {
   margin-bottom: 0;
@@ -1239,6 +1261,10 @@ menu a {
 }
 .therapyCardFooter small {
   color: #999999;
+}
+.therapyCardFooter .bookButton {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 .therapyCardStyle {
   color: #751c00;
@@ -1259,6 +1285,10 @@ menu a {
 }
 .therapyCard img {
   height: 21rem;
+  /* Since the image hides the card's border-radius on the top
+   * Need to set its border radius on the top too */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 /*===== END  Card  ===== */
