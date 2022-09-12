@@ -819,23 +819,18 @@ menu menuitem a {
 }
 @media only screen and (min-width: 59.375em) {
   .subMenu {
+    /*	Ensure the subMenu is above the rest of the page */
     position: absolute;
-    margin-top: -3rem;
     z-index: 50;
   }
 }
 .subMenu > menuitem > a {
-  min-width: 50%;
-  /*	Minimum width that will not force the top menu to break */
-  width: 12.25rem;
-  padding-left: 0.5rem;
-  padding-right: 0;
+  border-top: 1px solid #ffcdbd;
+  border-bottom: 1px solid #ff6533;
 }
 @media only screen and (min-width: 59.375em) {
   .subMenu > menuitem > a {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 100%;
     padding-left: 1.5rem;
     padding-right: 0.5rem;
   }
@@ -895,17 +890,13 @@ menu menuitem a {
    * shove the other main menu items down */
   display: block;
   max-height: 200px;
-  -webkit-transform: translateY(1.3rem);
-          transform: translateY(1.3rem);
   width: auto;
-  /*	In the desktop view we want the "appearing" submenu to */
+  /*	In the desktop view we want the "appearing" submenu to
+   * overlap the existing page items and not shove anything down */
 }
 @media only screen and (min-width: 59.375em) {
   .mainMenu menuitem:hover .subMenu {
     position: absolute;
-    margin-top: -3rem;
-    -webkit-transform: translateY(4rem);
-            transform: translateY(4rem);
   }
 }
 
@@ -938,16 +929,17 @@ menu a {
 .dropMenu:hover > menuitem::after {
   content: "";
   position: absolute;
-  width: 0;
-  height: 0;
-  border: 8.5px solid transparent;
-  border-top: 10px solid #751c00;
-  left: 50%;
-  top: 23px;
 }
 @media only screen and (min-width: 59.375em) {
   .dropMenu:hover > menuitem::after {
+    /* Show an arrow in desktop view */
+    width: 0;
+    height: 0;
+    border: 8.5px solid transparent;
+    border-top: 10px solid #751c00;
     top: 28px;
+    /*	Show the arrow on top of the subMenu */
+    z-index: 55;
   }
 }
 .dropMenuTopLink {

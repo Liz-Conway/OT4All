@@ -29,18 +29,15 @@ menu
 	transition: all 0.5s ease-out
 	background-color: $midtoneDark
 	@include respond(notebook)
+		/*	Ensure the subMenu is above the rest of the page
 		position: absolute
-		margin-top: -3rem
 		z-index: 50
 	& > menuitem
 		& > a
-			min-width: 50%
-			/*	Minimum width that will not force the top menu to break
-			width: 12.25rem
-			padding-left: .5rem
-			padding-right: 0
+			border-top: 1px solid $midtone
+			border-bottom: 1px solid darken($midtoneDark, 20%)
 			@include respond(notebook)
-				width: fit-content
+				width: 100%
 				padding-left: 1.5rem
 				padding-right: .5rem
 			&:hover
@@ -61,7 +58,6 @@ menu
 .mainMenu
 	/* Need a bottom margin otherwise the menu is written
 		on top of the rest of the page
-	//margin-bottom: 2.5rem
 	@include respond(notebook)
 		/*	Showing the submenu shoves the rest of the page down
 			So remove the bottom margin on the main menu to counter-act this
@@ -82,14 +78,11 @@ menu
 		shove the other main menu items down
 	display: block
 	max-height: 200px
-	transform: translateY(1.3rem)
 	width: auto
 	/*	In the desktop view we want the "appearing" submenu to
-	overlap the existing page items and not shove anything down
+		overlap the existing page items and not shove anything down
 	@include respond(notebook)
 		position: absolute
-		margin-top: -3rem
-		transform: translateY(4rem)
 
 menu a
 	color: $shadow
@@ -113,11 +106,12 @@ menu a
 	&:hover > menuitem::after
 		content:  ''
 		position: absolute
-		@include arrow(10px, 8.5px, $shadow, down)
-		left: 50%
-		top: 23px
 		@include respond(notebook)
+			/* Show an arrow in desktop view
+			@include arrow(10px, 8.5px, $shadow, down)
 			top: 28px
+			/*	Show the arrow on top of the subMenu
+			z-index: 55
 
 	&TopLink
 		text-align: center
