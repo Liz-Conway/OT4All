@@ -1,0 +1,53 @@
+/*~~~~~~~  Therapies Page  ~~~~~~~*/
+
+.therapy
+	&Title
+		h1
+			text-align: center
+			margin-top: 3rem
+			font:
+				size: 3rem
+				weight: $thickWt
+			text-transform: uppercase
+			margin-bottom: 2.5rem
+
+		hr
+			width: 50%
+			margin: 1.5rem auto 0 auto
+
+
+	&Container
+		width: 80%
+		@include respond(516)
+			width: 100%
+		@include respond(543)
+			width: 95%
+		@include respond(645)
+			width: 80%
+		@include respond(782)
+			width: 100%
+		@include respond(828)
+			width: 95%
+		@include respond(983)
+			width: 80%
+		@include respond(1100)
+			width: 96%
+		@include respond(1325)
+			width: 80%
+		@include respond(1450)
+			width: 95%
+		@include respond(1683)
+			width: 80%
+		margin-left: auto
+		margin-right: auto
+
+	&List
+		display: flex
+		flex-wrap: wrap
+		/* External & Internal border padding
+		column-gap: $cardGutter
+		row-gap: $cardGutter
+		padding-top: $cardGutter
+		padding-bottom: $cardGutter
+
+/*===== END  Therapies Page  =====*/
