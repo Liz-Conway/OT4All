@@ -1,0 +1,69 @@
+/*~~~~~~~  Card  ~~~~~~~*/
+
+.therapyCard
+	display: flex
+	/* Layout card in a grid
+		https://www.youtube.com/watch?v=vQAvjof1oe4
+	flex: 0 1 250px
+	flex-direction: column
+	position: relative
+	border-radius: $borderRadius
+	box-shadow: $boxShadowDark
+	p
+		font-size: $baseFontSize
+		margin-bottom: .75rem
+
+	&Body
+		/* Push the cardFooter to the bottom of the card
+		flex: auto 1 1
+		h2
+			padding: 1rem 0
+			font-size: 2rem
+		padding: 0 1rem
+
+	&Footer
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		background-color: $midtone
+		padding: .75rem 1rem
+		text-align: left
+		/* Since the footer hides the card's border-radius on the bottom
+			Need to set its border radius on the bottom too
+		border-bottom-left-radius: $borderRadius
+		border-bottom-right-radius: $borderRadius
+		p
+			margin-bottom: 0
+			font:
+				weight: $boldWt
+				// size: 1.3rem
+			color: $shadow
+			opacity: .7
+		small
+			color: $grey
+		.bookButton
+			align-self: flex-end
+
+	&Style
+		color: $shadow
+		font:
+			size: 1.2rem
+			family: $baseFontFamily
+
+		a
+			text-decoration-color: $grey
+			text-decoration-line: underline
+			text-decoration-style: solid
+			text-decoration-thickness: auto
+			&:visited, &:link
+				color: $grey
+
+	img
+		height: 21rem
+		/* Since the image hides the card's border-radius on the top
+			Need to set its border radius on the top too
+		border-top-left-radius: $borderRadius
+		border-top-right-radius: $borderRadius
+
+
+/*===== END  Card  =====*/
