@@ -414,11 +414,11 @@ When a Story is being coded it is moved from the **ToDo** list into the **In Pro
 At the end of the project, all User Stories will be in the **Done** list and the project will be finished.
 
 ### Project Planning
-<a id="planning"></a>The OT4U project's User Stories have been allocated into Sprints.  The stories in each Sprint will go through the full process of *ToDo* **>** *In Process* **>** *Testing* **>** *Code Review* **>** *Done*, before the next Sprint begins.
+<a id="planning"></a>The OT4U project's User Stories have been allocated into Sprints.  The stories in each Sprint will go through the full process of *ToDo* **>** *In Process* **>** *Testing* **>** *Code Review*, before the next Sprint begins.  When all User Stories are in *Code Review*, the project will be peer reviewed. After any changes highlighted by the peer review are made, all the User Stories will be moved into the *Done* column.
 
 <img src="documentation/agile-planning/user-story-map-sprints.png" alt="User Story Map Sprint plan" width="100%"/>
 
-
+![Initial Trello board](documentation/agile-planning/trello-beginning.png)
 
 ### Version Control 
 <a id="git"></a>**Git** is used for version control of this project

@@ -2,7 +2,9 @@
 
 .home
 	&Page
-		background-image: url(../../media/occupational-therapist-playing-with-child.jpg)
+		background-image: url(../images/occupational-therapist-playing-with-child-small.jpg)
+		@include respond(notebook)
+			background-image: url(../images/occupational-therapist-playing-with-child.jpg)
 		background-repeat: no-repeat
 		background-size: contain
 		background-position: center
