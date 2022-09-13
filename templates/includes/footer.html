@@ -1,14 +1,15 @@
+ {% load static %}
         	<div class="footerLogoBox">
         		<!-- Art direction - Tell browser which image to choose
         		depending on the screen width -->
         		<!-- We could use  960px in the media queries -->
         		<picture class="footerLogo">
-        			<source srcset="{{ MEDIA_URL }}logo-small.png"
+        			<source srcset="{% static 'images/logo-small-min.png' %}"
         				media="(max-width: 60em)">
         			<!-- Include a Fallback normal image in case  -->
         			<!-- the browser does not support srcset -->
         			<img alt="Colourful logo" class="footerLogo"
-        			src="{{ MEDIA_URL }}logo.png">
+        			src="{% static 'images/logo-min.png' %}">
         		</picture>
         	</div>
         	<div class="footerRow">

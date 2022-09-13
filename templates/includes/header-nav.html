@@ -1,7 +1,8 @@
+ {% load static %}
     	<div class="headerNav">
     		<div class="headerNavLogo">
     			<a href="{% url 'home' %}" class="navLink mainLogoLink">
-    				<img  class="logoImage" src="{{ MEDIA_URL }}logo.png" alt="Colourful OT4U logo">
+    				<img  class="logoImage" src="{% static 'images/logo-min.png' %}" alt="Colourful OT4U logo">
     			</a>
     		</div>
     		<!-- Search form -->

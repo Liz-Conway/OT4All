@@ -673,7 +673,7 @@ footer {
 /*===== END  Header  ===== */
 /*~~~~~~~  Home Page  ~~~~~~~ */
 .homePage {
-  background-image: url(../../media/occupational-therapist-playing-with-child.jpg);
+  background-image: url(../images/occupational-therapist-playing-with-child-small.jpg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -690,6 +690,11 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+@media only screen and (min-width: 59.375em) {
+  .homePage {
+    background-image: url(../images/occupational-therapist-playing-with-child.jpg);
+  }
 }
 .homeTitle {
   position: absolute;
