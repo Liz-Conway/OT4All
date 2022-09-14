@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block extra_title %}Meeja Test{% endblock %}
+
+{% block content %}
+		<div class="meejaPage">
+			<h1 class="meejaTitle">
+				Cloudinary Images - part Deux
+			</h1>
+			{% for picture in pictures %}
+				<h2>{{ picture.name }}</h2>
+				<img src="{{ picture.my_image.url }}" width="300px" >
+			{% endfor %}
+		</div>
+		
+{% endblock %}
