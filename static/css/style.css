@@ -853,11 +853,11 @@ footer {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   /* External & Internal border padding */
-  -webkit-column-gap: 20px;
-          column-gap: 20px;
-  row-gap: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  row-gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 /*===== END  Therapies Page  ===== */
@@ -1016,19 +1016,13 @@ menu menuitem a {
   border: 1px solid #ffcdbd;
 }
 #accountOptions + .subMenu {
+  max-width: 12.3rem;
   /* The non-mobile .subMenu is translated in the Y axis
    * Switch this off by translating by 0 */
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-@media only screen and (min-width: 59.375em) {
-  #accountOptions + .subMenu {
-    -webkit-transform: translateY(3rem);
-            transform: translateY(3rem);
-  }
 }
 #accountOptions + .subMenu a {
   font-size: 1.2rem;
+  padding-left: 0.7rem;
 }
 @media only screen and (min-width: 59.375em) {
   #accountOptions + .subMenu a {
@@ -1471,5 +1465,4 @@ button[class$="crementSessions"]:disabled {
       -ms-flex-direction: row;
           flex-direction: row;
 }
-
 /*# sourceMappingURL=style.css.map */
