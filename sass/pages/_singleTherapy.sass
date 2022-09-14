@@ -17,8 +17,7 @@
 			margin-bottom: 5rem
 
 	&Details
-		padding-left: 2rem
-		padding-right: 2rem
+		margin-top: 1rem
 		@include respond(desktop)
 			width: 50%
 		@incude respond(XL)
@@ -26,9 +25,29 @@
 			margin-left: 15%
 
 		&Description
-			font-size: 1.4rem
+			margin-top: .5rem
 
-#idTherapySize
-	width: 50%
+		&Price
+			font:
+				size: 2.5rem
+				weight: $boldWt
+
+		&Label
+			font-weight: $boldWt
+
+		&Sessions
+			margin-top: 1rem
+		&Footer
+			margin-top: 1rem
+			font-size: $baseFontSize
+			p
+				margin-top: .75rem
+
+p.therapyDetailsPrice
+	margin-top: 1.25rem
+
+
+.shopButtons
+	margin-top: 1.2rem
 
 /*===== END  Single Therapy Page  =====*/

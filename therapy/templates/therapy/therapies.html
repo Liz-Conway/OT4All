@@ -29,18 +29,15 @@
 										<i class="fas fa-tag"></i>{{ therapy.style.name }}
 								</p>
 							{% endif %}
-<<<<<<< HEAD
 							{% if therapy.location %}
 								<small><i class="fas fa-map-marker-alt"></i>{{ therapy.location }}</small>
 							{% endif %}
 							{% if therapy.extra_requirements %}
 								<small>{{ therapy.location }}</small>
 							{% endif %}
-=======
 							<div class="bookButton">
-								<a href="{% url 'therapies' %}" class="btn btnCTA buyNowButton">Book</a>
+								<a href="{% url 'therapies' %}" class="btn btnPrimary">Book</a>
 							</div>
->>>>>>> 7f9d237 (STYLE: Layout the list of Therapies in a grid)
 						</div>
 					</div>
 				{% endfor %}

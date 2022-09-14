@@ -95,6 +95,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-size: 1.6rem;
   /* Mobile devices do not honour the "vh" property properly */
   /* So setting the view height to less than 100 for mobile devices */
   min-height: 92vh;
@@ -890,8 +891,7 @@ footer {
   }
 }
 .therapyDetails {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  margin-top: 1rem;
 }
 @media only screen and (min-width: 75em) {
   .therapyDetails {
@@ -905,11 +905,32 @@ footer {
   }
 }
 .therapyDetailsDescription {
-  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+.therapyDetailsPrice {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.therapyDetailsLabel {
+  font-weight: 700;
+}
+.therapyDetailsSessions {
+  margin-top: 1rem;
+}
+.therapyDetailsFooter {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+.therapyDetailsFooter p {
+  margin-top: 0.75rem;
 }
 
-#idTherapySize {
-  width: 50%;
+p.therapyDetailsPrice {
+  margin-top: 1.25rem;
+}
+
+.shopButtons {
+  margin-top: 1.2rem;
 }
 
 /*===== END  Single Therapy Page  ===== */
@@ -1118,7 +1139,7 @@ menu a {
 .btn {
   text-transform: uppercase;
   display: inline-block;
-  padding: 1.5rem 4rem;
+  padding: 1.3rem 2rem;
   border-radius: 10rem;
   font-size: 1.6rem;
   background-color: #ffcdbd;
@@ -1152,8 +1173,11 @@ menu a {
 .btnCTA {
   background-color: #b299ff;
 }
+.btnPrimary {
+  background-color: #99ffb2;
+}
 .btnGhost {
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 .btnGhost:hover {
   color: #000000;
@@ -1168,6 +1192,27 @@ menu a {
 .btnTextOnly:hover, .btnTextOnly:active {
   background-color: transparent;
   color: #ffcdbd;
+}
+
+button[class$="crementSessions"] {
+  background-color: #000000;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  height: 3.75rem;
+  width: 3.75rem;
+}
+button[class$="crementSessions"]:disabled {
+  background-color: #808080;
+  cursor: not-allowed;
+}
+
+.incrementSessions {
+  margin-left: -0.5rem;
+}
+
+.decrementSessions {
+  margin-right: -0.5rem;
 }
 
 /*===== END  Button  ===== */
@@ -1392,5 +1437,13 @@ menu a {
 }
 
 /*===== END  Card  ===== */
+.sessionsInput {
+  /* 7.5rem is twice the width of an increment/decrement button */
+  width: calc(100% - 7.5rem);
+  font-size: 1.3rem;
+  height: 3.75rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.5;
+}
 
 /*# sourceMappingURL=style.css.map */
