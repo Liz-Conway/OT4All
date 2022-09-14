@@ -29,12 +29,6 @@
 										<i class="fas fa-tag"></i>{{ therapy.style.name }}
 								</p>
 							{% endif %}
-							{% if therapy.location %}
-								<small><i class="fas fa-map-marker-alt"></i>{{ therapy.location }}</small>
-							{% endif %}
-							{% if therapy.extra_requirements %}
-								<small>{{ therapy.location }}</small>
-							{% endif %}
 							<div class="bookButton">
 								<!-- Pass an id to the URL so that the chosen therapy's detail page is shown -->
 								<a href="{% url 'singleTherapy' therapy.id %}" class="btn btnPrimary">Book</a>
