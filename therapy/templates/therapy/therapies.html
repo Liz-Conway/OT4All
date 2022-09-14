@@ -36,7 +36,8 @@
 								<small>{{ therapy.location }}</small>
 							{% endif %}
 							<div class="bookButton">
-								<a href="{% url 'therapies' %}" class="btn btnPrimary">Book</a>
+								<!-- Pass an id to the URL so that the chosen therapy's detail page is shown -->
+								<a href="{% url 'singleTherapy' therapy.id %}" class="btn btnPrimary">Book</a>
 							</div>
 						</div>
 					</div>

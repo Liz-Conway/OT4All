@@ -22,8 +22,6 @@
 				<div class="therapyDetailsBody">
 					<h1>{{ therapy.name }}</h1>
 					<div class="therapyDetailsDescription">{{ therapy.description }}</div>
-				</div>
-				<div class="therapyDetailsFooter">
 					{% if therapy.style %}
 						<p class="therapyDetailsStyle">
 							<!-- <a href="{#% url 'therapy' %}?style={{ therapy.style.name }#}"> -->
@@ -42,40 +40,42 @@
 								<span class="therapyDetailsLabel">Extra Requirements :</span>  {{ therapy.extra_requirements }}
 						</p>
 					{% endif %}
-					<p class="therapyDetailsPrice">€{{ therapy.price }}</p>
 				</div>
-				<!-- action URL submits to the 'add_to_cart' URL, including the therapy id the user is adding. -->
-				<form class="therapyDetailsForm" method="POST" action="{#% url 'addToCart' therapy.id %#}">
-					{% csrf_token %}
-					<div class="therapyDetailsSessions">
-						<p class="therapyDetailsLabel">Number of Sessions:</p>
-						<div class="therapyDetailsSessionsInput">
-							<button class="decrementSessions" data-therapyID="{{ therapy.id }}" id="decrementSessions{{ therapy.id }}">
-								<span class="icon">
-									<i class="fas fa-minus"></i>
-								</span>
-							</button>
-							<input type="number" name="sessions" value="{% if therapy.course_sessions %}{{therapy.course_sessions}}{% else %}1{% endif %}" min="1" max="99" 
-								data-therapyID="{{ therapy.id }}" id="idSessions{{ therapy.id }}" class="sessionsInput">
-							<button class="incrementSessions" data-therapyID="{{ therapy.id }}" id="incrementSessions{{ therapy.id }}">
-								<span class="icon">
-									<i class="fas fa-plus"></i>
-								</span>
-							</button>
+				<div class="therapyDetailsFooter">
+					<p class="therapyDetailsPrice">€{{ therapy.price }}</p>
+					<!-- action URL submits to the 'add_to_cart' URL, including the therapy id the user is adding. -->
+					<form class="therapyDetailsForm" method="POST" action="{#% url 'addToCart' therapy.id %#}">
+						{% csrf_token %}
+						<div class="therapyDetailsSessions">
+							<p class="therapyDetailsLabel">Number of Sessions:</p>
+							<div class="therapyDetailsSessionsInput">
+								<button class="decrementSessions" data-therapyID="{{ therapy.id }}" id="decrementSessions{{ therapy.id }}">
+									<span class="icon">
+										<i class="fas fa-minus"></i>
+									</span>
+								</button>
+								<input type="number" name="sessions" value="{% if therapy.course_sessions %}{{therapy.course_sessions}}{% else %}1{% endif %}" min="1" max="99" 
+									data-therapyID="{{ therapy.id }}" id="idSessions{{ therapy.id }}" class="sessionsInput">
+								<button class="incrementSessions" data-therapyID="{{ therapy.id }}" id="incrementSessions{{ therapy.id }}">
+									<span class="icon">
+										<i class="fas fa-plus"></i>
+									</span>
+								</button>
+							</div>
 						</div>
-					</div>
-					
-					<div class="shopButtons">
-						<a href="{% url 'therapies' %}" class="btn btnGhost">
-							<span class="icon">
-								<i class="fas fa-chevron-left"></i>
-							</span>
-							Keep Shopping
-						</a>
-						<input type="submit" value="Add to Cart" class="btn btnPrimary">
-					</div>
-					<input type="hidden" name="redirectUrl" value="{{ request.path }}">
-				</form>
+						
+						<div class="shopButtons">
+							<a href="{% url 'therapies' %}" class="btn btnGhost">
+								<span class="icon">
+									<i class="fas fa-chevron-left"></i>
+								</span>
+								Keep Shopping
+							</a>
+							<input type="submit" value="Add to Cart" class="btn btnPrimary">
+						</div>
+						<input type="hidden" name="redirectUrl" value="{{ request.path }}">
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

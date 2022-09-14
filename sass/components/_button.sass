@@ -2,7 +2,7 @@
 .btn
 	text-transform: uppercase
 	display: inline-block
-	padding: 1.3rem 2rem
+	padding: 1.3rem 1.8rem
 	border-radius: 10rem
 	font-size: $baseFontSize
 	background-color: $midtone
@@ -18,7 +18,7 @@
 		box-shadow: 0 1rem 2rem rgba($black, .2)
 
 	&:active
-		color: $accentDark
+		color: $highlight
 		background-color: $shadow
 		/* Make the button appear to be pressed => 3D effect */
 		transform: translateY(-.1rem)
@@ -33,13 +33,13 @@
 
 	&Primary
 		background-color: $accentLight
-		// color: $highlight
-		// border: 1px solid $highlight
+		margin-left: auto
+		margin-right: 3rem
 
 	&Ghost
 		background-color: transparent
 		&:hover
-			color: $black
+			color: $shadow
 		&:active
 			color: $white
 
