@@ -27,7 +27,11 @@
 									<menu class="subMenu">
 			                                <menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
 											<menuitem><a href="{% url 'home' %}">Register</a></menuitem>
-											<menuitem><a href="{% url 'home' %}">Login</a></menuitem>
+											{% if request.user.is_authenticated %}
+												<menuitem><a href="{% url 'account_logout' %}">Logout</a></menuitem>
+											{% else %}
+												<menuitem><a href="{% url 'account_login' %}">Login</a></menuitem>
+											{% endif %}
 									</menu>
 								</menuitem>
 							</menu>

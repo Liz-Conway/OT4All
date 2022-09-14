@@ -54,6 +54,15 @@ INSTALLED_APPS = [
     "cloudinary",
     "home",
     "therapy",
+    #  used by the social account app to create the proper callback URLs
+    #  when connecting via social media accounts
+    "django.contrib.sites",
+    "allauth",
+    #  allauth app that allows all the basic user account stuff
+    #  like logging in and out, User registration and password resets
+    "allauth.account",
+    #  handles logging in via social media providers like Facebook and Google
+    "allauth.socialaccount",
 ]
 
 MIDDLEWARE = [
@@ -79,7 +88,7 @@ TEMPLATES = [
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
-                "django.template.context_processors.request",
+                "django.template.context_processors.request",  # required by allauth
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 # Without this the media URL template tag doesn't work
@@ -104,9 +113,41 @@ AUTHENTICATION_BACKENDS = [
     # Handles superusers logging into the Admin which allauth doesn't handle
     # Defer to the default django Code for this
     "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by e-mail
+    # Allow users to log into our site via their email
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 SITE_ID = 1
+
+# Account authentication method is what tells allauth that we want to allow
+# authentication using either usernames or emails.
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+# ACCOUNT_AUTHENTICATION_METHOD = "username"
+
+# These three email settings
+# make it so that an email is required to register for the site.
+ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_REQUIRED = False
+# Verifying your email is mandatory so we know users are using a real email.
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# ACCOUNT_EMAIL_VERIFICATION = "none"
+# Required to enter their email twice on the registration page
+# to make sure that they haven't made any typos
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+# ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+# setting a minimum username length of four characters
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+# specifying a login url and a url to redirect back to after logging in
+LOGIN_URL = "/accounts/login/"
+LOGIN_REDIRECT_URL = "/"
+
+if "DEVELOPMENT" in os.environ:
+    # By default allauth will send confirmation emails to any new accounts.
+    # We need to temporarily log those emails to the console
+    # so we can get the confirmation links.
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    DEFAULT_FROM_EMAIL = "ot4u@ot4u.com"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/

@@ -45,13 +45,15 @@ menu
 				border: 1px solid $midtone
 
 	#accountOptions + &
+		max-width: 12.3rem
 		/* The non-mobile .subMenu is translated in the Y axis
 			Switch this off by translating by 0
-		transform: translateY(0)
-		@include respond(notebook)
-			transform: translateY(3rem)
+		// transform: translateY(0)
+		// @include respond(notebook)
+		// 	transform: translateY(3rem)
 		a
 			font-size: 1.2rem
+			padding-left: .5rem
 			@include respond(notebook)
 				font-size: 1.7rem
 
