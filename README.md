@@ -426,6 +426,10 @@ At the end of the project, all User Stories will be in the **Done** list and the
 #### After Sprint 1
 ![Trello board after Sprint 1](documentation/agile-planning/trello-after-sprint1.png)
 
+#### After Sprint 2
+![Trello board after Sprint 2](documentation/agile-planning/trello-after-sprint2.png)
+
+
 ### Version Control 
 <a id="git"></a>**Git** is used for version control of this project
 
