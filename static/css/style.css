@@ -777,6 +777,142 @@ footer {
 }
 
 /*===== END  Home Page  ===== */
+/*~~~~~~~  Therapies Page  ~~~~~~~ */
+.therapyTitle h1 {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+.therapyTitle hr {
+  width: 50%;
+  margin: 1.5rem auto 0 auto;
+}
+.therapyContainer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 32.25em) {
+  .therapyContainer {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 33.9375em) {
+  .therapyContainer {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 40.3125em) {
+  .therapyContainer {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 48.875em) {
+  .therapyContainer {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 51.75em) {
+  .therapyContainer {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 61.4375em) {
+  .therapyContainer {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 68.75em) {
+  .therapyContainer {
+    width: 96%;
+  }
+}
+@media only screen and (min-width: 82.8125em) {
+  .therapyContainer {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 90.625em) {
+  .therapyContainer {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 105.1875em) {
+  .therapyContainer {
+    width: 80%;
+  }
+}
+.therapyList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* External & Internal border padding */
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  row-gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/*===== END  Therapies Page  ===== */
+/*~~~~~~~  Single Therapy Page  ~~~~~~~ */
+.therapyWrapper {
+  padding: 2rem 1rem;
+}
+@media only screen and (min-width: 75em) {
+  .therapyWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .therapyImageWrapper {
+    width: 50%;
+  }
+}
+@incude respond(XL) {
+  .therapyImageWrapper {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+}
+.therapyDetails {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media only screen and (min-width: 75em) {
+  .therapyDetails {
+    width: 50%;
+  }
+}
+@incude respond(XL) {
+  .therapyDetails {
+    width: 33%;
+    margin-left: 15%;
+  }
+}
+.therapyDetailsDescription {
+  font-size: 1.4rem;
+}
+
+#idTherapySize {
+  width: 50%;
+}
+
+/*===== END  Single Therapy Page  ===== */
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
@@ -1163,5 +1299,98 @@ menu a {
   width: 2rem;
   font-size: 1.4rem;
 }
+
+/*~~~~~~~  Card  ~~~~~~~ */
+.therapyCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* Layout card in a grid
+   * https://www.youtube.com/watch?v=vQAvjof1oe4 */
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 250px;
+          flex: 0 1 250px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+}
+.therapyCard p {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+.therapyCardBody {
+  /* Push the cardFooter to the bottom of the card */
+  -webkit-box-flex: 1;
+      -ms-flex: auto 1 1;
+          flex: auto 1 1;
+  padding: 0 1rem;
+}
+.therapyCardBody h2 {
+  padding: 1rem 0;
+  font-size: 2rem;
+}
+.therapyCardFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: #ffcdbd;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  /* Since the footer hides the card's border-radius on the bottom
+   * Need to set its border radius on the bottom too */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.therapyCardFooter p {
+  margin-bottom: 0;
+  font-weight: 700;
+  color: #751c00;
+  opacity: 0.7;
+}
+.therapyCardFooter small {
+  color: #999999;
+}
+.therapyCardFooter .bookButton {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.therapyCardStyle {
+  color: #751c00;
+  font-size: 1.2rem;
+  font-family: Gabriela;
+}
+.therapyCardStyle a {
+  -webkit-text-decoration-color: #999999;
+          text-decoration-color: #999999;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
+  text-decoration-thickness: auto;
+}
+.therapyCardStyle a:visited, .therapyCardStyle a:link {
+  color: #999999;
+}
+.therapyCard img {
+  height: 21rem;
+  /* Since the image hides the card's border-radius on the top
+   * Need to set its border radius on the top too */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/*===== END  Card  ===== */
 
 /*# sourceMappingURL=style.css.map */

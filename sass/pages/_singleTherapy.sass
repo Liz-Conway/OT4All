@@ -1,0 +1,34 @@
+/*~~~~~~~  Single Therapy Page  ~~~~~~~*/
+
+.therapy
+	&Wrapper
+		padding: 2rem 1rem
+		@include respond(desktop)
+			//margin-top: 16rem
+			display: flex
+			flex-direction: row
+			align-items: center
+
+	&ImageWrapper
+		@include respond(desktop)
+			width: 50%
+		@incude respond(XL)
+			margin-top: 5rem
+			margin-bottom: 5rem
+
+	&Details
+		padding-left: 2rem
+		padding-right: 2rem
+		@include respond(desktop)
+			width: 50%
+		@incude respond(XL)
+			width: 33%
+			margin-left: 15%
+
+		&Description
+			font-size: 1.4rem
+
+#idTherapySize
+	width: 50%
+
+/*===== END  Single Therapy Page  =====*/
