@@ -1,0 +1,62 @@
+/*~~~~~~~  Single Therapy Page  ~~~~~~~*/
+
+.therapy
+	&Wrapper
+		padding: 2rem 1rem
+		@include respond(desktop)
+			//margin-top: 16rem
+			display: flex
+			flex-direction: row
+
+	&ImageWrapper
+		@include respond(desktop)
+			width: 50%
+			margin-right: 2rem
+		@incude respond(XL)
+			margin-top: 5rem
+			margin-bottom: 5rem
+		img
+			max-height: 43rem
+
+	&Details
+		margin-top: 1rem
+		@include respond(desktop)
+			width: 50%
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+		@incude respond(XL)
+			width: 33%
+			margin-left: 15%
+
+		&Description
+			margin-top: .5rem
+
+		&Body
+			p
+				margin-top: .75rem
+
+		&Price
+			font:
+				size: 2.5rem
+				weight: $boldWt
+
+		&Label
+			font-weight: $boldWt
+
+		&Sessions
+			margin-top: 1rem
+		&Footer
+			margin-top: 1rem
+			font-size: $baseFontSize
+			p
+				margin-top: .75rem
+
+p.therapyDetailsPrice
+	margin-top: 1.25rem
+
+
+.shopButtons
+	margin-top: 1.2rem
+
+/*===== END  Single Therapy Page  =====*/

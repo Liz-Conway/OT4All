@@ -95,6 +95,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-size: 1.6rem;
   /* Mobile devices do not honour the "vh" property properly */
   /* So setting the view height to less than 100 for mobile devices */
   min-height: 92vh;
@@ -852,14 +853,101 @@ footer {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   /* External & Internal border padding */
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
-  row-gap: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  row-gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /*===== END  Therapies Page  ===== */
+/*~~~~~~~  Single Therapy Page  ~~~~~~~ */
+.therapyWrapper {
+  padding: 2rem 1rem;
+}
+@media only screen and (min-width: 75em) {
+  .therapyWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .therapyImageWrapper {
+    width: 50%;
+    margin-right: 2rem;
+  }
+}
+@incude respond(XL) {
+  .therapyImageWrapper {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+}
+.therapyImageWrapper img {
+  max-height: 43rem;
+}
+.therapyDetails {
+  margin-top: 1rem;
+}
+@media only screen and (min-width: 75em) {
+  .therapyDetails {
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+@incude respond(XL) {
+  .therapyDetails {
+    width: 33%;
+    margin-left: 15%;
+  }
+}
+.therapyDetailsDescription {
+  margin-top: 0.5rem;
+}
+.therapyDetailsBody p {
+  margin-top: 0.75rem;
+}
+.therapyDetailsPrice {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.therapyDetailsLabel {
+  font-weight: 700;
+}
+.therapyDetailsSessions {
+  margin-top: 1rem;
+}
+.therapyDetailsFooter {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+.therapyDetailsFooter p {
+  margin-top: 0.75rem;
+}
+
+p.therapyDetailsPrice {
+  margin-top: 1.25rem;
+}
+
+.shopButtons {
+  margin-top: 1.2rem;
+}
+
+/*===== END  Single Therapy Page  ===== */
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
@@ -1065,7 +1153,7 @@ menu a {
 .btn {
   text-transform: uppercase;
   display: inline-block;
-  padding: 1.5rem 4rem;
+  padding: 1.3rem 1.8rem;
   border-radius: 10rem;
   font-size: 1.6rem;
   background-color: #ffcdbd;
@@ -1084,7 +1172,7 @@ menu a {
           box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .btn:active {
-  color: #191970;
+  color: #b299ff;
   background-color: #751c00;
   /* Make the button appear to be pressed => 3D effect */
   -webkit-transform: translateY(-0.1rem);
@@ -1099,11 +1187,16 @@ menu a {
 .btnCTA {
   background-color: #b299ff;
 }
+.btnPrimary {
+  background-color: #99ffb2;
+  margin-left: auto;
+  margin-right: 3rem;
+}
 .btnGhost {
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 .btnGhost:hover {
-  color: #000000;
+  color: #751c00;
 }
 .btnGhost:active {
   color: #FFFFFF;
@@ -1115,6 +1208,27 @@ menu a {
 .btnTextOnly:hover, .btnTextOnly:active {
   background-color: transparent;
   color: #ffcdbd;
+}
+
+button[class$="crementSessions"] {
+  background-color: #000000;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  height: 3.75rem;
+  width: 3.75rem;
+}
+button[class$="crementSessions"]:disabled {
+  background-color: #808080;
+  cursor: not-allowed;
+}
+
+.incrementSessions {
+  margin-left: -0.5rem;
+}
+
+.decrementSessions {
+  margin-right: -0.5rem;
 }
 
 /*===== END  Button  ===== */
@@ -1339,5 +1453,23 @@ menu a {
 }
 
 /*===== END  Card  ===== */
+.sessionsInput {
+  /* 7.5rem is twice the width of an increment/decrement button */
+  width: 25%;
+  font-size: 1.3rem;
+  height: 3.75rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.5;
+}
+
+.shopButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
 
 /*# sourceMappingURL=style.css.map */

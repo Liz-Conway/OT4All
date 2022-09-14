@@ -2,7 +2,7 @@
 .btn
 	text-transform: uppercase
 	display: inline-block
-	padding: 1.5rem 4rem
+	padding: 1.3rem 1.8rem
 	border-radius: 10rem
 	font-size: $baseFontSize
 	background-color: $midtone
@@ -18,7 +18,7 @@
 		box-shadow: 0 1rem 2rem rgba($black, .2)
 
 	&:active
-		color: $accentDark
+		color: $highlight
 		background-color: $shadow
 		/* Make the button appear to be pressed => 3D effect */
 		transform: translateY(-.1rem)
@@ -31,10 +31,15 @@
 	&CTA
 		background-color: $highlight
 
+	&Primary
+		background-color: $accentLight
+		margin-left: auto
+		margin-right: 3rem
+
 	&Ghost
-		background-color: $white
+		background-color: transparent
 		&:hover
-			color: $black
+			color: $shadow
 		&:active
 			color: $white
 
@@ -44,4 +49,23 @@
 		&:hover, &:active
 			background-color: transparent
 			color: $midtone
+
+button[class$="crementSessions"]
+	background-color: $black
+	color: $white
+	cursor: pointer
+	padding: .25rem .5rem
+	height: 3.75rem
+	width: 3.75rem
+
+	&:disabled
+		background-color: $greyHelp
+		cursor: not-allowed
+
+.incrementSessions
+	margin-left: -.5rem
+
+.decrementSessions
+	margin-right: -.5rem
+
 /*===== END  Button  =====*/
