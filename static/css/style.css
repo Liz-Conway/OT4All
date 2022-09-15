@@ -1595,6 +1595,32 @@ ul.errorlist {
   padding: 0 2rem;
 }
 
+#id_remember {
+  /*	The checkbox for the "Remember Me" label
+   * is laid out on the row after the label
+   * Need to move it so it is beside its label */
+  -webkit-transform: translate(-5rem, -2rem);
+          transform: translate(-5rem, -2rem);
+}
+
+.loginPage {
+  padding: 0 2rem;
+}
+.loginForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1.5rem 0;
+}
+.loginButtons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
 /*===== END  Django AllAuth  ===== */
 
 /*# sourceMappingURL=style.css.map */
