@@ -25,11 +25,16 @@
 	                        	<menuitem>
 									<a id="accountOptions" class="shopAccountsLabel dropMenuTopLink">My Profile</a>
 									<menu class="subMenu">
-			                                <menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
-											<menuitem><a href="{% url 'account_signup' %}">Register</a></menuitem>
-											{% if request.user.is_authenticated %}
+								    	<menuitem id="homeLink">
+								            <a href="{% url 'home' %}">Home</a>
+							    		</menuitem>
+								        {% if request.user.is_authenticated %}
+									            {% if request.user.is_superuser %}
+				                                	<menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
+												{% endif %}
 												<menuitem><a href="{% url 'account_logout' %}">Logout</a></menuitem>
 											{% else %}
+												<menuitem><a href="{% url 'account_signup' %}">Register</a></menuitem>
 												<menuitem><a href="{% url 'account_login' %}">Login</a></menuitem>
 											{% endif %}
 									</menu>
