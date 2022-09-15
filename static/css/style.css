@@ -1621,6 +1621,27 @@ ul.errorlist {
       align-self: flex-end;
 }
 
+.passwordReset {
+  padding: 1.5rem 2rem;
+}
+.passwordResetForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 1rem;
+}
+.passwordResetButtons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.passwordResetButtons input {
+  border-radius: 10rem;
+}
+
 /*===== END  Django AllAuth  ===== */
 
 /*# sourceMappingURL=style.css.map */
