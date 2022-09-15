@@ -10,6 +10,8 @@ ul.errorlist
 		margin-top: 2rem
 		@include respond(notebook)
 			width: 50%
+		@include respond(desktop)
+			width: 35%
 		margin-left: auto
 		margin-right: auto
 
@@ -113,6 +115,23 @@ ul.errorlist
 
 label[for="id_remember"]
 	padding-left: 2rem
+
+.logout
+	&Page
+		@include respond(tabletPortrait)
+			width: 50%
+			margin-left: auto
+			margin-right: auto
+		@include respond(notebook)
+			/* At the "notebook" size an outer div is set to 50%
+				So reset the width back to full width again
+			width: 100%
+	&Form
+		display: flex
+		flex-direction: column
+	&Buttons
+		margin-top: 2rem
+		align-self: flex-end
 
 .password
 	&Reset

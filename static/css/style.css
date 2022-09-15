@@ -1492,6 +1492,11 @@ ul.errorlist {
     width: 50%;
   }
 }
+@media only screen and (min-width: 75em) {
+  .allauthWrapper {
+    width: 35%;
+  }
+}
 .allauthWrapper form.login p {
   margin-top: 0.75rem;
 }
@@ -1631,6 +1636,35 @@ ul.errorlist {
 
 label[for="id_remember"] {
   padding-left: 2rem;
+}
+
+@media only screen and (min-width: 37.5em) {
+  .logoutPage {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .logoutPage {
+    /* At the "notebook" size an outer div is set to 50%
+     * So reset the width back to full width again */
+    width: 100%;
+  }
+}
+.logoutForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.logoutButtons {
+  margin-top: 2rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 .passwordResetForm {
