@@ -1641,6 +1641,33 @@ ul.errorlist {
 .passwordResetButtons input {
   border-radius: 10rem;
 }
+.passwordResetDone {
+  padding: 1.5rem 2rem;
+}
+.passwordResetDone p {
+  padding-bottom: 1rem;
+}
+.passwordResetKey {
+  padding: 1.5rem 2rem;
+}
+.passwordResetKey form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.passwordResetKey form input:last-of-type {
+  border-radius: 10rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.passwordResetKey form input:not(:last-of-type) {
+  min-width: 23rem;
+  max-width: 30rem;
+}
 
 /*===== END  Django AllAuth  ===== */
 
