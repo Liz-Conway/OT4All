@@ -1225,6 +1225,13 @@ button[class$="crementSessions"]:disabled {
   margin-right: -0.5rem;
 }
 
+.btnThin {
+  /* These thin buttons have too much padding above and below
+   * Override the default padding for these Buttons */
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
 /*===== END  Button  ===== */
 .search {
   -webkit-box-flex: 0;
@@ -1467,6 +1474,10 @@ button[class$="crementSessions"]:disabled {
 }
 
 /*~~~~~~~  Django AllAuth  ~~~~~~~ */
+ul.errorlist {
+  color: #e84610;
+}
+
 .allauthWrapper {
   width: 100%;
   margin-top: 2rem;
@@ -1548,11 +1559,40 @@ button[class$="crementSessions"]:disabled {
 .signup input {
   width: 80%;
 }
-.signup .btn {
-  /* These thin buttons have too much padding above and below
-   * Override the default padding for these Buttons */
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
+
+.emailVerifySent {
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 2rem;
+}
+.emailVerifySent a {
+  margin-top: 1rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.emailConfirm {
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.emailConfirm form {
+  margin-top: 1rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.emailConfirm p {
+  padding: 0 2rem;
 }
 
 /*===== END  Django AllAuth  ===== */

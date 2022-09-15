@@ -1,5 +1,8 @@
 /*~~~~~~~  Django AllAuth  ~~~~~~~*/
 
+ul.errorlist
+	color: $error
+
 .allauth
 	&Wrapper
 		width: 100%
@@ -62,10 +65,15 @@
 	input
 		width: 80%
 
-	.btn
-		/* These thin buttons have too much padding above and below
-			Override the default padding for these Buttons
-		padding-top: .8rem
-		padding-bottom: .8rem
+.email
+	&VerifySent
+		margin-bottom: 1.5rem
+		display: flex
+		flex-direction: column
+		padding-left: 2rem
+		a
+			margin-top: 1rem
+			align-self: flex-end
+
 
 /*===== END  Django AllAuth  =====*/
