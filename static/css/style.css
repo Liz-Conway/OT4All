@@ -1487,7 +1487,7 @@ ul.errorlist {
   margin-left: auto;
   margin-right: auto;
 }
-@media only screen and (min-width: 75em) {
+@media only screen and (min-width: 59.375em) {
   .allauthWrapper {
     width: 50%;
   }
@@ -1598,14 +1598,6 @@ ul.errorlist {
   padding: 0 2rem;
 }
 
-#id_remember {
-  /*	The checkbox for the "Remember Me" label
-   * is laid out on the row after the label
-   * Need to move it so it is beside its label */
-  -webkit-transform: translate(-5rem, -2rem);
-          transform: translate(-5rem, -2rem);
-}
-
 .loginPage {
   padding: 0 2rem;
 }
@@ -1618,10 +1610,27 @@ ul.errorlist {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 1.5rem 0;
+  position: relative;
 }
 .loginButtons {
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+#id_remember {
+  /*	The checkbox for the "Remember Me" label
+   * is laid out on the row after the label
+   * Need to move it so it is beside its label
+   * // transform: translate(0, -2rem)
+   * // transform: translateY(-2rem)
+   * // transform: translateX(0) */
+  position: absolute;
+  top: 11rem;
+  left: 0;
+}
+
+label[for="id_remember"] {
+  padding-left: 2rem;
 }
 
 .passwordResetForm {

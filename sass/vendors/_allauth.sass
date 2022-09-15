@@ -8,7 +8,7 @@ ul.errorlist
 	&Wrapper
 		width: 100%
 		margin-top: 2rem
-		@include respond(desktop)
+		@include respond(notebook)
 			width: 50%
 		margin-left: auto
 		margin-right: auto
@@ -86,12 +86,6 @@ ul.errorlist
 		p
 			padding: 0 2rem
 
-#id_remember
-	/*	The checkbox for the "Remember Me" label
-		is laid out on the row after the label
-		Need to move it so it is beside its label
-	transform: translate(-5rem, -2rem)
-
 
 .login
 	&Page
@@ -101,9 +95,24 @@ ul.errorlist
 		display: flex
 		flex-direction: column
 		margin: 1.5rem 0
+		position: relative
 
 	&Buttons
 		align-self: flex-end
+
+#id_remember
+	/*	The checkbox for the "Remember Me" label
+		is laid out on the row after the label
+		Need to move it so it is beside its label
+		// transform: translate(0, -2rem)
+		// transform: translateY(-2rem)
+		// transform: translateX(0)
+	position: absolute
+	top: 11rem
+	left: 0
+
+label[for="id_remember"]
+	padding-left: 2rem
 
 .password
 	&Reset
