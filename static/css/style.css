@@ -853,11 +853,11 @@ footer {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   /* External & Internal border padding */
-  -webkit-column-gap: 20px;
-          column-gap: 20px;
-  row-gap: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  row-gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 /*===== END  Therapies Page  ===== */
@@ -1016,19 +1016,13 @@ menu menuitem a {
   border: 1px solid #ffcdbd;
 }
 #accountOptions + .subMenu {
+  max-width: 12.3rem;
   /* The non-mobile .subMenu is translated in the Y axis
    * Switch this off by translating by 0 */
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-@media only screen and (min-width: 59.375em) {
-  #accountOptions + .subMenu {
-    -webkit-transform: translateY(3rem);
-            transform: translateY(3rem);
-  }
 }
 #accountOptions + .subMenu a {
   font-size: 1.2rem;
+  padding-left: 0.5rem;
 }
 @media only screen and (min-width: 59.375em) {
   #accountOptions + .subMenu a {
@@ -1229,6 +1223,13 @@ button[class$="crementSessions"]:disabled {
 
 .decrementSessions {
   margin-right: -0.5rem;
+}
+
+.btnThin {
+  /* These thin buttons have too much padding above and below
+   * Override the default padding for these Buttons */
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
 }
 
 /*===== END  Button  ===== */
@@ -1471,5 +1472,254 @@ button[class$="crementSessions"]:disabled {
       -ms-flex-direction: row;
           flex-direction: row;
 }
+
+/*~~~~~~~  Django AllAuth  ~~~~~~~ */
+ul.errorlist {
+  color: #e84610;
+}
+
+.allauth {
+  padding: 1.5rem 2rem;
+}
+.allauthWrapper {
+  width: 100%;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 59.375em) {
+  .allauthWrapper {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .allauthWrapper {
+    width: 35%;
+  }
+}
+.allauthWrapper form.login p {
+  margin-top: 0.75rem;
+}
+.allauthTitle {
+  margin-bottom: 2rem;
+  margin-top: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.allauthFormInnerContent p {
+  margin-top: 2rem;
+  color: #751c00;
+}
+.allauthFormInnerContent a {
+  color: #191970;
+}
+.allauthFormInnerContent input {
+  border-color: #751c00;
+  border-radius: 0;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+}
+.allauthFormInnerContent input::-webkit-input-placeholder {
+  color: #aab7c4;
+}
+.allauthFormInnerContent input:-ms-input-placeholder {
+  color: #aab7c4;
+}
+.allauthFormInnerContent input::-ms-input-placeholder {
+  color: #aab7c4;
+}
+.allauthFormInnerContent input::placeholder {
+  color: #aab7c4;
+}
+.allauthFormInnerContent label:not([for="id_remember"]) {
+  /* Hide the labels on everything except for the remember me checkbox on the login page */
+  /* since all the other inputs will have placeholders */
+  display: none;
+  /* Standard Bootstrap transition */
+  transistion: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.allauthFormInnerContent label:not([for="id_remember"]):hover {
+  color: #b299ff;
+  background-color: #333333;
+  border-color: #333333;
+}
+.allauthSignUpFirst {
+  margin-bottom: 1rem;
+}
+
+.signup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1.5rem 0;
+}
+.signupButtons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.signup input {
+  width: 80%;
+}
+
+.emailVerifySent {
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 2rem;
+}
+.emailVerifySent a {
+  margin-top: 1rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.emailConfirm {
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.emailConfirm form {
+  margin-top: 1rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.emailConfirm p {
+  padding: 0 2rem;
+}
+
+.loginPage {
+  padding: 0 2rem;
+}
+.loginForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1.5rem 0;
+  position: relative;
+}
+.loginButtons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+#id_remember {
+  /*	The checkbox for the "Remember Me" label
+   * is laid out on the row after the label
+   * Need to move it so it is beside its label
+   * // transform: translate(0, -2rem)
+   * // transform: translateY(-2rem)
+   * // transform: translateX(0) */
+  position: absolute;
+  top: 11rem;
+  left: 0;
+}
+
+label[for="id_remember"] {
+  padding-left: 2rem;
+}
+
+@media only screen and (min-width: 37.5em) {
+  .logoutPage {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .logoutPage {
+    /* At the "notebook" size an outer div is set to 50%
+     * So reset the width back to full width again */
+    width: 100%;
+  }
+}
+.logoutForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.logoutButtons {
+  margin-top: 2rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.passwordResetForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 1rem;
+}
+.passwordResetButtons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.passwordResetButtons input {
+  border-radius: 10rem;
+}
+.passwordResetDone p {
+  padding-bottom: 1rem;
+}
+.passwordResetKey form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.passwordResetKey form input:last-of-type {
+  border-radius: 10rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.passwordResetKey form input:not(:last-of-type) {
+  min-width: 23rem;
+  max-width: 30rem;
+}
+.passwordResetKeyDone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.passwordResetKeyDone a {
+  margin-top: 1.5rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+/*===== END  Django AllAuth  ===== */
 
 /*# sourceMappingURL=style.css.map */

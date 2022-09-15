@@ -1,0 +1,171 @@
+/*~~~~~~~  Django AllAuth  ~~~~~~~*/
+
+ul.errorlist
+	color: $error
+
+.allauth
+	padding: 1.5rem 2rem
+	&Wrapper
+		width: 100%
+		margin-top: 2rem
+		@include respond(notebook)
+			width: 50%
+		@include respond(desktop)
+			width: 35%
+		margin-left: auto
+		margin-right: auto
+
+		form.login
+			p
+				margin-top: .75rem
+
+	&Title
+		margin-bottom: 2rem
+		margin-top: 1.4rem
+		text-transform: uppercase
+		text-align: center
+
+	&FormInnerContent
+		p
+			margin-top: 2rem
+			color: $shadow
+
+		a
+			color: $accentDark
+
+		input
+			border-color: $shadow
+			border-radius: 0
+			margin-bottom: 1rem
+			padding: .75rem 1rem
+			&::placeholder
+				color: $greyInvalid
+
+		label:not([for="id_remember"])
+			/* Hide the labels on everything except for the remember me checkbox on the login page */
+			/* since all the other inputs will have placeholders*/
+			display: none
+
+			/* Standard Bootstrap transition */
+			transistion: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+
+			&:hover
+				color: $highlight
+				background-color: $greyDark
+				border-color: $greyDark
+
+	&SignUpFirst
+		margin-bottom: 1rem
+
+.signup
+	display: flex
+	flex-direction: column
+	align-items: center
+	margin: 1.5rem 0
+	&Buttons
+		align-self: flex-end
+
+	input
+		width: 80%
+
+.email
+	&VerifySent
+		margin-bottom: 1.5rem
+		display: flex
+		flex-direction: column
+		padding-left: 2rem
+		a
+			margin-top: 1rem
+			align-self: flex-end
+
+	&Confirm
+		margin-bottom: 1.5rem
+		display: flex
+		flex-direction: column
+		form
+			margin-top: 1rem
+			align-self: flex-end
+		p
+			padding: 0 2rem
+
+
+.login
+	&Page
+		padding: 0 2rem
+
+	&Form
+		display: flex
+		flex-direction: column
+		margin: 1.5rem 0
+		position: relative
+
+	&Buttons
+		align-self: flex-end
+
+#id_remember
+	/*	The checkbox for the "Remember Me" label
+		is laid out on the row after the label
+		Need to move it so it is beside its label
+		// transform: translate(0, -2rem)
+		// transform: translateY(-2rem)
+		// transform: translateX(0)
+	position: absolute
+	top: 11rem
+	left: 0
+
+label[for="id_remember"]
+	padding-left: 2rem
+
+.logout
+	&Page
+		@include respond(tabletPortrait)
+			width: 50%
+			margin-left: auto
+			margin-right: auto
+		@include respond(notebook)
+			/* At the "notebook" size an outer div is set to 50%
+				So reset the width back to full width again
+			width: 100%
+	&Form
+		display: flex
+		flex-direction: column
+	&Buttons
+		margin-top: 2rem
+		align-self: flex-end
+
+.password
+	&Reset
+
+		&Form
+			display: flex
+			flex-direction: column
+			margin-top: 1rem
+
+		&Buttons
+			align-self: flex-end
+			input
+				border-radius: 10rem
+
+		&Done
+			p
+				padding-bottom: 1rem
+
+		&Key
+			form
+				display: flex
+				flex-direction: column
+				input:last-of-type
+					border-radius: 10rem
+					align-self: flex-end
+				input:not(:last-of-type)
+					min-width: 23rem
+					max-width: 30rem
+
+			&Done
+				display: flex
+				flex-direction: column
+				a
+					margin-top: 1.5rem
+					align-self: flex-end
+
+/*===== END  Django AllAuth  =====*/
