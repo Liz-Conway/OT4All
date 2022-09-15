@@ -1478,6 +1478,9 @@ ul.errorlist {
   color: #e84610;
 }
 
+.allauth {
+  padding: 1.5rem 2rem;
+}
 .allauthWrapper {
   width: 100%;
   margin-top: 2rem;
@@ -1621,9 +1624,6 @@ ul.errorlist {
       align-self: flex-end;
 }
 
-.passwordReset {
-  padding: 1.5rem 2rem;
-}
 .passwordResetForm {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1641,14 +1641,8 @@ ul.errorlist {
 .passwordResetButtons input {
   border-radius: 10rem;
 }
-.passwordResetDone {
-  padding: 1.5rem 2rem;
-}
 .passwordResetDone p {
   padding-bottom: 1rem;
-}
-.passwordResetKey {
-  padding: 1.5rem 2rem;
 }
 .passwordResetKey form {
   display: -webkit-box;
@@ -1667,6 +1661,20 @@ ul.errorlist {
 .passwordResetKey form input:not(:last-of-type) {
   min-width: 23rem;
   max-width: 30rem;
+}
+.passwordResetKeyDone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.passwordResetKeyDone a {
+  margin-top: 1.5rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 /*===== END  Django AllAuth  ===== */

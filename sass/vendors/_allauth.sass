@@ -4,6 +4,7 @@ ul.errorlist
 	color: $error
 
 .allauth
+	padding: 1.5rem 2rem
 	&Wrapper
 		width: 100%
 		margin-top: 2rem
@@ -106,7 +107,6 @@ ul.errorlist
 
 .password
 	&Reset
-		padding: 1.5rem 2rem
 
 		&Form
 			display: flex
@@ -119,12 +119,10 @@ ul.errorlist
 				border-radius: 10rem
 
 		&Done
-			padding: 1.5rem 2rem
 			p
 				padding-bottom: 1rem
 
 		&Key
-			padding: 1.5rem 2rem
 			form
 				display: flex
 				flex-direction: column
@@ -134,5 +132,12 @@ ul.errorlist
 				input:not(:last-of-type)
 					min-width: 23rem
 					max-width: 30rem
+
+			&Done
+				display: flex
+				flex-direction: column
+				a
+					margin-top: 1.5rem
+					align-self: flex-end
 
 /*===== END  Django AllAuth  =====*/
