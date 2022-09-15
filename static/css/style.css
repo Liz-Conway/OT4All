@@ -1466,4 +1466,95 @@ button[class$="crementSessions"]:disabled {
           flex-direction: row;
 }
 
+/*~~~~~~~  Django AllAuth  ~~~~~~~ */
+.allauthWrapper {
+  width: 100%;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 75em) {
+  .allauthWrapper {
+    width: 50%;
+  }
+}
+.allauthWrapper form.login p {
+  margin-top: 0.75rem;
+}
+.allauthTitle {
+  margin-bottom: 2rem;
+  margin-top: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.allauthFormInnerContent p {
+  margin-top: 2rem;
+  color: #751c00;
+}
+.allauthFormInnerContent a {
+  color: #191970;
+}
+.allauthFormInnerContent input {
+  border-color: #751c00;
+  border-radius: 0;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+}
+.allauthFormInnerContent input::-webkit-input-placeholder {
+  color: #aab7c4;
+}
+.allauthFormInnerContent input:-ms-input-placeholder {
+  color: #aab7c4;
+}
+.allauthFormInnerContent input::-ms-input-placeholder {
+  color: #aab7c4;
+}
+.allauthFormInnerContent input::placeholder {
+  color: #aab7c4;
+}
+.allauthFormInnerContent label:not([for="id_remember"]) {
+  /* Hide the labels on everything except for the remember me checkbox on the login page */
+  /* since all the other inputs will have placeholders */
+  display: none;
+  /* Standard Bootstrap transition */
+  transistion: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.allauthFormInnerContent label:not([for="id_remember"]):hover {
+  color: #b299ff;
+  background-color: #333333;
+  border-color: #333333;
+}
+.allauthSignUpFirst {
+  margin-bottom: 1rem;
+}
+
+.signup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1.5rem 0;
+}
+.signupButtons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.signup input {
+  width: 80%;
+}
+.signup .btn {
+  /* These thin buttons have too much padding above and below
+   * Override the default padding for these Buttons */
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+/*===== END  Django AllAuth  ===== */
+
 /*# sourceMappingURL=style.css.map */

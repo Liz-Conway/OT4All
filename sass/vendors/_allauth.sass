@@ -1,0 +1,71 @@
+/*~~~~~~~  Django AllAuth  ~~~~~~~*/
+
+.allauth
+	&Wrapper
+		width: 100%
+		margin-top: 2rem
+		@include respond(desktop)
+			width: 50%
+		margin-left: auto
+		margin-right: auto
+
+		form.login
+			p
+				margin-top: .75rem
+
+	&Title
+		margin-bottom: 2rem
+		margin-top: 1.4rem
+		text-transform: uppercase
+		text-align: center
+
+	&FormInnerContent
+		p
+			margin-top: 2rem
+			color: $shadow
+
+		a
+			color: $accentDark
+
+		input
+			border-color: $shadow
+			border-radius: 0
+			margin-bottom: 1rem
+			padding: .75rem 1rem
+			&::placeholder
+				color: $greyInvalid
+
+		label:not([for="id_remember"])
+			/* Hide the labels on everything except for the remember me checkbox on the login page */
+			/* since all the other inputs will have placeholders*/
+			display: none
+
+			/* Standard Bootstrap transition */
+			transistion: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+
+			&:hover
+				color: $highlight
+				background-color: $greyDark
+				border-color: $greyDark
+
+	&SignUpFirst
+		margin-bottom: 1rem
+
+.signup
+	display: flex
+	flex-direction: column
+	align-items: center
+	margin: 1.5rem 0
+	&Buttons
+		align-self: flex-end
+
+	input
+		width: 80%
+
+	.btn
+		/* These thin buttons have too much padding above and below
+			Override the default padding for these Buttons
+		padding-top: .8rem
+		padding-bottom: .8rem
+
+/*===== END  Django AllAuth  =====*/
