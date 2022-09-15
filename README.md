@@ -141,28 +141,56 @@ The user stories have been divided into different epics:
 
 #### Inital Landing page
 
-This is where the user arrives on first entering the site.  The only option a user has is to login to the amber system.  This page sets the theme for the application, with a Logo which when clicked will bring the user back to the home page.
+This is where the user arrives on first entering the site.  This page sets the theme for the application, with a Logo which when clicked will bring the user back to the home page.
 
-![Landing page](documentation/pages/home.png)
-![Landing page](documentation/pages/mobile/home.png)
+| Desktop    | Mobile    |
+| --- | --- |
+|  ![Landing page](documentation/pages/home.png)   |  ![Landing page](documentation/pages/mobile/home.png)   |
 
-#### Login
-
-Access to the OT4U application is achieved by using the Login feature.
-
-Supporting page - **Login page**
-![Login](documentation/pages/login.png)
-![Login](documentation/pages/mobile/login.png)
 
 
 #### Navigation
 Each page has a header at the top of the page which contains a logo and a NavBar.
 
-The 'My Account' link allows the user to Login or Register, if they are not logged in already.  Once logged in this link allows the user to Logout or view their Profile.  If the user is logged in as the "Site Owner" this link will also allow them to modify the services on offer to their clients.
-
 On small screen devices the NavBar is accessible by clicking the well recognised "hamburger" icon.  The user is shown a responsive menu on small screen devices.  
 
+The NavBar contains links to the 6 main pages. The NavBar is used so that the client can navigate easily between the major sections of the OT4U website, on every device.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|   ![Desktop Navbar](documentation/pages/navbar.png)  |  ![Mobile Navbar](documentation/pages/mobile/navbar.png)   |
+
+Hovering over the Therapies menu (clicking on it on mobile devices) will expose a dropdown menu with further options.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|   ![Desktop Therapies dropdown](documentation/pages/therapies-dropdown.png)  |  ![Mobile Therapies dropdown](documentation/pages/mobile/therapies-dropdown.png)   |
+
+
+
 On any page if the user clicks the logo they will be redirected to the OT4U home page.  The benefit of this is that it is a consistent behaviour across the entire website.  Also every NavBar has a "Home" link which will also always give the user the option to return to the home page of the OT4U application.  This means that the user can always get back to the home page, no matter where they are in the application.
+
+#### Track Clients Profile
+
+In the top right of every screen there is a "My Profile" link, which exposes a number of options.
+
+**Not logged in**
+
+|   Desktop  |  Mobile   |
+| --- | --- |
+|  ![My Profile](documentation/pages/my-profile-links.png)   |  ![My Profile](documentation/pages/mobile/my-profile-links.png)   |
+
+
+The 'My Profile' link allows the client to Login or Register, if they are not logged in already.  Once logged in this link allows the user to Logout or view their Profile.  If the user is logged in as the "Site Owner" this link will also allow them to modify the therapies on offer to their clients.
+
+
+#### Login
+
+In order to buy any of the Therapies offered by the OT4U application a client must use the Login feature.
+
+Supporting page - **Login page**
+![Login](documentation/pages/login.png)
+![Login](documentation/pages/mobile/login.png)
 
 
 #### Logout
@@ -179,12 +207,36 @@ In the OT4U web application there are 2 roles that a user can log in as:
 * Client
 * Site Owner
 
-Depending on the role assigned to the user, when they log in they will see a similar page but with different role-specific options.
+Depending on the role assigned to the user, when they log in they will see the same page but with different role-specific options under the "My Profile" menu.
+
+#### Therapies
+The purpose of this page is to show clients and potential clients a list of Occupational Therapies offered by this website.  By seeing a range of different Therapies, the client can make an informed decision as to the correct therapy to suit their particular needs.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapies page - desktop](documentation/pages/therapies.png)   |  ![Therapies page - mobile](documentation/pages/mobile/therapies.png)   |
+
+For each therapy the website shows a card which contains the name of the therapy, a description of the therapy, the style of the therapy and the cost of the therapy.  Informing the client of what the therapy does and what the style of the therapy is allows the client to make an informed decision as to which is the correct therapy to suit the particular problem they have.  This choice gives the client a feeling of control, since they are choosing which therapy they will book.  This gives a positive user experience, and the website as well as the therapy will help the client to feel better.
+
+The bright "Read More" button is a primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to draw the client's attention to where they need to go.
+
+#### View a single therapy
+
+Once a client clicks on the "Read More" button for a particular therapy the Single Therapy page of the chosen therapy is displayed.  The purpose of the Single Therapy page is to entice the client to book a number of sessions for that therapy.
+
+This page shows a larger image, the therapy name, details, style and cost.  If there is location, or extra requirements for the therapy they are shown here as well.
+
+A "number of sessions" input is pre-filled with the recommended number of sessions for the specific therapy.  A "Book" button is the primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to visually draw the client's attention to where they need to look and prompt them to take action.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapy page - desktop](documentation/pages/therapy.png)   |   ![Therapy page - mobile](documentation/pages/mobile/therapy.png)  |
+
 
 
 #### Site Owner functionality
 
-When logged in with an Admin role the user has access to the 'Product Management' features.
+When logged in with an Admin role the user has access to the 'Maintain Therapies' features.
 
 
 
@@ -235,7 +287,7 @@ When filling a form in the OT4U application, the user can reset the form.  This 
 
 ### Python structure
 <a id="python-structure"></a>
-The Django structure for the amber application is broken into ? apps.
+The Django structure for the OT4U application is broken into ? apps.
 
 1. **maintenance**
 
@@ -399,17 +451,16 @@ All static files are hosted with **WhiteNoise**.  [WhiteNoise](http://whitenoise
 <img src="documentation/agile-planning/user-story-map.png" alt="Epics and User Story Map" width="100%"/>
 
 
-[Trello](https://trello.com/b/0wEVCThe/amber-p4-ci-project) was used as the Agile tool for managing this project.  Each User Story was embodied in a trello card.  Each of these cards was added to a Kanban board.  The Kanban board was set up with a number of lists:
+[Trello](https://trello.com/b/MMDat2YT/ot4u) was used as the Agile tool for managing this project.  Each User Story was embodied in a trello card.  Each of these cards was added to a Kanban board.  The Kanban board was set up with a number of lists:
 
-* Story
+
 * ToDo
-* Doing always - iteration
 * In Process (Code the ... / Test the ...)
 * Testing
 * Code review
 * Done
 
-When a Story is being coded it is moved from the **ToDo** list into the **In Process** list.  When the code is finished for a story it is moved into the **Testing** list.  Once a story has been tested it is moved to the **Code Review** list.  When the OT4U application as a whole has been reviewed by peers and with the mentor, all the User Stories are moved to the **Done** list and the OT4U application is considered completed.
+When a Story is being coded it is moved from the **ToDo** list into the **In Process** list.  When the code is finished for a story it is moved into the **Testing** list.  Once a story has been tested it is moved to the **Code Review** list.  When the OT4U application as a whole has been reviewed by peers and with the mentor, all the User Stories are moved from the **Code Review** list to the **Done** list and the OT4U application is considered completed.
 
 At the end of the project, all User Stories will be in the **Done** list and the project will be finished.
 
@@ -517,7 +568,7 @@ Javascript was validated using [JSHint](https://jshint.com/)
 ![Create new App](documentation/deploy/heroku-create-new-app.png)
 
 
-4. Enter an app name (*amber-ci*) and region (*Europe*) and click the *Create app* button.
+4. Enter an app name (*ot4u-ci*) and region (*Europe*) and click the *Create app* button.
 
 ![Create app](documentation/deploy/heroku-create-app.png)
 
@@ -545,7 +596,7 @@ Javascript was validated using [JSHint](https://jshint.com/)
 
 12. Click the *Connect* button next to **Liz-Conway/Project-4-OT4U**.
 
-![Connect to github](documentation/deploy/heroku-amber-connect.png)
+![Connect to github](documentation/deploy/heroku-ot4u-connect.png)
 
 13. Heroku app is now connected to the Github repository.
 
