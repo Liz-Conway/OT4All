@@ -29,8 +29,14 @@
 						<option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
 						<option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
 						<option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-						<option value="style_asc" {% if current_sorting == 'style_asc' %}selected{% endif %}>Style (A-Z)</option>
-						<option value="style_desc" {% if current_sorting == 'style_desc' %}selected{% endif %}>Style (Z-A)</option>
+						<option value="style_asc" 
+							{% if current_sorting == 'style_asc' %}selected{% endif %}
+							{% if chosen_styles %} class="invisible"{% endif %}
+							>Style (A-Z)</option>
+						<option value="style_desc" 
+							{% if current_sorting == 'style_desc' %}selected{% endif %}
+							{% if chosen_styles %} class="invisible"{% endif %}
+							>Style (Z-A)</option>
 						<option  disabled role="separator">
 						<option value="reset" >Reset...</option>
 					</select>
