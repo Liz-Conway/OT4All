@@ -304,11 +304,11 @@ When filling a form in the OT4U application, the user can reset the form.  This 
 
 ### Entity Diagram
 <a id="entity-diagram"></a>
-![OT4U Entity Diagram](documentation/entity-relationship/entity-diagram.png)
+![OT4U Entity Diagram](documentation/entity-relation/entity-diagram.png)
 
 ### Entity Relationship Diagram
 <a id="erd"></a>
-![OT4U Entity-Relationship Diagram](documentation/entity-relationship/entity-relationship-diagram.png)
+![OT4U Entity-Relationship Diagram](documentation/entity-relation/entity-relationship-diagram.png)
 
 ### Python structure
 <a id="python-structure"></a>
@@ -467,6 +467,8 @@ The favicon for the OT4U project was created using [Real Favicon Generator](http
 ### Static Files
 All static files are hosted with **WhiteNoise**.  [WhiteNoise](http://whitenoise.evans.io/en/stable/django.html) allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere without relying on an external server.  During deployment to Heroku, Django collects the static files, whitenoise then serves these files, and updates the links in the html pages to point to the appropriate file on WhiteNoise.
 
+### Media files
+All uploadable media files are hosted on **Cloudinary**.  [Cloudinary](https://cloudinary.com/) allows you to store, transform, optimize, and deliver all your media assets with easy-to-use APIs, widgets, or user interface.  When a user uploads a media file on the OT4U website, it is uploaded to Cloudinary and the appropriate link to that file in Cloudinary is placed in the html.
 
 ## Software Development Process
 

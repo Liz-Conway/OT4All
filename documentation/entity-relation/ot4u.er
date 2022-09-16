@@ -1,0 +1,41 @@
+# Nice colors from Erwiz:
+# pink #fcecec
+# lilac #ececfc
+# green #d0e0d0
+# cream #fbfbdb
+# dirty yellow #eee0a0
+
+title {label: "OT4U Entity Diagram", size: "25"}
+relationship {color: "#0000cc"}
+
+# Entities
+
+
+[Therapy] {bgcolor: "#ececfc"}
+*id {label: "Integer, PK", bgcolor: "#eee0a0"}
++style {label: "FK(Style), Cascade.SET_NULL", color: "#888888", bgcolor: "#EEE7C8"}
+name {label: "Char(254), Unique"}
+description {label: "Text"}
+price {label: "Integer(3)"}
+image {label: "Image (Cloudinary)", color: "#336699"}
+course_sessions {label: "Integer"}
+location {label: "Char(254)"}
+extra_requirments {label: "Text"}
+
+
+[Style] {bgcolor: "#F5853F"}
+*id {label: "Integer, PK", bgcolor: "#eee0a0"}
+name {label: "Char(32), Unique"}
+equipment {label: "Text"}
+
+
+[LEGEND]
+*"Primary key" {label: "Integer, PK", bgcolor: "#eee0a0"}
++"Foreign Key" {label: "FK: Other table", color: "#888888", bgcolor: "#EEE7C8"}
++"Foreign Key" {label: "FK: Many-to-Many  (*-*)", color: "#888888", bgcolor: "#EEE7C8"}
+"Django Special field" {label: "Field name", color: "#336666"}
+"External Special field" {label: "Field name", color: "#336699"}
+
+
+#Relationships
+Style				1--*	Therapy	{label: "<  has style"}
