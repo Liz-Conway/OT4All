@@ -104,16 +104,19 @@
 
 
 
-### Who is this app for?
+### Who is this website for?
 <a id="who-for"></a>
+This website is for people who are looking for some Occupational Therapy in order to solve some physical problems/issues that they may have.
  
  
 ### What does it do?
 <a id="what-do"></a>
+This website allows people with physical ailments to access and book a variety of different Occupational Therapies.
   
  
 ### How does it work
 <a id="how-work"></a>
+The Occupational Therapist (or Site Owner) adds a list of the Occupational Therapy services that she offers onto the website.  The client visits the website and books a number of sessions of the particular type of Occupational Therapy that they need.
 
 
 ## Screen Mockup
@@ -173,11 +176,25 @@ On any page if the user clicks the logo they will be redirected to the OT4U home
 **Footer Navigation**
 
 In the footer of every page there are a number of navigation links: 
-* About Natalia
-* Get in Touch
-* Privacy Policy
-* Newsletter
-* Code Institute - Full Stack Diploma (this is a link to an external site)
+1. About Natalia
+	A link to the About page
+	
+3. Get in Touch
+	A link to the Contact/Get in Touch page
+	
+5. Privacy Policy
+	A link to the Privacy Policy page
+	
+7. Newsletter
+	A link to the "Subscribe to our newsletter" page
+	
+9. Code Institute - Full Stack Diploma
+	A link to an external site (Code Institute)
+
+|   Desktop  |  Mobile   |
+| --- | --- |
+|  ![Footer - desktop](documentation/pages/footer.png)   |   ![Footer - mobile](/home/fintanc/code/code institute/ot4u/documentation/pages/mobile/footer.png)  |
+
 
 
 #### Track Clients Profile
@@ -196,11 +213,18 @@ The 'My Profile' link allows the client to Login or Register, if they are not lo
 
 #### Login
 
-In order to buy any of the Therapies offered by the OT4U application a client must use the Login feature.
+In order to buy any of the Therapies offered by the OT4U application a client must use the Login feature.  
+The purpose of the login feature is to allow the client access to the shopping cart and "My Profile" features of the website.  It also ensures that the Site Owner has contact details for all clients.  This will be needed to make an appointment with the client.
 
 Supporting page - **Login page**
-![Login](documentation/pages/login.png)
-![Login](documentation/pages/mobile/login.png)
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Login page - desktop](documentation/pages/login.png)   |   ![Login page - mobile](documentation/pages/mobile/login.png)  |
+
+
+
+
 
 
 #### Logout
@@ -208,12 +232,59 @@ Supporting page - **Login page**
 All logged in users, regardless of their role, can log out of the OT4U application.  The logout feature asks the user to confirm that they want to logout.  This puts control in the hands of the user as they have more options, and will help prevent 'accidental' logouts.  This additional control will improve the user experience for logged in users.
 
 Supporting page - **Logout page**
-![Logout](documentation/pages/logout.png)
-![Logout](documentation/pages/mobile/logout.png)
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Logout page - Desktop](documentation/pages/logout.png)   |  ![Logout page - mobile](documentation/pages/mobile/logout.png)   |
+
+
+
 
 #### Register
+Before a client can log into the OT4U website they must have registered on the website.
+
+Supporting Page - **Registration page**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Registration page - desktop](documentation/pages/register.png)   |   ![Registration page - mobile](documentation/pages/mobile/register.png)  |
+
 
 #### Reset Password
+This feature can be a life-saver for any client who forgets their password and needs to login to the OT4U website.  It can be very frustrating for an end-user if they cannot a service that they need, so the benefits of this feature cannot be underestimated.
+
+When the client requests a reset of their password, they are taken to the password reset request page, where they submit their email address.  If their email address is one of the clients' email addresses a password reset email is sent to that address.  This is a key step in resetting the client's password and is required so that the password reset process can begin.
+
+Supporting Page - **Password Reset Request**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|   ![Password reset request page - Desktop](documentation/pages/password-reset-request.png)  |   ![Password reset request page - mobile](documentation/pages/mobile/password-reset-request.png)  |
+
+The client is shown a password reset sent page, with the option to return to the home page.  This page informs the user that the password reset email was sent.  Without this page the client might not realise that the email was sent and that they need to check their email.  If this was the case the client could lose confidence in the OT4U website.  Therefore this page is an important part of keeping the client's trust in the OT4U website.
+
+Supporting page - **Confirm password reset email sent**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Confirm password reset email sent page - Desktop](documentation/pages/confirm-password-reset-email-sent.png)   |   ![Confirm password reset email sent - Mobile](documentation/pages/mobile/confirm-password-reset-email-sent.png)  |
+
+When the client accesses the password reset link sent to them in the email, they are taken to the change password page.  This is where the client enters a new password (and confirms the new password).  This is the core piece of functionality for this feature.  The client gets to change their password.  Doing this will change the client's mood from one of frustration to one of positivity.  The client realises that they are achieving something and are not stuck without a way to log into the OT4U website.
+
+Supporting page - **Change Password**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Change password page - Desktop](documentation/pages/change-password.png)   |  ![Change password page - mobile](documentation/pages/mobile/change-password.png)   |
+
+
+Once the client submits the new password they are taken to the password changed page, where they are informed of the successful change of their password.  They are given a link back to the home page.  The client may go back to the home page, try to login again with their new password, or visit any of the pages via the navigation menu.  This page confirms that the client has successfully changed their password.  This page gives the client absolute assurance that they have achieved their goal and will have access to the OT4U website.  This is a very positive user experience that leaves the client trusting the OT4U website, and they will have a high level of confidence in the website.
+
+Supporting page - **Confirm Password Changed**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Confirm password changed - Desktop](documentation/pages/password-changed.png)   |  ![Confirm password changed - mobile](documentation/pages/mobile/password-changed.png)   |
 
 #### User Roles
 
@@ -234,6 +305,8 @@ For each therapy the website shows a card which contains the name of the therapy
 
 The bright "Read More" button is a primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to draw the client's attention to where they need to go.
 
+Seeing a variety of Occupational Therapy options gives the client a choice as to what they will pick for their particular ailment.  This choice gives the client a feeling of being in control.  Giving the client this feeling of control makes the client happy with the site and will build trust.
+
 #### View a single therapy
 
 Once a client clicks on the "Read More" button for a particular therapy the Single Therapy page of the chosen therapy is displayed.  The purpose of the Single Therapy page is to entice the client to book a number of sessions for that therapy.
@@ -241,6 +314,10 @@ Once a client clicks on the "Read More" button for a particular therapy the Sing
 This page shows a larger image, the therapy name, details, style and cost.  If there is a location, or extra requirements for the therapy they are shown here as well.
 
 A "number of sessions" input is pre-filled with the recommended number of sessions for the specific therapy.  A "Book" button is the primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to visually draw the client's attention to where they need to look and prompt them to take action.
+
+The Single Therapy page will give more information on the therapy, such as equipment to be used, location where applicable and any additional requirements.
+
+The client can choose the number of sessions they wish to book, and still has the option to return back to the Therapies list.  These choices mean that the client is never forced down any one path and has the freedom to browse around until they find the correct fit for them.
 
 |  Desktop   |  Mobile   |
 | --- | --- |
@@ -312,19 +389,23 @@ When filling a form in the OT4U application, the user can reset the form.  This 
 
 ### Python structure
 <a id="python-structure"></a>
-The Django structure for the OT4U application is broken into ? apps.
+The Django structure for the OT4U application is broken into 4 apps.
 
 1. **maintenance**
 
 	This app contains all the code for pages that the Site Owner will interact with.
 
-2. **services**
+2. **therapy**
 
 	The app contains all the code for pages that allow a Client to view and book an OT Service.
 	
 3.	**profiles**
 
 	This app contains all the code for managing user accounts, including defining roles to be used for authentication.
+
+4.	**bookings**
+
+	This app contains all the code for managing bookings, including a shopping cart where all booked therapy sessions will be handled.
 
 
 
@@ -354,11 +435,11 @@ The Django structure for the OT4U application is broken into ? apps.
 
 ![Home page wireframe](documentation/ux/wireframes/HomePage.png)
 
-**OT Services**
+**OT Therapies**
 
 ![OT Services page wireframe](documentation/ux/wireframes/OTServices.png)
 
-**OT Service Detail**
+**Single OT Therapy**
 
 ![OT Service Detail page wireframe](documentation/ux/wireframes/ServiceDetail.png)
 
@@ -441,7 +522,7 @@ The use of colours in the OT4U application should make the user feel welcomed an
     - OT4U provides features that allow for retrieval of information in easily readable formats.
     - OT4U shows information in understable formats, lowering the work the user has to do to interpret the information.
 - Ease of use
-    - A simple easy-to-use application focusing on reducing the 'cognitive load' on Clients.  The system is designed so that users do not have to remember large amounts of detail.
+    - A simple easy-to-use application focusing on reducing the 'cognitive load' on Clients.  The system is designed so that clients do not have to remember large amounts of detail.
 - Information Display 
     - There is a main navigation bar on every page.  This allows navigation to all the main pages from everywhere on the site.
   
@@ -456,14 +537,15 @@ The favicon for the OT4U project was created using [Real Favicon Generator](http
     - Media Queries are used for each different screen size the tool will be used on.
 - Navigation 
     - Straightforward navigation enabling Clients to move easily from one part of the site to another.
-    - Main Navbar with *Home*, *OT Services*, *About*, *Get in Touch* links on all screen sizes from Tablet in Landscape orientation upwards.
+    - Main Navbar with *Home*, *Therapies*, *About*, *Approach*, *Testimonials*, *Get in Touch* links on all screen sizes from Tablet in Landscape orientation upwards.
     - On phones and tablets in portrait orientation all navigation links are removed from the page. A "hamburger" icon is provided.  When the "hamburger" icon is clicked a navigation menu appears which covers the entire page.  This navigation menu includes the main navigation links. It also include a large close button.  When the close button is clicked, the navigation menu disappears and the previous page is displayed.  When a link on the navigation menu is clicked, the navigation menu disappears and the appropriate page is shown.
-    - Links to *My Account*, *Shopping Cart* and *Search* above the main navbar on all screen sizes.
+    - Links to *My Profile*, *Shopping Cart* and *Search* above the main navbar on all screen sizes.
 
 - Image Treatment 
     - Images are compressed to reduce download times.  [tinypng.com](https://tinypng.com) was used to compress the  image files.
-    - Multiple versions of all images are used, with a smaller image used for smaller devices.  This reduces the download times for tablets and especially mobile devices.  
-    - 
+    - Multiple versions of all static images are used, with a smaller image used for smaller devices.  This reduces the download times for tablets and especially mobile devices.  
+
+
 ### Static Files
 All static files are hosted with **WhiteNoise**.  [WhiteNoise](http://whitenoise.evans.io/en/stable/django.html) allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere without relying on an external server.  During deployment to Heroku, Django collects the static files, whitenoise then serves these files, and updates the links in the html pages to point to the appropriate file on WhiteNoise.
 
@@ -509,6 +591,27 @@ At the end of the project, all User Stories will be in the **Done** list and the
 
 #### After Sprint 3
 ![Trello board after Sprint 3](documentation/agile-planning/trello-after-sprint3.png)
+
+
+#### After Sprint 4
+![Trello board after Sprint 4](documentation/agile-planning/trello-after-sprint4.png)
+
+#### After Sprint 5
+![Trello board after Sprint 5](documentation/agile-planning/trello-after-sprint5.png)
+
+#### After Sprint 6
+![Trello board after Sprint 6](documentation/agile-planning/trello-after-sprint6.png)
+
+#### After Sprint 7
+![Trello board after Sprint 7](documentation/agile-planning/trello-after-sprint7.png)
+
+#### After Sprint 8
+![Trello board after Sprint 8](documentation/agile-planning/trello-after-sprint8.png)
+
+#### After Sprint 9
+![Trello board after Sprint 9](documentation/agile-planning/trello-after-sprint9.png)
+
+
 
 ### Version Control 
 <a id="git"></a>**Git** is used for version control of this project
@@ -650,12 +753,9 @@ Javascript was validated using [JSHint](https://jshint.com/)
 	- **AJAX** stands for Asynchronous Javascript And Xml. Ajax is a means of loading data from the server and selectively updating parts of a web page without reloading the whole page.
 * [jQuery](https://jquery.com/)
 	- **jQuery** is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
-* [jQuery UI](https://jqueryui.com/)
-	- **jQuery UI** is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.
-* [SASS](https://sass.com/) ?????
-	- **SASS** is a GUI application for Less, Sass, Compass and CoffeeScript compilation, to help web developers to use them more efficientl.
+* [SASS](https://sass.com/)
+	- **SASS** is CSS with Superpowers.  Sass is the most mature, stable, and powerful professional grade CSS extension language in the world
 	- **[Koala](http://koala-app.com/)** is used to compile the SASS files into CSS, and auto-prefix particular CSS properties.
-
 * [Heroku](https://heroku.com/)
     - **Heroku** is used to host and run the OT4U application.
 * [Trello](https://trello.com/)
