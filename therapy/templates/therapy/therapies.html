@@ -10,6 +10,27 @@
 			<hr>
 		</div>
 		<div class="therapyContainer">
+			<div class="sortRow">
+				<div class="sortSelectWrapper">
+					<select id="sortSelector" class="customSelect border{% if current_sorting != 'None_None' %}Info{% else %}Black{% endif %}">
+						<option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
+						<option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+						<option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+						<option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+						<option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+						<option value="style_asc" {% if current_sorting == 'style_asc' %}selected{% endif %}>Style (A-Z)</option>
+						<option value="style_desc" {% if current_sorting == 'style_desc' %}selected{% endif %}>Style (Z-A)</option>
+					</select>
+				</div>
+				<div class="sortFound">
+					<p>
+						{% if search_term or current_styles or current_sorting != 'None_None' %}
+							<span><a href="{% url 'therapies' %}">Therapies</a> | </span>
+						{% endif %}
+						{{ therapies|length }} Therapies{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+					</p>
+				</div>
+			</div>
 			<div class="therapyList">
 				{% for therapy in therapies %}
 					<div class="therapyCard">
@@ -25,6 +46,7 @@
 						<div class="therapyCardFooter">
 							<p>€{{ therapy.price }}</p>
 							{% if therapy.style %}
+								<!-- Show a "Category" tag next to the style -->
 								<p class="therapyCardStyle">
 										<i class="fas fa-tag"></i>{{ therapy.style.name }}
 								</p>
@@ -39,4 +61,11 @@
 			</div>
 		</div>
 	</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {# Ensure we append this code to anything already in the block #}
+    {# as opposed to replacing it. #}
+    {{ block.super }}
+	<script src="{% static 'js/sorting.js' %}"></script>
 {% endblock %}
