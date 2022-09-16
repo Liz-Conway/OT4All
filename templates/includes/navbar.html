@@ -29,14 +29,14 @@
 						    	Type model so we have a programmatic way to access them
 						    	Of course we could also use the type id.
 								But this makes the URLs a little more semantic which is nice for the user -->
-						    	<menuitem><a href="{% url 'home'%}?style=equine">Equine Therapy</a></menuitem>
-						    	<menuitem><a href="{% url 'home'%}?style=literacy">Literacy Therapy</a></menuitem>
-						    	<menuitem><a href="{% url 'home'%}?style=selfcare">Self Care Therapy</a></menuitem>
+						    	<menuitem><a href="{% url 'therapies'%}?style=Equine">Equine Therapy</a></menuitem>
+						    	<menuitem><a href="{% url 'therapies'%}?style=Literacy">Literacy Therapy</a></menuitem>
+						    	<menuitem><a href="{% url 'therapies'%}?style=Self Care">Self Care Therapy</a></menuitem>
 								<!-- The "therapies" URL is followed by a question mark
 								to indicate we're about to pass the 'style' parameter.
 								Followed by "equine", "literacy", and "selfcare" separated by a comma.
 								This syntax ensures we end up with a comma-separated string in the view. -->
-						    	<menuitem><a href="{% url 'therapies'%}?style=equine,literacy,selfcare">All Therapies</a></menuitem>
+						    	<menuitem><a href="{% url 'therapies'%}">All Therapies</a></menuitem>
 					    	</menu>
 					    </menuitem>
 				    </menu>
