@@ -18,13 +18,14 @@ class AllTherapies(TemplateView):
     def get(self, request, *args, **kwargs):
         all_therapies = Therapy.objects.all()
 
-        # Start as none to ensure we don't get an error
-        # when loading the products page without a search term.
+        # Start as None to ensure we don't get an error
+        # when loading the Therapies page without a search term.
         style = None
         sort = None
         direction = None
         sorted_therapies = None
         filter_therapies = None
+        query = None
 
         # Access URL parameters by checking whether request.GET exists
         if request.GET:

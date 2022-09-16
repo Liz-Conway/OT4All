@@ -1315,32 +1315,31 @@ button[class$="crementSessions"]:disabled {
 }
 .searchInput:focus {
   outline: none;
-  width: 100%;
-  background-color: #808080;
+  background-color: #aab7c4;
 }
 .searchInput:focus::-webkit-input-placeholder {
   /*	Change the colour of the placeholder text
    * when the background gets darker
    * to ensure there is enough contrast */
-  color: #aab7c4;
+  color: #333333;
 }
 .searchInput:focus:-ms-input-placeholder {
   /*	Change the colour of the placeholder text
    * when the background gets darker
    * to ensure there is enough contrast */
-  color: #aab7c4;
+  color: #333333;
 }
 .searchInput:focus::-ms-input-placeholder {
   /*	Change the colour of the placeholder text
    * when the background gets darker
    * to ensure there is enough contrast */
-  color: #aab7c4;
+  color: #333333;
 }
 .searchInput:focus::placeholder {
   /*	Change the colour of the placeholder text
    * when the background gets darker
    * to ensure there is enough contrast */
-  color: #aab7c4;
+  color: #333333;
 }
 .searchInput::-webkit-input-placeholder {
   /* Change the colour of the placeholder text
@@ -1373,20 +1372,18 @@ button[class$="crementSessions"]:disabled {
 .searchInput:focus + .searchButton {
   /* When the input gets focus
    * Change the background colour of its sibling(+) button */
-  background-color: #808080;
+  background-color: #aab7c4;
 }
 .searchButton {
   border: none;
   background-color: #f4f2f2;
+  height: 2rem;
+  width: 2rem;
+  font-size: 1.4rem;
 }
 .searchButton:active {
   -webkit-transform: translateY(2px);
           transform: translateY(2px);
-}
-.searchIcon {
-  height: 2rem;
-  width: 2rem;
-  font-size: 1.4rem;
 }
 
 /*~~~~~~~  Card  ~~~~~~~ */
