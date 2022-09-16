@@ -22,6 +22,7 @@
 		</div>
 		<div class="therapyContainer">
 			<div class="sortRow">
+				{% if not search_term %}
 				<div class="sortSelectWrapper">
 					<select id="sortSelector" class="customSelect">
 						<option value="sortBy" disabled {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
@@ -41,6 +42,7 @@
 						<option value="reset" >Reset...</option>
 					</select>
 				</div>
+				{% endif %}
 				<div class="sortFound">
 					<p>
 						{% if search_term or current_styles or current_sorting != 'None_None' %}

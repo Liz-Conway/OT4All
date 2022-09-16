@@ -24,6 +24,7 @@ class AllTherapies(TemplateView):
         sort = None
         direction = None
         sorted_therapies = None
+        filter_therapies = None
 
         # Access URL parameters by checking whether request.GET exists
         if request.GET:
@@ -115,7 +116,13 @@ class AllTherapies(TemplateView):
                 queries = Q(name__icontains=query) | Q(
                     description__icontains=query
                 )
-                therapies = all_therapies.filter(queries)
+
+                if filter_therapies:
+                    query_on = filter_therapies
+                else:
+                    query_on = all_therapies
+
+                therapies = query_on.filter(queries)
 
         else:
             # If there are no GET parameters, return ALL therapies
@@ -132,10 +139,8 @@ class AllTherapies(TemplateView):
             "current_sorting": current_sorting,
             "chosen_styles": style,
             "all_styles": all_styles,
+            "search_term": query,
         }
-
-        print(f"Chosen Styles :  {style}")
-        print(f"All Styles :  {all_styles}")
 
         return render(request, self.template_name, context)
 
