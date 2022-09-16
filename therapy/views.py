@@ -1,7 +1,10 @@
 from django.views.generic.base import TemplateView
 from therapy.models import Therapy, Style
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models.functions.text import Lower
+from django.contrib import messages
+from django.urls.base import reverse
+from django.db.models.query_utils import Q
 
 
 # Create your views here.
@@ -81,6 +84,38 @@ class AllTherapies(TemplateView):
                 style = Style.objects.filter(name__in=styles)
 
                 therapies = filter_therapies
+
+            # Search
+            # Since we named the text input in the form "q".
+            # We can just check if "q" is in request.get
+            if "q" in request.GET:
+                # If "q" is a URL parameter
+                # set it equal to a variable called query.
+                query = request.GET["q"]
+                # If the query is blank it's not going to return any results
+                if not query:
+                    # Use the Django messages framework
+                    # to attach an error message to the request
+                    messages.error(
+                        request, "You didn't enter any search criteria"
+                    )
+                    # Redirect back to the products URL
+                    return redirect(reverse("therapies"))
+
+                # Django can't handle basic database OR logic
+                # We want to return results where the query was matched
+                # in either the product name OR the description
+                # In order to accomplish this OR logic, we need to use Q
+                # Set a variable equal to a Q object
+                #  - Where the "name" contains the query
+                #  - OR the "description" contains the query.
+                # The pipe generates the OR statement.
+                # The "i" in front of "contains"
+                # makes the queries case insensitive.
+                queries = Q(name__icontains=query) | Q(
+                    description__icontains=query
+                )
+                therapies = all_therapies.filter(queries)
 
         else:
             # If there are no GET parameters, return ALL therapies
