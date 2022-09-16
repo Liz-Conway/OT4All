@@ -1478,6 +1478,32 @@ button[class$="crementSessions"]:disabled {
           flex-direction: row;
 }
 
+/*~~~~~~~  Sort  ~~~~~~~ */
+.sortRow {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 2rem 0;
+}
+@media only screen and (min-width: 22.5em) {
+  .sortRow {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+}
+
+/*===== END  Sort  ===== */
 /*~~~~~~~  Django AllAuth  ~~~~~~~ */
 ul.errorlist {
   color: #e84610;
