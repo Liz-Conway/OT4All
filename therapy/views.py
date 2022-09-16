@@ -84,9 +84,12 @@ class AllTherapies(TemplateView):
         context = {
             "therapies": therapies,
             "current_sorting": current_sorting,
-            "current_styles": style,
+            "chosen_styles": style,
             "all_styles": all_styles,
         }
+
+        print(f"Chosen Styles :  {style}")
+        print(f"All Styles :  {all_styles}")
 
         return render(request, self.template_name, context)
 
