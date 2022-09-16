@@ -779,8 +779,10 @@ footer {
 
 /*===== END  Home Page  ===== */
 /*~~~~~~~  Therapies Page  ~~~~~~~ */
-.therapyTitle h1 {
+.therapyTitle {
   text-align: center;
+}
+.therapyTitle h1 {
   margin-top: 3rem;
   font-size: 3rem;
   font-weight: 500;
@@ -1208,6 +1210,33 @@ menu a {
   background-color: transparent;
   color: #ffcdbd;
 }
+.btnThin {
+  /* These thin buttons have too much padding above and below
+   * Override the default padding for these Buttons */
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.btnStyle {
+  text-decoration: none;
+  text-align: center;
+}
+.btnStyle span {
+  color: #751c00;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #751c00;
+  border-radius: 0;
+  font-weight: 700;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.btnStyle span:hover {
+  background-color: #b299ff;
+}
+.btnStyleActive span {
+  background-color: #751c00;
+  color: #99ffb2;
+}
 
 button[class$="crementSessions"] {
   background-color: #000000;
@@ -1228,13 +1257,6 @@ button[class$="crementSessions"]:disabled {
 
 .decrementSessions {
   margin-right: -0.5rem;
-}
-
-.btnThin {
-  /* These thin buttons have too much padding above and below
-   * Override the default padding for these Buttons */
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
 }
 
 /*===== END  Button  ===== */
@@ -1478,6 +1500,32 @@ button[class$="crementSessions"]:disabled {
           flex-direction: row;
 }
 
+/*~~~~~~~  Sort  ~~~~~~~ */
+.sortRow {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 2rem 0;
+}
+@media only screen and (min-width: 22.5em) {
+  .sortRow {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+}
+
+/*===== END  Sort  ===== */
 /*~~~~~~~  Django AllAuth  ~~~~~~~ */
 ul.errorlist {
   color: #e84610;

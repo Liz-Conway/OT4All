@@ -50,6 +50,38 @@
 			background-color: transparent
 			color: $midtone
 
+
+	&Thin
+		/* These thin buttons have too much padding above and below
+			Override the default padding for these Buttons
+		padding-top: .8rem
+		padding-bottom: .8rem
+
+	&Style
+		// Square buttons for the filter by style buttons`
+
+		text-decoration: none
+		text-align: center
+
+		span
+			color: $shadow
+			padding: .5rem
+			margin-top: .5rem
+			border: 1px solid $shadow
+			border-radius: 0
+			font:
+				weight: $boldWt
+			transition: all .15s ease-in-out
+
+			&:hover
+				background-color: $highlight
+				// color: $white
+
+		&Active
+			span
+				background-color: $shadow
+				color: $accentLight
+
 button[class$="crementSessions"]
 	background-color: $black
 	color: $white
@@ -67,11 +99,5 @@ button[class$="crementSessions"]
 
 .decrementSessions
 	margin-right: -.5rem
-
-.btnThin
-	/* These thin buttons have too much padding above and below
-		Override the default padding for these Buttons
-	padding-top: .8rem
-	padding-bottom: .8rem
 
 /*===== END  Button  =====*/

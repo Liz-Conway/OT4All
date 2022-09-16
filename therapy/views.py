@@ -1,6 +1,8 @@
 from django.views.generic.base import TemplateView
-from therapy.models import Therapy
+from therapy.models import Therapy, Style
 from django.shortcuts import render, get_object_or_404
+from django.db.models.functions.text import Lower
+from pip._vendor.pygments import styles
 
 
 # Create your views here.
@@ -14,9 +16,89 @@ class AllTherapies(TemplateView):
     def get(self, request, *args, **kwargs):
         all_therapies = Therapy.objects.all()
 
+        # Start as none to ensure we don't get an error
+        # when loading the products page without a search term.
+        style = None
+        sort = None
+        direction = None
+        sorted_therapies = None
+
+        # Access URL parameters by checking whether request.GET exists
+        if request.GET:
+            if "sort" in request.GET:
+                sortkey = request.GET["sort"]
+                sort = sortkey
+                if sortkey == "name":
+                    # annotate() allows us to add another field to the
+                    # dataset returned from the database.
+                    # Using the Lower() function on the original "name" field
+                    all_therapies = all_therapies.annotate(
+                        lower_name=Lower("name")
+                    )
+                    # The reason for copying the sort parameter
+                    # into a new variable called sortkey,
+                    # Is because now we've preserved the original field
+                    # we want to sort on ("name").
+                    # But we have the actual field we're going to sort on,
+                    # ("lower_name") in the sort key variable.
+                    # If we had just renamed sort itself to "lower_name"
+                    # we would have lost the original field ("name")
+
+                    # set the sortKey to lower_name
+                    sortkey = "lower_name"
+
+                if sortkey == "category":
+                    sortkey = "category__name"
+
+                if "direction" in request.GET:
+                    direction = request.GET["direction"]
+                    if direction == "desc":
+                        # Add a minus in front of the sort key
+                        # using string formatting, which reverses the order
+                        sortkey = f"-{sortkey}"
+
+                sorted_therapies = all_therapies.order_by(sortkey)
+                therapies = sorted_therapies
+
+            # Filter the therapies by the style chosen by the client
+            if "style" in request.GET:
+                # If the therapies have been sorted already, use the sorted therapies
+                if sorted_therapies:
+                    filter_on = sorted_therapies
+                else:
+                    filter_on = all_therapies
+
+                # Split the styles in the GET parameter into a list at the commas.
+                styles = request.GET["style"].split(",")
+
+                # Use the styles list to filter the current query set of all therapies
+                # down to only therapies whose style name is in the list
+                filter_therapies = filter_on.filter(style__name__in=styles)
+                # Filter a list of Style objects
+                # to those passed in the URL parameter
+                style = Style.objects.filter(name__in=styles)
+
+                therapies = filter_therapies
+
+        else:
+            # If there are no GET parameters, return ALL therapies
+            therapies = all_therapies
+
+        all_styles = Style.objects.all()
+
+        # If there is no sorting
+        # The value of this variable will be the string "None_None".
+        current_sorting = f"{sort}_{direction}"
+
         context = {
-            "therapies": all_therapies,
+            "therapies": therapies,
+            "current_sorting": current_sorting,
+            "chosen_styles": style,
+            "all_styles": all_styles,
         }
+
+        print(f"Chosen Styles :  {style}")
+        print(f"All Styles :  {all_styles}")
 
         return render(request, self.template_name, context)
 
