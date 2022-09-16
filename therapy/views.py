@@ -21,6 +21,7 @@ class AllTherapies(TemplateView):
         style = None
         sort = None
         direction = None
+        sorted_therapies = None
 
         # Access URL parameters by checking whether request.GET exists
         if request.GET:
@@ -56,15 +57,23 @@ class AllTherapies(TemplateView):
                         # using string formatting, which reverses the order
                         sortkey = f"-{sortkey}"
 
-                therapies = all_therapies.order_by(sortkey)
+                sorted_therapies = all_therapies.order_by(sortkey)
+                therapies = sorted_therapies
 
             # Filter the therapies by the style chosen by the client
             if "style" in request.GET:
-                # Split it into a list at the commas.
+                # If the therapies have been sorted already, use the sorted therapies
+                if sorted_therapies:
+                    filter_on = sorted_therapies
+                else:
+                    filter_on = all_therapies
+
+                # Split the styles in the GET parameter into a list at the commas.
                 styles = request.GET["style"].split(",")
-                # Use that list to filter the current query set of all therapies
+
+                # Use the styles list to filter the current query set of all therapies
                 # down to only therapies whose style name is in the list
-                filter_therapies = all_therapies.filter(style__name__in=styles)
+                filter_therapies = filter_on.filter(style__name__in=styles)
                 # Filter a list of Style objects
                 # to those passed in the URL parameter
                 style = Style.objects.filter(name__in=styles)
