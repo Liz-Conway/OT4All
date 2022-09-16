@@ -7,11 +7,16 @@
 	<div class="containerFluid">
 		<div class="therapyTitle">
 			<h1>Our Therapies</h1>
+				<!-- Show a button for each OT style
+				The client can choose a button to only show the Therapies in that style -->
 				{% for style in all_styles %}
 					<a class="btnStyle" href="{% url 'therapies' %}?style={{ style.name }}">
 						<span>{{style.name}}</span>
 					</a>
 				{% endfor %}
+					<a class="btnStyle" href="{% url 'therapies' %}">
+						<span>All</span>
+					</a>
 			<hr>
 		</div>
 		<div class="therapyContainer">

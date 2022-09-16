@@ -71,6 +71,10 @@ class AllTherapies(TemplateView):
 
                 therapies = filter_therapies
 
+        else:
+            # If there are no GET parameters, return ALL therapies
+            therapies = all_therapies
+
         all_styles = Style.objects.all()
 
         # If there is no sorting
