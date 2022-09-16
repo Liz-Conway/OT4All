@@ -102,7 +102,7 @@ class AllTherapies(TemplateView):
                     messages.error(
                         request, "You didn't enter any search criteria"
                     )
-                    # Redirect back to the products URL
+                    # Redirect back to the therapies URL
                     return redirect(reverse("therapies"))
 
                 # Django can't handle basic database OR logic
