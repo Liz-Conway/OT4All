@@ -170,6 +170,16 @@ Hovering over the Therapies menu (clicking on it on mobile devices) will expose 
 
 On any page if the user clicks the logo they will be redirected to the OT4U home page.  The benefit of this is that it is a consistent behaviour across the entire website.  Also every NavBar has a "Home" link which will also always give the user the option to return to the home page of the OT4U application.  This means that the user can always get back to the home page, no matter where they are in the application.
 
+**Footer Navigation**
+
+In the footer of every page there are a number of navigation links: 
+* About Natalia
+* Get in Touch
+* Privacy Policy
+* Newsletter
+* Code Institute - Full Stack Diploma (this is a link to an external site)
+
+
 #### Track Clients Profile
 
 In the top right of every screen there is a "My Profile" link, which exposes a number of options.
@@ -200,6 +210,10 @@ All logged in users, regardless of their role, can log out of the OT4U applicati
 Supporting page - **Logout page**
 ![Logout](documentation/pages/logout.png)
 ![Logout](documentation/pages/mobile/logout.png)
+
+#### Register
+
+#### Reset Password
 
 #### User Roles
 
@@ -234,15 +248,26 @@ A "number of sessions" input is pre-filled with the recommended number of sessio
 
 
 
-#### Site Owner functionality
+#### Maintain Therapies
 
 When logged in with an Admin role the user has access to the 'Maintain Therapies' features.
 
 
+#### Book sessions
 
-#### Client Functionality
+#### View the OT approach
 
+#### View Testimonials
 
+#### Add a Testimonial
+
+#### View details about Natalia
+
+#### Get in Touch
+
+#### Sign up for our Newsletter
+
+#### View our Privacy Policy
 
 #### Messages
 Every time an OT Session is booked, updated or deleted or a new OT Service is added, amended or deleted, the user is informed via an informational message on the screen.
