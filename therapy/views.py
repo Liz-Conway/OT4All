@@ -2,7 +2,6 @@ from django.views.generic.base import TemplateView
 from therapy.models import Therapy, Style
 from django.shortcuts import render, get_object_or_404
 from django.db.models.functions.text import Lower
-from pip._vendor.pygments import styles
 
 
 # Create your views here.
@@ -62,16 +61,19 @@ class AllTherapies(TemplateView):
 
             # Filter the therapies by the style chosen by the client
             if "style" in request.GET:
-                # If the therapies have been sorted already, use the sorted therapies
+                # If the therapies have been sorted already,
+                # use the sorted therapies
                 if sorted_therapies:
                     filter_on = sorted_therapies
                 else:
                     filter_on = all_therapies
 
-                # Split the styles in the GET parameter into a list at the commas.
+                # Split the styles in the GET parameter
+                # into a list at the commas.
                 styles = request.GET["style"].split(",")
 
-                # Use the styles list to filter the current query set of all therapies
+                # Use the styles list to
+                # filter the current query set of all therapies
                 # down to only therapies whose style name is in the list
                 filter_therapies = filter_on.filter(style__name__in=styles)
                 # Filter a list of Style objects
