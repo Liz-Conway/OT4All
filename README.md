@@ -224,7 +224,7 @@ The bright "Read More" button is a primary 'call to action'.  It is deliberately
 
 Once a client clicks on the "Read More" button for a particular therapy the Single Therapy page of the chosen therapy is displayed.  The purpose of the Single Therapy page is to entice the client to book a number of sessions for that therapy.
 
-This page shows a larger image, the therapy name, details, style and cost.  If there is location, or extra requirements for the therapy they are shown here as well.
+This page shows a larger image, the therapy name, details, style and cost.  If there is a location, or extra requirements for the therapy they are shown here as well.
 
 A "number of sessions" input is pre-filled with the recommended number of sessions for the specific therapy.  A "Book" button is the primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to visually draw the client's attention to where they need to look and prompt them to take action.
 
