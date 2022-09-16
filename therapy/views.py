@@ -1,7 +1,8 @@
 from django.views.generic.base import TemplateView
-from therapy.models import Therapy
+from therapy.models import Therapy, Style
 from django.shortcuts import render, get_object_or_404
 from django.db.models.functions.text import Lower
+from pip._vendor.pygments import styles
 
 
 # Create your views here.
@@ -17,7 +18,7 @@ class AllTherapies(TemplateView):
 
         # Start as none to ensure we don't get an error
         # when loading the products page without a search term.
-        query = None
+        style = None
         sort = None
         direction = None
 
@@ -55,15 +56,32 @@ class AllTherapies(TemplateView):
                         # using string formatting, which reverses the order
                         sortkey = f"-{sortkey}"
 
-                all_therapies = all_therapies.order_by(sortkey)
+                therapies = all_therapies.order_by(sortkey)
+
+            # Filter the therapies by the style chosen by the client
+            if "style" in request.GET:
+                # Split it into a list at the commas.
+                styles = request.GET["style"].split(",")
+                # Use that list to filter the current query set of all therapies
+                # down to only therapies whose style name is in the list
+                filter_therapies = all_therapies.filter(style__name__in=styles)
+                # Filter a list of Style objects
+                # to those passed in the URL parameter
+                style = Style.objects.filter(name__in=styles)
+
+                therapies = filter_therapies
+
+        all_styles = Style.objects.all()
 
         # If there is no sorting
         # The value of this variable will be the string "None_None".
         current_sorting = f"{sort}_{direction}"
 
         context = {
-            "therapies": all_therapies,
+            "therapies": therapies,
             "current_sorting": current_sorting,
+            "current_styles": style,
+            "all_styles": all_styles,
         }
 
         return render(request, self.template_name, context)

@@ -7,6 +7,11 @@
 	<div class="containerFluid">
 		<div class="therapyTitle">
 			<h1>Our Therapies</h1>
+				{% for style in all_styles %}
+					<a class="btnStyle" href="{% url 'therapies' %}?style={{ style.name }}">
+						<span>{{style.name}}</span>
+					</a>
+				{% endfor %}
 			<hr>
 		</div>
 		<div class="therapyContainer">
