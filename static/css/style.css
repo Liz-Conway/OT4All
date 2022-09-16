@@ -1017,8 +1017,13 @@ menu menuitem a {
 }
 #accountOptions + .subMenu {
   max-width: 12.3rem;
-  /* The non-mobile .subMenu is translated in the Y axis
-   * Switch this off by translating by 0 */
+}
+@media only screen and (min-width: 59.375em) {
+  #accountOptions + .subMenu {
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+  }
 }
 #accountOptions + .subMenu a {
   font-size: 1.2rem;
