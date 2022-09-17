@@ -981,6 +981,13 @@ p.therapyDetailsPrice {
   }
 }
 
+#bookingsGrandTotal {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .bookingsTitle {
   text-transform: uppercase;
   font-size: 2.75rem;
@@ -1009,6 +1016,201 @@ p.therapyDetailsPrice {
     -o-object-fit: contain;
        object-fit: contain;
   }
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTotals {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+}
+.bookingsTotals p {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.bookingsButtons a {
+  font-size: 1.3rem;
+  padding: 0.75rem 1.3rem;
+  margin-right: 0;
+}
+.bookingsSummary {
+  color: #808080;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsSummary {
+    display: none;
+  }
+}
+.bookingsTherapies p {
+  font-size: 2rem;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapies p {
+    font-size: 1.6rem;
+  }
+}
+.bookingsTherapy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapy {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapyDetail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+.bookingsTherapyPrice {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.bookingsTherapyPrice p::before {
+  content: "Price Each :  ";
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapyPrice p::before {
+    content: "";
+  }
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapyPrice {
+    margin-top: 0;
+  }
+}
+.bookingsTherapyImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.bookingsTherapySubtotal p {
+  font-weight: 700;
+}
+.bookingsTherapySubtotal p::before {
+  content: "Subtotal :  ";
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapySubtotal p::before {
+    content: "";
+  }
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapySubtotal {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+.bookingsTherapySessions {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapySessions {
+    margin: 0 1rem;
+  }
+}
+.bookingsTherapyTitles {
+  display: none;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapyTitles {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    font-weight: 700;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+.bookingsTherapyTitlesInfo {
+  width: 50%;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapyTitlesPrice {
+    padding-left: priceLeftPadding950();
+  }
+}
+@media only screen and (min-width: 66.4375em) {
+  .bookingsTherapyTitlesPrice {
+    padding-left: priceLeftPadding1063();
+  }
+}
+@media only screen and (min-width: 90em) {
+  .bookingsTherapyTitlesPrice {
+    padding-left: 0;
+    margin-left: priceLeftMargin1200();
+  }
+}
+@media only screen and (min-width: 81.25em) {
+  .bookingsTherapyTitlesPrice {
+    margin-left: 0;
+  }
+}
+@media only screen and (min-width: 85.9375em) {
+  .bookingsTherapyTitlesPrice {
+    margin-left: priceLeftMargin1375();
+  }
+}
+@media only screen and (min-width: 96.875em) {
+  .bookingsTherapyTitlesPrice {
+    margin-left: 0;
+  }
+}
+@media only screen and (min-width: 100em) {
+  .bookingsTherapyTitlesPrice {
+    margin-left: priceLeftMargin1600();
+  }
+}
+
+.editLinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2rem;
+  width: 60%;
+}
+.editLinks a {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.updateLink {
+  color: #191970;
+}
+
+.removeLink {
+  color: #e84610;
 }
 
 /*===== END  Bookings Page  ===== */
