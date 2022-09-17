@@ -95,6 +95,11 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 # Without this the media URL template tag doesn't work
                 "django.template.context_processors.media",
+                # Anytime we need to access the bookings contents
+                # in any template across the entire site they'll be available to us
+                # without having to return them from
+                # a whole bunch of different views across different apps
+                "bookings.contexts.booking_contents",
             ],
         },
     },

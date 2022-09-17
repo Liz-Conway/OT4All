@@ -53,6 +53,7 @@
                             <div class="shopAccountsBlock">
                                 <i class="fas fa-{% if grand_total %}shopping-cart{% else %}cart-plus{% endif %} shopAccountsIcon" id="cartIcon"></i>
                                 <p class="shopAccountsLabel">
+                                    {# Read the grand_total from the booking_contents context preprocessor #}
                                     {% if grand_total %}
                                         €{{ grand_total }}
                                     {% else %}
