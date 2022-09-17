@@ -10,9 +10,86 @@
 		<hr>
 		<div class="bookingsItems">
 			{% if booking_items %}
-				<div class="tableRoundedResponsive">
-					{# Retrieve booking_items from the global context #}
-					{{ booking_items }}
+				<div class="bookingTotals">
+					<div class="totals">
+						<p><strong>Bag Total :  €{{ grand_total }}</strong></p>
+						<p class="bookingGrandTotal">Grand Total :  €{{ grand_total }}</p>
+					</div>
+					<div class="bookingButtons">
+						<a href="{% url 'therapies' %}" class="btn btnGhost btnThin">
+							<span class="icon">
+								<i class="fas fa-chevron-left"></i>
+							</span>
+							Keep Shopping
+						</a>
+						<a href="{% url 'home' %}" class="btn btnPrimary btnThin">
+							Secure Checkout
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</a>
+					</div>
+				</div>
+				<div class="bookingSummary">A summary of your bookings is below</div>
+				<div class="bookingTherapies">
+						<div class="bookingTherapiesTitles">
+							<div class="bookingTherapiesTitlesInfo">Product Info</div>
+							<div class="bookingTherapiesTitlesPrice">Price</div>
+							<div class="bookingTherapiesTitlesQty">Quantity</div>
+							<div class="bookingTherapiesTitlesSubtotal">SubTotal</div>
+						</div>
+						{% for item in booking_items %}
+							<div class="bookingTherapy">
+								<div class="bookingTherapyDetail">
+				 					<img class="bookingTherapyImage" alt="{{ item.therapy.name }}" 
+				 						src="{% if item.therapy.image %}{{ item.therapy.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" >
+				 					<div class="bookingTherapyDescription">
+											<p><strong>{{ item.therapy.name }}</strong></p>
+				 					</div>
+								</div>
+								<div class="bookingTherapyPrice">
+									<p>€{{ item.therapy.price }}</p>
+								</div>
+								<div class="bookingTherapySubtotal">
+									<p>€{{ item.therapy.price }}</p>
+								</div>
+								<div class="bookingTherapyQuantity">
+										<form method="POST" action="{#% url 'adjustBooking' item.therapy_id %#}" class="updateForm">
+											{% csrf_token %}
+												<div class="therapySessionsInput">
+													<button class="decrementQty" 
+														data-productID="{{ item.therapy_id }}" id="decrementQty{{ item.therapy_id }}">
+														<span>
+															<i class="fas fa-minus fa-sm"></i>
+														</span>
+													</button>
+													<input type="number" name="quantity" value="{{ item.number_sessions }}" 
+														min="1" max="99" 
+														data-productID="{{ item.therapy_id }}" id="idQty{{ item.therapy_id }}" 
+														class="sessionsBox inputSmall">
+													<button class="incrementQty" 
+														data-productID="{{ item.therapy_id }}" id="incrementQty{{ item.therapy_id }}">
+														<span>
+															<i class="fas fa-plus fa-sm"></i>
+														</span>
+													</button>
+												</div>
+										</form>
+										<!-- Rather than add a submit button. Let's keep the visual impact minimal.
+										Just use a simple link and handle its click event with JavaScript. -->
+										<!-- One for updating the quantity which will submit the form. -->
+										<div class="editLinks">
+											<a class="updateLink"><small>Update</small></a>
+											<!-- And the other for removing the item from the bag entirely. -->
+											<!-- Has a data attribute similar to the data item ID attributes on the buttons,
+											which will be used to discern which specific item the customer wants to remove
+											if there are multiple sizes of this item in the bag -->
+											<a class="removeLink" id="remove{{item.product_id}}" data-productSize="{{ item.size }}"><small>Remove</small></a>
+										</div>
+								</div>
+							</div>
+							<hr>
+						{% endfor %}
 				</div>
 			{% else %}
 				<p>Your cart is empty.</p>
@@ -24,12 +101,6 @@
 		        			<img alt="Empty Search Result" 
 		        			src="{% static 'images/empty-cart-min.jpg' %}">
 		        		</picture>
-					<a href="{% url 'therapies' %}" class="btn btnGhost btnThin">
-					<span class="icon">
-						<i class="fas fa-chevron-left"></i>
-					</span>
-					Keep Shopping
-				</a>
 			{% endif %}
 		</div>
 	</div>

@@ -40,6 +40,11 @@
 								<span class="therapyDetailsLabel">Extra Requirements :</span>  {{ therapy.extra_requirements }}
 						</p>
 					{% endif %}
+					{% if therapy.style.equipment %}
+						<p>
+								<span class="therapyDetailsLabel">Equipment :</span>  {{ therapy.style.equipment }}
+						</p>
+					{% endif %}
 				</div>
 				<div class="therapyDetailsFooter">
 					<p class="therapyDetailsPrice">€{{ therapy.price }}</p>
