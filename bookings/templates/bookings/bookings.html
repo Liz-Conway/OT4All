@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Bookings{% endblock %}
+
+{% block content %}
+	<div class="containerBookings">
+		<hr>
+		<h1 class="bookingsTitle">Bookings Cart</h1>
+		<hr>
+		<div class="bookingsItems">
+			{% if bookings_items %}
+				<div class="tableRoundedResponsive"></div>
+			{% else %}
+				<p>Your cart is empty.</p>
+		        		<picture>
+		        			<source srcset="{% static 'images/empty-cart-small-min.jpg' %}"
+		        				media="(max-width: 60em)">
+		        			<!-- Include a Fallback normal image in case  -->
+		        			<!-- the browser does not support srcset -->
+		        			<img alt="Empty Search Result" 
+		        			src="{% static 'images/empty-cart-min.jpg' %}">
+		        		</picture>
+					<a href="{% url 'therapies' %}" class="btn btnShopping btnThin">
+					<span class="icon">
+						<i class="fas fa-chevron-left"></i>
+					</span>
+					Keep Shopping
+				</a>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
