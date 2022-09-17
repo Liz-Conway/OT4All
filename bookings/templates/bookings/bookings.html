@@ -9,8 +9,11 @@
 		<h1 class="bookingsTitle">Bookings Cart</h1>
 		<hr>
 		<div class="bookingsItems">
-			{% if bookings_items %}
-				<div class="tableRoundedResponsive"></div>
+			{% if booking_items %}
+				<div class="tableRoundedResponsive">
+					{# Retrieve booking_items from the global context #}
+					{{ booking_items }}
+				</div>
 			{% else %}
 				<p>Your cart is empty.</p>
 		        		<picture>
