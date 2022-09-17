@@ -38,7 +38,8 @@ body {
 }
 
 img, picture, video, canvas, svg {
-  /*display: block*/      /* Will remove extra space from under an image - Use flexbox on its parent instead */
+  /* Using "display: block" on these elements would remove extra space from under it
+   * - Use flexbox on its parent instead */
   /* Keep large images from overflowing, if theyre placed in a container that isnt wide enough to contain them. */
   max-width: 100%;
 }
@@ -1384,6 +1385,22 @@ button[class$="crementSessions"]:disabled {
 .searchButton:active {
   -webkit-transform: translateY(2px);
           transform: translateY(2px);
+}
+
+.emptySearch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.emptySearch h2 {
+  margin-bottom: 1.5rem;
 }
 
 /*~~~~~~~  Card  ~~~~~~~ */

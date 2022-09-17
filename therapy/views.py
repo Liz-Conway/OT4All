@@ -15,8 +15,9 @@ class AllTherapies(TemplateView):
 
     # TemplateView does not need to define get() method
     # But here we need to tell the page what Therapies to show so we will
-    def get(self, request, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         all_therapies = Therapy.objects.all()
+        total_therapies = all_therapies.count()
 
         # Start as None to ensure we don't get an error
         # when loading the Therapies page without a search term.
@@ -27,12 +28,10 @@ class AllTherapies(TemplateView):
         filter_therapies = None
         query = None
 
-        print(f"request.GET :  {request.GET}")
-
         # Access URL parameters by checking whether request.GET exists
-        if request.GET:
-            if "sort" in request.GET:
-                sortkey = request.GET["sort"]
+        if self.request.GET:
+            if "sort" in self.request.GET:
+                sortkey = self.request.GET["sort"]
                 sort = sortkey
                 if sortkey == "name":
                     # annotate() allows us to add another field to the
@@ -56,8 +55,8 @@ class AllTherapies(TemplateView):
                 if sortkey == "category":
                     sortkey = "category__name"
 
-                if "direction" in request.GET:
-                    direction = request.GET["direction"]
+                if "direction" in self.request.GET:
+                    direction = self.request.GET["direction"]
                     if direction == "desc":
                         # Add a minus in front of the sort key
                         # using string formatting, which reverses the order
@@ -67,7 +66,7 @@ class AllTherapies(TemplateView):
                 therapies = sorted_therapies
 
             # Filter the therapies by the style chosen by the client
-            if "style" in request.GET:
+            if "style" in self.request.GET:
                 # If the therapies have been sorted already,
                 # use the sorted therapies
                 if sorted_therapies:
@@ -76,7 +75,7 @@ class AllTherapies(TemplateView):
                     filter_on = all_therapies
 
                 # Retrieve the style from the GET parameter
-                selected_style = request.GET["style"]
+                selected_style = self.request.GET["style"]
 
                 # Use the requested style to
                 # filter the current query set of all therapies
@@ -91,16 +90,16 @@ class AllTherapies(TemplateView):
             # Search
             # Since we named the text input in the form "q".
             # We can just check if "q" is in request.get
-            if "q" in request.GET:
+            if "q" in self.request.GET:
                 # If "q" is a URL parameter
                 # set it equal to a variable called query.
-                query = request.GET["q"]
+                query = self.request.GET["q"]
                 # If the query is blank it's not going to return any results
                 if not query:
                     # Use the Django messages framework
                     # to attach an error message to the request
                     messages.error(
-                        request, "You didn't enter any search criteria"
+                        self.request, "You didn't enter any search criteria"
                     )
                     # Redirect back to the therapies URL
                     return redirect(reverse("therapies"))
@@ -142,9 +141,10 @@ class AllTherapies(TemplateView):
             "chosen_styles": style,
             "all_styles": all_styles,
             "search_term": query,
+            "total": total_therapies,
         }
 
-        return render(request, self.template_name, context)
+        return context
 
 
 class SingleTherapy(TemplateView):

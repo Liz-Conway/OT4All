@@ -48,37 +48,51 @@
 						{% if search_term or current_styles or current_sorting != 'None_None' %}
 							<span><a href="{% url 'therapies' %}">Therapies</a> | </span>
 						{% endif %}
-						{{ therapies|length }} Therapies{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+						{{ therapies|length }} of {{ total }} Therapies{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
 					</p>
 				</div>
 			</div>
 			<div class="therapyList">
-				{% for therapy in therapies %}
-					<div class="therapyCard">
-						{% if therapy.image %}
-								<img  class="" src="{{ therapy.image.url }}" alt="{{ therapy.name }}">
-						{% else %}
-								<img  class="" src="{{ MEDIA_URL }}noimage.png" alt="{{ therapy.name }}">
-						{% endif %}
-						<div class="therapyCardBody">
-							<h2>{{ therapy.name }}</h2>
-							<p>{{ therapy.description }}</p>
-						</div>
-						<div class="therapyCardFooter">
-							<p>€{{ therapy.price }}</p>
-							{% if therapy.style %}
-								<!-- Show a "Category" tag next to the style -->
-								<p class="therapyCardStyle">
-										<i class="fas fa-tag"></i>{{ therapy.style.name }}
-								</p>
+				{% if therapies|length == 0%}
+					<div class="emptySearch">
+						<h2>Sorry - No Search results for "{{ search_term }}"</h2>
+		        		<picture>
+		        			<source srcset="{% static 'images/empty-search-small-min.jpg' %}"
+		        				media="(max-width: 60em)">
+		        			<!-- Include a Fallback normal image in case  -->
+		        			<!-- the browser does not support srcset -->
+		        			<img alt="Empty Search Result" 
+		        			src="{% static 'images/empty-search-min.jpg' %}">
+		        		</picture>
+					</div>
+				{% else %}
+					{% for therapy in therapies %}
+						<div class="therapyCard">
+							{% if therapy.image %}
+									<img  class="" src="{{ therapy.image.url }}" alt="{{ therapy.name }}">
+							{% else %}
+									<img  class="" src="{{ MEDIA_URL }}noimage.png" alt="{{ therapy.name }}">
 							{% endif %}
-							<div class="bookButton">
-								<!-- Pass an id to the URL so that the chosen therapy's detail page is shown -->
-								<a href="{% url 'singleTherapy' therapy.id %}" class="btn btnPrimary">Read More ></a>
+							<div class="therapyCardBody">
+								<h2>{{ therapy.name }}</h2>
+								<p>{{ therapy.description }}</p>
+							</div>
+							<div class="therapyCardFooter">
+								<p>€{{ therapy.price }}</p>
+								{% if therapy.style %}
+									<!-- Show a "Category" tag next to the style -->
+									<p class="therapyCardStyle">
+											<i class="fas fa-tag"></i>{{ therapy.style.name }}
+									</p>
+								{% endif %}
+								<div class="bookButton">
+									<!-- Pass an id to the URL so that the chosen therapy's detail page is shown -->
+									<a href="{% url 'singleTherapy' therapy.id %}" class="btn btnPrimary">Read More ></a>
+								</div>
 							</div>
 						</div>
-					</div>
-				{% endfor %}
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 	</div>
