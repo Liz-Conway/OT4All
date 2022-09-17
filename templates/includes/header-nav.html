@@ -18,7 +18,15 @@
     			<ul class="shopAccounts">
                     <li>
 	                    <div class="shopAccountsBlock">
-	                        <i class="fas fa-user shopAccountsIcon" id="accountIcon"></i>
+	                        <i class="
+	                        	 {% if request.user.is_authenticated %}
+	                        	 	{# If the user is logged in then show a solid 'user' icon #}
+	                        	 	fas
+	                        	 {% else %}
+	                        	 	{# If the user is NOT logged in then show an outline 'user' icon #}
+	                        		far
+	                        	{% endif %}
+	                        	 fa-user shopAccountsIcon" id="accountIcon"></i>
 	                        <menu class="mainMenu">
 	                        	<menuitem>
 									<a id="accountOptions" class="shopAccountsLabel dropMenuTopLink">My Profile</a>

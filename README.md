@@ -294,8 +294,8 @@ In the OT4U web application there are 2 roles that a user can log in as:
 
 Depending on the role assigned to the user, when they log in they will see the same page but with different role-specific options under the "My Profile" menu.
 
-#### Therapies
-The purpose of this page is to show clients and potential clients a list of Occupational Therapies offered by this website.  By seeing a range of different Therapies, the client can make an informed decision as to the correct therapy to suit their particular needs.
+#### View Therapies
+This feature will show clients and potential clients a list of Occupational Therapies offered by the OT4U website.  By seeing a range of different Therapies, the client can make an informed decision as to the correct therapy to suit their particular needs.
 
 |  Desktop   |  Mobile   |
 | --- | --- |
@@ -306,6 +306,86 @@ For each therapy the website shows a card which contains the name of the therapy
 The bright "Read More" button is a primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to draw the client's attention to where they need to go.
 
 Seeing a variety of Occupational Therapy options gives the client a choice as to what they will pick for their particular ailment.  This choice gives the client a feeling of being in control.  Giving the client this feeling of control makes the client happy with the site and will build trust.
+
+#### Filtering Therapies
+At any time the client can view a list of only the therapies in a particular style by using the "Therapies" menu.  It has a dropdown menu which can be accessed by hovering over the "Therapies" link in the navigation bar on desktop screens, or by clicking the "Therapies" link in the navigation menu on mobile screens.
+
+Once on the Therapies page, the client can filter the Therapies by clicking on one of the "Styles" buttons on the top of the page.  Once the client has chosen to filter the therapies, either from the Therapies menu, or using one of the "Styles" buttons; the "Styles" button for the filtered therapies is highlighted.
+
+The options are the same whether clicking on a menu item, or choosing a "Styles" button.  The client can filter by:
+1. Equine therapies
+2. Literact therapies
+3. Self-care therapies
+4. All therapies
+
+The benefit of the filtering feature is that it allows the client to drill down to a specific type of therapy that interests them.  It removes all irrelevant therapies, thus reducing the cognitive load on the client.  They can focus on only what is pertinent to their needs.  This makes it much easier to navigate the options available to them, and makes it much more likely that they will book a session.
+
+The advantage of having the "Styles" buttons on the Therapies page are twofold.
+1. It highlights which therapies are being shown to the client.  They do not need to remember which filter they chose.  This makes the OT4U website much easier to learn and to use.
+2. The client can change to a different filter simply by clicking another filter button.  They will never feel lost in the OT4U website, since they have all options open them at all times.
+
+Supporting page elements - **Therapies menu**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapies menu - Desktop](documentation/pages/therapies-menu.png)   |  ![Therapies menu - mobile](documentation/pages/mobile/therapies-menu.png)   |
+
+Supporting page elements - **Filter buttons**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Filter buttons - Desktop](documentation/pages/filter-buttons.png)   |  ![Filter buttons - mobile](documentation/pages/mobile/filter-buttons.png)   |
+
+The filtering feature of the OT4U website also gives information feedback to the client.  They are shown how many therapies there are in the chosen style.  Having this information allows the client the make an informed decision on choosing a therapy to book and lets them know where they are in the overall picture.
+
+Supporting page elements - **Filter feedback**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Filter total - Desktop](documentation/pages/filter-total.png)   |  ![Filter total - mobile](documentation/pages/mobile/filter-total.png)   |
+
+
+#### Sorting Therapies
+The purpose of this feature is to allow the client to sort the therapies in a number of ways.  This allows the client find the most relevant therapy in a fast and efficient manner, making the OT4U easy to use and easy to navigate.
+
+There are a number of sorting strategies the client can use:
+1. By name - both ascending and descending
+2. By price - both ascending and descending
+3. By style - both ascending and descending
+
+There is also an option to reset the sorting.  This option is visibly separated from the rest of the sorting options making it obvious that it is a different sorting option from the others.  This will let the client feel in control of the sorting as they know that they can always get back to the way the page was laid out originally.
+
+If the client has already filtered the therapies (by style) they can still sort the filtered results.  When sorting filtered results the option to sort by style are removed, since only one style is shown.  This removal of irrelevant options reduces the amount of memorisation the client needs to perform and reduces their cognitivie load.
+
+Supporting page elements - **Sorting menu**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Sort menu - Desktop](documentation/pages/sort-menu.png)   |  ![Sort menu - mobile](documentation/pages/mobile/sort-menu.png)   |
+
+
+#### Searching Therapies
+This feature allows the client to search for therapies with either a particular name, or with a term that appears in the therapies description.  This allows the client to narrow down the list of suitable therapies.  Having this feature means that the client can remove all irrelevant therapies and quickly focus on therapies that are applicable to them.  This will make it quicker for them to come to a decision to book a therapy session.
+
+A search bar is available across the top of all pages, making this search option available to the client at all times.
+
+Supporting page elements - **Search bar**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Search bar - Desktopo](documentation/pages/search.png)   |  ![Search bar - mobile](documentation/pages/mobile/search.png)   |
+
+
+If no therapies are found with the search term, a suitable image is shown informing the client in a visual way that there were no results for the search term they were looking for.  This removes any doubt from the client's mind as to what the OT4U website is doing.  They are receiving unambiguous feedback even in the event of a 'failure'.
+
+Supporting page - **No Search results**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Empty search - Desktop](documentation/pages/empty-search.png)   |  ![Empty Search - mobile](documentation/pages/mobile/empty-search.png)   |
+
+
+
 
 #### View a single therapy
 
@@ -353,6 +433,21 @@ Whenever invalid information is submitted on a form the user is briefed via erro
 
 #### Current Login State
 The OT4U application keeps the user up to date with where they are in the application by highlighting the appropriate navigation link for the feature of the application that the user is currently employing.
+
+If the client/site owner is not logged in the icon shown above "My Profile" is an outline version of the icon.  If the client/site owner is logged in the icon shown is a filled version of the icon.  This is an extra piece of information for the client/site owner, which means that they do not have to remember if they are logged in or not, the OT4U website will tell them their "login" status.
+
+Supporting page elements - **User account logged out icon**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Logged out icon - Desktop](documentation/pages/logged-out.png)   |  ![Logged out icon - mobile](documentation/pages/mobile/logged-out.png)   |
+
+Supporting page elements - **User account logged in icon**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Logged in icon - Desktop](documentation/pages/logged-in.png)   |  ![Logged in icon - mobile](documentation/pages/mobile/logged-in.png)   |
+
 
 
 #### Field Validation
@@ -855,7 +950,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 
 | Picture                    | Name | Owner           | Downloaded and/or adapted from|
 | --- | --- | --- | --- |
-|<img src="media/occupational-therapist-playing-with-child.jpg" alt="OT playing with child" width="30" height="30">| Occupational Therapist playing with child          | Karolina Grabowska | [Pexels.com](https://www.pexels.com/photo/a-mother-and-daughter-playing-with-balloons-7296526/)|
+|<img src="static/images/occupational-therapist-playing-with-child.jpg" alt="OT playing with child" width="30" height="30">| Occupational Therapist playing with child          | Karolina Grabowska | [Pexels.com](https://www.pexels.com/photo/a-mother-and-daughter-playing-with-balloons-7296526/)|
 |<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Pawel Czerwinski  | [UnSplash.com](https://unsplash.com/photos/2TKN70nMMts)|
 |<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Evgeni Lazarev  | [Pexels.com](https://www.pexels.com/photo/shopping-cart-on-asphalt-8971727/)|
 |<img src="media/empty-basket.jpg" alt="empty shopping basket" width="30" height="30">| Empty shopping cart          | PxHere  | [PxHere.com](https://pxhere.com/en/photo/721180)|
@@ -869,6 +964,8 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |<img src="media/self-feedingt.jpg" alt="ot teaching child to feed themself" width="30" height="30">| Self Feeding          | Vanessa Loring   | [Pexels.com](https://www.pexels.com/photo/food-people-laptop-internet-7621354/)|
 |<img src="media/cooking.jpg" alt="hands preparing food for cooking" width="30" height="30">| Cooking          | Maarten van den Heuvel   | [UnSplash.com](https://unsplash.com/photos/EzH46XCDQRY)|
 |<img src="media/cooking.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Cooking          | PxHere   | [PxHere.com](https://pxhere.com/en/photo/1061452)|
+|<img src="static/images/empty-jigsaw.jpg" alt="empty jigsaw" width="30" height="30">| Empty jigsaw          | Willi Heidelbach   | [PxHere.com](https://pxhere.com/en/photo/1600619|
+|<img src="static/images/magnifying-glass.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Magnifying Glass          | Eren Li   | [Pexels.com](https://www.pexels.com/photo/photo-of-magnifying-glass-on-top-of-braille-7188802/)|
 
 ### Others
 An incredible mentor : Daisy McGirr
