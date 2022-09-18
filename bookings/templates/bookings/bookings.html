@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load calc_subtotals %}
 
 {% block extra_title %}Bookings{% endblock %}
 
@@ -51,7 +52,7 @@
 									<p>€{{ item.therapy.price }}</p>
 								</div>
 								<div class="bookingsTherapySubtotal">
-									<p>€{{ item.therapy.price }}</p>
+									<p>€{{ item.therapy.price | calculate_subtotal:item.number_sessions }}</p>
 								</div>
 								<div class="bookingsTherapySessions">
 										<form method="POST" action="{#% url 'adjustBooking' item.therapy_id %#}" class="updateForm">
