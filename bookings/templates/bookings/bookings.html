@@ -35,7 +35,7 @@
 						<div class="bookingsTherapyTitles">
 							<div class="bookingsTherapyTitlesInfo">Product Info</div>
 							<div class="bookingsTherapyTitlesPrice">Price</div>
-							<div class="bookingsTherapyTitlesQty">Sessions</div>
+							<div class="bookingsTherapyTitlesSessions">Sessions</div>
 							<div class="bookingsTherapyTitlesSubtotal">SubTotal</div>
 						</div>
 						{% for item in booking_items %}
@@ -43,7 +43,7 @@
 								<div class="bookingsTherapyDetail">
 				 					<img class="bookingsTherapyImage" alt="{{ item.therapy.name }}" 
 				 						src="{% if item.therapy.image %}{{ item.therapy.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" >
-				 					<div class="bookingTherapyDescription">
+				 					<div class="bookingsTherapyDescription">
 											<p><strong>{{ item.therapy.name }}</strong></p>
 				 					</div>
 								</div>
@@ -53,7 +53,7 @@
 								<div class="bookingsTherapySubtotal">
 									<p>€{{ item.therapy.price }}</p>
 								</div>
-								<div class="bookingsTherapyQuantity">
+								<div class="bookingsTherapySessions">
 										<form method="POST" action="{#% url 'adjustBooking' item.therapy_id %#}" class="updateForm">
 											{% csrf_token %}
 												<div class="bookingsTherapySessionsInput">

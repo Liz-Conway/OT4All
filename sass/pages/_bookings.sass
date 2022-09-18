@@ -6,8 +6,10 @@
 	display: flex
 	flex-direction: column
 	align-items: center
-	@include respond(XL)
+	@include respond(desktop)
 		max-width: 80%
+		margin-left: auto
+		margin-right: auto
 
 	hr
 		margin: 1.25rem 0
@@ -44,6 +46,8 @@
 				img
 					max-height: 50vh
 					object-fit: contain
+			width: 100%
+			flex-direction: column-reverse
 
 	&Totals
 		@include respond(desktop)
@@ -63,7 +67,7 @@
 		font-size: 1.8rem
 		margin-top: 1rem
 		margin-bottom: 5rem
-		@include respond(desktop)
+		@include respond(tabletLandscape)
 			display: none
 
 	&Therapies
@@ -71,27 +75,45 @@
 			font-size: 2rem
 			@include respond(desktop)
 				font-size: $baseFontSize
+		@include respond(notebook)
+			width: 100%
+
 
 	&Therapy
 		display: flex
 		flex-direction: column
 		width: 100%
-		@include respond(desktop)
+		@include respond(tabletLandscape)
 			flex-direction: row
 			justify-content: space-between
+			align-items: center
 		&Detail
-			@include respond(desktop)
+			@include respond(tabletLandscape)
 				display: flex
-				flex-direction: row
+				flex-direction: column-reverse
+				align-items: center
+				flex: 4
+		&Description
+			text-transform: uppercase
 		&Price
 			p::before
-				content: "Price Each :  "
-				@include respond(desktop)
+				content: "Per Session :  "
+				@include respond(tabletLandscape)
 					content: ""
 			margin-top: 1rem
 			margin-bottom: .5rem
-			@include respond(desktop)
+			@include respond(tabletLandscape)
 				margin-top: 0
+				flex: 1
+				text-align: center
+		&Sessions
+			@include respond(tabletLandscape)
+				flex: 1
+				text-align: center
+
+		&Subtotal
+			@include respond(tabletLandscape)
+				flex: 1
 
 		&Image
 			max-width: 100%
@@ -103,10 +125,11 @@
 				font-weight: $boldWt
 			p::before
 				content: "Subtotal :  "
-				@include respond(desktop)
+				@include respond(tabletLandscape)
 					content: ""
-			@include respond(desktop)
+			@include respond(tabletLandscape)
 				order: 2
+				text-align: right
 
 		&Sessions
 			margin-top: 2rem
@@ -121,25 +144,19 @@
 				font-weight: $boldWt
 				justify-content: space-between
 			&Info
-				width: 50%
+				flex: 4
 			&Price
-				@include respond(desktop)
-					padding-left: priceLeftPadding950()
-				@include respond(1063)
-					padding-left: priceLeftPadding1063()
-				@include respond(XL)
-					padding-left: 0
-					margin-left: priceLeftMargin1200()
-				@include respond(1300)
-					margin-left: 0
-				@include respond(1375)
-					margin-left: priceLeftMargin1375()
-				@include respond(XXL)
-					margin-left: priceLeftMargin1500()
-				@include respond(1550)
-					margin-left: 0
-				@include respond(1600)
-					margin-left: priceLeftMargin1600()
+				@include respond(tabletLandscape)
+					flex: 1
+					text-align: center
+			&Sessions
+				@include respond(tabletLandscape)
+					flex: 1
+					text-align: center
+			&Subtotal
+				@include respond(tabletLandscape)
+					flex: 1
+					text-align: right
 
 .editLinks
 	display: flex
@@ -149,9 +166,15 @@
 	a
 		font-size: 2rem
 		cursor: pointer
+	@include respond(tabletLandscape)
+		flex-direction: column
+		width: 100%
+		align-items: center
 
 .updateLink
 	color: $accentDark
+	@include respond(tabletLandscape)
+		margin-bottom: 1.5rem
 
 .removeLink
 	color: $error
