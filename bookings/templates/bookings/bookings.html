@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+{% load calc_subtotals %}
+
+{% block extra_title %}Bookings{% endblock %}
+
+{% block content %}
+	<div class="containerBookings">
+		<hr>
+		<h1 class="bookingsTitle">Bookings Cart</h1>
+		<hr>
+		<div class="bookingsItems">
+			{% if booking_items %}
+				<div class="bookingsTotals">
+					<div class="totals">
+						<p><strong>Booking Total :  €{{ grand_total }}</strong></p>
+						<p id="bookingsGrandTotal">Grand Total :  €{{ grand_total }}</p>
+					</div>
+					<div class="bookingsButtons">
+						<a href="{% url 'therapies' %}" class="btn btnGhost btnThin">
+							<span class="icon">
+								<i class="fas fa-chevron-left"></i>
+							</span>
+							Keep Shopping
+						</a>
+						<a href="{% url 'home' %}" class="btn btnPrimary btnThin">
+							Secure Checkout
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</a>
+					</div>
+				</div>
+				<div class="bookingsSummary">A summary of your bookings is below</div>
+				<div class="bookingsTherapies">
+						<div class="bookingsTherapyTitles">
+							<div class="bookingsTherapyTitlesInfo">Product Info</div>
+							<div class="bookingsTherapyTitlesPrice">Price</div>
+							<div class="bookingsTherapyTitlesSessions">Sessions</div>
+							<div class="bookingsTherapyTitlesSubtotal">SubTotal</div>
+						</div>
+						{% for item in booking_items %}
+							<div class="bookingsTherapy">
+								<div class="bookingsTherapyDetail">
+				 					<img class="bookingsTherapyImage" alt="{{ item.therapy.name }}" 
+				 						src="{% if item.therapy.image %}{{ item.therapy.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" >
+				 					<div class="bookingsTherapyDescription">
+											<p><strong>{{ item.therapy.name }}</strong></p>
+				 					</div>
+								</div>
+								<div class="bookingsTherapyPrice">
+									<p>€{{ item.therapy.price }}</p>
+								</div>
+								<div class="bookingsTherapySubtotal">
+									<p>€{{ item.therapy.price | calculate_subtotal:item.number_sessions }}</p>
+								</div>
+								<div class="bookingsTherapySessions">
+										<form method="POST" action="{% url 'updateBooking' item.therapy_id %}" class="updateForm">
+											{% csrf_token %}
+												<div class="bookingsTherapySessionsInput">
+													<button class="decrementSessions" 
+														data-therapyID="{{ item.therapy_id }}" id="decrementSessions{{ item.therapy_id }}">
+														<span>
+															<i class="fas fa-minus fa-sm"></i>
+														</span>
+													</button>
+													<input type="number" name="sessions" value="{{ item.number_sessions }}" 
+														min="1" max="99" 
+														data-therapyID="{{ item.therapy_id }}" id="idSessions{{ item.therapy_id }}" 
+														class="sessionsInput">
+													<button class="incrementSessions" 
+														data-therapyID="{{ item.therapy_id }}" id="incrementSessions{{ item.therapy_id }}">
+														<span>
+															<i class="fas fa-plus fa-sm"></i>
+														</span>
+													</button>
+												</div>
+										</form>
+										<!-- Rather than add a submit button. Let's keep the visual impact minimal.
+										Just use a simple link and handle its click event with JavaScript. -->
+										<!-- One for updating the quantity which will submit the form. -->
+										<div class="editLinks">
+											<a class="updateLink"><i class="fas fa-arrows-rotate"></i> <small>Update</small></a>
+											<!-- And the other for removing the item from the bag entirely. -->
+											<!-- Has a data attribute similar to the data item ID attributes on the buttons,
+											which will be used to discern which specific item the customer wants to remove
+											if there are multiple sizes of this item in the bag -->
+											<a class="removeLink" id="remove{{item.therapy_id}}"><i class="fas fa-trash"></i> <small>Remove</small></a>
+										</div>
+								</div>
+							</div>
+							<hr>
+						{% endfor %}
+				</div>
+			{% else %}
+				<p>Your cart is empty.</p>
+		        		<picture>
+		        			<source srcset="{% static 'images/empty-cart-small-min.jpg' %}"
+		        				media="(max-width: 60em)">
+		        			<!-- Include a Fallback normal image in case  -->
+		        			<!-- the browser does not support srcset -->
+		        			<img alt="Empty Search Result" 
+		        			src="{% static 'images/empty-cart-min.jpg' %}">
+		        		</picture>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
+
+{% block postloadjs %}
+	{{ block.super }}
+	<script src="{% static 'js/adjust-sessions.js' %}"></script>
+{% endblock %}

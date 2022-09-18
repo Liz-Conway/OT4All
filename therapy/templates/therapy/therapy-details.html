@@ -40,11 +40,16 @@
 								<span class="therapyDetailsLabel">Extra Requirements :</span>  {{ therapy.extra_requirements }}
 						</p>
 					{% endif %}
+					{% if therapy.style.equipment %}
+						<p>
+								<span class="therapyDetailsLabel">Equipment :</span>  {{ therapy.style.equipment }}
+						</p>
+					{% endif %}
 				</div>
 				<div class="therapyDetailsFooter">
 					<p class="therapyDetailsPrice">€{{ therapy.price }}</p>
 					<!-- action URL submits to the 'add_to_cart' URL, including the therapy id the user is adding. -->
-					<form class="therapyDetailsForm" method="POST" action="{#% url 'addToCart' therapy.id %#}">
+					<form class="therapyDetailsForm" method="POST" action="{% url 'book' therapy.id %}">
 						{% csrf_token %}
 						<div class="therapyDetailsSessions">
 							<p class="therapyDetailsLabel">Number of Sessions:</p>
@@ -73,6 +78,7 @@
 							</a>
 							<input type="submit" value="Book" class="btn btnPrimary">
 						</div>
+						<!-- Part of the Post-Redirect-Get pattern -->
 						<input type="hidden" name="redirectUrl" value="{{ request.path }}">
 					</form>
 				</div>

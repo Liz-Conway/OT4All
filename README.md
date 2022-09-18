@@ -410,7 +410,87 @@ The client can choose the number of sessions they wish to book, and still has th
 When logged in with an Admin role the user has access to the 'Maintain Therapies' features.
 
 
-#### Book sessions
+#### Book Sessions
+
+On the Single Therapy page for each therapy, the client has an option to Book a number of sessions for that therapy.  This is the primary 'Call to Action' of the OT4U website.  The "Book" button is highlighted in a different colour to the colour scheme of the OT4U website.  This draws the client's eye, let's them know the next step that is expected and encourages them to click on the button and make a booking.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapy page - desktop](documentation/pages/therapy.png)   |   ![Therapy page - mobile](documentation/pages/mobile/therapy.png)  |
+
+
+#### View My Bookings
+
+Once the client makes a booking the shopping cart icon changes to a filled cart icon.  This is a subtle signifier that they have made a booking that needs to be purchased.  A less subtle signifier is the total cost of all bookings this client has made, which is shown under the shopping cart icon.
+
+Supporting screen elements - **Cart Icon**
+
+||  Desktop   |  Mobile   |
+| --- | --- | --- |
+| Empty |  ![Empty cart icon - Desktop](documentation/pages/empty-cart-icon.png)   |  ![Empty cart icon - mobile](documentation/pages/mobile/empty-cart-icon.png)   |
+| Filled | ![Filled cart icon - Desktop](documentation/pages/filled-cart-icon.png) | ![Filled cart icon - mobile](documentation/pages/mobile/filled-cart-icon.png) |
+
+By clicking on the cart icon or the total, the client will be taken to their Bookings page.  The purpose of this page is to show the client all the therapies they have booked and how many sessions they have booked for each therapy.
+
+This page will calculate the subtotal for each therapy by multiplying the price of the therapy session by the number of sessions booked.  This lets the client know exactly how much they will be paying for each therapy booked, and takes the onus off the client having to do this multiplication themselves.
+
+This page will also allow the client to adjust their bookings by changing the number of sessions booked for each therapy, and also by removing a therapy completely from the booking.  This gives the client great control over what they have booked.  This flexibility will improve the user experience vastly.
+
+Also, if the client has no bookings or has removed all the bookings on this page, the page will reflect the empty nature of the cart by showing an applicable image and corresponding text.  This difference in layout and visual expression of the nature of the cart will leave the client in no doubt that their cart is empty.
+
+On desktop screens each therapy is shown across the page, with an image, price, number of sessions and subtotal.  After the list of therapies is shown the grand total and a button prompting the client to checkout securely.  There is also a button to let the client go back to shopping for therapies.
+
+On mobile screens the totals and buttons are at the top of the screen.  This is because the therapies details are shown in column format one after the other.  It would be frustrating for the client to have to scroll through all these details if they just wanted to checkout, so the pertinent details needed for a quicker checkout (totals & checkout button) are moved to the top of the page. On mobile screens a helpful text is added just below the totals and buttons, stating "A summary of your bookings is below".
+
+Supporting screens - **Bookings**
+
+||  Desktop   |  Mobile   |
+| --- | --- | --- |
+| Empty |  ![Empty cart - Desktop](documentation/pages/empty-cart.png)   |  ![Empty cart - mobile](documentation/pages/mobile/empty-cart.png)   |
+| Filled | ![Bookings - Desktop](documentation/pages/bookings.png) | ![Bookings - mobile](documentation/pages/mobile/bookings.png) |
+
+Supporting screen elements - **Booking totals**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Booking totals - Desktop](documentation/pages/booking-total-buttons.png)   |  ![Booking totals - mobile](documentation/pages/mobile/booking-total-buttons.png)   |
+
+#### Update Sessions
+On the Bookings page for each therapy the client can change the number of sessions for each therapy they have booked.  The OT4U website is very flexible in this matter, and provides the client with a number of means to change the number of sessions.  This allows the client to choose the way to update the number of sessions that they prefer, thus improving the user experience.
+
+1. Use the buttons which are placed either side of the input box which contains the number of sessions.
+2. Type the number manually into the text box.
+3. Use the up and down arrows provided by the browser for adjusting the value in a numeric input box.
+
+When the client adjusts the number of sessions, an "Update" link appears under the number of sessions input box.  When the client clicks this link the OT4U website recalculates the subtotal for that therapy, and recalculates the grand total.
+
+Supporting screen elements - **Update number of sessions**
+
+||  Desktop   |  Mobile   |
+| --- | --- | --- |
+| Default |  ![Update sessions - Desktop](documentation/pages/update-sessions.png)   |  ![Update sessions - mobile](documentation/pages/mobile/update-sessions.png)   |
+| After changing the sessions | ![Update sessions link - Desktop](documentation/pages/update-sessions-link.png) | ![Update sessions link - mobile](documentation/pages/mobile/update-sessions-link.png) |
+
+#### Remove booked therapy
+In addition to changing the number of sessions for a booked therapy the OT4U website allows the client to remove a therapy completely from their bookings.  If a client accidentally adds the wrong therapy, or changes their mind, they have the option to remove the therapy entirely from their bookings.  This feature removes the frustration that would be associated with adding the wrong therapy.  It allows the client to make mistakes and easily and quickly rectify these mistakes themselves.
+
+The OT4U website automatically recalculates the grand total when a booked therapy is removed.
+
+Supporting screen elements - **Remove booked therapy**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Update sessions - Desktop](documentation/pages/update-sessions.png)   |  ![Update sessions - mobile](documentation/pages/mobile/update-sessions.png)   |
+
+#### Keep shopping
+
+The OT4U website gives the client the opportunity to return to browsing the therapies from the Bookings page.  This gives the client the freedom to check their bookings at any time.  They are not forced to continue with purchasing just because they are looking at their booked therapies.  The freedom to view bookings and return to the main site, either using the "Keep shopping" button or the global navigation buttons engenders a sense of trust in the client for the OT4U website.
+
+Supporting screen elements - **Update number of sessions**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Booking buttons - Desktop](documentation/pages/booking-total-buttons.png)   |  ![Booking buttons - mobile](documentation/pages/mobile/booking-total-buttons.png)   |
 
 #### View the OT approach
 

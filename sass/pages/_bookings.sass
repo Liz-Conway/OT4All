@@ -1,0 +1,186 @@
+/*~~~~~~~  Bookings Page  ~~~~~~~*/
+
+.containerBookings
+	width: 100%
+	padding: 0 2rem
+	display: flex
+	flex-direction: column
+	align-items: center
+	@include respond(desktop)
+		max-width: 80%
+		margin-left: auto
+		margin-right: auto
+
+	hr
+		margin: 1.25rem 0
+		width: 65%
+		@include respond(tabletPortrait)
+			width: 50%
+
+	.sessionsInput
+		width: 33%
+
+#bookingsGrandTotal
+	font:
+		weight: $boldWt
+		size: 3rem
+	margin-top: 3rem
+	margin-bottom: 3rem
+
+
+
+.bookings
+	&Title
+		text-transform: uppercase
+		font-size: 2.75rem
+
+	&Items
+		p
+			font:
+				size: 1.75rem
+				weight: $thinWt
+			margin-bottom: 1rem
+		display: flex
+		flex-direction: column
+		align-items: center
+		margin-bottom: 1rem
+		@include respond(tabletLandscape)
+			picture
+				img
+					max-height: 50vh
+					object-fit: contain
+			width: 100%
+			flex-direction: column-reverse
+
+	&Totals
+		@include respond(desktop)
+			align-self: flex-end
+		p
+			margin-bottom: 1rem
+			font-size: 2rem
+
+	&Buttons
+		a
+			font-size: 1.3rem
+			padding: .75rem 1.3rem
+			margin-right: 0
+
+	&Summary
+		color: $greyHelp
+		font-size: 1.8rem
+		margin-top: 1rem
+		margin-bottom: 5rem
+		@include respond(tabletLandscape)
+			display: none
+
+	&Therapies
+		p
+			font-size: 2rem
+			@include respond(desktop)
+				font-size: $baseFontSize
+		@include respond(notebook)
+			width: 100%
+
+
+	&Therapy
+		display: flex
+		flex-direction: column
+		width: 100%
+		@include respond(tabletLandscape)
+			flex-direction: row
+			justify-content: space-between
+			align-items: center
+		&Detail
+			@include respond(tabletLandscape)
+				display: flex
+				flex-direction: column-reverse
+				align-items: center
+				flex: 4
+		&Description
+			text-transform: uppercase
+		&Price
+			p::before
+				content: "Per Session :  "
+				@include respond(tabletLandscape)
+					content: ""
+			margin-top: 1rem
+			margin-bottom: .5rem
+			@include respond(tabletLandscape)
+				margin-top: 0
+				flex: 1
+				text-align: center
+		&Sessions
+			@include respond(tabletLandscape)
+				flex: 1
+				text-align: center
+
+		&Subtotal
+			@include respond(tabletLandscape)
+				flex: 1
+
+		&Image
+			max-width: 100%
+			height: auto
+			border-radius: 4px
+
+		&Subtotal
+			p
+				font-weight: $boldWt
+			p::before
+				content: "Subtotal :  "
+				@include respond(tabletLandscape)
+					content: ""
+			@include respond(tabletLandscape)
+				order: 2
+				text-align: right
+
+		&Sessions
+			margin-top: 2rem
+			margin-bottom: 2rem
+			@include respond(desktop)
+				margin: 0 1rem
+		&Titles
+			display: none
+			@include respond(desktop)
+				display: flex
+				flex-direction: row
+				font-weight: $boldWt
+				justify-content: space-between
+			&Info
+				flex: 4
+			&Price
+				@include respond(tabletLandscape)
+					flex: 1
+					text-align: center
+			&Sessions
+				@include respond(tabletLandscape)
+					flex: 1
+					text-align: center
+			&Subtotal
+				@include respond(tabletLandscape)
+					flex: 1
+					text-align: right
+
+.editLinks
+	display: flex
+	justify-content: space-between
+	margin-top: 2rem
+	width: 60%
+	a
+		font-size: 2rem
+		cursor: pointer
+	@include respond(tabletLandscape)
+		flex-direction: column
+		width: 100%
+		align-items: center
+
+.updateLink
+	color: $accentDark
+	display: none
+	@include respond(tabletLandscape)
+		margin-bottom: 1.5rem
+
+.removeLink
+	color: $error
+
+/*===== END  Bookings Page  =====*/
