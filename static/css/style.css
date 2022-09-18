@@ -982,6 +982,9 @@ p.therapyDetailsPrice {
     width: 50%;
   }
 }
+.containerBookings .sessionsInput {
+  width: 33%;
+}
 
 #bookingsGrandTotal {
   font-weight: 700;
