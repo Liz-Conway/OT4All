@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.urls.base import reverse
 from django.http.response import HttpResponse
 
-# Create your views here.
+
 class BookingsContents(TemplateView):
     """A class for rendering the bookings contents page"""
 
@@ -43,7 +43,8 @@ class AddToBookings(TemplateView):
         # and so on without losing the their bookings..
 
         # The variable booking accesses the request's HTTP session,
-        # tries to get the booking stored in the HTTP session - if it already exists,
+        # tries to get the booking stored in the HTTP session
+        # - if it already exists,
         # and initialises it to an empty dictionary {} if it doesn't.
         # First check to see if there's a booking variable in the HTTP session,
         # and if not this code will create one
@@ -66,7 +67,8 @@ class AddToBookings(TemplateView):
         request.session["booking"] = booking
 
         # Post/Redirect/Get (PRG) pattern - a web development design pattern
-        # After a POST, redirect to another page which is loaded using HTTP GET protocol
+        # After a POST, redirect to another page
+        # which is loaded using HTTP GET protocol
         # This avoids ill effects, such as submitting the form another time.
         # I.E. The form will never be POSTed twice in a row.
         return redirect(redirect_url)
@@ -74,7 +76,8 @@ class AddToBookings(TemplateView):
 
 class UpdateBooking(TemplateView):
     """
-    Adjust the number of sessions of a particular therapy to the specified amount
+    Adjust the number of sessions of a particular therapy
+    to the specified amount
     """
 
     def post(self, request, therapy_id):
@@ -102,7 +105,8 @@ class UpdateBooking(TemplateView):
         # and so on without losing their previous bookings.
 
         # The variable bookings accesses the requests session,
-        # tries to get the bookings stored in the session - if it already exists,
+        # tries to get the bookings stored in the session
+        # - if it already exists,
         # and initialises it to an empty dictionary {} if it doesn't.
         # First check to see if there's a bookings variable in the session,
         # and if not this code will create one
@@ -145,7 +149,8 @@ class RemoveBooking(TemplateView):
             #  until the client and server are done communicating.
             # This allows us to store the contents of the booking
             # in the HTTP session,
-            #  while the user browses the site and adds therapies to be purchased.
+            #  while the user browses the site
+            # and adds therapies to be purchased.
             # By storing the bookings in the HTTP session,
             # it will persist until the user closes their browser
             #  so that they can add something to the bookings,
@@ -153,13 +158,15 @@ class RemoveBooking(TemplateView):
             # and so on without losing the contents of their bookings.
 
             # The variable bookings accesses the requests HTTP session,
-            # tries to get the booking stored in the HTTP session - if it already exists,
+            # tries to get the booking stored in the HTTP session
+            # - if it already exists,
             # and initialises it to an empty dictionary {} if it doesn't.
             # First check to see if there's a booking variable in the session,
             # and if not this code will create one
             bookings = request.session.get("booking", {})
 
-            # Removing the therapy is as simple as popping it out of the booking
+            # Removing the therapy is as simple
+            # as popping it out of the booking
             bookings.pop(therapy_id)
 
             # Put the bookings variable into the HTTP session.
@@ -170,6 +177,7 @@ class RemoveBooking(TemplateView):
             # Return a 200 HTTP response.
             # Implying that the product was successfully removed
             return HttpResponse(status=200)
-        # Catch any exceptions that happen in order to return a 500 server error
+        # Catch any exceptions that happen
+        # in order to return a 500 server error
         except Exception as ex:
             return HttpResponse(status=500)

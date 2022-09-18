@@ -1,6 +1,6 @@
 """
 Context processor.
-Its purpose is to make this dictionary available 
+Its purpose is to make this dictionary available
 to all templates across the entire application
 Much like you can use request.user in any template
 due to the presence of the built-in request context processor.
@@ -31,7 +31,8 @@ def booking_contents(request):
     # And elsewhere throughout the site.
 
     # First variable is the key from the booking item (we call it 'therapy_id')
-    # Second variable is the value of that key (we are calling it 'number_sessions')
+    # Second variable is the value of that key
+    # (we are calling it 'number_sessions')
     for therapy_id, number_sessions in booking.items():
         # For each therapy id and number of sessions in booking.items.
 
@@ -41,7 +42,8 @@ def booking_contents(request):
         # Add number of sessions times the price to the total
         total += number_sessions * therapy.price
 
-        # Increment the number of sessions for this therapy by the number of sessions.
+        # Increment the number of sessions for this therapy
+        # by the number of sessions.
         therapy_sessions += number_sessions
 
         # Add a dictionary to the list of booking items
@@ -60,8 +62,10 @@ def booking_contents(request):
 
     grand_total = total
 
-    # This context concept is the same as the context we've been using in our views
-    # the only difference is we're returning it directly and making it available to
+    # This context concept is the same as
+    # the context we've been using in our views
+    # the only difference is we're returning it directly
+    # and making it available to
     # all templates by putting it in settings.py
     # Add all these items to the context.
     # So they'll be available in templates across the site.
