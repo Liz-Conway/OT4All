@@ -1,15 +1,41 @@
-/*Set event handlers to handle clicking the '+' and '-' Buttons
-which are either side of the sessions inputBox*/
-$(".incrementSessions").click(addSession);
-$(".decrementSessions").click(subtractSession);
+/*This jQuery code is only run after the HTML document has fully loaded*/
+//https://api.jquery.com/ready/
+$( domLoaded );
+
+function domLoaded() {
+	/*Set event handlers to handle clicking the '+' and '-' Buttons
+	which are either side of the sessions inputBox*/
+	$(".incrementSessions").click(addSession);
+	$(".decrementSessions").click(subtractSession);
+
+	/* If the default number of sessions in the input box was set to  1
+	It allows us to click the minus button and potentially add a number of sessions of 0 to the cart.
+	Also if the default number of sessions in the input box was set to  99
+	It allows us to click the plus button and potentially add a number of sessions of 100 to the cart.
+	The input element's Min and Max will prevent this via form validation.
+	*/
+
+	/* Get all the sessions inputs on the page & Iterating through them.
+	For each one calling the enable/disable function as soon as the page loads.*/
+	let allSessionInputs = $(".sessionsInput");
+	/*Ensure proper enabling/disabling of all inputs on page load*/
+	for(let i =0; i < allSessionInputs.length; i++) {
+	    let therapyId = $(allSessionInputs[i]).data("therapyid");
+	    handleEnableDisable(therapyId);
+	}
+
+}
 
 /*Increment number of sessions*/
 function addSession(event) {
     /*prevent the default button action.*/
     event.preventDefault();
+
+	/*If the '+' button was clicked we will need to update the totals
+	So need to show the 'Update' link*/
+	$(".updateLink").css("display", "block");
+
     // closest() method searches up to the parent. And the find() method searches down.
-    // So what we're saying here is from the button element go up the tree to the
-    // closest sessionsInput class.
 
      /*Find the closest sibling input box to this button*/
     let closestInput = $(this).siblings(".sessionsInput");
@@ -19,21 +45,30 @@ function addSession(event) {
     closestInput.val(currentValue + 1);
     /* For some reason Javascript converts the "data" identifier to lower case??????????*/
     let therapyId = $(this).data("therapyid");
+	/*Check if increasing the number of sessions has brought it to the Max*/
     handleEnableDisable(therapyId);
 }
 
 /*Decrement number of sessions*/
 function subtractSession(event) {
-	console.log("In subtractSession")
+	/*prevent the default button action.*/
     event.preventDefault();
+
+	/*If the '-' button was clicked we will need to update the totals
+	So need to show the 'Update' link*/
+	$(".updateLink").css("display", "block");
+
+	// closest() method searches up to the parent. And the find() method searches down.
+
+     /*Find the closest sibling input box to this button*/
     let closestInput = $(this).siblings(".sessionsInput");
-	console.log("closestInput :  ", closestInput);
+	/*Cache the value that's currently in the input box in a variable called currentValue*/
     let currentValue = parseInt(closestInput.val());
-	console.log("currentValue :  ", currentValue);
+	/*Use that variable to set the input boxes new value to the current value minus one.*/
     closestInput.val(currentValue - 1);
-	console.log("Net current value :  ", closestInput.val());
+	/* For some reason Javascript converts the "data" identifier to lower case??????????*/
     let therapyId = $(this).data("therapyid");
-	console.log("Therapy ID:  ", therapyId);
+	/*Check if decreasing the number of sessions has brought it to the Min*/
     handleEnableDisable(therapyId);
 }
 
@@ -42,42 +77,28 @@ We can pass that therapy id into the handleEnableDisable() function.*/
 /*Disable +/- buttons outside 1 - 99 range*/
 function handleEnableDisable(therapyId) {
     /*Use the therapyId to get the current value of the input based on its id attribute.*/
-    let currentValue = parseInt($(`#idSessions${therapyId}`).val());
+	let currentValue = parseInt($(`#idSessions${therapyId}`).val());
     let minusDisabled = currentValue < 2;
     let plusDisabled = currentValue > 98;
+
     /*Disable the minus button if the current value is less than two*/
     $(`#decrementSessions${therapyId}`).prop('disabled', minusDisabled);
     /*Disable the plus button if the current value is more than 98*/
     $(`#incrementSessions${therapyId}`).prop('disabled', plusDisabled);
 }
 
-/*Since the default of the input box is 1
-It allows us to click the minus button and potentially add a quantity of 0 to the bag.
-The input elements min and Max will prevent this via form validation.
-*/
-
-/*First disable the minus button by default.
-By getting all the sessions inputs on the page & Iterating through them.
-For each one calling the enable/disable function as soon as the page loads.*/
-let allSessionInputs = $("[class$='crementSessions']");
-/*Ensure proper enabling/disabling of all inputs on page load*/
-for(let i =0; i < allSessionInputs.length; i++) {
-    let productId = $(allSessionInputs[i]).data("productid");
-    handleEnableDisable(productId);
-}
-
 /*Call the handle enable/disable function
 if the user uses the built-in up and down arrows in the number box to change the quantity.
 by listening to the change event on the sessions input*/
 /*Check enable/disable every time the input is changed*/
-$("[class$='crementSessions']").change(function() {
+$(".sessionsInput").change(function() {
     let therapyId = $(this).data("therapyid");
     handleEnableDisable(therapyId);
 });
 
 
 // Update number of sessions on click
-$(".updateLink").click(updateSessions);
+// $(".updateLink").click(updateSessions);
 
 function updateSessions(event) {
     /*Use the closest() method to find the parent of the updateLink button (it is a "div")*/
@@ -89,12 +110,12 @@ function updateSessions(event) {
 }
 
 // Remove item & reload on click
-$(".removeLink").click(removeQuantity);
+// $(".removeLink").click(removeSessions);
 
 /*Post some data to a URL
 Once the response comes back from the server,
  reload the page to reflect the updated bag*/
-function removeQuantity(event) {
+function removeSessions(event) {
     /* NB this uses the actual template variable with the double curly brackets.
     As opposed to the template tag which uses the inner percent signs.
     This is because the former renders the actual token.
