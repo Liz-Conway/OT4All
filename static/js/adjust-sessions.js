@@ -110,34 +110,24 @@ function updateSessions(event) {
 }
 
 // Remove item & reload on click
-// $(".removeLink").click(removeSessions);
+$(".removeLink").click(removeSessions);
 
 /*Post some data to a URL
 Once the response comes back from the server,
  reload the page to reflect the updated bag*/
 function removeSessions(event) {
-    /* NB this uses the actual template variable with the double curly brackets.
-    As opposed to the template tag which uses the inner percent signs.
-    This is because the former renders the actual token.
-    While the latter renders a hidden input field in a form.*/
-    // let csrfToken = "{{ csrf_token }}";
-
     /*CSRF token which we can store as a string by just rendering it here. */
     let csrfToken = getCSRF();
-    /*prodId can be obtained by splitting the ID of the update link being clicked on
+    /*therapyId can be obtained by splitting the ID of the update link being clicked on
     and taking the second half of it.*/
-    let prodId = $(this).attr("id").split("remove")[1];
-    /*Use the data() method to pull the size from the data-productSize attribute*/
-    /*For some reason JS converts the data attribute to lowercase*/
-    let size = $(this).data("productSize".toLowerCase());
-    let url = `/bag/remove/${prodId}`;
+    let therapyId = $(this).attr("id").split("remove")[1];
+    let url = `/bookings/remove/${therapyId}`;
     /*data = the object we'll use to send this data to the server.
     The data variable will contain a special key called "csrfmiddlewaretoken",
     which will have our csrfToken variable as its value;
-    and the data variable will contain the size.
     The "csrfmiddlewaretoken" key will match the field Django is expecting
     to see in request.POST when we post it to the server.*/
-    let data = {"csrfmiddlewaretoken": csrfToken, "productSize": size, "whatever": 'dude'};
+    let data = {"csrfmiddlewaretoken": csrfToken};
 
     /*Use the post method from jQuery.
     Giving it both the URL and the data.*/

@@ -1560,8 +1560,8 @@ menu a {
 }
 
 button[class$="crementSessions"] {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: #751c00;
+  color: #ffcdbd;
   cursor: pointer;
   padding: 0.25rem 0.5rem;
   height: 3.75rem;

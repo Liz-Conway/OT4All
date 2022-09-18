@@ -13,7 +13,7 @@
 			{% if booking_items %}
 				<div class="bookingsTotals">
 					<div class="totals">
-						<p><strong>Bag Total :  €{{ grand_total }}</strong></p>
+						<p><strong>Booking Total :  €{{ grand_total }}</strong></p>
 						<p id="bookingsGrandTotal">Grand Total :  €{{ grand_total }}</p>
 					</div>
 					<div class="bookingsButtons">
@@ -85,7 +85,7 @@
 											<!-- Has a data attribute similar to the data item ID attributes on the buttons,
 											which will be used to discern which specific item the customer wants to remove
 											if there are multiple sizes of this item in the bag -->
-											<a class="removeLink" id="remove{{item.product_id}}" data-productSize="{{ item.size }}"><i class="fas fa-trash"></i> <small>Remove</small></a>
+											<a class="removeLink" id="remove{{item.therapy_id}}"><i class="fas fa-trash"></i> <small>Remove</small></a>
 										</div>
 								</div>
 							</div>
