@@ -31,14 +31,15 @@ function addSession(event) {
     /*prevent the default button action.*/
     event.preventDefault();
 
-	/*If the '+' button was clicked we will need to update the totals
-	So need to show the 'Update' link*/
-	$(".updateLink").css("display", "block");
-
     // closest() method searches up to the parent. And the find() method searches down.
 
      /*Find the closest sibling input box to this button*/
     let closestInput = $(this).siblings(".sessionsInput");
+
+	/*If the '+' button was clicked we will need to update the totals
+	So need to show the 'Update' link*/
+	showUpdatedLink(closestInput);
+
     /*Cache the value that's currently in the input box in a variable called currentValue*/
     let currentValue = parseInt(closestInput.val());
     /*Use that variable to set the input boxes new value to the current value plus one.*/
@@ -54,14 +55,15 @@ function subtractSession(event) {
 	/*prevent the default button action.*/
     event.preventDefault();
 
-	/*If the '-' button was clicked we will need to update the totals
-	So need to show the 'Update' link*/
-	$(".updateLink").css("display", "block");
-
 	// closest() method searches up to the parent. And the find() method searches down.
 
      /*Find the closest sibling input box to this button*/
+
     let closestInput = $(this).siblings(".sessionsInput");
+	/*If the '-' button was clicked we will need to update the totals
+	So need to show the 'Update' link*/
+	showUpdatedLink(closestInput);
+
 	/*Cache the value that's currently in the input box in a variable called currentValue*/
     let currentValue = parseInt(closestInput.val());
 	/*Use that variable to set the input boxes new value to the current value minus one.*/
@@ -96,6 +98,11 @@ $(".sessionsInput").change(function() {
     handleEnableDisable(therapyId);
 });
 
+$(".sessionsInput").on('input', function() {
+	/*If the value in the number of sessions input box changes
+	Need to allow the user to update the Bookings*/
+	showUpdatedLink($(this));
+});
 
 // Update number of sessions on click
 $(".updateLink").click(updateSessions);
@@ -143,6 +150,18 @@ function getCSRF() {
     let selector = "input[name='csrfmiddlewaretoken']";
     let element = document.querySelector(selector);
     let value = element.getAttribute('value');
-    //return JSON.parse(value);
     return value;
+}
+
+function showUpdatedLink(input) {
+	/*From the input box traverse UP to the closest parent form*/
+	let form = input.closest("form");
+	/*From the parent form traverse to the NEXT sibling with a class of "editLinks"*/
+	let parentLink = form.next(".editLinks")
+	/*The div with class of "editLinks" is the parent of the update link we need to show.
+	Use find() to traverse DOWN into the children of the editLinks div.
+	Find the child with a class of "updateLink"*/
+	let updateLink = parentLink.find(".updateLink")
+
+	updateLink.css("display", "block");
 }
