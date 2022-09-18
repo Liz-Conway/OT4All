@@ -55,7 +55,7 @@
 									<p>€{{ item.therapy.price | calculate_subtotal:item.number_sessions }}</p>
 								</div>
 								<div class="bookingsTherapySessions">
-										<form method="POST" action="{#% url 'adjustBooking' item.therapy_id %#}" class="updateForm">
+										<form method="POST" action="{% url 'updateBooking' item.therapy_id %}" class="updateForm">
 											{% csrf_token %}
 												<div class="bookingsTherapySessionsInput">
 													<button class="decrementSessions" 

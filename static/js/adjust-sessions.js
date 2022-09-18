@@ -98,14 +98,14 @@ $(".sessionsInput").change(function() {
 
 
 // Update number of sessions on click
-// $(".updateLink").click(updateSessions);
+$(".updateLink").click(updateSessions);
 
 function updateSessions(event) {
     /*Use the closest() method to find the parent of the updateLink button (it is a "div")*/
-    /* Use the prev() method to find the previous sibling element of the div
+    /* Use the prev() method to find the previous sibling element of that div
      *  IF it has a class of ".updateForm"*/
     let form = $(this).closest("div").prev(".updateForm");
-    /*Call the form's submit method*/
+    /*Call this form's submit method*/
     form.submit();
 }
 

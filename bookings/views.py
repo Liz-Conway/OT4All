@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
+from django.urls.base import reverse
 
 # Create your views here.
 class BookingsContents(TemplateView):
@@ -68,3 +69,57 @@ class AddToBookings(TemplateView):
         # This avoids ill effects, such as submitting the form another time.
         # I.E. The form will never be POSTed twice in a row.
         return redirect(redirect_url)
+
+
+class UpdateBooking(TemplateView):
+    """
+    Adjust the number of sessions of a particular therapy to the specified amount
+    """
+
+    def post(self, request, therapy_id):
+
+        # Get the number of sessions from the form.
+        # Convert it to an integer
+        # since it'll come from the template as a string.
+        number_of_sessions = int(request.POST.get("sessions"))
+
+        # No need for a  redirect URL
+        # Since we alway want to redirect back to the Bookings page
+
+        # Every request-response cycle between the server and the client,
+        # (In our case between the django view on the server-side
+        #  and our form making the request on the client-side.)
+        #  uses a HTTP session, to allow information to be stored
+        #  until the client and server are done communicating.
+        # This allows us to store the contents of the Booking
+        # in the HTTP session,
+        #  while the user browses the site and adds therapies to be purchased.
+        # By storing the Booking in the session,
+        # it will persist until the user closes their browser
+        #  so that they can add something to the booking,
+        # then browse to a different part of the site add something else
+        # and so on without losing their previous bookings.
+
+        # The variable bookings accesses the requests session,
+        # tries to get the bookings stored in the session - if it already exists,
+        # and initialises it to an empty dictionary {} if it doesn't.
+        # First check to see if there's a bookings variable in the session,
+        # and if not this code will create one
+        bookings = request.session.get("booking", {})
+
+        # Basic idea :
+        # If quantity > zero, Set the therapy's quantity accordingly
+        #  Otherwise we'll just remove the therapy.
+        if number_of_sessions > 0:
+            # Set the therapy's number of sessions to the updated value
+            bookings[therapy_id] = number_of_sessions
+        else:
+            # Remove the therapy entirely by using the pop() function
+            bookings.pop(therapy_id)
+
+        # Put the bookings variable into the session.
+        #  Which itself is just a python dictionary.
+        request.session["booking"] = bookings
+
+        # Redirect back to the view bookings URL
+        return redirect(reverse("bookings"))
