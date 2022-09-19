@@ -1,0 +1,55 @@
+/*~~~~~~~  Purchase Success Page ~~~~~~~*/
+
+.containerPurchaseSuccess
+	hr
+		// margin-top: 1rem
+		margin: 1rem auto
+		max-width: 70%
+
+.purchase
+	&Success
+		margin-top: 2rem
+		width: 100%
+		@include respond(desktop)
+			width: 60%
+			margin-right: auto
+		&Title
+			text-transform: uppercase
+			margin-top: 1.3rem
+			text-align: center
+			~ p
+				padding: .5rem 1rem
+
+.orderConfirmation
+	&Wrapper
+		max-width: 90%
+		padding: 1rem
+		border: 1px solid $greyHelp
+		margin: 1.3rem auto
+
+	/*	Add space above all  but the first orderConfirmationInfo element
+	&Info:not(:first-of-type)
+		h2
+			margin-top: 1.6rem
+
+	&Row
+		display: flex
+		flex-wrap: wrap
+		flex-direction: column
+		// @include respond(400)
+		// 	flex-direction: row
+		> p
+			margin-bottom: 0
+			padding-left: 1.2rem
+			&:first-child
+				flex: 3
+				font:
+					weight: $boldWt
+					size: 2rem
+			&:not(:first-child)
+				flex: 7
+				text-align: left
+				color: $accentDark
+				font-size: 2rem
+
+/*===== END  Purchase Success Page =====*/

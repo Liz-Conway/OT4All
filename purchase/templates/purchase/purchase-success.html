@@ -7,12 +7,12 @@
 	<div class="overlay"></div>
 	<div class="containerPurchaseSuccess">
 		<hr>
-		<h2 class="purchaseSuccessTitle">Success</h2>
+		<h1 class="purchaseSuccessTitle">Thank You</h1>
 		<hr>
 		<p>Your order information is below.  A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
 		<div class="orderConfirmationWrapper">
 			<div class="orderConfirmationInfo">
-				<small>Order Info:</small>
+				<h2>Order Info:</h2>
 			</div>
 			<div class="orderConfirmationRow">
 				<p>Order Number</p>
@@ -24,22 +24,21 @@
 			</div>
 			
 			<div class="orderConfirmationInfo">
-				<small>Order Details:</small>
+				<h3>Order Details:</h3>
 			</div>
 			<!-- "lineitems" comes from the "related_name" attribute
 			on the order field of the OrderLineItem model -->
 			{% for item in order.lineitems.all %}
 				<div class="orderConfirmationRow">
-					<p class="small">
+					<p>
 						{{ item.therapy.name }}
 					</p>
-					<p class="small">{{ item.sessions }} @ €{{ item.therapy.price }} each</p>
-					<p>= €{{ item.lineitem_total }}</p>
+					<p>{{ item.sessions }} @ €{{ item.therapy.price }} each = €{{ item.lineitem_total }}</p>
 				</div>
 			{% endfor %}
 			
 			<div class="orderConfirmationInfo">
-				<small>Address:</small>
+				<h2>Address:</h2>
 			</div>
 			<div class="orderConfirmationRow">
 				<p>Name</p>
@@ -82,7 +81,7 @@
 			
 			
 			<div class="orderConfirmationInfo">
-				<small>Billing Info:</small>
+				<h2>Billing Info:</h2>
 			</div>
 			<div class="orderConfirmationRow">
 				<p>Grand Total</p>

@@ -2,6 +2,7 @@ import uuid  # used to generate the order number
 from django.db import models
 from django.db.models import Sum
 from therapy.models import Therapy
+from django.db.models.aggregates import Max
 
 
 class Order(models.Model):

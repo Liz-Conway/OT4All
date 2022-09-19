@@ -46,5 +46,5 @@ let elements = stripe.elements();
 let card = elements.create('card', {style: style});
 
 
-/*Mount the card element to the div we created in checkout.html*/
+/*Mount the card element to the div we created in purchase.html*/
 card.mount("#stripeCard");
