@@ -44,8 +44,7 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added,
-        accounting for delivery costs.
+        Update grand total each time a line item is added
         """
         # Use the Sum() function across all the line-item total fields
         # for all line items on this order.
@@ -53,9 +52,13 @@ class Order(models.Model):
         # to add a new field to the query set called "lineitem_total_sum"
         # this field is named automatically for us.
         # We can then get the "lineitem_sum" and set the grand total to it.
-        self.grand_total = self.lineitems.aggregate(Sum("lineitem_total"))[
-            "lineitem_total_sum"
-        ]
+        # NB THERE IS A DOUBLE UNDERSCORE  BEFORE 'sum' where it is aggregated
+        aggregation = self.lineitems.aggregate(Sum("lineitem_total"))
+        line_sum = aggregation["lineitem_total__sum"]
+        # Add " or 0" to the end to prevent an error
+        # if we manually delete all the line items from an order
+        # by making sure that this sets the order_total to zero instead of None
+        self.grand_total = line_sum or 0
 
         self.save()
 
