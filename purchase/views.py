@@ -46,8 +46,6 @@ class Purchase(TemplateView):
             currency=STRIPE_CURRENCY,
         )
 
-        print(intent.client_secret)
-
         # An instance of our order form - which will be empty for now.
         order_form = OrderForm()
 
