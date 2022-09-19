@@ -1529,6 +1529,19 @@ p.therapyDetailsPrice {
 .purchaseSuccessTitle ~ p {
   padding: 0.5rem 1rem;
 }
+.purchaseSuccessButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
 
 .orderConfirmation {
   /*	Add space above all  but the first orderConfirmationInfo element */

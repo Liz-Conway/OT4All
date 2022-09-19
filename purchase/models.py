@@ -35,13 +35,30 @@ class Order(models.Model):
     # Prepended with an underscore by convention
     # to indicate it's a private method
     # which will only be used inside this class
+    # def _generate_order_number(self):
+    #     """
+    #     Generate a random, unique number using UUID
+    #     """
+    # Generate a random string of 32 characters
+    # we can use as an order number
+    # return uuid.uuid4().hex.upper()
+
     def _generate_order_number(self):
         """
-        Generate a random, unique number using UUID
+        Generate a random, unique number based on
+        the max id in the database
         """
-        # Generate a random string of 32 characters
-        # we can use as an order number
-        return uuid.uuid4().hex.upper()
+        max_id = Order.objects.aggregate(Max("id"))
+        print(f"Max ID :  {max_id}")
+        last_id = max_id.get("id__max")
+        # If this is the first order there will not be any max id in the database
+        # Instead it will return 'None'
+        # Convert this to 0 (zero)
+        if not last_id:
+            last_id = 0
+
+        new_order = str(last_id + 1)
+        return new_order.zfill(8)
 
     def update_total(self):
         """
