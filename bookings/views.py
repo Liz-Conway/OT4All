@@ -1,5 +1,5 @@
 from django.views.generic.base import TemplateView
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls.base import reverse
 from django.http.response import HttpResponse
 from therapy.models import Therapy
@@ -59,6 +59,10 @@ class AddToBookings(TemplateView):
             #  matching this therapy id)
             # then increment its number of therapy sessions
             booking[therapy_id] += therapy_sessions
+            messages.success(
+                request,
+                f"Updated {therapy.name} quantity to {booking[therapy_id]}",
+            )
         else:
             # This therapy has not been booked (does not exist).
             # Create a key for the therapy in our dictionary,
@@ -86,6 +90,7 @@ class UpdateBooking(TemplateView):
 
     def post(self, request, therapy_id):
 
+        therapy = get_object_or_404(Therapy, pk=therapy_id)
         # Get the number of sessions from the form.
         # Convert it to an integer
         # since it'll come from the template as a string.
@@ -122,9 +127,16 @@ class UpdateBooking(TemplateView):
         if number_of_sessions > 0:
             # Set the therapy's number of sessions to the updated value
             bookings[therapy_id] = number_of_sessions
+            messages.success(
+                request,
+                f"Updated {therapy.name} number of sessions to {bookings[therapy_id]}",
+            )
         else:
             # Remove the therapy entirely by using the pop() function
             bookings.pop(therapy_id)
+            messages.success(
+                request, f"Removed {therapy.name} from your bookings"
+            )
 
         # Put the bookings variable into the session.
         #  Which itself is just a python dictionary.
@@ -142,10 +154,11 @@ class RemoveBooking(TemplateView):
     def post(self, request, therapy_id):
 
         # No need for a  redirect URL
-        # Since we alway want to redirect back to the Book page
+        # Since we alway want to redirect back to the Bookings page
 
         # Wrap this entire block of code in a try block.
         try:
+            therapy = get_object_or_404(Therapy, pk=therapy_id)
             # Every request-response cycle between the server and the client,
             # (In our case between the django view on the server-side
             #  and our form making the request on the client-side.)
@@ -172,6 +185,9 @@ class RemoveBooking(TemplateView):
             # Removing the therapy is as simple
             # as popping it out of the booking
             bookings.pop(therapy_id)
+            messages.success(
+                request, f"Removed {therapy.name} from your bookings"
+            )
 
             # Put the bookings variable into the HTTP session.
             #  Which itself is just a python dictionary.
@@ -184,4 +200,5 @@ class RemoveBooking(TemplateView):
         # Catch any exceptions that happen
         # in order to return a 500 server error
         except Exception as ex:
+            messages.error(request, f"Error removing therapy :  {ex}")
             return HttpResponse(status=500)

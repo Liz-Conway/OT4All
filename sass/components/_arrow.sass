@@ -1,0 +1,17 @@
+/*~~~~~~~  Arrow  ~~~~~~~*/
+/* https://css-tricks.com/snippets/css/css-triangle/ */
+
+// Use the mixin arrow
+// E.G. @include arrow(10px, 4px, $black, up)
+// or @include arrow(20px, 5px, $accentLight, down)
+
+.arrowUp
+	@include arrow(15px, 7px, $success, up)
+	position: absolute
+	top: -18px
+	/* Puts arrow under the "Accounts" logo */
+	right: 175px
+
+.bagArrow
+	/* Puts arrow under the "Bag" logo */
+	right: 36px
