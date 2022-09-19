@@ -63,7 +63,10 @@ INSTALLED_APPS = [
     "allauth.account",
     #  handles logging in via social media providers like Facebook and Google
     "allauth.socialaccount",
+    # Booking Therapy sessions
     "bookings",
+    # Purchasing the booked therapy sessions
+    "purchase",
 ]
 
 MIDDLEWARE = [
