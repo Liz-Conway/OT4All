@@ -1,9 +1,9 @@
-<div class="toast" data-autoHide="false">
+<div class="toast" >
 	<div class="arrowUp arrowSuccess"></div>
   <div class="toastCapper toastCapperSuccess"></div>
   <div class="toastTitle">
   	<strong>Success!</strong>
-    <button class="close" data-dismiss="toast" aria-label="Close">
+    <button class="close" aria-label="Close">
     	&times;
     </button>
   </div>
@@ -13,11 +13,11 @@
  		<hr>
  		{% if grand_total %}
  			<p>Your Bookings ({{ therapy_sessions }})</p>
- 		<div class="toastBagWrapper">
+ 		<div class="toastBookingsWrapper">
  			{% for item in booking_items %}
- 			<div class="toastBag">
- 				<img class="toastBagImage" src="{{ item.therapy.image.url }}">
- 				<div class="toastBagDetails">
+ 			<div class="toastBookings">
+ 				<img class="toastBookingsImage" src="{{ item.therapy.image.url }}">
+ 				<div class="toastBookingsDetails">
  					<p><strong>{{ item.therapy.name }}</strong></p>
  					<p>Sessions :  {{ item.number_sessions }}</p>
  				</div>
@@ -25,10 +25,10 @@
  			{% endfor %}
  		</div>
  		<div>
- 			<strong><p class="toastBagTotal">
+ 			<strong><p class="toastBookingsTotal">
  				<span>€{{ total }}</span>
  			</p></strong>
- 			<a href="{% url 'bookings' %}" class="btn btnPrimary btnThin">
+ 			<a href="{% url 'purchase' %}" class="btn btnPrimary btnThin">
  				<span>Go To Secure Checkout</span>
  				<span class="icon"><i class="fas fa-lock"></i></span>
  			</a>

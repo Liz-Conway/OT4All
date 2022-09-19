@@ -82,6 +82,23 @@
 				background-color: $shadow
 				color: $accentLight
 
+	&BackToTop
+		height: 42px
+		width: 42px
+		position: fixed
+		bottom: 10px
+		right: 10px
+		display: flex
+		@include flexCentre
+		border: 1px solid $black
+		color: $black
+		box-shadow: 0 .125rem .125rem rgba($black, .075)
+
+		a
+			cursor: pointer
+			i
+				margin: auto
+
 button[class$="crementSessions"]
 	background-color: $shadow
 	color: $midtone
@@ -99,5 +116,7 @@ button[class$="crementSessions"]
 
 .decrementSessions
 	margin-right: -.5rem
+
+
 
 /*===== END  Button  =====*/

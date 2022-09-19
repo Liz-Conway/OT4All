@@ -782,6 +782,7 @@ footer {
 /*~~~~~~~  Therapies Page  ~~~~~~~ */
 .therapyTitle {
   text-align: center;
+  margin-top: 1rem;
 }
 .therapyTitle h1 {
   margin-top: 3rem;
@@ -1271,6 +1272,308 @@ p.therapyDetailsPrice {
 }
 
 /*===== END  Bookings Page  ===== */
+/*~~~~~~~  Purchase  ~~~~~~~ */
+.containerPurchase {
+  max-width: 95%;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 37.5em) {
+  .containerPurchase {
+    max-width: 80%;
+  }
+}
+.containerPurchase .purchaseTitle {
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.containerPurchase > hr {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.purchase {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  width: 100%;
+}
+@media only screen and (min-width: 75em) {
+  .purchase {
+    width: 50%;
+  }
+}
+.purchase p:first-child {
+  color: #808080;
+  margin-bottom: 1.3rem;
+}
+.purchaseOrder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media only screen and (min-width: 75em) {
+  .purchaseOrder {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+}
+.purchaseOrder .orderSummary {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+.purchaseOrder .orderSummary hr {
+  margin: 0;
+}
+.purchaseOrder .orderTitles {
+  margin-bottom: 1rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 85%;
+}
+.purchaseOrder .orderTitles p {
+  margin-bottom: 0.33rem;
+  margin-top: 0;
+  text-align: center;
+  color: #333333;
+}
+.purchaseOrder .orderItem {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 60%;
+          flex: 1 1 60%;
+}
+.purchaseOrder .orderSubtotal {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  text-align: right;
+}
+.purchaseOrder .orderContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.purchaseOrder .orderImage {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+}
+.purchaseOrder .orderImage img {
+  width: 100%;
+}
+.purchaseOrder .orderDetails {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  text-align: center;
+}
+.purchaseOrder .orderDetails p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.purchaseOrder .orderPrice {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20%;
+          flex: 1 1 20%;
+  text-align: right;
+}
+.purchaseOrder .orderPrice p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.purchaseOrder .orderTotals {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: right;
+}
+.purchaseOrder .orderTotals p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.purchaseOrder .orderTotalsTitles {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 60%;
+          flex: 1 1 60%;
+}
+.purchaseOrder .orderTotalsCosts {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  margin-left: auto;
+}
+
+#stripeError {
+  color: #e84610;
+}
+
+.payButtons {
+  margin-top: 4rem;
+  margin-bottom: 0.65rem;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.payButtons span {
+  text-transform: none;
+}
+.payButtons a:first-child {
+  margin: 0;
+}
+.payButtons p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #e84610;
+}
+.payButtons + div {
+  color: #e84610;
+  text-align: right;
+}
+
+#submitButton {
+  margin-right: 0;
+  font-weight: 700;
+}
+
+#paymentForm fieldset {
+  padding: 0 1.3rem;
+  margin-bottom: 4rem;
+  border: none;
+}
+#paymentForm fieldset:last-child > div {
+  margin-bottom: 1.3rem;
+}
+#paymentForm .fieldsetLabel {
+  position: relative;
+  right: 0.7rem;
+  padding: 0 1.3rem;
+}
+#paymentForm .formCheck {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+#paymentForm .formCheckLabel {
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+}
+#paymentForm .formCheckLabel a {
+  color: #191970;
+}
+
+/*===== END  Purchase  ===== */
+/*~~~~~~~  Purchase Success Page ~~~~~~~ */
+.containerPurchaseSuccess hr {
+  margin: 1rem auto;
+  max-width: 70%;
+}
+
+.purchaseSuccess {
+  margin-top: 2rem;
+  width: 100%;
+}
+@media only screen and (min-width: 75em) {
+  .purchaseSuccess {
+    width: 60%;
+    margin-right: auto;
+  }
+}
+.purchaseSuccessTitle {
+  text-transform: uppercase;
+  margin-top: 1.3rem;
+  text-align: center;
+}
+.purchaseSuccessTitle ~ p {
+  padding: 0.5rem 1rem;
+}
+
+.orderConfirmation {
+  /*	Add space above all  but the first orderConfirmationInfo element */
+}
+.orderConfirmationWrapper {
+  max-width: 90%;
+  padding: 1rem;
+  border: 1px solid #808080;
+  margin: 1.3rem auto;
+}
+.orderConfirmationInfo:not(:first-of-type) h2 {
+  margin-top: 1.6rem;
+}
+.orderConfirmationRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.orderConfirmationRow > p {
+  margin-bottom: 0;
+  padding-left: 1.2rem;
+}
+.orderConfirmationRow > p:first-child {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.orderConfirmationRow > p:not(:first-child) {
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  text-align: left;
+  color: #191970;
+  font-size: 2rem;
+}
+
+/*===== END  Purchase Success Page ===== */
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
@@ -1558,6 +1861,37 @@ menu a {
   background-color: #751c00;
   color: #99ffb2;
 }
+.btnBackToTop {
+  height: 42px;
+  width: 42px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: 1px solid #000000;
+  color: #000000;
+  -webkit-box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.075);
+          box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.075);
+}
+.btnBackToTop a {
+  cursor: pointer;
+}
+.btnBackToTop a i {
+  margin: auto;
+}
 
 button[class$="crementSessions"] {
   background-color: #751c00;
@@ -1834,6 +2168,56 @@ button[class$="crementSessions"]:disabled {
           flex-direction: row;
 }
 
+.formInput {
+  /*Always when padding an element give it a bit more on the sides to look better */
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #b299ff;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  /*Add a transparent border at the bottom to match the border when the input is focussed */
+  /*Otherwise the form elements will 'jump' when focus switches */
+  border-bottom: 3px solid transparent;
+  /*Full width on its own line */
+  width: 90%;
+  display: block;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.formInput:focus {
+  /*Browser highlights a border (outline) around the input element when it has focus */
+  /*We want to remove this */
+  outline: none;
+  /*This focus is important for ARIA, i.e. keyboard navigation */
+  /*Always make form elements that are focussed visible */
+  /*Give it a box shadow and a border at the bottom */
+  -webkit-box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
+          box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
+  border-bottom: 3px solid #b299ff;
+  /*Apply this style when we have an invalid focussed input element */
+}
+.formInput:focus:invalid {
+  border-bottom: 3px solid #191970;
+}
+.formInput::-webkit-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.formInput:-ms-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.formInput::-ms-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.formInput::placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+
 /*~~~~~~~  Sort  ~~~~~~~ */
 .sortRow {
   margin-top: 0.5rem;
@@ -1861,8 +2245,8 @@ button[class$="crementSessions"]:disabled {
 
 /*===== END  Sort  ===== */
 .toast {
-  min-width: 250px;
-  max-width: 350px;
+  min-width: 32rem;
+  max-width: 75%;
   background-color: #FFFFFF;
   color: #333;
   text-align: center;
@@ -1878,7 +2262,7 @@ button[class$="crementSessions"]:disabled {
   margin-left: auto;
   background-color: #FFFFFF;
   border: none;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1;
 }
@@ -1914,6 +2298,53 @@ button[class$="crementSessions"]:disabled {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+.toastBookings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.toastBookingsImage {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  min-width: 25%;
+}
+.toastBookingsDetails {
+  -webkit-box-flex: 3;
+      -ms-flex: 3 3 0px;
+          flex: 3 3 0;
+}
+.toastBookingsDetails p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.toastBookingsDetails p:not(:first-child) {
+  @extends .small;
+}
+.toastBookingsWrapper {
+  height: 100px;
+  /* horizontal overflow hidden */
+  overflow-x: hidden;
+  /* V'ertical overflow will turn into a scrollbar when the height is greater than 100 pixels */
+  overflow-y: auto;
+}
+.toastBookingsTotal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1rem 0;
 }
 
 @-webkit-keyframes {
@@ -2219,5 +2650,91 @@ label[for="id_remember"] {
 }
 
 /*===== END  Django AllAuth  ===== */
+/*~~~~~~~  Stripe  ~~~~~~~ */
+.StripeElement,
+.stripeStyleInput {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 4rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 1px 3px 0 #e6ebf1;
+          box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  -webkit-transition: -webkit-box-shadow 150ms ease;
+  transition: -webkit-box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripeStyleInput:focus,
+.stripeStyleInput:active {
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+          box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripeStyleInput::-webkit-input-placeholder {
+  color: #aab7c4;
+}
+
+.stripeStyleInput:-ms-input-placeholder {
+  color: #aab7c4;
+}
+
+.stripeStyleInput::-ms-input-placeholder {
+  color: #aab7c4;
+}
+
+.stripeStyleInput::placeholder {
+  color: #aab7c4;
+}
+
+.fieldset-label {
+  position: relative;
+  right: 0.5rem;
+}
+
+#paymentForm .form-control,
+#stripeCard {
+  color: #000;
+  border: 1px solid #000;
+}
+
+#stripeError {
+  background-color: #ffece5;
+}
+
+#loadingOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(23, 162, 184, 0.85);
+  z-index: 9999;
+}
+
+.loading-spinner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  height: 100%;
+  /*===== END  Stripe  ===== */
+}
 
 /*# sourceMappingURL=style.css.map */

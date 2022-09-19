@@ -63,7 +63,10 @@ INSTALLED_APPS = [
     "allauth.account",
     #  handles logging in via social media providers like Facebook and Google
     "allauth.socialaccount",
+    # Booking Therapy sessions
     "bookings",
+    # Purchasing the booked therapy sessions
+    "purchase",
 ]
 
 MIDDLEWARE = [
@@ -235,3 +238,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Stripe
+STRIPE_CURRENCY = "eur"
+STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
