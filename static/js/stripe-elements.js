@@ -8,7 +8,7 @@
 
 /*Those little script elements contain the values we need as their text.
 So we can get them just by getting their ids and using the .text function.
-I'll also slice off the first and last character on each
+Slice off the first and last character on each
 since they'll have quotation marks which we don't want.*/
 let stripe_public_key = $("#id_stripe_public_key").text().slice(1, -1);
 let client_secret = $("#id_client_secret").text().slice(1, -1);

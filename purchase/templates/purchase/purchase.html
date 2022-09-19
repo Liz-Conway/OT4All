@@ -88,10 +88,10 @@
 						<legend class="fieldsetLabel">Payment</legend>
 						<!-- Need two empty divs in this fieldset to hold the stripe elements -->
 						<!-- A Stripe card element will go here -->
-						<div id="stripeCard"></div>
+						<div id="stripeCard" class="stripeStyleInput"></div>
 						
 						<!-- Used to display form errors -->
-						<div id="stripeError" role="alert"></div>
+						<div id="stripeError" role="alert" class="stripeStyleInput"></div>
 					</fieldset>
 					<div class="payButtons">
 						<a href="{% url 'bookings' %}" class="btn btnGhost btnThin">
