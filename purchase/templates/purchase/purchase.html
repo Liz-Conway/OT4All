@@ -11,10 +11,10 @@
 		<hr>
 		<div class="purchaseOrder">
 			<div class="orderSummary">
-				<p>Order Summary ({{ therapy_sessions }})</p>
+				<p>Order Summary ({{ therapy_sessions }} sessions)</p>
 				<div class="orderTitles">
 					<div class="orderItem">
-						<p>Item</p>
+						<p>Therapy</p>
 					</div>
 					<div class="orderSubtotal">
 						<p>Subtotal</p>
@@ -71,7 +71,7 @@
 							<div class="formCheck">
 								{% if user.is_authenticated %}
 									<!-- Allow authenticated users to save the information in the form to their profile -->
-									<label class="formCheckLabel" for="saveInfo">Save this delivery information to my profile</label>
+									<label class="formCheckLabel" for="saveInfo">Save this delivery data to my profile</label>
 									<!-- Submitting the form with this checked will autofill the user's profile with this information -->
 									<!-- And also auto-fill the form with the same information next time they check out -->
 									<input class="formCheckInput" type="checkbox" id="saveInfo" name="saveInfo" checked>
@@ -93,7 +93,7 @@
 						<!-- Used to display form errors -->
 						<div id="stripeError" role="alert"></div>
 					</fieldset>
-					<div class="submitButton">
+					<div class="payButtons">
 						<a href="{% url 'bookings' %}" class="btn btnGhost btnThin">
 							<span class="icon"><i class="fas fa-chevron-left"></i></span>
 							<span>Adjust Bookings</span>
@@ -102,10 +102,10 @@
 							<span>Complete Order</span>
 							<span class="icon"><i class="fas fa-lock"></i></span>
 						</button>
-						<p>
-							<span class="icon"><i class="fas fa-exclamation-circle"></i></span>
-							<span>Your card will be charged <strong>€{{ grand_total }}</strong></span>
-						</p>
+					</div>
+					<div>
+						<span class="icon"><i class="fas fa-exclamation-circle"></i></span>
+						<span>Your card will be charged <strong>€{{ grand_total }}</strong></span>
 					</div>
 				</form>
 			</div>
