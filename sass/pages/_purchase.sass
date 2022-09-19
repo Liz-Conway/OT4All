@@ -152,4 +152,21 @@
 			a
 				color: $accentDark
 
+#loadingOverlay
+	display: none
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: $overlayColour
+	z-index: 9999
+
+.loadingSpinner
+	display: flex
+	@include flexCentre
+	margin: 0
+	height: 100%
+	color: $highlight
+
 /*===== END  Purchase  =====*/
