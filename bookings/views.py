@@ -2,6 +2,8 @@ from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
 from django.urls.base import reverse
 from django.http.response import HttpResponse
+from therapy.models import Therapy
+from django.contrib import messages
 
 
 class BookingsContents(TemplateView):
@@ -17,6 +19,7 @@ class AddToBookings(TemplateView):
 
     def post(self, request, therapy_id):
 
+        therapy = Therapy.objects.get(pk=therapy_id)
         # Get the number of sessions from the form.
         # Convert it to an integer
         # since it'll come from the template as a string.
@@ -61,6 +64,7 @@ class AddToBookings(TemplateView):
             # Create a key for the therapy in our dictionary,
             # and set its value to the number of therapy sessions booked.
             booking[therapy_id] = therapy_sessions
+            messages.success(request, f"You booked Therapy {therapy.name}")
 
         # Put the booking variable into the HTTP session.
         #  Which itself is just a python dictionary.
