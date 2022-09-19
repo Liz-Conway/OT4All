@@ -9,7 +9,7 @@ class OrderForm(forms.ModelForm):
         # which will be automatically calculated.
         # Since no one will ever be filling that information out.
         # It'll all be done via the model methods we've created.
-        fields = (
+        fields = [
             "full_name",
             "email",
             "phone_number",
@@ -19,7 +19,40 @@ class OrderForm(forms.ModelForm):
             "postcode",
             "country",
             "county",
-        )
+        ]
+
+        widgets = {
+            "full_name": forms.TextInput(
+                attrs={"class": "formInput", "placeholder": "Full name*"}
+            ),
+            "email": forms.TextInput(
+                attrs={"class": "formInput", "placeholder": "Email Address*"}
+            ),
+            "phone_number": forms.TextInput(
+                attrs={"class": "formInput", "placeholder": "Phone Number*"}
+            ),
+            "street_address1": forms.TextInput(
+                attrs={
+                    "class": "formInput",
+                    "placeholder": "Street Address 1*",
+                }
+            ),
+            "street_address2": forms.TextInput(
+                attrs={"class": "formInput", "placeholder": "Street Address 2"}
+            ),
+            "city": forms.TextInput(
+                attrs={"class": "formInput", "placeholder": "City*"}
+            ),
+            "county": forms.TextInput(
+                attrs={"class": "formInput", "placeholder": "County*"}
+            ),
+            "country": forms.TextInput(
+                attrs={"class": "formInput", "placeholder": "Country*"}
+            ),
+            "postcode": forms.TextInput(
+                attrs={"class": "formInput", "placeholder": "Post Code*"}
+            ),
+        }
 
         def __init__(self, *args, **kwargs):
             """
@@ -32,17 +65,17 @@ class OrderForm(forms.ModelForm):
             # A dictionary of placeholders which will show up
             # in the form fields rather than having
             # clunky looking labels and empty text boxes.
-            placeholders = {
-                "full_name": "Full name",
-                "email": "Email Address",
-                "phone_number": "Phone number",
-                "country": "Country",
-                "postcode": "Postal Code",
-                "city": "Town or City",
-                "street_address1": "Street Address 1",
-                "street_address2": "Street Address 2",
-                "county": "County",
-            }
+            # placeholders = {
+            #     "full_name": "Full name",
+            #     "email": "Email Address",
+            #     "phone_number": "Phone number",
+            #     "country": "Country",
+            #     "postcode": "Postal Code",
+            #     "city": "Town or City",
+            #     "street_address1": "Street Address 1",
+            #     "street_address2": "Street Address 2",
+            #     "county": "County",
+            # }
 
             # Set the "autofocus" attribute on the full_name field to True
             # so the cursor will start in the full_name field
@@ -50,16 +83,16 @@ class OrderForm(forms.ModelForm):
             self.fields["full_name"].widget.attrs["autofocus"] = True
             # Iterate through the forms fields
             for field in self.fields:
-                if self.fields[field].required:
-                    # Add a star to the placeholder
-                    # if it's a "required" field on the model.
-                    placeholder = f"{placeholders[field]} *"
-                else:
-                    placeholder = placeholder[field]
+                #     if self.fields[field].required:
+                #         # Add a star to the placeholder
+                #         # if it's a "required" field on the model.
+                #         placeholder = f"{placeholders[field]} *"
+                #     else:
+                #         placeholder = placeholder[field]
 
                 # Set all the placeholder attributes
                 # to their values in the dictionary above.
-                self.fields[field].widget.attrs["placeholder"] = placeholder
+                # self.fields[field].widget.attrs["placeholder"] = placeholder
                 # Add a CSS class we'll use for the Stripe input.
                 self.fields[field].widget.attrs["class"] = "stripeStyleInput"
                 # Remove the form fields' labels

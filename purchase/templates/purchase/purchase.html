@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load calc_subtotals %}
 
 {% block extra_title %}Purchase{% endblock %}
 
@@ -8,8 +9,106 @@
 		<hr>
 		<h2 class="purchaseTitle">Bookings</h2>
 		<hr>
-		<div class="purchase">
-			<p>Please fill out the form below to complete your order</p>
+		<div class="purchaseOrder">
+			<div class="orderSummary">
+				<p>Order Summary ({{ therapy_sessions }})</p>
+				<div class="orderTitles">
+					<div class="orderItem">
+						<p>Item</p>
+					</div>
+					<div class="orderSubtotal">
+						<p>Subtotal</p>
+					</div>
+				</div>
+				{% for item in booking_items %}
+				<div class="orderContent">
+					<div class="orderImage">
+						<a href="{% url 'singleTherapy' item.therapy.id %}">
+							{% if item.therapy.image %}
+								<img src="{{ item.therapy.image.url }}" alt="{{ item.therapy.name }}">
+							{% else %}
+								<img src="{% static 'images/noimage.png' %}" " alt="{{ item.therapy.name }}">
+							{% endif %}
+						</a>
+					</div>
+					<div class="orderDetails">
+						<p><strong>{{ item.therapy.name }}</strong></p>
+						<p>Sessions: {{ item.number_sessions }}</p>
+					</div>
+					<div class="orderPrice">
+						<p>€{{ item.therapy.price | calculate_subtotal:item.number_sessions }}</p>
+					</div>					
+				</div>
+				{% endfor %}
+				<hr>
+				<div  class="orderTotals">
+					<div class="orderTotalsTitles">
+						<p>Grand Total:</p>
+					</div>
+					<div class="orderTotalsCosts">
+						<p>€{{ grand_total }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="purchase">
+				<p>Please fill out the form below to complete your order</p>
+				<form action="{% url 'purchase' %}" method="POST" id="paymentForm">
+					{% csrf_token %}
+					<fieldset>
+						<legend class="fieldsetLabel">Details</legend>
+							{{ order_form.full_name }}
+							{{ order_form.email }}
+							{{ order_form.phone_number }}
+					</fieldset>
+					<fieldset>
+						<legend class="fieldsetLabel">Delivery</legend>
+							{{ order_form.street_address1 }}
+							{{ order_form.street_address2 }}
+							{{ order_form.city }}
+							{{ order_form.county }}
+							{{ order_form.postcode }}
+							{{ order_form.country }}
+							<div class="formCheck">
+								{% if user.is_authenticated %}
+									<!-- Allow authenticated users to save the information in the form to their profile -->
+									<label class="formCheckLabel" for="saveInfo">Save this delivery information to my profile</label>
+									<!-- Submitting the form with this checked will autofill the user's profile with this information -->
+									<!-- And also auto-fill the form with the same information next time they check out -->
+									<input class="formCheckInput" type="checkbox" id="saveInfo" name="saveInfo" checked>
+								{% else %}
+									<!-- Not authenticated => give them a link to signup or login -->
+									<label class="formCheckLabel" for="saveInfo">
+										<a href="{% url 'account_signup' %}">Create an account</a> or
+										<a href="{% url 'account_login' %}">login</a> to save this information
+									</label>
+								{% endif %}
+							</div>
+					</fieldset>
+					<fieldset>
+						<legend class="fieldsetLabel">Payment</legend>
+						<!-- Need two empty divs in this fieldset to hold the stripe elements -->
+						<!-- A Stripe card element will go here -->
+						<div id="stripeCard"></div>
+						
+						<!-- Used to display form errors -->
+						<div id="stripeError" role="alert"></div>
+					</fieldset>
+					<div class="submitButton">
+						<a href="{% url 'bookings' %}" class="btn btnGhost btnThin">
+							<span class="icon"><i class="fas fa-chevron-left"></i></span>
+							<span>Adjust Bookings</span>
+						</a>
+						<button id="submitButton" class="btn btnPrimary btnThin">
+							<span>Complete Order</span>
+							<span class="icon"><i class="fas fa-lock"></i></span>
+						</button>
+						<p>
+							<span class="icon"><i class="fas fa-exclamation-circle"></i></span>
+							<span>Your card will be charged <strong>€{{ grand_total }}</strong></span>
+						</p>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 {% endblock %}

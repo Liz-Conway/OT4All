@@ -9,12 +9,12 @@ class Purchase(TemplateView):
     # The template
     template_name = "purchase/purchase.html"
 
-    def get_context_data(self, request):
-        booking = request.session.get("booking", {})
+    def get_context_data(self, **kwargs):
+        booking = self.request.session.get("booking", {})
 
         # Bookings are empty
         if not booking:
-            messages.error(request, "You have no bookings")
+            messages.error(self.request, "You have no bookings")
             # This will prevent people from manually accessing the URL
             # by typing "/purchase"
             return redirect(reverse("therapy"))
