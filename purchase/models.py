@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Sum
 from therapy.models import Therapy
 from django.db.models.aggregates import Max
+from django_countries.fields import CountryField
 
 
 class Order(models.Model):
@@ -14,8 +15,12 @@ class Order(models.Model):
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    # blank_label - use "Country" with the star to indicate it's a required field
+    # since select boxes don't have a placeholder
+    country = CountryField(blank_label="Country *", null=False, blank=False)
+    # The postcode field is used to compare orders
+    # So it cannot be blank on the form
+    postcode = models.CharField(max_length=20, null=False, blank=False)
     city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
@@ -44,7 +49,6 @@ class Order(models.Model):
     # Prepended with an underscore by convention
     # to indicate it's a private method
     # which will only be used inside this class
-
     def _generate_order_number(self):
         """
         Generate a random, unique number based on
