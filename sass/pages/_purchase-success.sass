@@ -2,9 +2,17 @@
 
 .containerPurchaseSuccess
 	hr
-		// margin-top: 1rem
 		margin: 1rem auto
 		max-width: 70%
+		@include respond(tabletPortrait)
+			max-width: 50%
+		@include respond(tabletLandscape)
+			max-width: 40%
+		@include respond(notebook)
+			max-width: 30%
+	> p
+		text-align: center
+		font-size: 2rem
 
 .purchase
 	&Success
@@ -25,7 +33,7 @@
 			flex-direction: row
 			justify-content: space-evenly
 			margin-bottom: 2rem
-			
+
 
 .orderConfirmation
 	&Wrapper
@@ -33,9 +41,17 @@
 		padding: 1rem
 		border: 1px solid $greyHelp
 		margin: 1.3rem auto
+		@include respond(tabletPortrait)
+			max-width: 80%
+		@include respond(tabletLandscape)
+			max-width: 70%
+		@include respond(notebook)
+			max-width: 60%
+		@include respond(desktop)
+			max-width: 50%
 
-	/*	Add space above all  but the first orderConfirmationInfo element
 	&Info:not(:first-of-type)
+		/*	Add space above all  but the first orderConfirmationInfo element
 		h2
 			margin-top: 1.6rem
 
@@ -43,8 +59,8 @@
 		display: flex
 		flex-wrap: wrap
 		flex-direction: column
-		// @include respond(400)
-		// 	flex-direction: row
+		@include respond(400)
+			flex-direction: row
 		> p
 			margin-bottom: 0
 			padding-left: 1.2rem
@@ -53,10 +69,17 @@
 				font:
 					weight: $boldWt
 					size: 2rem
+				@include respond(tabletPortrait)
+					flex: 1
 			&:not(:first-child)
 				flex: 7
 				text-align: left
 				color: $accentDark
 				font-size: 2rem
+				@include respond(tabletPortrait)
+					flex: 2
+
+	&Number
+		font-weight: $boldWt
 
 /*===== END  Purchase Success Page =====*/

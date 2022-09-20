@@ -1,4 +1,5 @@
-<div class="toast" >
+<!-- https://ordinarycoders.com/blog/article/django-messages-framework -->
+<div class="toast {{ message.tags }}" >
 	<div class="arrowUp arrowSuccess"></div>
   <div class="toastCapper toastCapperSuccess"></div>
   <div class="toastTitle">
@@ -9,7 +10,7 @@
   </div>
   <hr>
   <div class="toastBody">
- 		{{ message }}
+ 		{{ message | safe }}
  		<hr>
  		{% if grand_total %}
  			<p>Your Bookings ({{ therapy_sessions }})</p>
@@ -34,6 +35,7 @@
  			</a>
  			
  		</div>
+ 		{% else %}
  		{% endif %}
   </div>
 </div>

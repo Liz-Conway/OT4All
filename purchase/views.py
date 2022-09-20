@@ -170,8 +170,9 @@ class PurchaseSuccess(TemplateView):
         messages.success(
             request,
             f"Order successfully processed!  Your order number is\
-             {order_number}.  A confirmation email will be sent \
-             shortly to {order.email}",
+             <strong>{order_number}</strong>.  A confirmation email will be\
+              sent shortly to {order.email}",
+            extra_tags="safe",
         )
 
         # Delete the user's bookings from the session

@@ -12,9 +12,20 @@
 	font-size: 17px
 	overflow: visible
 
+	@include respond(tabletPortrait)
+		max-width: 60%
+	@include respond(tabletLandscape)
+		max-width: 50%
+	@include respond(notebook)
+		max-width: 40%
+	@include respond(desktop)
+		max-width: 32%
+	@include respond(XL)
+		max-width: 25%
+
 	button.close
 		margin-left: auto
-		background-color: $white
+		background-color: transparent
 		border: none
 		font:
 			size: 3rem
@@ -111,3 +122,23 @@
 	top: 72px
 	right: 15px
 	z-index: 9999
+
+.greenBackground
+	background-color: lighten($success, 40%)
+	border: 1px solid $success
+
+.redBackground
+	background-color: lighten($error, 5%)
+	border: 1px solid $error
+
+.blueBackground
+	background-color: lighten($accentDark, 40%)
+	border: 1px solid $accentDark
+
+.orangeBackground
+	background-color: lighten(orange, 10%)
+	border: 1px solid orange
+
+.yellowBackground
+	background-color: #fffe87
+	border: 1px solid darken(#fffe87, 50%)

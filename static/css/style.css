@@ -1541,6 +1541,25 @@ p.therapyDetailsPrice {
   margin: 1rem auto;
   max-width: 70%;
 }
+@media only screen and (min-width: 37.5em) {
+  .containerPurchaseSuccess hr {
+    max-width: 50%;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .containerPurchaseSuccess hr {
+    max-width: 40%;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .containerPurchaseSuccess hr {
+    max-width: 30%;
+  }
+}
+.containerPurchaseSuccess > p {
+  text-align: center;
+  font-size: 2rem;
+}
 
 .purchaseSuccess {
   margin-top: 2rem;
@@ -1574,14 +1593,34 @@ p.therapyDetailsPrice {
   margin-bottom: 2rem;
 }
 
-.orderConfirmation {
-  /*	Add space above all  but the first orderConfirmationInfo element */
-}
 .orderConfirmationWrapper {
   max-width: 90%;
   padding: 1rem;
   border: 1px solid #808080;
   margin: 1.3rem auto;
+}
+@media only screen and (min-width: 37.5em) {
+  .orderConfirmationWrapper {
+    max-width: 80%;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .orderConfirmationWrapper {
+    max-width: 70%;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .orderConfirmationWrapper {
+    max-width: 60%;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .orderConfirmationWrapper {
+    max-width: 50%;
+  }
+}
+.orderConfirmationInfo:not(:first-of-type) {
+  /*	Add space above all  but the first orderConfirmationInfo element */
 }
 .orderConfirmationInfo:not(:first-of-type) h2 {
   margin-top: 1.6rem;
@@ -1597,6 +1636,14 @@ p.therapyDetailsPrice {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+@media only screen and (min-width: 25em) {
+  .orderConfirmationRow {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
 .orderConfirmationRow > p {
   margin-bottom: 0;
   padding-left: 1.2rem;
@@ -1608,6 +1655,13 @@ p.therapyDetailsPrice {
   font-weight: 700;
   font-size: 2rem;
 }
+@media only screen and (min-width: 37.5em) {
+  .orderConfirmationRow > p:first-child {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
 .orderConfirmationRow > p:not(:first-child) {
   -webkit-box-flex: 7;
       -ms-flex: 7;
@@ -1615,6 +1669,16 @@ p.therapyDetailsPrice {
   text-align: left;
   color: #191970;
   font-size: 2rem;
+}
+@media only screen and (min-width: 37.5em) {
+  .orderConfirmationRow > p:not(:first-child) {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+  }
+}
+.orderConfirmationNumber {
+  font-weight: 700;
 }
 
 /*===== END  Purchase Success Page ===== */
@@ -2302,9 +2366,34 @@ button[class$="crementSessions"]:disabled {
   font-size: 17px;
   overflow: visible;
 }
+@media only screen and (min-width: 37.5em) {
+  .toast {
+    max-width: 60%;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .toast {
+    max-width: 50%;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .toast {
+    max-width: 40%;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .toast {
+    max-width: 32%;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .toast {
+    max-width: 25%;
+  }
+}
 .toast button.close {
   margin-left: auto;
-  background-color: #FFFFFF;
+  background-color: transparent;
   border: none;
   font-size: 3rem;
   font-weight: 700;
@@ -2444,6 +2533,31 @@ button[class$="crementSessions"]:disabled {
   top: 72px;
   right: 15px;
   z-index: 9999;
+}
+
+.greenBackground {
+  background-color: #75e075;
+  border: 1px solid #197019;
+}
+
+.redBackground {
+  background-color: #f05522;
+  border: 1px solid #e84610;
+}
+
+.blueBackground {
+  background-color: #7575e0;
+  border: 1px solid #191970;
+}
+
+.orangeBackground {
+  background-color: #ffb733;
+  border: 1px solid orange;
+}
+
+.yellowBackground {
+  background-color: #fffe87;
+  border: 1px solid #878600;
 }
 
 /*~~~~~~~  Django AllAuth  ~~~~~~~ */
@@ -2755,4 +2869,5 @@ label[for="id_remember"] {
   background-color: #ffece5;
   /*===== END  Stripe  ===== */
 }
+
 /*# sourceMappingURL=style.css.map */

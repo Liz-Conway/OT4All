@@ -15,6 +15,7 @@ import dj_database_url
 
 from pathlib import Path
 from django.conf.global_settings import DEFAULT_FILE_STORAGE
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -246,3 +247,12 @@ STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
 
 
 STRIPE_WH_SECRET = env("STRIPE_WH_SECRET")
+
+# https://ordinarycoders.com/blog/article/django-messages-framework
+MESSAGE_TAGS = {
+    messages.DEBUG: "yellowBackground",
+    messages.INFO: "blueBackground",
+    messages.SUCCESS: "greenBackground",
+    messages.WARNING: "orangeBackground",
+    messages.ERROR: "redBackground",
+}
