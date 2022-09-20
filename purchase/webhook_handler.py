@@ -47,6 +47,15 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
+        # Once the user makes a payment, it will have our metadata attached.
+        # The payment intent will be saved in a key called "event.data.object"
+        intent = event.data.object
+
+        print(f"Intent :\n {intent}")
+        pid = intent.Id
+        bookings = intent.metadata.bookings
+        save_info = intent.metadata.saveInfo
+
         return HttpResponse(
             content=f'Webhook received: {event["type"]}', status=200
         )

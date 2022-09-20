@@ -6,12 +6,23 @@
 	https://stripe.com/docs/stripe-js
  */
 
+/*Stripe works with what are called payment intents.
+The process will be that when a user hits the purchase page
+1) the purchase view will call out to stripe and create a payment intent
+for the current amount of the bookings.
+When stripe creates it, the payment intent will also have a secret that identifies it.
+2) This secret will be returned to us and we'll send it to the template as the client_secret variable.
+3)Then in the JavaScript on the client side.
+We'll call the confirmCardPayment() method from stripe js,
+using the client_secret which will verify the card number.
+*/
+
 /*Those little script elements contain the values we need as their text.
 So we can get them just by getting their ids and using the .text function.
 Slice off the first and last character on each
 since they'll have quotation marks which we don't want.*/
-let stripe_public_key = $("#id_stripe_public_key").text().slice(1, -1);
-let client_secret = $("#id_client_secret").text().slice(1, -1);
+let stripePublicKey = $("#id_stripe_public_key").text().slice(1, -1);
+let clientSecret = $("#id_stripe_client_secret").text().slice(1, -1);
 
 /*Style taken from
 https://stripe.com/docs/js/appendix/style*/
@@ -38,13 +49,12 @@ let style = {
 
 /*Made possible by the stripe js included in the base template.
 All we need to do to set up stripe is create a variable using our stripe public key*/
-let stripe = Stripe(stripe_public_key);
+let stripe = Stripe(stripePublicKey);
 /*Create an instance of stripe elements.*/
 let elements = stripe.elements();
 /*Use "elements" to create a card element.*/
 /*The card element can also accept a style argument.*/
-let card = elements.create('card', {style: style});
-
+let card = elements.create('card', {"style": style});
 
 /*Mount the card element to the div we created in purchase.html*/
 card.mount("#stripeCard");
@@ -74,9 +84,10 @@ let form = document.getElementById('paymentForm');
 form.addEventListener('submit', formSubmit);
 
 function formSubmit(event) {
-	console.log("Submitting the form");
-	// console.log('Client Secret', clientSecret);
-
+	/* STEP 1
+	 * When the user clicks the submit button
+	  * the event listener prevents the form from submitting
+	 * and instead disables the card element and triggers the loading overlay.*/
 	event.preventDefault();
 	/*Disable both the card element and the submit button
 	 to prevent multiple submissions.*/
@@ -86,13 +97,72 @@ function formSubmit(event) {
     $('#paymentForm').fadeToggle(100);
     $('#loadingOverlay').fadeToggle(100);
 
+	/* STEP 2
+	 * Create a few variables to capture the form data
+	 * we can't put in the payment intent here,
+	 * and instead post it to the cacheCheckoutData view*/
+	/*Get the boolean value of the "saveInfo" box by looking at its "checked" attribute*/
+	let saveInfo = Boolean($('#saveInfo').attr('checked'));
+    // From using {% csrf_token %} in the form
+    let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+	/*Create a small object to pass this information to the new view.
+	Also pass the client secret for the payment intent.*/
+	let postData = {
+        'csrfmiddlewaretoken': csrfToken,
+        'client_secret': clientSecret,
+        'save_info': saveInfo,
+    };
+	/*Create a variable for the new URL*/
+	let url = '/purchase/cachePurchaseData/';
 
-        stripe.confirmCardPayment(clientSecret, {
+	/*Post this data to the view.
+	Use our trusty post() method built into jQuery
+	Telling it we're posting to the URL and that we want to post the "postData" above.*/
+	/*Wait for a response that the PaymentIntent was updated before calling the confirmCardPayment() method
+	Just tack on the .done() method and	execute the callback function*/
+    $.post(url, postData).done(function () {
+	/* STEP 3
+	 * The view updates the payment intent and returns a 200 response,
+	 * at which point we call the confirmCardPayment() method from stripe
+	 * and if everything is ok submit the form.*/
+		/*Will be executed if our view returns a 200 response*/
+		stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
+                billing_details: {
+                    name: $.trim(form.full_name.value),
+                    phone: $.trim(form.phone_number.value),
+                    email: $.trim(form.email.value),
+                    address:{
+                        line1: $.trim(form.street_address1.value),
+                        line2: $.trim(form.street_address2.value),
+                        city: $.trim(form.city.value),
+                        country: $.trim(form.country.value),
+                        state: $.trim(form.county.value),
+                    }
                 }
+            },
+            shipping: {
+                name: $.trim(form.full_name.value),
+                phone: $.trim(form.phone_number.value),
+                address: {
+                    line1: $.trim(form.street_address1.value),
+                    line2: $.trim(form.street_address2.value),
+                    city: $.trim(form.city.value),
+                    country: $.trim(form.country.value),
+					/*only added postcode to the shipping information
+					since the billing postal code will come from the card element and
+					stripe will override it if we try to add it anyway*/
+                    postal_code: $.trim(form.postcode.value),
+                    state: $.trim(form.county.value),
+                }
+            },
         }).then(function(result) {
-            if (result.error) {
+			/* STEP 3a
+			 * If there's an error in the form
+			 * then the loading overlay will be hidden,
+			 * the card element re-enabled and the error displayed for the user.*/
+			if (result.error) {
                 let errorDiv = document.getElementById('stripeError');
                 let html = `
                     <span class="icon" role="alert">
@@ -110,9 +180,26 @@ function formSubmit(event) {
                 $('#submitButton').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
-					console.log("Payment intent succeeded");
 					form.submit();
                 }
             }
         });
+		/* STEP 3b
+		If anything goes wrong posting the data to our view
+		Reload the page and display the error without ever charging the user*/
+    }).fail(function () {
+		/*Failure function, which will be triggered
+		if our view sends a 400 bad request response*/
+        // just reload the page, the error will be in django messages
+        location.reload();
+    })
+}
+
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
 }

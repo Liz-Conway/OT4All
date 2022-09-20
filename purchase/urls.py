@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Purchase, PurchaseSuccess
+from .views import Purchase, PurchaseSuccess, CachePurchaseData
 
 # The webhook() function will live in a file called "webhooks.py"
 from .webhooks import webhook
@@ -10,6 +10,11 @@ urlpatterns = [
         "purchase-success/<order_number>",
         PurchaseSuccess.as_view(),
         name="purchaseSuccess",
+    ),
+    path(
+        "cachePurchaseData/",
+        CachePurchaseData.as_view(),
+        name="cachePurchaseData",
     ),
     path("wh/", webhook, name="webhook"),
 ]

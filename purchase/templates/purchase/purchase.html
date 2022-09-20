@@ -61,7 +61,7 @@
 							{{ order_form.phone_number }}
 					</fieldset>
 					<fieldset>
-						<legend class="fieldsetLabel">Delivery</legend>
+						<legend class="fieldsetLabel">Address :</legend>
 							{{ order_form.street_address1 }}
 							{{ order_form.street_address2 }}
 							{{ order_form.city }}
@@ -71,7 +71,7 @@
 							<div class="formCheck">
 								{% if user.is_authenticated %}
 									<!-- Allow authenticated users to save the information in the form to their profile -->
-									<label class="formCheckLabel" for="saveInfo">Save this delivery data to my profile</label>
+									<label class="formCheckLabel" for="saveInfo">Save this address data to my profile</label>
 									<!-- Submitting the form with this checked will autofill the user's profile with this information -->
 									<!-- And also auto-fill the form with the same information next time they check out -->
 									<input class="formCheckInput" type="checkbox" id="saveInfo" name="saveInfo" checked>
@@ -92,6 +92,8 @@
 						
 						<!-- Used to display form errors -->
 						<div id="stripeError" role="alert" class="stripeStyleInput"></div>
+						<!-- Pass the client secret to the view so we can get the Payment Intent id -->
+						<input type="hidden" value="{{ client_secret }}" name="client_secret">
 					</fieldset>
 					<div class="payButtons">
 						<a href="{% url 'bookings' %}" class="btn btnGhost btnThin">
@@ -113,7 +115,7 @@
 	</div>
 	<div id="loadingOverlay">
 		<h1 class="loadingSpinner">
-			<span class="icon"><i class="fas fa-3x fa-sync-alt fa-spin"></i></span>
+			<span class="icon"><i class="fas fa-3x fa-spinner fa-pulse"></i></span>
 		</h1>
 	</div>
 {% endblock %}
