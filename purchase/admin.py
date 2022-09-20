@@ -25,7 +25,13 @@ class OrderAdmin(admin.ModelAdmin):
     # Including order number, date & grand_total
     # So we don't want anyone to have the ability to edit them
     # since it could compromise the integrity of an order.
-    readonly_fields = ("order_number", "date", "grand_total")
+    readonly_fields = (
+        "order_number",
+        "date",
+        "grand_total",
+        "original_bookings",
+        "stripe_pid",
+    )
 
     # Allow us to specify the order of the fields in the admin interface
     # which would otherwise be adjusted by django
@@ -37,13 +43,15 @@ class OrderAdmin(admin.ModelAdmin):
         "full_name",
         "email",
         "phone_number",
-        "country",
-        "postcode",
-        "city",
         "street_address1",
         "street_address2",
+        "city",
         "county",
+        "postcode",
+        "country",
         "grand_total",
+        "original_bookings",
+        "stripe_pid",
     )
 
     # Restrict the columns that show up in the order list

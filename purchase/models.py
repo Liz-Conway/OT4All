@@ -1,8 +1,8 @@
-import uuid  # used to generate the order number
 from django.db import models
 from django.db.models import Sum
 from therapy.models import Therapy
 from django.db.models.aggregates import Max
+from django_countries.fields import CountryField
 
 
 class Order(models.Model):
@@ -15,8 +15,12 @@ class Order(models.Model):
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    # blank_label - use "Country" with the star to indicate it's a required field
+    # since select boxes don't have a placeholder
+    country = CountryField(blank_label="Country *", null=False, blank=False)
+    # The postcode field is used to compare orders
+    # So it cannot be blank on the form
+    postcode = models.CharField(max_length=20, null=False, blank=False)
     city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
@@ -32,24 +36,25 @@ class Order(models.Model):
         max_digits=10, decimal_places=2, null=False, default=0
     )
 
+    # It's possible for the same customer to purchase
+    # the same things twice on separate occasions
+    # which would result in us finding an identical order in the database
+    # when they place the second one.
+    # These field ensure that each order is unique
+    original_bookings = models.TextField(null=False, blank=False, default="")
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default=""
+    )
+
     # Prepended with an underscore by convention
     # to indicate it's a private method
     # which will only be used inside this class
-    # def _generate_order_number(self):
-    #     """
-    #     Generate a random, unique number using UUID
-    #     """
-    # Generate a random string of 32 characters
-    # we can use as an order number
-    # return uuid.uuid4().hex.upper()
-
     def _generate_order_number(self):
         """
         Generate a random, unique number based on
         the max id in the database
         """
         max_id = Order.objects.aggregate(Max("id"))
-        print(f"Max ID :  {max_id}")
         last_id = max_id.get("id__max")
         # If this is the first order there will not be any max id in the database
         # Instead it will return 'None'
@@ -152,7 +157,7 @@ class OrderLineItem(models.Model):
         def __str__(self):
             """
             Return the Therapy name
-            along with the order number it's part of for each order line item
+            along with the order number it's part of, for each order line item
             """
             return (
                 f"Therapy {self.therapy.name}"

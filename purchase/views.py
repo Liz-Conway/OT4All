@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
 from django.contrib import messages
 from django.urls.base import reverse
 from .forms import OrderForm
@@ -13,6 +13,9 @@ from ot4u.settings import (
 import stripe
 from therapy.models import Therapy
 from .models import Order, OrderLineItem
+from django.http.response import HttpResponse
+import json
+from django.conf import settings
 
 
 class Purchase(TemplateView):
@@ -37,7 +40,7 @@ class Purchase(TemplateView):
         # Retrieve the grand total from the current bag
         total = current_bookings["grand_total"]
         # Stripe requires the amount to charge to be an integer
-        stripe_total = round(total * 100)
+        stripe_total = total * 100
 
         stripe.api_key = stripe_secret_key
         # Create the payment intent giving it the amount and the currency
@@ -45,8 +48,6 @@ class Purchase(TemplateView):
             amount=stripe_total,
             currency=STRIPE_CURRENCY,
         )
-
-        print(intent.client_secret)
 
         # An instance of our order form - which will be empty for now.
         order_form = OrderForm()
@@ -88,7 +89,18 @@ class Purchase(TemplateView):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             # If the form is valid --> save the order.
-            order = order_form.save()
+            # but delay saving to Database until further data
+            # which is in the model but not in the OrderForm is collected
+            order = order_form.save(commit=False)
+            # Split the "client_secret" at the word "_secret"
+            # the first part of it will be the payment intent Id
+            pid = request.POST.get("client_secret").split("_secret")[0]
+            order.stripe_pid = pid
+            # Dump the "bookings" to a JSON string and set it on the order
+            order.original_booking = json.dumps(bookings)
+
+            order.save()
+
             # Iterate through the bookings items to create each line item
             # First variable is the key from the bookings item (we call it 'therapy_id')
             # Second variable is the value of that key (we are calling it 'therapy_data')
@@ -98,7 +110,7 @@ class Purchase(TemplateView):
                 try:
                     # First get the therapy.
                     therapy = Therapy.objects.get(id=therapy_id)
-                    # For each product ordered
+                    # For each therapy ordered
                     # Create an order line item and save it
                     order_line_item = OrderLineItem(
                         order=order,
@@ -128,7 +140,7 @@ class Purchase(TemplateView):
 
         else:
             # If the order form isn't valid => attach a message letting the user know
-            # and send them back to the purchase page at the bottom of this view
+            # and send them back to the purchase page
             # with the form errors shown
             messages.error(
                 request,
@@ -151,13 +163,15 @@ class PurchaseSuccess(TemplateView):
         save_info = request.session.get("saveInfo")
         # Use the order number to get the order created in the previous view
         order = get_object_or_404(Order, order_number=order_number)
+        print(f"Successful Order  :  {order}")
         # Success message letting the user know what their order number is
         # And that we will be sending an email to the address they put in the form
         messages.success(
             request,
             f"Order successfully processed!  Your order number is\
-             {order_number}.  A confirmation email will be sent \
-             shortly to {order.email}",
+             <strong>{order_number}</strong>.  A confirmation email will be\
+              sent shortly to {order.email}",
+            extra_tags="safe",
         )
 
         # Delete the user's bookings from the session
@@ -168,3 +182,44 @@ class PurchaseSuccess(TemplateView):
         context = {"order": order}
 
         return render(request, self.template_name, context)
+
+
+class CachePurchaseData(View):
+    """
+    Determine in the webhook whether the user had the "save info" box checked.
+    We can add that to the payment intent in a key called metadata,
+    but we have to do it from the server-side
+    because the confirm card payment method doesn't support adding it
+    """
+
+    # Before we call the confirm card payment method in the stripe JavaScript.
+    # we'll make a post request to this view
+    # and give it the client secret from the payment intent
+    def post(self, request):
+        try:
+            # Split the "client_secret" at the word "_secret"
+            # the first part of it will be the payment intent Id
+            pid = request.POST.get("client_secret").split("_secret")[0]
+            # Set up stripe with the secret key so we can modify the payment intent
+            stripe.api_key = settings.STRIPE_SECRET_KEY
+            # Call stripe.PaymentIntent.modify() give it the pid,
+            # and tell it what we want to modify.
+            # Add some metadata - add the user who's placing the order,
+            # add whether or not they wanted to save their information,
+            # add a JSON dump of their shopping bag (which we'll use a little later)
+            stripe.PaymentIntent.modify(
+                pid,
+                metadata={
+                    "bookings": json.dumps(request.session.get("booking", {})),
+                    "save_info": request.POST.get("save_info"),
+                    "username": request.user,
+                },
+            )
+            return HttpResponse(status=200)
+
+        except Exception as ex:
+            messages.error(
+                request,
+                "Sorry, your payment cannot be processed right now.  Please try again later.",
+            )
+            return HttpResponse(content=ex, status=400)
