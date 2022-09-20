@@ -52,7 +52,7 @@
 			</div>
 			<div class="purchase">
 				<p>Please fill out the form below to complete your order</p>
-				<form action="{% url 'purchase' %}" method="POST" id="paymentForm">
+				<form action="{% url 'purchase' %}" method="POST" id="paymentForm" class="form">
 					{% csrf_token %}
 					<fieldset>
 						<legend class="fieldsetLabel">Details</legend>

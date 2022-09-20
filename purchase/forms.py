@@ -46,9 +46,6 @@ class OrderForm(forms.ModelForm):
             "county": forms.TextInput(
                 attrs={"class": "formInput", "placeholder": "County*"}
             ),
-            # "country": forms.TextInput(
-            #     attrs={"class": "formInput", "placeholder": "Country*"}
-            # ),
             "postcode": forms.TextInput(
                 attrs={"class": "formInput", "placeholder": "Post Code*"}
             ),

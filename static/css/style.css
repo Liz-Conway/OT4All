@@ -2276,7 +2276,7 @@ button[class$="crementSessions"]:disabled {
           flex-direction: row;
 }
 
-.formInput {
+.formInput, .form #id_country {
   /*Always when padding an element give it a bit more on the sides to look better */
   padding: 1.5rem 2rem;
   margin-bottom: 1rem;
@@ -2294,7 +2294,7 @@ button[class$="crementSessions"]:disabled {
   -webkit-transition: all 1s;
   transition: all 1s;
 }
-.formInput:focus {
+.formInput:focus, .form #id_country:focus {
   /*Browser highlights a border (outline) around the input element when it has focus */
   /*We want to remove this */
   outline: none;
@@ -2306,24 +2306,31 @@ button[class$="crementSessions"]:disabled {
   border-bottom: 3px solid #b299ff;
   /*Apply this style when we have an invalid focussed input element */
 }
-.formInput:focus:invalid {
+.formInput:focus:invalid, .form #id_country:focus:invalid {
   border-bottom: 3px solid #191970;
 }
-.formInput::-webkit-input-placeholder {
+.formInput::-webkit-input-placeholder, .form #id_country::-webkit-input-placeholder {
   /*Target the placeholder text */
   color: #999999;
 }
-.formInput:-ms-input-placeholder {
+.formInput:-ms-input-placeholder, .form #id_country:-ms-input-placeholder {
   /*Target the placeholder text */
   color: #999999;
 }
-.formInput::-ms-input-placeholder {
+.formInput::-ms-input-placeholder, .form #id_country::-ms-input-placeholder {
   /*Target the placeholder text */
   color: #999999;
 }
-.formInput::placeholder {
+.formInput::placeholder, .form #id_country::placeholder {
   /*Target the placeholder text */
   color: #999999;
+}
+
+select, select option {
+  color: #000000;
+}
+select:invalid, select option[value=""] {
+  color: #aab7c4;
 }
 
 /*~~~~~~~  Sort  ~~~~~~~ */

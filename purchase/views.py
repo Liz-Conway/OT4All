@@ -40,7 +40,7 @@ class Purchase(TemplateView):
         # Retrieve the grand total from the current bag
         total = current_bookings["grand_total"]
         # Stripe requires the amount to charge to be an integer
-        stripe_total = round(total * 100)
+        stripe_total = total * 100
 
         stripe.api_key = stripe_secret_key
         # Create the payment intent giving it the amount and the currency
@@ -158,7 +158,6 @@ class PurchaseSuccess(TemplateView):
     template_name = "purchase/purchase-success.html"
 
     def get(self, request, order_number):
-        print(f"Successful purchase!!!!!!!!!  Order # :  {order_number}")
         # first check whether the user wanted to save their information
         # by getting that from the session
         save_info = request.session.get("saveInfo")
