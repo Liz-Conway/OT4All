@@ -102,7 +102,7 @@ class StripeWH_Handler:
             # STEP 2
             # We'll try to find an order with the same
             # customer information and the same grand total,
-            # Which was created with the exact same shopping bag.
+            # Which was created with the exact same bookings.
             # And is associated with the same payment intent.
 
             # To remove all doubt as to which order we're looking for,
@@ -125,7 +125,7 @@ class StripeWH_Handler:
                     grand_total=grand_total,
                     # To remove all doubt as to which order we're looking for,
                     # here in the webhook handler;
-                    # Add thebookings and the stripe pid
+                    # Add the bookings and the stripe pid
                     # to the list of attributes we want to match on when finding the order
                     original_booking=bookings,
                     stripe_pid=pid,
@@ -175,11 +175,12 @@ class StripeWH_Handler:
                     original_booking=bookings,
                     stripe_pid=pid,
                 )
-                # Iterate through the bag items to create each line item
-                # Load the bag from the JSON version in the PaymentIntent
+                # Iterate through the bookings items to create each line item
+                # Load the bookings from the JSON version in the PaymentIntent
                 # instead of from the session
-                # First variable is the key from the bag item (we call it 'therapy_id')
-                # Second variable is the value of that key (we are calling it 'number_of_sessions')
+                # First variable is the key from the bookings item (we call it 'therapy_id')
+                # Second variable is the value of that key
+                # (we are calling it 'number_of_sessions')
                 for therapy_id, number_of_sessions in json.loads(
                     bookings
                 ).items():

@@ -2181,8 +2181,8 @@ button[class$="crementSessions"]:disabled {
           flex-direction: column;
   position: relative;
   border-radius: 5px;
-  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
-          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(25, 25, 112, 0.15);
+          box-shadow: 0 1.5rem 4rem rgba(25, 25, 112, 0.15);
 }
 .therapyCard p {
   font-size: 1.6rem;
