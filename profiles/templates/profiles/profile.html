@@ -2,13 +2,30 @@
 {% load static %}
 
 
-{% block extra_title %}Checkout{% endblock %}
+{% block extra_title %}Profile{% endblock %}
 
 {% block content %}
 	<div class="containerProfile">
 		<hr>
 		<h2 class="profileTitle">My Profile</h2>
 		<hr>
+	</div>
+	<!-- Half of this page will be the profile 
+	and the other half will be the order history -->
+	<div class="profileWrapper">
+		<div class="profileDetails">
+			<p class="muted">Default delivery information</p>
+			<form class="profileDetailsForm" action="{% url 'profile' %}" method="POST" id="profileUpdateForm">
+				{% csrf_token %}
+				{{ form }}
+				<button class="profileDetailsButton btn btnPrimary">Update Information</button>
+			</form>
+		</div>
+		<div class="profileOrders">
+			<p class="muted">Order History</p>
+			{{ orders }}
+			
+		</div>
 	</div>
 	{{ profile }}
 	
