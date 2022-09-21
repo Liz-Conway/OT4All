@@ -206,7 +206,7 @@ class CachePurchaseData(View):
             # and tell it what we want to modify.
             # Add some metadata - add the user who's placing the order,
             # add whether or not they wanted to save their information,
-            # add a JSON dump of their shopping bag (which we'll use a little later)
+            # add a JSON dump of their bookings (which we'll use a little later)
             stripe.PaymentIntent.modify(
                 pid,
                 metadata={
