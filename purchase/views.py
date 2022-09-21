@@ -16,15 +16,18 @@ from .models import Order, OrderLineItem
 from django.http.response import HttpResponse
 import json
 from django.conf import settings
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
 
 class Purchase(TemplateView):
     # The template
     template_name = "purchase/purchase.html"
 
-    def get(self, request, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         stripe_public_key = STRIPE_PUBLIC_KEY
         stripe_secret_key = STRIPE_SECRET_KEY
+        request = self.request
 
         booking = request.session.get("booking", {})
 
@@ -52,20 +55,53 @@ class Purchase(TemplateView):
         # An instance of our order form - which will be empty for now.
         order_form = OrderForm()
 
+        # Use the cient's default information to
+        # pre-fill the form on the purchase page.
+        # Just before we create the order form in the purchase view:
+        # 1.  Check whether the user is authenticated.
+        # 2.  If so get their profile and
+        #     use the initial parameter on the order form
+        #     to pre-fill all its fields with the relevant information.
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=self.request.user)
+                order_form = OrderForm(
+                    initial={
+                        # Fill in the full_name with the built in
+                        # get_full_name() method on their user account.
+                        "full_name": profile.user.get_full_name(),
+                        # Fill in their email from their user account.
+                        "email": profile.user.email,
+                        # Fill everything else from the default information in their profile
+                        "phone_number": profile.default_phone_number,
+                        "country": profile.default_country,
+                        "postcode": profile.default_postcode,
+                        "city": profile.default_city,
+                        "street_address1": profile.default_street_address1,
+                        "street_address2": profile.default_street_address2,
+                        "county": profile.default_county,
+                    }
+                )
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            # If the user is not authenticated => just render an empty form.
+            ############ GET THEM TO LOG IN #################
+            order_form = OrderForm()
+
         if not stripe_public_key:
             messages.warning(
-                request,
+                self.request,
                 "Stripe public key is missing.  Did you forget to set it in your environment?",
             )
 
-        # Context containing the order form.
-        context = {
-            "order_form": order_form,
-            "stripe_public_key": stripe_public_key,
-            "client_secret": intent.client_secret,
-        }
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context["order_form"] = order_form
+        context["stripe_public_key"] = stripe_public_key
+        context["client_secret"] = intent.client_secret
 
-        return render(request, self.template_name, context)
+        return context
 
     def post(self, request):
         bookings = request.session.get("booking", {})
@@ -157,13 +193,55 @@ class PurchaseSuccess(TemplateView):
 
     template_name = "purchase/purchase-success.html"
 
-    def get(self, request, order_number):
+    def get_context_data(self, **kwargs):
+        order_number = kwargs["order_number"]
+        request = self.request
         # first check whether the user wanted to save their information
         # by getting that from the session
         save_info = request.session.get("saveInfo")
         # Use the order number to get the order created in the previous view
         order = get_object_or_404(Order, order_number=order_number)
-        print(f"Successful Order  :  {order}")
+
+        # The form has been submitted and the order has been successfully processed
+        # so this is a good place to add the user profile to it
+
+        # Skip this step for anonymous users
+        # Check if the user is authenticated
+        # if so they'll have a profile that was created when they created their account
+        if request.user.is_authenticated:
+            # Get the user's profile
+            profile = UserProfile.objects.get(user=request.user)
+            # Attach the user's profile to the order
+            order.user_profile = profile
+            order.save()
+
+            # Save the user's info
+            # Use the save info box here.
+            # First determine if it was checked
+            if save_info:
+                # Pull the data to go in the user's profile
+                # off the order into a dictionary of profile data.
+                # The dictionaries keys will match the fields on the user profile model.
+                # Such as the default phone number, country, postcode, and so on
+                profile_data = {
+                    "default_phone_number": order.phone_number,
+                    "default_country": order.country,
+                    "default_postcode": order.postcode,
+                    "default_city": order.city,
+                    "default_street_address1": order.street_address1,
+                    "default_street_address2": order.street_address2,
+                    "default_county": order.county,
+                }
+
+                # Create an instance of the user profile form, using the profile data.
+                # Tell it we're going to update the profile we've obtained above.
+                user_profile_form = UserProfileForm(
+                    profile_data, instance=profile
+                )
+                # If the form is valid => save it
+                if user_profile_form.is_valid():
+                    user_profile_form.save()
+
         # Success message letting the user know what their order number is
         # And that we will be sending an email to the address they put in the form
         messages.success(
@@ -179,9 +257,11 @@ class PurchaseSuccess(TemplateView):
         if "booking" in request.session:
             del request.session["booking"]
 
-        context = {"order": order}
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context["order"] = order
 
-        return render(request, self.template_name, context)
+        return context
 
 
 class CachePurchaseData(View):

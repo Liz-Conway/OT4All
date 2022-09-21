@@ -48,7 +48,7 @@ class Order(models.Model):
     # The last field will be calculated using a model method.
     # whenever an order is saved
     grand_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
+        max_digits=5, decimal_places=0, null=False, default=0
     )
 
     # It's possible for the same customer to purchase

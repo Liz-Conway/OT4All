@@ -21,13 +21,46 @@
 					{{ form }}
 					<button class="profileDetailsButton btn btnPrimary">Update Information</button>
 				</form>
-			</div>
-			<div class="profileOrders">
-				<p class="profileHeading">Order History</p>
-				{{ orders }}
-				
+		</div>
+		<div class="profileOrders">
+			<p class="profileHeading">Order History</p>
+			<div class="profileOrdersHistory">
+				<table>
+					<thead>
+						<tr>
+							<th>Order Number</th>
+							<th>Date</th>
+							<th>Items</th>
+							<th>Order Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in orders %}
+							<tr>
+								<td>
+									<a href="{% url 'orderHistory' order.order_number %"
+										 title="{{ order.order_number }}">
+										 {{ order.order_number }}
+									</a>
+								</td>
+								<td>{{ order.date }}</td>
+								<td>
+									<!-- An unordered unstyled list. -->
+									<ul>
+										<!-- For each item in the orders list of line-items :
+										Make a small text summary of it, including
+										the therapy, and the number of sessions purchased -->
+										{% for item in order.lineitems.all %}
+											{{ item.therapy.name }} x {{ item.sessions }}
+										{% endfor %}
+									</ul>
+								</td>
+								<td>€{{ order.grand_total|floatformat:0 }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
 			</div>
 		</div>
-	</div>
 	
 {% endblock %}

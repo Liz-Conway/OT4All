@@ -4,6 +4,7 @@ from django.template import context
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from django.contrib import messages
+from purchase.models import Order
 
 
 class ProfileView(TemplateView):
@@ -50,3 +51,31 @@ class ProfileView(TemplateView):
         context = {"form": form, "orders": orders, "on_profile_page": True}
 
         return render(request, template_name, context)
+
+
+class OrderHistory(TemplateView):
+
+    # Use the purchase success template
+    # since that template already has the layout for rendering a nice order confirmation
+    template_name = "purchase/purchase-success.html"
+
+    def get_context_data(self, **kwargs):
+        order_number = kwargs["order_number"]
+        # Get the order
+        order = get_object_or_404(Order, order_number=order_number)
+
+        # Add a message letting the user know they're looking at a past order confirmation
+        messages.info(
+            self.request,
+            f"This is a past confirmation for order number :  {order_number}."
+            "A confirmation email was sent on the order date.",
+        )
+
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add another variable to the context called "from_profile"
+        # So we can check in the template if the user got there via the order history view
+        context["order"] = order
+        context["from_profile"] = True
+
+        return context
