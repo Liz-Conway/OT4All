@@ -15,6 +15,7 @@
 		flex-direction: column
 		padding: 1rem 0
 		@include respond(notebook)
+			width: 100%
 			flex-direction: row
 
 	&Title
@@ -24,6 +25,7 @@
 			text-align: center
 			font-size: 2rem
 			color: $greyHelp
+			margin-bottom: 3rem
 
 	&Details
 		flex: 1 1 50%
@@ -43,6 +45,22 @@
 	&Orders
 		flex: 1 1 50%
 		margin-top: 2rem
+		@include respond(notebook)
+			margin-left: 10%
+			margin-top: 0
+
+		&Table
+			tr:nth-child(odd)
+				background-color: $midtoneDark
+			tr:nth-child(even)
+				background-color: $midtone
+			.tableHead > tr
+				background-color: $shadow
+				color: $highlight
+			td:last-child
+				text-align: right
+			@include respond(notebook)
+				margin-top: 5rem
 
 	&FormInput
 		color: $black

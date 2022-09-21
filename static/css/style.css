@@ -1784,6 +1784,7 @@ p.therapyDetailsPrice {
 }
 @media only screen and (min-width: 59.375em) {
   .profileWrapper {
+    width: 100%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -1797,6 +1798,7 @@ p.therapyDetailsPrice {
   text-align: center;
   font-size: 2rem;
   color: #808080;
+  margin-bottom: 3rem;
 }
 .profileDetails {
   -webkit-box-flex: 1;
@@ -1831,6 +1833,30 @@ p.therapyDetailsPrice {
       -ms-flex: 1 1 50%;
           flex: 1 1 50%;
   margin-top: 2rem;
+}
+@media only screen and (min-width: 59.375em) {
+  .profileOrders {
+    margin-left: 10%;
+    margin-top: 0;
+  }
+}
+.profileOrdersTable tr:nth-child(odd) {
+  background-color: #ffb299;
+}
+.profileOrdersTable tr:nth-child(even) {
+  background-color: #ffcdbd;
+}
+.profileOrdersTable .tableHead > tr {
+  background-color: #751c00;
+  color: #b299ff;
+}
+.profileOrdersTable td:last-child {
+  text-align: right;
+}
+@media only screen and (min-width: 59.375em) {
+  .profileOrdersTable {
+    margin-top: 5rem;
+  }
 }
 .profileFormInput {
   color: #000000;
