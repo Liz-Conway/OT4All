@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     "bookings",
     # Purchasing the booked therapy sessions
     "purchase",
+    # Set user profile
+    "profiles",
 ]
 
 MIDDLEWARE = [
