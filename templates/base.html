@@ -25,7 +25,8 @@
     {% block corejs %}
         <script src="https://kit.fontawesome.com/56b4ac2d56.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    {% endblock %}
+        <!-- Stripe -->
+        <script src="https://js.stripe.com/v3/"></script>    {% endblock %}
 
 
     <title>OT4U | {% block extra_title %}{% endblock %}</title>
@@ -38,6 +39,31 @@
     	</div>
     </header>
 
+    {% if messages %}
+        <div class="messageContainer">
+        	{% for message in messages %}
+        	<!-- Django messages have levels which are classifiers 
+			like debug, info, error and so on for different message types. -->
+			 <!-- Choose which of our includes we want to render based on the message level. -->
+        		{% with message.level as level %}
+        			<!-- A message of level 40 is an error -->
+        			{% if level == 40 %}
+		        		{% include "includes/toasts/error.html" %}
+        			<!-- A message of level 30 is an warning -->
+        			{% elif level == 30 %}
+		        		{% include "includes/toasts/warning.html" %}
+        			<!-- A message of level 25 is a success message -->
+        			{% elif level == 25 %}
+		        		{% include "includes/toasts/success.html" %}
+		        	<!-- Use info toast for everything else -->
+        			{% else %}
+		        		{% include "includes/toasts/info.html" %}
+        			{% endif %}
+        		{% endwith %}
+        	{% endfor %}
+        </div>
+    {% endif %}
+
     <main>
 	    {% block content %}
 	    {% endblock %}
@@ -48,6 +74,11 @@
     </footer>
 
     {% block postloadjs %}
+    <!-- Include block.super in our templates when overriding the postloadjs block.
+	By doing that we ensure that any JavaScript we've written 
+	in the templates that extend this one
+	Won't overwrite this call -->
+    	<script src="{% static 'js/toast.js' %}"></script>
     {% endblock %}
 
     

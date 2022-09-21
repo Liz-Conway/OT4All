@@ -141,5 +141,5 @@ documentation/logo/
 *.orig
 media/original/
 req.txt
-documentation/agile-planning/trello After Sprint 1.png
-documentation/agile-planning/trello after sprint2.png
+documentation/agile-planning/trello After Sprint *
+static/images/original/

@@ -37,13 +37,12 @@
 
 		&:focus
 			outline: none
-			width: 100%
-			background-color: $greyHelp
+			background-color: $greyInvalid
 			&::placeholder
 				/*	Change the colour of the placeholder text
 					when the background gets darker
 					to ensure there is enough contrast
-				color: $greyInvalid
+				color: $greyDark
 
 		&::placeholder
 			/* Change the colour of the placeholder text
@@ -55,19 +54,23 @@
 	&Input:focus + &Button
 		/* When the input gets focus
 			Change the background colour of its sibling(+) button
-		background-color: $greyHelp
+		background-color: $greyInvalid
 
 	&Button
 		border: none
 		background-color: $greyLight
 
-		// &:focus
-		// 	outline: none
-
 		&:active
 			transform: translateY(2px)
 
-	&Icon
+
 		height: 2rem
 		width: 2rem
 		font-size: 1.4rem
+
+.emptySearch
+	display: flex
+	flex-direction: column
+	align-items: center
+	h2
+		margin-bottom: 1.5rem

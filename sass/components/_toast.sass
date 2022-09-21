@@ -1,0 +1,144 @@
+.toast
+	min-width: 32rem
+	max-width: 75%
+	background-color: $white
+	color: #333
+	text-align: center
+	border-radius: 2px
+	position: fixed
+	z-index: 1
+	top: 60px
+	right: 30px
+	font-size: 17px
+	overflow: visible
+
+	@include respond(tabletPortrait)
+		max-width: 60%
+	@include respond(tabletLandscape)
+		max-width: 50%
+	@include respond(notebook)
+		max-width: 40%
+	@include respond(desktop)
+		max-width: 32%
+	@include respond(XL)
+		max-width: 25%
+
+	button.close
+		margin-left: auto
+		background-color: transparent
+		border: none
+		font:
+			size: 3rem
+			weight: $boldWt
+		line-height: 1
+	&Title
+		display: flex
+		flex-direction: row
+		padding: 5px 8px
+	&Capper
+		height: 2px
+		&Success
+			background-color: $success
+		&Error
+			background-color: $error
+		&Warning
+			background-color: $warning
+		&Info
+			background-color: $info
+	&Body
+		padding: 10px 20px
+
+	&.show
+		visibility: visible
+		-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s
+		animation: fadein 0.5s, fadeout 0.5s 2.5s
+
+	&Bookings
+		display: flex
+		flex-direction: row
+
+		&Image
+			flex: 1 1 0
+			min-width: 25%
+		&Details
+			flex: 3 3 0
+			p
+				margin-top: 0
+				margin-bottom: 0
+				&:not(:first-child)
+					@extends .small
+
+		&Wrapper
+			height: 100px
+			/* horizontal overflow hidden */
+			overflow-x: hidden
+			/* V'ertical overflow will turn into a scrollbar when the height is greater than 100 pixels */
+			overflow-y: auto
+
+		&Total
+			display: flex
+			flex-direction: row
+			justify-content: space-between
+			margin: 1rem 0
+
+@-webkit-keyframes
+	fadein
+		from
+			bottom: 0
+			opacity: 0
+		to
+			bottom: 30px
+			opacity: 1
+
+@keyframes
+	fadein
+		from
+			bottom: 0
+			opacity: 0
+		to
+			bottom: 30px
+			opacity: 1
+
+@-webkit-keyframes
+	fadeout
+		from
+			bottom: 30px
+			opacity: 1
+		to
+			bottom: 0
+			opacity: 0
+
+@keyframes
+	fadeout
+		from
+			bottom: 30px
+			opacity: 1
+		to
+			bottom: 0
+			opacity: 0
+
+.messageContainer
+	position: fixed
+	top: 72px
+	right: 15px
+	z-index: 9999
+
+.greenBackground
+	background-color: lighten($success, 40%)
+	border: 1px solid $success
+
+.redBackground
+	background-color: lighten($error, 5%)
+	border: 1px solid $error
+
+.blueBackground
+	background-color: lighten($accentDark, 40%)
+	border: 1px solid $accentDark
+
+.orangeBackground
+	background-color: lighten(orange, 10%)
+	border: 1px solid orange
+
+.yellowBackground
+	background-color: #fffe87
+	border: 1px solid darken(#fffe87, 50%)

@@ -104,16 +104,19 @@
 
 
 
-### Who is this app for?
+### Who is this website for?
 <a id="who-for"></a>
+This website is for people who are looking for some Occupational Therapy in order to solve some physical problems/issues that they may have.
  
  
 ### What does it do?
 <a id="what-do"></a>
+This website allows people with physical ailments to access and book a variety of different Occupational Therapies.
   
  
 ### How does it work
 <a id="how-work"></a>
+The Occupational Therapist (or Site Owner) adds a list of the Occupational Therapy services that she offers onto the website.  The client visits the website and books a number of sessions of the particular type of Occupational Therapy that they need.
 
 
 ## Screen Mockup
@@ -141,28 +144,87 @@ The user stories have been divided into different epics:
 
 #### Inital Landing page
 
-This is where the user arrives on first entering the site.  The only option a user has is to login to the amber system.  This page sets the theme for the application, with a Logo which when clicked will bring the user back to the home page.
+This is where the user arrives on first entering the site.  This page sets the theme for the application, with a Logo which when clicked will bring the user back to the home page.
 
-![Landing page](documentation/pages/home.png)
-![Landing page](documentation/pages/mobile/home.png)
+| Desktop    | Mobile    |
+| --- | --- |
+|  ![Landing page](documentation/pages/home.png)   |  ![Landing page](documentation/pages/mobile/home.png)   |
 
-#### Login
-
-Access to the OT4U application is achieved by using the Login feature.
-
-Supporting page - **Login page**
-![Login](documentation/pages/login.png)
-![Login](documentation/pages/mobile/login.png)
 
 
 #### Navigation
 Each page has a header at the top of the page which contains a logo and a NavBar.
 
-The 'My Account' link allows the user to Login or Register, if they are not logged in already.  Once logged in this link allows the user to Logout or view their Profile.  If the user is logged in as the "Site Owner" this link will also allow them to modify the services on offer to their clients.
-
 On small screen devices the NavBar is accessible by clicking the well recognised "hamburger" icon.  The user is shown a responsive menu on small screen devices.  
 
+The NavBar contains links to the 6 main pages. The NavBar is used so that the client can navigate easily between the major sections of the OT4U website, on every device.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|   ![Desktop Navbar](documentation/pages/navbar.png)  |  ![Mobile Navbar](documentation/pages/mobile/navbar.png)   |
+
+Hovering over the Therapies menu (clicking on it on mobile devices) will expose a dropdown menu with further options.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|   ![Desktop Therapies dropdown](documentation/pages/therapies-dropdown.png)  |  ![Mobile Therapies dropdown](documentation/pages/mobile/therapies-dropdown.png)   |
+
+
+
 On any page if the user clicks the logo they will be redirected to the OT4U home page.  The benefit of this is that it is a consistent behaviour across the entire website.  Also every NavBar has a "Home" link which will also always give the user the option to return to the home page of the OT4U application.  This means that the user can always get back to the home page, no matter where they are in the application.
+
+**Footer Navigation**
+
+In the footer of every page there are a number of navigation links: 
+1. About Natalia
+	A link to the About page
+	
+3. Get in Touch
+	A link to the Contact/Get in Touch page
+	
+5. Privacy Policy
+	A link to the Privacy Policy page
+	
+7. Newsletter
+	A link to the "Subscribe to our newsletter" page
+	
+9. Code Institute - Full Stack Diploma
+	A link to an external site (Code Institute)
+
+|   Desktop  |  Mobile   |
+| --- | --- |
+|  ![Footer - desktop](documentation/pages/footer.png)   |   ![Footer - mobile](/home/fintanc/code/code institute/ot4u/documentation/pages/mobile/footer.png)  |
+
+
+
+#### Track Clients Profile
+
+In the top right of every screen there is a "My Profile" link, which exposes a number of options.
+
+**Not logged in**
+
+|   Desktop  |  Mobile   |
+| --- | --- |
+|  ![My Profile](documentation/pages/my-profile-links.png)   |  ![My Profile](documentation/pages/mobile/my-profile-links.png)   |
+
+
+The 'My Profile' link allows the client to Login or Register, if they are not logged in already.  Once logged in this link allows the user to Logout or view their Profile.  If the user is logged in as the "Site Owner" this link will also allow them to modify the therapies on offer to their clients.
+
+
+#### Login
+
+In order to buy any of the Therapies offered by the OT4U application a client must use the Login feature.  
+The purpose of the login feature is to allow the client access to the shopping cart and "My Profile" features of the website.  It also ensures that the Site Owner has contact details for all clients.  This will be needed to make an appointment with the client.
+
+Supporting page - **Login page**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Login page - desktop](documentation/pages/login.png)   |   ![Login page - mobile](documentation/pages/mobile/login.png)  |
+
+
+
+
 
 
 #### Logout
@@ -170,8 +232,59 @@ On any page if the user clicks the logo they will be redirected to the OT4U home
 All logged in users, regardless of their role, can log out of the OT4U application.  The logout feature asks the user to confirm that they want to logout.  This puts control in the hands of the user as they have more options, and will help prevent 'accidental' logouts.  This additional control will improve the user experience for logged in users.
 
 Supporting page - **Logout page**
-![Logout](documentation/pages/logout.png)
-![Logout](documentation/pages/mobile/logout.png)
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Logout page - Desktop](documentation/pages/logout.png)   |  ![Logout page - mobile](documentation/pages/mobile/logout.png)   |
+
+
+
+
+#### Register
+Before a client can log into the OT4U website they must have registered on the website.
+
+Supporting Page - **Registration page**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Registration page - desktop](documentation/pages/register.png)   |   ![Registration page - mobile](documentation/pages/mobile/register.png)  |
+
+
+#### Reset Password
+This feature can be a life-saver for any client who forgets their password and needs to login to the OT4U website.  It can be very frustrating for an end-user if they cannot a service that they need, so the benefits of this feature cannot be underestimated.
+
+When the client requests a reset of their password, they are taken to the password reset request page, where they submit their email address.  If their email address is one of the clients' email addresses a password reset email is sent to that address.  This is a key step in resetting the client's password and is required so that the password reset process can begin.
+
+Supporting Page - **Password Reset Request**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|   ![Password reset request page - Desktop](documentation/pages/password-reset-request.png)  |   ![Password reset request page - mobile](documentation/pages/mobile/password-reset-request.png)  |
+
+The client is shown a password reset sent page, with the option to return to the home page.  This page informs the user that the password reset email was sent.  Without this page the client might not realise that the email was sent and that they need to check their email.  If this was the case the client could lose confidence in the OT4U website.  Therefore this page is an important part of keeping the client's trust in the OT4U website.
+
+Supporting page - **Confirm password reset email sent**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Confirm password reset email sent page - Desktop](documentation/pages/confirm-password-reset-email-sent.png)   |   ![Confirm password reset email sent - Mobile](documentation/pages/mobile/confirm-password-reset-email-sent.png)  |
+
+When the client accesses the password reset link sent to them in the email, they are taken to the change password page.  This is where the client enters a new password (and confirms the new password).  This is the core piece of functionality for this feature.  The client gets to change their password.  Doing this will change the client's mood from one of frustration to one of positivity.  The client realises that they are achieving something and are not stuck without a way to log into the OT4U website.
+
+Supporting page - **Change Password**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Change password page - Desktop](documentation/pages/change-password.png)   |  ![Change password page - mobile](documentation/pages/mobile/change-password.png)   |
+
+
+Once the client submits the new password they are taken to the password changed page, where they are informed of the successful change of their password.  They are given a link back to the home page.  The client may go back to the home page, try to login again with their new password, or visit any of the pages via the navigation menu.  This page confirms that the client has successfully changed their password.  This page gives the client absolute assurance that they have achieved their goal and will have access to the OT4U website.  This is a very positive user experience that leaves the client trusting the OT4U website, and they will have a high level of confidence in the website.
+
+Supporting page - **Confirm Password Changed**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Confirm password changed - Desktop](documentation/pages/password-changed.png)   |  ![Confirm password changed - mobile](documentation/pages/mobile/password-changed.png)   |
 
 #### User Roles
 
@@ -179,18 +292,219 @@ In the OT4U web application there are 2 roles that a user can log in as:
 * Client
 * Site Owner
 
-Depending on the role assigned to the user, when they log in they will see a similar page but with different role-specific options.
+Depending on the role assigned to the user, when they log in they will see the same page but with different role-specific options under the "My Profile" menu.
+
+#### View Therapies
+This feature will show clients and potential clients a list of Occupational Therapies offered by the OT4U website.  By seeing a range of different Therapies, the client can make an informed decision as to the correct therapy to suit their particular needs.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapies page - desktop](documentation/pages/therapies.png)   |  ![Therapies page - mobile](documentation/pages/mobile/therapies.png)   |
+
+For each therapy the website shows a card which contains the name of the therapy, a description of the therapy, the style of the therapy and the cost of the therapy.  Informing the client of what the therapy does and what the style of the therapy is allows the client to make an informed decision as to which is the correct therapy to suit the particular problem they have.  This choice gives the client a feeling of control, since they are choosing which therapy they will book.  This gives a positive user experience, and the website as well as the therapy will help the client to feel better.
+
+The bright "Read More" button is a primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to draw the client's attention to where they need to go.
+
+Seeing a variety of Occupational Therapy options gives the client a choice as to what they will pick for their particular ailment.  This choice gives the client a feeling of being in control.  Giving the client this feeling of control makes the client happy with the site and will build trust.
+
+#### Filtering Therapies
+At any time the client can view a list of only the therapies in a particular style by using the "Therapies" menu.  It has a dropdown menu which can be accessed by hovering over the "Therapies" link in the navigation bar on desktop screens, or by clicking the "Therapies" link in the navigation menu on mobile screens.
+
+Once on the Therapies page, the client can filter the Therapies by clicking on one of the "Styles" buttons on the top of the page.  Once the client has chosen to filter the therapies, either from the Therapies menu, or using one of the "Styles" buttons; the "Styles" button for the filtered therapies is highlighted.
+
+The options are the same whether clicking on a menu item, or choosing a "Styles" button.  The client can filter by:
+1. Equine therapies
+2. Literact therapies
+3. Self-care therapies
+4. All therapies
+
+The benefit of the filtering feature is that it allows the client to drill down to a specific type of therapy that interests them.  It removes all irrelevant therapies, thus reducing the cognitive load on the client.  They can focus on only what is pertinent to their needs.  This makes it much easier to navigate the options available to them, and makes it much more likely that they will book a session.
+
+The advantage of having the "Styles" buttons on the Therapies page are twofold.
+1. It highlights which therapies are being shown to the client.  They do not need to remember which filter they chose.  This makes the OT4U website much easier to learn and to use.
+2. The client can change to a different filter simply by clicking another filter button.  They will never feel lost in the OT4U website, since they have all options open them at all times.
+
+Supporting page elements - **Therapies menu**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapies menu - Desktop](documentation/pages/therapies-menu.png)   |  ![Therapies menu - mobile](documentation/pages/mobile/therapies-menu.png)   |
+
+Supporting page elements - **Filter buttons**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Filter buttons - Desktop](documentation/pages/filter-buttons.png)   |  ![Filter buttons - mobile](documentation/pages/mobile/filter-buttons.png)   |
+
+The filtering feature of the OT4U website also gives information feedback to the client.  They are shown how many therapies there are in the chosen style.  Having this information allows the client the make an informed decision on choosing a therapy to book and lets them know where they are in the overall picture.
+
+Supporting page elements - **Filter feedback**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Filter total - Desktop](documentation/pages/filter-total.png)   |  ![Filter total - mobile](documentation/pages/mobile/filter-total.png)   |
 
 
-#### Site Owner functionality
+#### Sorting Therapies
+The purpose of this feature is to allow the client to sort the therapies in a number of ways.  This allows the client find the most relevant therapy in a fast and efficient manner, making the OT4U easy to use and easy to navigate.
 
-When logged in with an Admin role the user has access to the 'Product Management' features.
+There are a number of sorting strategies the client can use:
+1. By name - both ascending and descending
+2. By price - both ascending and descending
+3. By style - both ascending and descending
+
+There is also an option to reset the sorting.  This option is visibly separated from the rest of the sorting options making it obvious that it is a different sorting option from the others.  This will let the client feel in control of the sorting as they know that they can always get back to the way the page was laid out originally.
+
+If the client has already filtered the therapies (by style) they can still sort the filtered results.  When sorting filtered results the option to sort by style are removed, since only one style is shown.  This removal of irrelevant options reduces the amount of memorisation the client needs to perform and reduces their cognitivie load.
+
+Supporting page elements - **Sorting menu**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Sort menu - Desktop](documentation/pages/sort-menu.png)   |  ![Sort menu - mobile](documentation/pages/mobile/sort-menu.png)   |
+
+
+#### Searching Therapies
+This feature allows the client to search for therapies with either a particular name, or with a term that appears in the therapies description.  This allows the client to narrow down the list of suitable therapies.  Having this feature means that the client can remove all irrelevant therapies and quickly focus on therapies that are applicable to them.  This will make it quicker for them to come to a decision to book a therapy session.
+
+A search bar is available across the top of all pages, making this search option available to the client at all times.
+
+Supporting page elements - **Search bar**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Search bar - Desktopo](documentation/pages/search.png)   |  ![Search bar - mobile](documentation/pages/mobile/search.png)   |
+
+
+If no therapies are found with the search term, a suitable image is shown informing the client in a visual way that there were no results for the search term they were looking for.  This removes any doubt from the client's mind as to what the OT4U website is doing.  They are receiving unambiguous feedback even in the event of a 'failure'.
+
+Supporting page - **No Search results**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Empty search - Desktop](documentation/pages/empty-search.png)   |  ![Empty Search - mobile](documentation/pages/mobile/empty-search.png)   |
 
 
 
-#### Client Functionality
+
+#### View a single therapy
+
+Once a client clicks on the "Read More" button for a particular therapy the Single Therapy page of the chosen therapy is displayed.  The purpose of the Single Therapy page is to entice the client to book a number of sessions for that therapy.
+
+This page shows a larger image, the therapy name, details, style and cost.  If there is a location, or extra requirements for the therapy they are shown here as well.
+
+A "number of sessions" input is pre-filled with the recommended number of sessions for the specific therapy.  A "Book" button is the primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to visually draw the client's attention to where they need to look and prompt them to take action.
+
+The Single Therapy page will give more information on the therapy, such as equipment to be used, location where applicable and any additional requirements.
+
+The client can choose the number of sessions they wish to book, and still has the option to return back to the Therapies list.  These choices mean that the client is never forced down any one path and has the freedom to browse around until they find the correct fit for them.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapy page - desktop](documentation/pages/therapy.png)   |   ![Therapy page - mobile](documentation/pages/mobile/therapy.png)  |
 
 
+
+#### Maintain Therapies
+
+When logged in with an Admin role the user has access to the 'Maintain Therapies' features.
+
+
+#### Book Sessions
+
+On the Single Therapy page for each therapy, the client has an option to Book a number of sessions for that therapy.  This is the primary 'Call to Action' of the OT4U website.  The "Book" button is highlighted in a different colour to the colour scheme of the OT4U website.  This draws the client's eye, let's them know the next step that is expected and encourages them to click on the button and make a booking.
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapy page - desktop](documentation/pages/therapy.png)   |   ![Therapy page - mobile](documentation/pages/mobile/therapy.png)  |
+
+
+#### View My Bookings
+
+Once the client makes a booking the shopping cart icon changes to a filled cart icon.  This is a subtle signifier that they have made a booking that needs to be purchased.  A less subtle signifier is the total cost of all bookings this client has made, which is shown under the shopping cart icon.
+
+Supporting screen elements - **Cart Icon**
+
+||  Desktop   |  Mobile   |
+| --- | --- | --- |
+| Empty |  ![Empty cart icon - Desktop](documentation/pages/empty-cart-icon.png)   |  ![Empty cart icon - mobile](documentation/pages/mobile/empty-cart-icon.png)   |
+| Filled | ![Filled cart icon - Desktop](documentation/pages/filled-cart-icon.png) | ![Filled cart icon - mobile](documentation/pages/mobile/filled-cart-icon.png) |
+
+By clicking on the cart icon or the total, the client will be taken to their Bookings page.  The purpose of this page is to show the client all the therapies they have booked and how many sessions they have booked for each therapy.
+
+This page will calculate the subtotal for each therapy by multiplying the price of the therapy session by the number of sessions booked.  This lets the client know exactly how much they will be paying for each therapy booked, and takes the onus off the client having to do this multiplication themselves.
+
+This page will also allow the client to adjust their bookings by changing the number of sessions booked for each therapy, and also by removing a therapy completely from the booking.  This gives the client great control over what they have booked.  This flexibility will improve the user experience vastly.
+
+Also, if the client has no bookings or has removed all the bookings on this page, the page will reflect the empty nature of the cart by showing an applicable image and corresponding text.  This difference in layout and visual expression of the nature of the cart will leave the client in no doubt that their cart is empty.
+
+On desktop screens each therapy is shown across the page, with an image, price, number of sessions and subtotal.  After the list of therapies is shown the grand total and a button prompting the client to checkout securely.  There is also a button to let the client go back to shopping for therapies.
+
+On mobile screens the totals and buttons are at the top of the screen.  This is because the therapies details are shown in column format one after the other.  It would be frustrating for the client to have to scroll through all these details if they just wanted to checkout, so the pertinent details needed for a quicker checkout (totals & checkout button) are moved to the top of the page. On mobile screens a helpful text is added just below the totals and buttons, stating "A summary of your bookings is below".
+
+Supporting screens - **Bookings**
+
+||  Desktop   |  Mobile   |
+| --- | --- | --- |
+| Empty |  ![Empty cart - Desktop](documentation/pages/empty-cart.png)   |  ![Empty cart - mobile](documentation/pages/mobile/empty-cart.png)   |
+| Filled | ![Bookings - Desktop](documentation/pages/bookings.png) | ![Bookings - mobile](documentation/pages/mobile/bookings.png) |
+
+Supporting screen elements - **Booking totals**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Booking totals - Desktop](documentation/pages/booking-total-buttons.png)   |  ![Booking totals - mobile](documentation/pages/mobile/booking-total-buttons.png)   |
+
+#### Update Sessions
+On the Bookings page for each therapy the client can change the number of sessions for each therapy they have booked.  The OT4U website is very flexible in this matter, and provides the client with a number of means to change the number of sessions.  This allows the client to choose the way to update the number of sessions that they prefer, thus improving the user experience.
+
+1. Use the buttons which are placed either side of the input box which contains the number of sessions.
+2. Type the number manually into the text box.
+3. Use the up and down arrows provided by the browser for adjusting the value in a numeric input box.
+
+When the client adjusts the number of sessions, an "Update" link appears under the number of sessions input box.  When the client clicks this link the OT4U website recalculates the subtotal for that therapy, and recalculates the grand total.
+
+Supporting screen elements - **Update number of sessions**
+
+||  Desktop   |  Mobile   |
+| --- | --- | --- |
+| Default |  ![Update sessions - Desktop](documentation/pages/update-sessions.png)   |  ![Update sessions - mobile](documentation/pages/mobile/update-sessions.png)   |
+| After changing the sessions | ![Update sessions link - Desktop](documentation/pages/update-sessions-link.png) | ![Update sessions link - mobile](documentation/pages/mobile/update-sessions-link.png) |
+
+#### Remove booked therapy
+In addition to changing the number of sessions for a booked therapy the OT4U website allows the client to remove a therapy completely from their bookings.  If a client accidentally adds the wrong therapy, or changes their mind, they have the option to remove the therapy entirely from their bookings.  This feature removes the frustration that would be associated with adding the wrong therapy.  It allows the client to make mistakes and easily and quickly rectify these mistakes themselves.
+
+The OT4U website automatically recalculates the grand total when a booked therapy is removed.
+
+Supporting screen elements - **Remove booked therapy**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Update sessions - Desktop](documentation/pages/update-sessions.png)   |  ![Update sessions - mobile](documentation/pages/mobile/update-sessions.png)   |
+
+#### Keep shopping
+
+The OT4U website gives the client the opportunity to return to browsing the therapies from the Bookings page.  This gives the client the freedom to check their bookings at any time.  They are not forced to continue with purchasing just because they are looking at their booked therapies.  The freedom to view bookings and return to the main site, either using the "Keep shopping" button or the global navigation buttons engenders a sense of trust in the client for the OT4U website.
+
+Supporting screen elements - **Update number of sessions**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Booking buttons - Desktop](documentation/pages/booking-total-buttons.png)   |  ![Booking buttons - mobile](documentation/pages/mobile/booking-total-buttons.png)   |
+
+#### View the OT approach
+
+#### View Testimonials
+
+#### Add a Testimonial
+
+#### View details about Natalia
+
+#### Get in Touch
+
+#### Sign up for our Newsletter
+
+#### View our Privacy Policy
 
 #### Messages
 Every time an OT Session is booked, updated or deleted or a new OT Service is added, amended or deleted, the user is informed via an informational message on the screen.
@@ -199,6 +513,21 @@ Whenever invalid information is submitted on a form the user is briefed via erro
 
 #### Current Login State
 The OT4U application keeps the user up to date with where they are in the application by highlighting the appropriate navigation link for the feature of the application that the user is currently employing.
+
+If the client/site owner is not logged in the icon shown above "My Profile" is an outline version of the icon.  If the client/site owner is logged in the icon shown is a filled version of the icon.  This is an extra piece of information for the client/site owner, which means that they do not have to remember if they are logged in or not, the OT4U website will tell them their "login" status.
+
+Supporting page elements - **User account logged out icon**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Logged out icon - Desktop](documentation/pages/logged-out.png)   |  ![Logged out icon - mobile](documentation/pages/mobile/logged-out.png)   |
+
+Supporting page elements - **User account logged in icon**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Logged in icon - Desktop](documentation/pages/logged-in.png)   |  ![Logged in icon - mobile](documentation/pages/mobile/logged-in.png)   |
+
 
 
 #### Field Validation
@@ -227,27 +556,31 @@ When filling a form in the OT4U application, the user can reset the form.  This 
 
 ### Entity Diagram
 <a id="entity-diagram"></a>
-![OT4U Entity Diagram](documentation/entity-relationship/entity-diagram.png)
+![OT4U Entity Diagram](documentation/entity-relation/entity-diagram.png)
 
 ### Entity Relationship Diagram
 <a id="erd"></a>
-![OT4U Entity-Relationship Diagram](documentation/entity-relationship/entity-relationship-diagram.png)
+![OT4U Entity-Relationship Diagram](documentation/entity-relation/entity-relationship-diagram.png)
 
 ### Python structure
 <a id="python-structure"></a>
-The Django structure for the amber application is broken into ? apps.
+The Django structure for the OT4U application is broken into 4 apps.
 
 1. **maintenance**
 
 	This app contains all the code for pages that the Site Owner will interact with.
 
-2. **services**
+2. **therapy**
 
 	The app contains all the code for pages that allow a Client to view and book an OT Service.
 	
 3.	**profiles**
 
 	This app contains all the code for managing user accounts, including defining roles to be used for authentication.
+
+4.	**bookings**
+
+	This app contains all the code for managing bookings, including a shopping cart where all booked therapy sessions will be handled.
 
 
 
@@ -277,11 +610,11 @@ The Django structure for the amber application is broken into ? apps.
 
 ![Home page wireframe](documentation/ux/wireframes/HomePage.png)
 
-**OT Services**
+**OT Therapies**
 
 ![OT Services page wireframe](documentation/ux/wireframes/OTServices.png)
 
-**OT Service Detail**
+**Single OT Therapy**
 
 ![OT Service Detail page wireframe](documentation/ux/wireframes/ServiceDetail.png)
 
@@ -364,7 +697,7 @@ The use of colours in the OT4U application should make the user feel welcomed an
     - OT4U provides features that allow for retrieval of information in easily readable formats.
     - OT4U shows information in understable formats, lowering the work the user has to do to interpret the information.
 - Ease of use
-    - A simple easy-to-use application focusing on reducing the 'cognitive load' on Clients.  The system is designed so that users do not have to remember large amounts of detail.
+    - A simple easy-to-use application focusing on reducing the 'cognitive load' on Clients.  The system is designed so that clients do not have to remember large amounts of detail.
 - Information Display 
     - There is a main navigation bar on every page.  This allows navigation to all the main pages from everywhere on the site.
   
@@ -379,17 +712,20 @@ The favicon for the OT4U project was created using [Real Favicon Generator](http
     - Media Queries are used for each different screen size the tool will be used on.
 - Navigation 
     - Straightforward navigation enabling Clients to move easily from one part of the site to another.
-    - Main Navbar with *Home*, *OT Services*, *About*, *Get in Touch* links on all screen sizes from Tablet in Landscape orientation upwards.
+    - Main Navbar with *Home*, *Therapies*, *About*, *Approach*, *Testimonials*, *Get in Touch* links on all screen sizes from Tablet in Landscape orientation upwards.
     - On phones and tablets in portrait orientation all navigation links are removed from the page. A "hamburger" icon is provided.  When the "hamburger" icon is clicked a navigation menu appears which covers the entire page.  This navigation menu includes the main navigation links. It also include a large close button.  When the close button is clicked, the navigation menu disappears and the previous page is displayed.  When a link on the navigation menu is clicked, the navigation menu disappears and the appropriate page is shown.
-    - Links to *My Account*, *Shopping Cart* and *Search* above the main navbar on all screen sizes.
+    - Links to *My Profile*, *Shopping Cart* and *Search* above the main navbar on all screen sizes.
 
 - Image Treatment 
     - Images are compressed to reduce download times.  [tinypng.com](https://tinypng.com) was used to compress the  image files.
-    - Multiple versions of all images are used, with a smaller image used for smaller devices.  This reduces the download times for tablets and especially mobile devices.  
-    - 
+    - Multiple versions of all static images are used, with a smaller image used for smaller devices.  This reduces the download times for tablets and especially mobile devices.  
+
+
 ### Static Files
 All static files are hosted with **WhiteNoise**.  [WhiteNoise](http://whitenoise.evans.io/en/stable/django.html) allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere without relying on an external server.  During deployment to Heroku, Django collects the static files, whitenoise then serves these files, and updates the links in the html pages to point to the appropriate file on WhiteNoise.
 
+### Media files
+All uploadable media files are hosted on **Cloudinary**.  [Cloudinary](https://cloudinary.com/) allows you to store, transform, optimize, and deliver all your media assets with easy-to-use APIs, widgets, or user interface.  When a user uploads a media file on the OT4U website, it is uploaded to Cloudinary and the appropriate link to that file in Cloudinary is placed in the html.
 
 ## Software Development Process
 
@@ -399,17 +735,16 @@ All static files are hosted with **WhiteNoise**.  [WhiteNoise](http://whitenoise
 <img src="documentation/agile-planning/user-story-map.png" alt="Epics and User Story Map" width="100%"/>
 
 
-[Trello](https://trello.com/b/0wEVCThe/amber-p4-ci-project) was used as the Agile tool for managing this project.  Each User Story was embodied in a trello card.  Each of these cards was added to a Kanban board.  The Kanban board was set up with a number of lists:
+[Trello](https://trello.com/b/MMDat2YT/ot4u) was used as the Agile tool for managing this project.  Each User Story was embodied in a trello card.  Each of these cards was added to a Kanban board.  The Kanban board was set up with a number of lists:
 
-* Story
+
 * ToDo
-* Doing always - iteration
 * In Process (Code the ... / Test the ...)
 * Testing
 * Code review
 * Done
 
-When a Story is being coded it is moved from the **ToDo** list into the **In Process** list.  When the code is finished for a story it is moved into the **Testing** list.  Once a story has been tested it is moved to the **Code Review** list.  When the OT4U application as a whole has been reviewed by peers and with the mentor, all the User Stories are moved to the **Done** list and the OT4U application is considered completed.
+When a Story is being coded it is moved from the **ToDo** list into the **In Process** list.  When the code is finished for a story it is moved into the **Testing** list.  Once a story has been tested it is moved to the **Code Review** list.  When the OT4U application as a whole has been reviewed by peers and with the mentor, all the User Stories are moved from the **Code Review** list to the **Done** list and the OT4U application is considered completed.
 
 At the end of the project, all User Stories will be in the **Done** list and the project will be finished.
 
@@ -425,6 +760,33 @@ At the end of the project, all User Stories will be in the **Done** list and the
 
 #### After Sprint 1
 ![Trello board after Sprint 1](documentation/agile-planning/trello-after-sprint1.png)
+
+#### After Sprint 2
+![Trello board after Sprint 2](documentation/agile-planning/trello-after-sprint2.png)
+
+#### After Sprint 3
+![Trello board after Sprint 3](documentation/agile-planning/trello-after-sprint3.png)
+
+
+#### After Sprint 4
+![Trello board after Sprint 4](documentation/agile-planning/trello-after-sprint4.png)
+
+#### After Sprint 5
+![Trello board after Sprint 5](documentation/agile-planning/trello-after-sprint5.png)
+
+#### After Sprint 6
+![Trello board after Sprint 6](documentation/agile-planning/trello-after-sprint6.png)
+
+#### After Sprint 7
+![Trello board after Sprint 7](documentation/agile-planning/trello-after-sprint7.png)
+
+#### After Sprint 8
+![Trello board after Sprint 8](documentation/agile-planning/trello-after-sprint8.png)
+
+#### After Sprint 9
+![Trello board after Sprint 9](documentation/agile-planning/trello-after-sprint9.png)
+
+
 
 ### Version Control 
 <a id="git"></a>**Git** is used for version control of this project
@@ -511,7 +873,7 @@ Javascript was validated using [JSHint](https://jshint.com/)
 ![Create new App](documentation/deploy/heroku-create-new-app.png)
 
 
-4. Enter an app name (*amber-ci*) and region (*Europe*) and click the *Create app* button.
+4. Enter an app name (*ot4u-ci*) and region (*Europe*) and click the *Create app* button.
 
 ![Create app](documentation/deploy/heroku-create-app.png)
 
@@ -539,7 +901,7 @@ Javascript was validated using [JSHint](https://jshint.com/)
 
 12. Click the *Connect* button next to **Liz-Conway/Project-4-OT4U**.
 
-![Connect to github](documentation/deploy/heroku-amber-connect.png)
+![Connect to github](documentation/deploy/heroku-ot4u-connect.png)
 
 13. Heroku app is now connected to the Github repository.
 
@@ -566,12 +928,9 @@ Javascript was validated using [JSHint](https://jshint.com/)
 	- **AJAX** stands for Asynchronous Javascript And Xml. Ajax is a means of loading data from the server and selectively updating parts of a web page without reloading the whole page.
 * [jQuery](https://jquery.com/)
 	- **jQuery** is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
-* [jQuery UI](https://jqueryui.com/)
-	- **jQuery UI** is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.
-* [SASS](https://sass.com/) ?????
-	- **SASS** is a GUI application for Less, Sass, Compass and CoffeeScript compilation, to help web developers to use them more efficientl.
+* [SASS](https://sass.com/)
+	- **SASS** is CSS with Superpowers.  Sass is the most mature, stable, and powerful professional grade CSS extension language in the world
 	- **[Koala](http://koala-app.com/)** is used to compile the SASS files into CSS, and auto-prefix particular CSS properties.
-
 * [Heroku](https://heroku.com/)
     - **Heroku** is used to host and run the OT4U application.
 * [Trello](https://trello.com/)
@@ -671,7 +1030,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 
 | Picture                    | Name | Owner           | Downloaded and/or adapted from|
 | --- | --- | --- | --- |
-|<img src="media/occupational-therapist-playing-with-child.jpg" alt="OT playing with child" width="30" height="30">| Occupational Therapist playing with child          | Karolina Grabowska | [Pexels.com](https://www.pexels.com/photo/a-mother-and-daughter-playing-with-balloons-7296526/)|
+|<img src="static/images/occupational-therapist-playing-with-child.jpg" alt="OT playing with child" width="30" height="30">| Occupational Therapist playing with child          | Karolina Grabowska | [Pexels.com](https://www.pexels.com/photo/a-mother-and-daughter-playing-with-balloons-7296526/)|
 |<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Pawel Czerwinski  | [UnSplash.com](https://unsplash.com/photos/2TKN70nMMts)|
 |<img src="media/empty-cart.jpg" alt="empty shopping cart" width="30" height="30">| Empty shopping cart          | Evgeni Lazarev  | [Pexels.com](https://www.pexels.com/photo/shopping-cart-on-asphalt-8971727/)|
 |<img src="media/empty-basket.jpg" alt="empty shopping basket" width="30" height="30">| Empty shopping cart          | PxHere  | [PxHere.com](https://pxhere.com/en/photo/721180)|
@@ -685,6 +1044,8 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |<img src="media/self-feedingt.jpg" alt="ot teaching child to feed themself" width="30" height="30">| Self Feeding          | Vanessa Loring   | [Pexels.com](https://www.pexels.com/photo/food-people-laptop-internet-7621354/)|
 |<img src="media/cooking.jpg" alt="hands preparing food for cooking" width="30" height="30">| Cooking          | Maarten van den Heuvel   | [UnSplash.com](https://unsplash.com/photos/EzH46XCDQRY)|
 |<img src="media/cooking.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Cooking          | PxHere   | [PxHere.com](https://pxhere.com/en/photo/1061452)|
+|<img src="static/images/empty-jigsaw.jpg" alt="empty jigsaw" width="30" height="30">| Empty jigsaw          | Willi Heidelbach   | [PxHere.com](https://pxhere.com/en/photo/1600619|
+|<img src="static/images/magnifying-glass.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Magnifying Glass          | Eren Li   | [Pexels.com](https://www.pexels.com/photo/photo-of-magnifying-glass-on-top-of-braille-7188802/)|
 
 ### Others
 An incredible mentor : Daisy McGirr

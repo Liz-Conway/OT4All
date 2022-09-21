@@ -10,4 +10,42 @@
 .shopButtons
 	display: flex
 	flex-direction: row
-	
+
+.form
+	&Input, #id_country
+		/*Always when padding an element give it a bit more on the sides to look better*/
+		padding: 1.5rem 2rem
+		margin-bottom: 1rem
+		border-radius: 2px
+		background-color: rgba($white, .5)
+		border: 1px solid $highlight
+		box-shadow: $boxShadow
+		/*Add a transparent border at the bottom to match the border when the input is focussed*/
+		/*Otherwise the form elements will 'jump' when focus switches*/
+		border-bottom: 3px solid transparent
+		/*Full width on its own line*/
+		width: 90%
+		display: block
+		transition: all 1s
+		&:focus
+			/*Browser highlights a border (outline) around the input element when it has focus*/
+			/*We want to remove this*/
+			outline: none
+			/*This focus is important for ARIA, i.e. keyboard navigation*/
+			/*Always make form elements that are focussed visible*/
+			/*Give it a box shadow and a border at the bottom*/
+			box-shadow: 0 1rem 2rem rgba($shadow, .1)
+			border-bottom: 3px solid $highlight
+			/*Apply this style when we have an invalid focussed input element*/
+			&:invalid
+				border-bottom: 3px solid $accentDark
+		&::placeholder
+			/*Target the placeholder text*/
+			color: $grey
+
+select
+	&, & option
+		color: $black
+
+	&:invalid, & option[value=""]
+		color: $greyInvalid

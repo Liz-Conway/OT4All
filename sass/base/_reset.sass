@@ -11,7 +11,7 @@
 	padding: 0
 	margin: 0
 
-/* The height of an element is calculated based on its CHILDREN. 
+/* The height of an element is calculated based on its CHILDREN.
     So setting height: 100% on an element will cause it to be 100% of the child's height.
     This setting causes the height to be calculated from the parent*/
 html, body
@@ -23,7 +23,8 @@ body
 	-webkit-font-smoothing: antialiased
 
 img, picture, video, canvas, svg
-	/*display: block*/      /* Will remove extra space from under an image - Use flexbox on its parent instead*/
+	/* Using "display: block" on these elements would remove extra space from under it
+		- Use flexbox on its parent instead
 	/* Keep large images from overflowing, if theyre placed in a container that isnt wide enough to contain them. */
 	max-width: 100%
 

@@ -1,6 +1,6 @@
 from django.views.generic.base import TemplateView
 
-# Create your views here.
+
 class HomePage(TemplateView):
     """A class for rendering the home page"""
 

@@ -1,0 +1,41 @@
+<!-- https://ordinarycoders.com/blog/article/django-messages-framework -->
+<div class="toast {{ message.tags }}" >
+	<div class="arrowUp arrowSuccess"></div>
+  <div class="toastCapper toastCapperSuccess"></div>
+  <div class="toastTitle">
+  	<strong>Success!</strong>
+    <button class="close" aria-label="Close">
+    	&times;
+    </button>
+  </div>
+  <hr>
+  <div class="toastBody">
+ 		{{ message | safe }}
+ 		<hr>
+ 		{% if grand_total %}
+ 			<p>Your Bookings ({{ therapy_sessions }})</p>
+ 		<div class="toastBookingsWrapper">
+ 			{% for item in booking_items %}
+ 			<div class="toastBookings">
+ 				<img class="toastBookingsImage" src="{{ item.therapy.image.url }}">
+ 				<div class="toastBookingsDetails">
+ 					<p><strong>{{ item.therapy.name }}</strong></p>
+ 					<p>Sessions :  {{ item.number_sessions }}</p>
+ 				</div>
+ 			</div>
+ 			{% endfor %}
+ 		</div>
+ 		<div>
+ 			<strong><p class="toastBookingsTotal">
+ 				<span>€{{ total }}</span>
+ 			</p></strong>
+ 			<a href="{% url 'purchase' %}" class="btn btnPrimary btnThin">
+ 				<span>Go To Secure Checkout</span>
+ 				<span class="icon"><i class="fas fa-lock"></i></span>
+ 			</a>
+ 			
+ 		</div>
+ 		{% else %}
+ 		{% endif %}
+  </div>
+</div>

@@ -1,0 +1,172 @@
+/*~~~~~~~  Purchase  ~~~~~~~*/
+.containerPurchase
+	max-width: 95%
+	@include respond(tabletPortrait)
+		max-width: 80%
+	margin: 0 auto
+	.purchaseTitle
+		margin-bottom: 2rem
+		text-transform: uppercase
+		text-align: center
+	> hr
+		margin-top: 1.2rem
+		margin-bottom: 1.2rem
+
+.purchase
+	flex: 1 1 50%
+	width: 100%
+	@include respond(desktop)
+		width: 50%
+	p:first-child
+		color: $greyHelp
+		margin-bottom: 1.3rem
+
+	&Order
+		display: flex
+		flex-direction: column
+		@include respond(desktop)
+			flex-direction: row-reverse
+
+		.order
+			&Summary
+				flex: 1 1 50%
+				display: flex
+				flex-direction: column
+				margin-bottom: 1.5rem
+				hr
+					margin: 0
+
+			&Titles
+				margin-bottom: 1rem
+				align-self: flex-end
+				display: flex
+				flex-direction: row
+				flex-wrap: wrap
+				width: 85%
+				p
+					margin-bottom: .33rem
+					margin-top: 0
+					text-align: center
+					color: $greyDark
+			&Item
+				flex: 1 1 60%
+			&Subtotal
+				flex: 1 1 25%
+				text-align: right
+
+			&Content
+				display: flex
+				flex-wrap: wrap
+			&Image
+				flex: 1 1 30%
+				img
+					width: 100%
+			&Details
+				flex: 1 1 50%
+				text-align: center
+				p
+					margin-top: 0
+					margin-bottom: 0
+			&Price
+				flex: 1 1 20%
+				text-align: right
+				p
+					margin-top: 0
+					margin-bottom: 0
+
+			&Totals
+				display: flex
+				flex-wrap: wrap
+				text-align: right
+				p
+					margin-top: 0
+					margin-bottom: 0
+				&Titles
+					flex: 1 1 60%
+				&Costs
+					flex: 1 1 25%
+					margin-left: auto
+
+#stripeError
+	color: $error
+
+.payButtons
+	// text-align: right
+	margin-top: 4rem
+	margin-bottom: .65rem
+	font-size: 1.6rem
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	align-items: center
+
+	span
+		text-transform: none
+
+	a:first-child
+		margin: 0
+		// padding: 1.3rem 1.8rem
+	// a > span:last-child
+	// 		font-weight: $boldWt
+
+	p
+		margin-top: 0.5rem
+		margin-bottom: 0
+		color: $error
+
+	+ div
+		color: $error
+		text-align: right
+
+#submitButton
+	// margin-left: .5rem
+	// font-size: 1.3rem
+	// padding: .5rem 1.5rem
+	margin-right: 0
+	font-weight: $boldWt
+
+#paymentForm
+	fieldset
+		padding: 0 1.3rem
+		margin-bottom: 4rem
+		border: none
+
+	fieldset:last-child > div
+		margin-bottom: 1.3rem
+
+	.fieldsetLabel
+		position: relative
+		right: .7rem
+		// font-size: 80%
+		padding: 0 1.3rem
+
+
+	.formCheck
+		display: flex
+		justify-content: flex-end
+
+		&Label
+			margin-bottom: 0
+			margin-top: 1.5rem
+			margin-right: 1rem
+			a
+				color: $accentDark
+
+#loadingOverlay
+	display: none
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: $overlayColour
+	z-index: 9999
+
+.loadingSpinner
+	display: flex
+	@include flexCentre
+	margin: 0
+	height: 100%
+	color: $highlight
+
+/*===== END  Purchase  =====*/

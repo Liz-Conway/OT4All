@@ -18,7 +18,8 @@ class Therapy(models.Model):
     price = models.DecimalField(max_digits=3, decimal_places=0)
     image = models.ImageField(upload_to="ot4u", null=True, blank=True)
     course_sessions = models.PositiveIntegerField(
-        help_text="The recommended number of sessions for this particular therapy.",
+        help_text="The recommended number of \
+        sessions for this particular therapy.",
     )
     location = models.CharField(max_length=254, null=True, blank=True)
     extra_requirements = models.TextField(null=True, blank=True)

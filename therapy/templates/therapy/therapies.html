@@ -7,36 +7,100 @@
 	<div class="containerFluid">
 		<div class="therapyTitle">
 			<h1>Our Therapies</h1>
+				<!-- Show a button for each OT style
+				The client can choose a button to only show the Therapies in that style -->
+				{% for style in all_styles %}
+					<a class="btnStyle {% if style in chosen_styles %}btnStyleActive{% endif %}" 
+						href="{% url 'therapies' %}?style={{ style.name }}">
+						<span>{{style.name}}</span>
+					</a>
+				{% endfor %}
+					<a class="btnStyle {% if chosen_styles == None %}btnStyleActive{% endif %}" href="{% url 'therapies' %}">
+						<span>All</span>
+					</a>
 			<hr>
 		</div>
 		<div class="therapyContainer">
-			<div class="therapyList">
-				{% for therapy in therapies %}
-					<div class="therapyCard">
-						{% if therapy.image %}
-								<img  class="" src="{{ therapy.image.url }}" alt="{{ therapy.name }}">
-						{% else %}
-								<img  class="" src="{{ MEDIA_URL }}noimage.png" alt="{{ therapy.name }}">
+			<div class="sortRow">
+				{% if not search_term %}
+				<div class="sortSelectWrapper">
+					<select id="sortSelector" class="customSelect">
+						<option value="sortBy" disabled {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
+						<option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+						<option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+						<option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+						<option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+						<option value="style_asc" 
+							{% if current_sorting == 'style_asc' %}selected{% endif %}
+							{% if chosen_styles %} class="invisible"{% endif %}
+							>Style (A-Z)</option>
+						<option value="style_desc" 
+							{% if current_sorting == 'style_desc' %}selected{% endif %}
+							{% if chosen_styles %} class="invisible"{% endif %}
+							>Style (Z-A)</option>
+						<option  disabled role="separator">
+						<option value="reset" >Reset...</option>
+					</select>
+				</div>
+				{% endif %}
+				<div class="sortFound">
+					<p>
+						{% if search_term or current_styles or current_sorting != 'None_None' %}
+							<span><a href="{% url 'therapies' %}">Therapies</a> | </span>
 						{% endif %}
-						<div class="therapyCardBody">
-							<h2>{{ therapy.name }}</h2>
-							<p>{{ therapy.description }}</p>
-						</div>
-						<div class="therapyCardFooter">
-							<p>€{{ therapy.price }}</p>
-							{% if therapy.style %}
-								<p class="therapyCardStyle">
-										<i class="fas fa-tag"></i>{{ therapy.style.name }}
-								</p>
+						{{ therapies|length }} of {{ total }} Therapies{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+					</p>
+				</div>
+			</div>
+			<div class="therapyList">
+				{% if therapies|length == 0%}
+					<div class="emptySearch">
+						<h2>Sorry - No Search results for "{{ search_term }}"</h2>
+		        		<picture>
+		        			<source srcset="{% static 'images/empty-search-small-min.jpg' %}"
+		        				media="(max-width: 60em)">
+		        			<!-- Include a Fallback normal image in case  -->
+		        			<!-- the browser does not support srcset -->
+		        			<img alt="Empty Search Result" 
+		        			src="{% static 'images/empty-search-min.jpg' %}">
+		        		</picture>
+					</div>
+				{% else %}
+					{% for therapy in therapies %}
+						<div class="therapyCard">
+							{% if therapy.image %}
+									<img  class="" src="{{ therapy.image.url }}" alt="{{ therapy.name }}">
+							{% else %}
+									<img  class="" src="{{ MEDIA_URL }}noimage.png" alt="{{ therapy.name }}">
 							{% endif %}
-							<div class="bookButton">
-								<!-- Pass an id to the URL so that the chosen therapy's detail page is shown -->
-								<a href="{% url 'singleTherapy' therapy.id %}" class="btn btnPrimary">Book</a>
+							<div class="therapyCardBody">
+								<h2>{{ therapy.name }}</h2>
+								<p>{{ therapy.description }}</p>
+							</div>
+							<div class="therapyCardFooter">
+								<p>€{{ therapy.price }}</p>
+								{% if therapy.style %}
+									<!-- Show a "Category" tag next to the style -->
+									<p class="therapyCardStyle">
+											<i class="fas fa-tag"></i>{{ therapy.style.name }}
+									</p>
+								{% endif %}
+								<div class="bookButton">
+									<!-- Pass an id to the URL so that the chosen therapy's detail page is shown -->
+									<a href="{% url 'singleTherapy' therapy.id %}" class="btn btnPrimary">Read More ></a>
+								</div>
 							</div>
 						</div>
-					</div>
-				{% endfor %}
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 	</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {# Ensure we append this code to anything already in the block #}
+    {# as opposed to replacing it. #}
+    {{ block.super }}
+	<script src="{% static 'js/sorting.js' %}"></script>
 {% endblock %}

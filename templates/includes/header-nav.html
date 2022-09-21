@@ -6,12 +6,10 @@
     			</a>
     		</div>
     		<!-- Search form -->
-       		<form action="#" class="search">
-       			<input type="text" class="searchInput" placeholder="Search Therapies">
+       		<form action="{% url 'therapies' %}" method="get" class="search">
+       			<input type="text" class="searchInput" name="q" placeholder="Search Therapies">
        			<button class="searchButton">
-       				<span class="searchIcon">
                         <i class="fas fa-search"></i>
-                    </span>
        			</button>
        		</form>
 
@@ -20,28 +18,44 @@
     			<ul class="shopAccounts">
                     <li>
 	                    <div class="shopAccountsBlock">
-	                        <i class="fas fa-user shopAccountsIcon" id="accountIcon"></i>
+	                        <i class="
+	                        	 {% if request.user.is_authenticated %}
+	                        	 	{# If the user is logged in then show a solid 'user' icon #}
+	                        	 	fas
+	                        	 {% else %}
+	                        	 	{# If the user is NOT logged in then show an outline 'user' icon #}
+	                        		far
+	                        	{% endif %}
+	                        	 fa-user shopAccountsIcon" id="accountIcon"></i>
 	                        <menu class="mainMenu">
 	                        	<menuitem>
 									<a id="accountOptions" class="shopAccountsLabel dropMenuTopLink">My Profile</a>
 									<menu class="subMenu">
-			                                <menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
-											<menuitem><a href="{% url 'home' %}">Register</a></menuitem>
-											<menuitem><a href="{% url 'home' %}">Login</a></menuitem>
+								    	<menuitem id="homeLink">
+								            <a href="{% url 'home' %}">Home</a>
+							    		</menuitem>
+								        {% if request.user.is_authenticated %}
+									            {% if request.user.is_superuser %}
+				                                	<menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
+												{% endif %}
+												<menuitem><a href="{% url 'account_logout' %}">Logout</a></menuitem>
+											{% else %}
+												<menuitem><a href="{% url 'account_signup' %}">Register</a></menuitem>
+												<menuitem><a href="{% url 'account_login' %}">Login</a></menuitem>
+											{% endif %}
 									</menu>
 								</menuitem>
 							</menu>
 	                    </div>
                     </li>
     				<li>
-    		            <a class="navLink" href="{% url 'home' %}">
+    		            <a class="navLink" href="{% url 'bookings' %}">
                             <div class="shopAccountsBlock">
                                 <i class="fas fa-{% if grand_total %}shopping-cart{% else %}cart-plus{% endif %} shopAccountsIcon" id="cartIcon"></i>
                                 <p class="shopAccountsLabel">
+                                    {# Read the grand_total from the booking_contents context preprocessor #}
                                     {% if grand_total %}
                                         €{{ grand_total }}
-                                    {% else %}
-                                    	€1000
                                     {% endif %}
                                 </p>
                             </div>
