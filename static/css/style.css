@@ -3,6 +3,7 @@
 body {
   font-family: Gabriela;
   font-weight: 400;
+  font-size: 1.6rem;
   /* For accessibility - The WCAG criteria states that line-height should be at least 1.5 */
   /* The WCAG criteria is meant for "body" text, not headings. */
   /* So we can calculate the proper line height for all elements : */
@@ -10,6 +11,76 @@ body {
   /* this alternative uses the font-size as a base, and adds a fixed amount of space to each line. */
   line-height: calc(1em + 0.7rem);
   color: #751c00;
+}
+
+.titleWrapper {
+  width: 60%;
+  height: 100%;
+  max-width: 1140px;
+  padding-left: 2rem;
+}
+@media only screen and (min-width: 75em) {
+  .titleWrapper {
+    width: 50%;
+  }
+}
+
+.headingTitle {
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media only screen and (min-width: 75em) {
+  .headingTitle {
+    max-width: 50%;
+  }
+}
+.headingCollection {
+  font-size: 3.2rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #000000;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+@media only screen and (min-width: 75em) {
+  .headingCollection {
+    font-size: 3.1rem;
+  }
+}
+@media only screen and (min-width: 65.625em) {
+  .headingCollection {
+    font-size: 3.5rem;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .headingCollection {
+    font-size: 3.3rem;
+  }
+}
+@media only screen and (min-width: 78.125em) {
+  .headingCollection {
+    font-size: 3.5rem;
+  }
+}
+
+.small {
+  font-size: 1rem;
+}
+
+.muted {
+  color: #808080;
 }
 
 /*===== END  Typography  ===== */
@@ -38,6 +109,8 @@ body {
 }
 
 img, picture, video, canvas, svg {
+  /* Using "display: block" on these elements would remove extra space from under it
+   * - Use flexbox on its parent instead */
   /* Keep large images from overflowing, if theyre placed in a container that isnt wide enough to contain them. */
   max-width: 100%;
 }
@@ -950,6 +1023,835 @@ p.therapyDetailsPrice {
 }
 
 /*===== END  Single Therapy Page  ===== */
+/*~~~~~~~  Bookings Page  ~~~~~~~ */
+.containerBookings {
+  width: 100%;
+  padding: 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media only screen and (min-width: 75em) {
+  .containerBookings {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.containerBookings hr {
+  margin: 1.25rem 0;
+  width: 65%;
+}
+@media only screen and (min-width: 37.5em) {
+  .containerBookings hr {
+    width: 50%;
+  }
+}
+.containerBookings .sessionsInput {
+  width: 33%;
+}
+
+#bookingsGrandTotal {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.bookingsTitle {
+  text-transform: uppercase;
+  font-size: 2.75rem;
+}
+.bookingsItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+.bookingsItems p {
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+@media only screen and (min-width: 50em) {
+  .bookingsItems {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .bookingsItems picture img {
+    max-height: 50vh;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTotals {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+}
+.bookingsTotals p {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.bookingsButtons a {
+  font-size: 1.3rem;
+  padding: 0.75rem 1.3rem;
+  margin-right: 0;
+}
+.bookingsSummary {
+  color: #808080;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+}
+@media only screen and (min-width: 50em) {
+  .bookingsSummary {
+    display: none;
+  }
+}
+.bookingsTherapies p {
+  font-size: 2rem;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapies p {
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .bookingsTherapies {
+    width: 100%;
+  }
+}
+.bookingsTherapy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapy {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapyDetail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+  }
+}
+.bookingsTherapyDescription {
+  text-transform: uppercase;
+}
+.bookingsTherapyPrice {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.bookingsTherapyPrice p::before {
+  content: "Per Session :  ";
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapyPrice p::before {
+    content: "";
+  }
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapyPrice {
+    margin-top: 0;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapySessions {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapySubtotal {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+.bookingsTherapyImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.bookingsTherapySubtotal p {
+  font-weight: 700;
+}
+.bookingsTherapySubtotal p::before {
+  content: "Subtotal :  ";
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapySubtotal p::before {
+    content: "";
+  }
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapySubtotal {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    text-align: right;
+  }
+}
+.bookingsTherapySessions {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapySessions {
+    margin: 0 1rem;
+  }
+}
+.bookingsTherapyTitles {
+  display: none;
+}
+@media only screen and (min-width: 75em) {
+  .bookingsTherapyTitles {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    font-weight: 700;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+.bookingsTherapyTitlesInfo {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapyTitlesPrice {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapyTitlesSessions {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .bookingsTherapyTitlesSubtotal {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: right;
+  }
+}
+
+.editLinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2rem;
+  width: 60%;
+}
+.editLinks a {
+  font-size: 2rem;
+  cursor: pointer;
+}
+@media only screen and (min-width: 50em) {
+  .editLinks {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.updateLink {
+  color: #191970;
+  display: none;
+}
+@media only screen and (min-width: 50em) {
+  .updateLink {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.removeLink {
+  color: #e84610;
+}
+
+/*===== END  Bookings Page  ===== */
+/*~~~~~~~  Purchase  ~~~~~~~ */
+.containerPurchase {
+  max-width: 95%;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 37.5em) {
+  .containerPurchase {
+    max-width: 80%;
+  }
+}
+.containerPurchase .purchaseTitle {
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.containerPurchase > hr {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.purchase {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  width: 100%;
+}
+@media only screen and (min-width: 75em) {
+  .purchase {
+    width: 50%;
+  }
+}
+.purchase p:first-child {
+  color: #808080;
+  margin-bottom: 1.3rem;
+}
+.purchaseOrder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media only screen and (min-width: 75em) {
+  .purchaseOrder {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+}
+.purchaseOrder .orderSummary {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+.purchaseOrder .orderSummary hr {
+  margin: 0;
+}
+.purchaseOrder .orderTitles {
+  margin-bottom: 1rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 85%;
+}
+.purchaseOrder .orderTitles p {
+  margin-bottom: 0.33rem;
+  margin-top: 0;
+  text-align: center;
+  color: #333333;
+}
+.purchaseOrder .orderItem {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 60%;
+          flex: 1 1 60%;
+}
+.purchaseOrder .orderSubtotal {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  text-align: right;
+}
+.purchaseOrder .orderContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.purchaseOrder .orderImage {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+}
+.purchaseOrder .orderImage img {
+  width: 100%;
+}
+.purchaseOrder .orderDetails {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  text-align: center;
+}
+.purchaseOrder .orderDetails p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.purchaseOrder .orderPrice {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20%;
+          flex: 1 1 20%;
+  text-align: right;
+}
+.purchaseOrder .orderPrice p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.purchaseOrder .orderTotals {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: right;
+}
+.purchaseOrder .orderTotals p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.purchaseOrder .orderTotalsTitles {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 60%;
+          flex: 1 1 60%;
+}
+.purchaseOrder .orderTotalsCosts {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  margin-left: auto;
+}
+
+#stripeError {
+  color: #e84610;
+}
+
+.payButtons {
+  margin-top: 4rem;
+  margin-bottom: 0.65rem;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.payButtons span {
+  text-transform: none;
+}
+.payButtons a:first-child {
+  margin: 0;
+}
+.payButtons p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #e84610;
+}
+.payButtons + div {
+  color: #e84610;
+  text-align: right;
+}
+
+#submitButton {
+  margin-right: 0;
+  font-weight: 700;
+}
+
+#paymentForm fieldset {
+  padding: 0 1.3rem;
+  margin-bottom: 4rem;
+  border: none;
+}
+#paymentForm fieldset:last-child > div {
+  margin-bottom: 1.3rem;
+}
+#paymentForm .fieldsetLabel {
+  position: relative;
+  right: 0.7rem;
+  padding: 0 1.3rem;
+}
+#paymentForm .formCheck {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+#paymentForm .formCheckLabel {
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+}
+#paymentForm .formCheckLabel a {
+  color: #191970;
+}
+
+#loadingOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(153, 255, 178, 0.9);
+  z-index: 9999;
+}
+
+.loadingSpinner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0;
+  height: 100%;
+  color: #b299ff;
+}
+
+/*===== END  Purchase  ===== */
+/*~~~~~~~  Purchase Success Page ~~~~~~~ */
+.containerPurchaseSuccess hr {
+  margin: 1rem auto;
+  max-width: 70%;
+}
+@media only screen and (min-width: 37.5em) {
+  .containerPurchaseSuccess hr {
+    max-width: 50%;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .containerPurchaseSuccess hr {
+    max-width: 40%;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .containerPurchaseSuccess hr {
+    max-width: 30%;
+  }
+}
+.containerPurchaseSuccess > p {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.purchaseSuccess {
+  margin-top: 2rem;
+  width: 100%;
+}
+@media only screen and (min-width: 75em) {
+  .purchaseSuccess {
+    width: 60%;
+    margin-right: auto;
+  }
+}
+.purchaseSuccessTitle {
+  text-transform: uppercase;
+  margin-top: 1.3rem;
+  text-align: center;
+}
+.purchaseSuccessTitle ~ p {
+  padding: 0.5rem 1rem;
+}
+.purchaseSuccessButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+
+.orderConfirmationWrapper {
+  max-width: 90%;
+  padding: 1rem;
+  border: 1px solid #808080;
+  margin: 1.3rem auto;
+}
+@media only screen and (min-width: 37.5em) {
+  .orderConfirmationWrapper {
+    max-width: 80%;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .orderConfirmationWrapper {
+    max-width: 70%;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .orderConfirmationWrapper {
+    max-width: 60%;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .orderConfirmationWrapper {
+    max-width: 50%;
+  }
+}
+.orderConfirmationInfo:not(:first-of-type) {
+  /*	Add space above all  but the first orderConfirmationInfo element */
+}
+.orderConfirmationInfo:not(:first-of-type) h2 {
+  margin-top: 1.6rem;
+}
+.orderConfirmationRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media only screen and (min-width: 25em) {
+  .orderConfirmationRow {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+.orderConfirmationRow > p {
+  margin-bottom: 0;
+  padding-left: 1.2rem;
+}
+.orderConfirmationRow > p:first-child {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  font-weight: 700;
+  font-size: 2rem;
+}
+@media only screen and (min-width: 37.5em) {
+  .orderConfirmationRow > p:first-child {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+.orderConfirmationRow > p:not(:first-child) {
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  text-align: left;
+  color: #191970;
+  font-size: 2rem;
+}
+@media only screen and (min-width: 37.5em) {
+  .orderConfirmationRow > p:not(:first-child) {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+  }
+}
+.orderConfirmationNumber {
+  font-weight: 700;
+}
+
+/*===== END  Purchase Success Page ===== */
+/*~~~~~~~  User Profile  ~~~~~~~ */
+.containerProfile {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1.5rem auto;
+}
+
+.profileHead hr {
+  margin: 1rem 0;
+}
+.profileWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem 0;
+}
+@media only screen and (min-width: 59.375em) {
+  .profileWrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+.profileTitle {
+  text-align: center;
+}
+.profileHeading {
+  text-align: center;
+  font-size: 2rem;
+  color: #808080;
+}
+.profileDetails {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+.profileDetailsForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-top: 1.3rem;
+}
+.profileDetailsForm .formInput {
+  width: 100%;
+}
+.profileDetailsButton {
+  margin-left: auto;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+.profileOrders {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  margin-top: 2rem;
+}
+.profileFormInput {
+  color: #000000;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+.profileFormInputinput::-webkit-input-placeholder {
+  color: #aab7c4;
+}
+.profileFormInputinput:-ms-input-placeholder {
+  color: #aab7c4;
+}
+.profileFormInputinput::-ms-input-placeholder {
+  color: #aab7c4;
+}
+.profileFormInputinput::placeholder {
+  color: #aab7c4;
+}
+
+/*===== END  User Profile  ===== */
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
@@ -1018,6 +1920,7 @@ menu menuitem a {
   border: 1px solid #ffcdbd;
 }
 #accountOptions + .subMenu {
+  max-width: 12.3rem;
 }
 @media only screen and (min-width: 59.375em) {
   #accountOptions + .subMenu {
@@ -1542,6 +2445,7 @@ button[class$="crementSessions"]:disabled {
       -ms-flex-direction: row;
           flex-direction: row;
 }
+
 .formInput, .form #id_country {
   /*Always when padding an element give it a bit more on the sides to look better */
   padding: 1.5rem 2rem;
