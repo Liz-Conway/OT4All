@@ -129,7 +129,8 @@ class UpdateBooking(TemplateView):
             bookings[therapy_id] = number_of_sessions
             messages.success(
                 request,
-                f"Updated {therapy.name} number of sessions to {bookings[therapy_id]}",
+                f"Updated {therapy.name} \
+                number of sessions to {bookings[therapy_id]}",
             )
         else:
             # Remove the therapy entirely by using the pop() function
