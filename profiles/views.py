@@ -41,16 +41,22 @@ class ProfileView(TemplateView):
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully")
+        else:
+            # Attach a generic error message telling the user to check their form
+            # which will display the errors.
+            messages.error(
+                request,
+                "Failed to save your profile.  Please ensure the form is valid.",
+            )
 
         # Will be rendering an order history on this page.
         # Use the profile and the related name on the order model
         # to get the users orders and return those to the template
         orders = profile.orders.all()
 
-        template_name = "profiles/profile.html"
         context = {"form": form, "orders": orders, "on_profile_page": True}
 
-        return render(request, template_name, context)
+        return render(request, self.template_name, context)
 
 
 class OrderHistory(TemplateView):

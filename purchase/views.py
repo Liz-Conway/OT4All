@@ -202,7 +202,8 @@ class PurchaseSuccess(TemplateView):
         # Use the order number to get the order created in the previous view
         order = get_object_or_404(Order, order_number=order_number)
 
-        # The form has been submitted and the order has been successfully processed
+        # The form has been submitted and
+        # the order has been successfully processed
         # so this is a good place to add the user profile to it
 
         # Skip this step for anonymous users
@@ -224,6 +225,8 @@ class PurchaseSuccess(TemplateView):
                 # The dictionaries keys will match the fields on the user profile model.
                 # Such as the default phone number, country, postcode, and so on
                 profile_data = {
+                    "default_full_name": order.full_name,
+                    "default_email": order.email,
                     "default_phone_number": order.phone_number,
                     "default_country": order.country,
                     "default_postcode": order.postcode,
