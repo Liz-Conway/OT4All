@@ -72,7 +72,8 @@ class Purchase(TemplateView):
                         "full_name": profile.user.get_full_name(),
                         # Fill in their email from their user account.
                         "email": profile.user.email,
-                        # Fill everything else from the default information in their profile
+                        # Fill everything else from
+                        # the default information in their profile
                         "phone_number": profile.default_phone_number,
                         "country": profile.default_country,
                         "postcode": profile.default_postcode,
@@ -86,13 +87,13 @@ class Purchase(TemplateView):
                 order_form = OrderForm()
         else:
             # If the user is not authenticated => just render an empty form.
-            ############ GET THEM TO LOG IN #################
             order_form = OrderForm()
 
         if not stripe_public_key:
             messages.warning(
                 self.request,
-                "Stripe public key is missing.  Did you forget to set it in your environment?",
+                "Stripe public key is missing.  \
+                Did you forget to set it in your environment?",
             )
 
         # Call the base implementation first to get a context
@@ -138,10 +139,13 @@ class Purchase(TemplateView):
             order.save()
 
             # Iterate through the bookings items to create each line item
-            # First variable is the key from the bookings item (we call it 'therapy_id')
-            # Second variable is the value of that key (we are calling it 'therapy_data')
+            # First variable is the key from the bookings item
+            # (we call it 'therapy_id')
+            # Second variable is the value of that key
+            # (we are calling it 'therapy_data')
             for therapy_id, number_of_sessions in bookings.items():
-                # For each therapy id and its number of sessions in bookings.items
+                # For each therapy id
+                # and its number of sessions in bookings.items
 
                 try:
                     # First get the therapy.
@@ -158,14 +162,16 @@ class Purchase(TemplateView):
                     messages.error(
                         request,
                         (
-                            "One of the therapies you booked was not found in our database.",
+                            "One of the therapies you booked \
+                            was not found in our database.",
                             "Please call us for assistance!",
                         ),
                     )
                     order.delete()
                     return redirect(reverse("bookings"))
 
-            # Attach whether or not the user wanted to save their profile information to the session
+            # Attach whether or not the client
+            # wanted to save their profile information to the session
             request.session["saveInfo"] = "saveInfo" in request.POST
 
             # Redirect to a new page
@@ -175,7 +181,8 @@ class Purchase(TemplateView):
             )
 
         else:
-            # If the order form isn't valid => attach a message letting the user know
+            # If the order form isn't valid
+            # => attach a message letting the user know
             # and send them back to the purchase page
             # with the form errors shown
             messages.error(
@@ -208,7 +215,8 @@ class PurchaseSuccess(TemplateView):
 
         # Skip this step for anonymous users
         # Check if the user is authenticated
-        # if so they'll have a profile that was created when they created their account
+        # if so they'll have a profile
+        # that was created when they created their account
         if request.user.is_authenticated:
             # Get the user's profile
             profile = UserProfile.objects.get(user=request.user)
@@ -222,8 +230,10 @@ class PurchaseSuccess(TemplateView):
             if save_info:
                 # Pull the data to go in the user's profile
                 # off the order into a dictionary of profile data.
-                # The dictionaries keys will match the fields on the user profile model.
-                # Such as the default phone number, country, postcode, and so on
+                # The dictionaries keys will
+                # match the fields on the user profile model.
+                # Such as the
+                # default phone number, country, postcode, and so on
                 profile_data = {
                     "default_full_name": order.full_name,
                     "default_email": order.email,
@@ -236,8 +246,10 @@ class PurchaseSuccess(TemplateView):
                     "default_county": order.county,
                 }
 
-                # Create an instance of the user profile form, using the profile data.
-                # Tell it we're going to update the profile we've obtained above.
+                # Create an instance of
+                # the user profile form, using the profile data.
+                # Tell it we're going to
+                # update the profile we've obtained above.
                 user_profile_form = UserProfileForm(
                     profile_data, instance=profile
                 )
@@ -246,7 +258,8 @@ class PurchaseSuccess(TemplateView):
                     user_profile_form.save()
 
         # Success message letting the user know what their order number is
-        # And that we will be sending an email to the address they put in the form
+        # And that we will be
+        # sending an email to the address they put in the form
         messages.success(
             request,
             f"Order successfully processed!  Your order number is\
@@ -283,13 +296,15 @@ class CachePurchaseData(View):
             # Split the "client_secret" at the word "_secret"
             # the first part of it will be the payment intent Id
             pid = request.POST.get("client_secret").split("_secret")[0]
-            # Set up stripe with the secret key so we can modify the payment intent
+            # Set up stripe with the secret key
+            # so we can modify the payment intent
             stripe.api_key = settings.STRIPE_SECRET_KEY
             # Call stripe.PaymentIntent.modify() give it the pid,
             # and tell it what we want to modify.
             # Add some metadata - add the user who's placing the order,
             # add whether or not they wanted to save their information,
-            # add a JSON dump of their bookings (which we'll use a little later)
+            # add a JSON dump of their bookings
+            # (which we'll use a little later)
             stripe.PaymentIntent.modify(
                 pid,
                 metadata={
@@ -303,6 +318,7 @@ class CachePurchaseData(View):
         except Exception as ex:
             messages.error(
                 request,
-                "Sorry, your payment cannot be processed right now.  Please try again later.",
+                "Sorry, your payment cannot be processed right now.  \
+                Please try again later.",
             )
             return HttpResponse(content=ex, status=400)

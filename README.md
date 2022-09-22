@@ -1,6 +1,7 @@
 ![OT4U logo](documentation/logo/logo.png)
 # OT4U - Occupational Therapy for everyone
 
+<a id="top"></a>
 ## Table of Contents
 <details>
 <summary>Overview</summary>
@@ -19,6 +20,8 @@
 <details>
 <summary>Features</summary>
 
+[Existing Features](#existing-features)
+	
 [Known Bugs](#known-bugs)
 
 [Future features](#future-features)
@@ -100,31 +103,35 @@
 </details>
 
 ## Overview
-
-
+[Back to Top](#top)
 
 
 ### Who is this website for?
 <a id="who-for"></a>
+[Back to Top](#top)
 This website is for people who are looking for some Occupational Therapy in order to solve some physical problems/issues that they may have.
  
  
 ### What does it do?
 <a id="what-do"></a>
+[Back to Top](#top)
 This website allows people with physical ailments to access and book a variety of different Occupational Therapies.
   
  
 ### How does it work
 <a id="how-work"></a>
+[Back to Top](#top)
 The Occupational Therapist (or Site Owner) adds a list of the Occupational Therapy services that she offers onto the website.  The client visits the website and books a number of sessions of the particular type of Occupational Therapy that they need.
 
 
 ## Screen Mockup
 <a id="mockup"></a>
+[Back to Top](#top)
 
 ![Mockup of OT4U application](documentation/mockup/mockup.png)
 
 ## User Stories
+[Back to Top](#top)
 
 The user stories have been divided into different epics:
 
@@ -139,10 +146,13 @@ The user stories have been divided into different epics:
 
 
 ## Features
+[Back to Top](#top)
 
 ### Existing Features
+<a id="existing-features"></a>
 
 #### Inital Landing page
+[Back to Top](#top)
 
 This is where the user arrives on first entering the site.  This page sets the theme for the application, with a Logo which when clicked will bring the user back to the home page.
 
@@ -153,6 +163,7 @@ This is where the user arrives on first entering the site.  This page sets the t
 
 
 #### Navigation
+[Back to Top](#top)
 Each page has a header at the top of the page which contains a logo and a NavBar.
 
 On small screen devices the NavBar is accessible by clicking the well recognised "hamburger" icon.  The user is shown a responsive menu on small screen devices.  
@@ -193,25 +204,62 @@ In the footer of every page there are a number of navigation links:
 
 |   Desktop  |  Mobile   |
 | --- | --- |
-|  ![Footer - desktop](documentation/pages/footer.png)   |   ![Footer - mobile](/home/fintanc/code/code institute/ot4u/documentation/pages/mobile/footer.png)  |
+|  ![Footer - desktop](documentation/pages/footer.png)   |   ![Footer - mobile](documentation/pages/mobile/footer.png)  |
 
 
 
 #### Track Clients Profile
+[Back to Top](#top)
 
 In the top right of every screen there is a "My Profile" link, which exposes a number of options.
 
-**Not logged in**
+Supporting screen elements - **My Profile - Not logged in**
 
 |   Desktop  |  Mobile   |
 | --- | --- |
 |  ![My Profile](documentation/pages/my-profile-links.png)   |  ![My Profile](documentation/pages/mobile/my-profile-links.png)   |
 
+Supporting screen elements - **My Profile - Logged in**
 
-The 'My Profile' link allows the client to Login or Register, if they are not logged in already.  Once logged in this link allows the user to Logout or view their Profile.  If the user is logged in as the "Site Owner" this link will also allow them to modify the therapies on offer to their clients.
+|   Desktop  |  Mobile   |
+| --- | --- |
+|  ![My Profile logged in - Desktop](documentation/pages/my-profile-logged-in.png)   |  ![My Profile Logged in - mobile](documentation/pages/mobile/my-profile-logged-in.png)   |
+
+
+The 'My Profile' menu allows the client to Login or Register, if they are not logged in already.  Once logged in this link allows the user to Logout or view their Profile.  If the user is logged in as the "Site Owner" this link will also allow them to modify the therapies on offer to their clients.
+
+As part of the Purchase feature, the client can provide default information to be used whenever they are making a purchase.  They do this by clicking the checkbox underneath the client information form which asks if the want to save this information in their profile.
+
+By giving the client the choice in this matter it makes them feel that the OT4U website is not forcing them to store their valuable data without their knowledge.  This makes them feel more confident in the OT4U website, just knowing that it values their privacy.
+
+The key benefit to saving this profile information is that the next time the client makes a purchase their profile information will automatically be populated into the form fields for them.  This makes the whole process of purchasing therapy sessions quicker and improves its ease of use.  The client does not have as much to remember and so it is much easier to learn how the OT4U website works.
+
+Support screen elements - **Save Info checkbox**
+
+|   Desktop  |  Mobile   |
+| --- | --- |
+|  ![Save info - Desktop](documentation/pages/save-info.png)   |  ![Save info - mobile](documentation/pages/mobile/save-info.png)   |
+
+#### Update Client Profile
+[Back to Top](#top)
+
+![Update client profile user flow](documentation/user-flow/client-profile.png)
+
+When the client clicks the "My Profile" link in the "My Profile" menu, they are taken to their profile page.  This page shows them what profile data the OT4U website has stored for them.  It also allows them to update this information.  The benefit of this is that the client is in control of the information and can amend it whenever their circumstances change.
+
+A second part of this feature is that while viewing their profile, the client can also see a history of all the orders they have placed.  The benefit of this feature is that the client can see what therapies they have booked previously, and can use this information to figure out what therapies work for them.  They also see how much their therapies are costing, which allows the client to make financial decisions based on past data.
+
+Supporting pages - **Client Profile**
+
+|   Desktop  |  Mobile   |
+| --- | --- |
+|  ![Client profile - Desktop](documentation/pages/client-profile.png)   |  ![Client profile - mobile](documentation/pages/mobile/client-profile.png)   |
 
 
 #### Login
+[Back to Top](#top)
+
+![Login user flow](documentation/user-flow/login.png)
 
 In order to buy any of the Therapies offered by the OT4U application a client must use the Login feature.  
 The purpose of the login feature is to allow the client access to the shopping cart and "My Profile" features of the website.  It also ensures that the Site Owner has contact details for all clients.  This will be needed to make an appointment with the client.
@@ -224,10 +272,10 @@ Supporting page - **Login page**
 
 
 
-
-
-
 #### Logout
+[Back to Top](#top)
+
+![Logout user flow](documentation/user-flow/logout.png)
 
 All logged in users, regardless of their role, can log out of the OT4U application.  The logout feature asks the user to confirm that they want to logout.  This puts control in the hands of the user as they have more options, and will help prevent 'accidental' logouts.  This additional control will improve the user experience for logged in users.
 
@@ -241,6 +289,10 @@ Supporting page - **Logout page**
 
 
 #### Register
+[Back to Top](#top)
+
+![Client Registration user flow](documentation/user-flow/client-registration.png)
+
 Before a client can log into the OT4U website they must have registered on the website.
 
 Supporting Page - **Registration page**
@@ -251,6 +303,10 @@ Supporting Page - **Registration page**
 
 
 #### Reset Password
+[Back to Top](#top)
+
+![Reset Password user flow](documentation/user-flow/reset-password.png)
+
 This feature can be a life-saver for any client who forgets their password and needs to login to the OT4U website.  It can be very frustrating for an end-user if they cannot a service that they need, so the benefits of this feature cannot be underestimated.
 
 When the client requests a reset of their password, they are taken to the password reset request page, where they submit their email address.  If their email address is one of the clients' email addresses a password reset email is sent to that address.  This is a key step in resetting the client's password and is required so that the password reset process can begin.
@@ -287,6 +343,7 @@ Supporting page - **Confirm Password Changed**
 |  ![Confirm password changed - Desktop](documentation/pages/password-changed.png)   |  ![Confirm password changed - mobile](documentation/pages/mobile/password-changed.png)   |
 
 #### User Roles
+[Back to Top](#top)
 
 In the OT4U web application there are 2 roles that a user can log in as:
 * Client
@@ -295,6 +352,10 @@ In the OT4U web application there are 2 roles that a user can log in as:
 Depending on the role assigned to the user, when they log in they will see the same page but with different role-specific options under the "My Profile" menu.
 
 #### View Therapies
+[Back to Top](#top)
+
+![View Therapies user flow](documentation/user-flow/view-therapies.png)
+
 This feature will show clients and potential clients a list of Occupational Therapies offered by the OT4U website.  By seeing a range of different Therapies, the client can make an informed decision as to the correct therapy to suit their particular needs.
 
 |  Desktop   |  Mobile   |
@@ -308,6 +369,8 @@ The bright "Read More" button is a primary 'call to action'.  It is deliberately
 Seeing a variety of Occupational Therapy options gives the client a choice as to what they will pick for their particular ailment.  This choice gives the client a feeling of being in control.  Giving the client this feeling of control makes the client happy with the site and will build trust.
 
 #### Filtering Therapies
+[Back to Top](#top)
+
 At any time the client can view a list of only the therapies in a particular style by using the "Therapies" menu.  It has a dropdown menu which can be accessed by hovering over the "Therapies" link in the navigation bar on desktop screens, or by clicking the "Therapies" link in the navigation menu on mobile screens.
 
 Once on the Therapies page, the client can filter the Therapies by clicking on one of the "Styles" buttons on the top of the page.  Once the client has chosen to filter the therapies, either from the Therapies menu, or using one of the "Styles" buttons; the "Styles" button for the filtered therapies is highlighted.
@@ -346,6 +409,8 @@ Supporting page elements - **Filter feedback**
 
 
 #### Sorting Therapies
+[Back to Top](#top)
+
 The purpose of this feature is to allow the client to sort the therapies in a number of ways.  This allows the client find the most relevant therapy in a fast and efficient manner, making the OT4U easy to use and easy to navigate.
 
 There are a number of sorting strategies the client can use:
@@ -365,6 +430,10 @@ Supporting page elements - **Sorting menu**
 
 
 #### Searching Therapies
+[Back to Top](#top)
+
+![Search Therapies user flow](documentation/user-flow/search-therapies.png)
+
 This feature allows the client to search for therapies with either a particular name, or with a term that appears in the therapies description.  This allows the client to narrow down the list of suitable therapies.  Having this feature means that the client can remove all irrelevant therapies and quickly focus on therapies that are applicable to them.  This will make it quicker for them to come to a decision to book a therapy session.
 
 A search bar is available across the top of all pages, making this search option available to the client at all times.
@@ -387,17 +456,14 @@ Supporting page - **No Search results**
 
 
 
-#### View a single therapy
+#### View a single Therapy
+[Back to Top](#top)
 
-Once a client clicks on the "Read More" button for a particular therapy the Single Therapy page of the chosen therapy is displayed.  The purpose of the Single Therapy page is to entice the client to book a number of sessions for that therapy.
+Once a client clicks on the "Read More" button for a particular therapy the Book Therapy page of the chosen therapy is displayed.  The purpose of the Book Therapy page is to entice the client to book a number of sessions for that therapy.
 
-This page shows a larger image, the therapy name, details, style and cost.  If there is a location, or extra requirements for the therapy they are shown here as well.
-
-A "number of sessions" input is pre-filled with the recommended number of sessions for the specific therapy.  A "Book" button is the primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to visually draw the client's attention to where they need to look and prompt them to take action.
+This page shows a larger image, the therapy name, details, style and cost.  If there is any equipment neeed, a specific location where the therapy takes place, or extra requirements for the therapy they are shown here as well.
 
 The Single Therapy page will give more information on the therapy, such as equipment to be used, location where applicable and any additional requirements.
-
-The client can choose the number of sessions they wish to book, and still has the option to return back to the Therapies list.  These choices mean that the client is never forced down any one path and has the freedom to browse around until they find the correct fit for them.
 
 |  Desktop   |  Mobile   |
 | --- | --- |
@@ -406,13 +472,21 @@ The client can choose the number of sessions they wish to book, and still has th
 
 
 #### Maintain Therapies
+[Back to Top](#top)
 
 When logged in with an Admin role the user has access to the 'Maintain Therapies' features.
 
 
 #### Book Sessions
+[Back to Top](#top)
+
+![Book sessions user flow](documentation/user-flow/book-therapy.png)
 
 On the Single Therapy page for each therapy, the client has an option to Book a number of sessions for that therapy.  This is the primary 'Call to Action' of the OT4U website.  The "Book" button is highlighted in a different colour to the colour scheme of the OT4U website.  This draws the client's eye, let's them know the next step that is expected and encourages them to click on the button and make a booking.
+
+A "number of sessions" input is pre-filled with the recommended number of sessions for the specific therapy.  A "Book" button is the primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to visually draw the client's attention to where they need to look and prompt them to take action.
+
+The client can choose the number of sessions they wish to book, and still has the option to return back to the Therapies list.  These choices mean that the client is never forced down any one path and has the freedom to browse around until they find the correct fit for them.
 
 |  Desktop   |  Mobile   |
 | --- | --- |
@@ -420,6 +494,7 @@ On the Single Therapy page for each therapy, the client has an option to Book a 
 
 
 #### View My Bookings
+[Back to Top](#top)
 
 Once the client makes a booking the shopping cart icon changes to a filled cart icon.  This is a subtle signifier that they have made a booking that needs to be purchased.  A less subtle signifier is the total cost of all bookings this client has made, which is shown under the shopping cart icon.
 
@@ -458,6 +533,8 @@ Supporting screen elements - **Booking totals**
 |  ![Booking totals - Desktop](documentation/pages/booking-total-buttons.png)   |  ![Booking totals - mobile](documentation/pages/mobile/booking-total-buttons.png)   |
 
 #### Update Sessions
+[Back to Top](#top)
+
 On the Bookings page for each therapy the client can change the number of sessions for each therapy they have booked.  The OT4U website is very flexible in this matter, and provides the client with a number of means to change the number of sessions.  This allows the client to choose the way to update the number of sessions that they prefer, thus improving the user experience.
 
 1. Use the buttons which are placed either side of the input box which contains the number of sessions.
@@ -474,6 +551,8 @@ Supporting screen elements - **Update number of sessions**
 | After changing the sessions | ![Update sessions link - Desktop](documentation/pages/update-sessions-link.png) | ![Update sessions link - mobile](documentation/pages/mobile/update-sessions-link.png) |
 
 #### Remove booked therapy
+[Back to Top](#top)
+
 In addition to changing the number of sessions for a booked therapy the OT4U website allows the client to remove a therapy completely from their bookings.  If a client accidentally adds the wrong therapy, or changes their mind, they have the option to remove the therapy entirely from their bookings.  This feature removes the frustration that would be associated with adding the wrong therapy.  It allows the client to make mistakes and easily and quickly rectify these mistakes themselves.
 
 The OT4U website automatically recalculates the grand total when a booked therapy is removed.
@@ -485,6 +564,7 @@ Supporting screen elements - **Remove booked therapy**
 |  ![Update sessions - Desktop](documentation/pages/update-sessions.png)   |  ![Update sessions - mobile](documentation/pages/mobile/update-sessions.png)   |
 
 #### Keep shopping
+[Back to Top](#top)
 
 The OT4U website gives the client the opportunity to return to browsing the therapies from the Bookings page.  This gives the client the freedom to check their bookings at any time.  They are not forced to continue with purchasing just because they are looking at their booked therapies.  The freedom to view bookings and return to the main site, either using the "Keep shopping" button or the global navigation buttons engenders a sense of trust in the client for the OT4U website.
 
@@ -496,6 +576,7 @@ Supporting screen elements - **Update number of sessions**
 
 
 #### Purchase Therapy Sessions
+[Back to Top](#top)
 
 The central purpose of the OT4U website is to allow clients to purchase OT therapy sessions.  This feature is of utmost importance for the client.  They need this feature in order to get their therapy sessions.  Once a client has booked some sessions they can click on the "Secure Checkout" button and will be brought to a "Purchase" page.  The page will show a summary of the therapies that have been booked and an empty form for the clients to enter their details and card information.  Once the details have been entered the client will click the "Complete Order" button.  The card details and amount are sent to the Stripe credit card service.  Once the money has been transferred a "Purchase Succeeded" page is shown, with a summary of all the details of the order.
 
@@ -537,6 +618,7 @@ Supporting page elements - **Loading overlay**
 |  ![Loading overlay - Desktop](documentation/pages/loading-overlay.png)   |  ![Loading overlay - mobile](documentation/pages/mobile/loading-overlay.png)   |
 
 #### Purchase Success
+[Back to Top](#top)
 
 Once the payment has been processed, the client is shown a "Purchase Succeeded" page.  This page shows a large "Thank You".  Showing gratitude to the user helps to make them feel comfortable with the site.  It also shows them a "Purchase Succeeded" message, giving them their order number and telling them that they will shortly receive an email confirmation.  Keeping the client informed is important as it makes them feel more in control and happier with the website.  The "Purchase Succeeded" page also shows full details of the order, so that the client will know what it is they have ordered.
 
@@ -558,6 +640,8 @@ Supporting page elements - **Purchase success buttons**
 On successful purchase the OT4U website will send a confirmation email to the client.  This is a more permanent record of the transaction, since when the client leaves the "Purchase Succeeded" page the order information will be gone from their view.  Having this email allows the client to revisit their order details outside of the OT4U website. 
 
 #### Back-end database checks
+[Back to Top](#top)
+
 When the OT4U website passes data to the Stripe system to make a payment, it not only passed card and payment information, it also passes the complete order information.  When the OT4U website receives confirmation from Stripe that a payment has been successful, it performs a number of checks to ensure that one and only one order is saved on the databases for that payment.
 
 The OT4U website validates that the order that was paid for exists in the database.  The OT4U website takes the order details from the Stripe payment information and checks to ensure that the exact same order exists in the OT4U databasse.  In order to take into account any delays on the server-side, the OT4U website will perform this validation up to 5 times with an appropriate wait between each validation.  Once the order has been validated the OT4U website skips the remaining validations.
@@ -569,25 +653,36 @@ A client could make more that one booking for the same OT therapy,  In order to 
 This feature ensures the robustness of the OT4U website.  Once a client has made a purchase they are guaranteed that an order will exist.  It would be most frustrating for a client to have paid for something and not receive it.  The value of this feature is that it ensures that the OT4U website works as intended and as the client expects.
 
 #### View the OT approach
+[Back to Top](#top)
 
 #### View Testimonials
+[Back to Top](#top)
 
 #### Add a Testimonial
+[Back to Top](#top)
 
 #### View details about Natalia
+[Back to Top](#top)
 
 #### Get in Touch
+[Back to Top](#top)
 
 #### Sign up for our Newsletter
+[Back to Top](#top)
 
 #### View our Privacy Policy
+[Back to Top](#top)
 
 #### Messages
-Every time an OT Session is booked, updated or deleted or a new OT Service is added, amended or deleted, the user is informed via an informational message on the screen.
+[Back to Top](#top)
+
+Every time an OT Therapy is booked, updated or deleted or a new OT Therapy is added, amended or deleted, the user is informed via an informational message on the screen.
 
 Whenever invalid information is submitted on a form the user is briefed via error messages.  Error messages are displayed on a red background to emphasize the serious nature of the error.
 
 #### Current Login State
+[Back to Top](#top)
+
 The OT4U application keeps the user up to date with where they are in the application by highlighting the appropriate navigation link for the feature of the application that the user is currently employing.
 
 If the client/site owner is not logged in the icon shown above "My Profile" is an outline version of the icon.  If the client/site owner is logged in the icon shown is a filled version of the icon.  This is an extra piece of information for the client/site owner, which means that they do not have to remember if they are logged in or not, the OT4U website will tell them their "login" status.
@@ -607,28 +702,42 @@ Supporting page elements - **User account logged in icon**
 
 
 #### Field Validation
+[Back to Top](#top)
+
 All required fields are flagged with a red asterisk, to inform the user that an entry is required in that field.  If the user tries to submit a form without filling in a required field the application will highlight the field and let the user know that they need to fill in the field before submitting the form.
 
 
 #### Cancel
+[Back to Top](#top)
+
 The user can cancel any operation in the middle of it.  No information from the current page is saved and the user is returned to the home page. 
 
 #### Reset
+[Back to Top](#top)
+
 When filling a form in the OT4U application, the user can reset the form.  This will clear out any fields and unselect any checkboxes or radio buttons.  Basically this will set the form back to the way it was when the page first loaded.
 
 
 ### Known Bugs
 <a id="known-bugs"></a>
+[Back to Top](#top)
+
+The order number is generated from the max id in the Orders table.  If two people create an order at the same time, duplicate order numbers could be created.
 
 
 ### Future features
-<a id="future-features"></a>Since OT4U is a "real-life" project, this section will be used to "de-scope" some of the Use Cases and User Stories.  This will provide a Minimum Viable Product for the end-user which will also meet the criteria for examination by Code Institute. 
+<a id="future-features"></a>
+[Back to Top](#top)
+
+Since OT4U is a "real-life" project, this section will be used to "de-scope" some of the Use Cases and User Stories.  This will provide a Minimum Viable Product for the end-user which will also meet the criteria for examination by Code Institute. 
 
 * Add system to select dates for the OT Sessions
 	* Allow the Client to pick from available dates and locations for their OT Session.
+* Add a separate Order number table to track the order numbers generated and prevent more than one client generating the same order number 
 
 
 ## Data model
+[Back to Top](#top)
 
 ### Entity Diagram
 <a id="entity-diagram"></a>
@@ -640,6 +749,8 @@ When filling a form in the OT4U application, the user can reset the form.  This 
 
 ### Python structure
 <a id="python-structure"></a>
+[Back to Top](#top)
+
 The Django structure for the OT4U application is broken into 4 apps.
 
 1. **maintenance**
@@ -662,10 +773,12 @@ The Django structure for the OT4U application is broken into 4 apps.
 
 ## UX
 <a id="ux"></a>
-
+[Back to Top](#top)
 
 ### Personas
 <a id="personas"></a>
+[Back to Top](#top)
+
 ![Site User](documentation/ux/persona/site-user.png)
 ![Site Owner](documentation/ux/persona/site-owner.png)
 ![Client](documentation/ux/persona/client.png)
@@ -674,10 +787,14 @@ The Django structure for the OT4U application is broken into 4 apps.
 
 ### Customer Journey Maps
 <a id="cjm"></a>
+[Back to Top](#top)
+
 ![Customer Journey Map for Client](documentation/ux/customer-journey-map/client.png)
 
 ### Wireframes
 <a id="wireframes"></a>
+[Back to Top](#top)
+
 **Login**
 
 ![Login page wireframe](documentation/ux/wireframes/Login.png)
@@ -718,13 +835,16 @@ The Django structure for the OT4U application is broken into 4 apps.
 
 ### Site Map
 <a id="site-map"></a>
+[Back to Top](#top)
 
 ![Site Map](documentation/ux/wireframes/SiteMap.png)
 
 ### Accessibility
 <a id="accessibility"></a>
+[Back to Top](#top)
 
 #### Lighthouse Report
+[Back to Top](#top)
 
 **Desktop**
 
@@ -737,11 +857,15 @@ The Django structure for the OT4U application is broken into 4 apps.
 ![Lighthouse report for mobile](documentation/accessibility/lighthouse-report-mobile.png)
 
 #### WAVE Accessibility tool
+[Back to Top](#top)
+
 The OT4U application was checked to ensure accessibility using the [WAVE](https://wave.webaim.org/) web accessibility evaluation tool. 
 
 ![WAVE tool report](documentation/accessibility/wave-tool.png)
 
 #### Contrast
+[Back to Top](#top)
+
 Using the [Grayscale Browsing extension](https://addons.mozilla.org/en-US/firefox/addon/grayscale-browsing/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) for Firefox, I viewed each page as "black & white" to ensure that I could see all details even if the colour was gone.
 
 
@@ -758,52 +882,67 @@ Using the [Grayscale Browsing extension](https://addons.mozilla.org/en-US/firefo
 
 
 ## Design Decisions
+[Back to Top](#top)
 
 
 ### Colours
-<a id="colours"></a>The main colours for the OT4U application were deliberately chosen to invoke specific emotional reponses from the user.
+<a id="colours"></a>
+[Back to Top](#top)
+
+The main colours for the OT4U application were deliberately chosen to invoke specific emotional reponses from the user.
 
 
 The use of colours in the OT4U application should make the user feel welcomed and trusting.  Whilst at the same time the user knows that this is not a "fun" app, but a serious tool that will be used by professionals.
 
 ### Usability
-<a id="usability"></a>- **Suitability for purpose**
+<a id="usability"></a>
+[Back to Top](#top)
+
     
-- Suitability for purpose
+- **Suitability for purpose**
     - OT4U provides features that allow for retrieval of information in easily readable formats.
     - OT4U shows information in understable formats, lowering the work the user has to do to interpret the information.
-- Ease of use
+- **Ease of use**
     - A simple easy-to-use application focusing on reducing the 'cognitive load' on Clients.  The system is designed so that clients do not have to remember large amounts of detail.
-- Information Display 
+- **Information Display** 
     - There is a main navigation bar on every page.  This allows navigation to all the main pages from everywhere on the site.
   
   
 ### Favicon
+[Back to Top](#top)
+
 The favicon for the OT4U project was created using [Real Favicon Generator](https://realfavicongenerator.net).  It was created using the OT4U logo.
 
 ### Layout and Visual Impact
-- Responsive Design 
+[Back to Top](#top)
+
+- **Responsive Design** 
     - "Mobile First" design philosophy
     - FlexBox is used to give responsive layouts
     - Media Queries are used for each different screen size the tool will be used on.
-- Navigation 
+- **Navigation** 
     - Straightforward navigation enabling Clients to move easily from one part of the site to another.
     - Main Navbar with *Home*, *Therapies*, *About*, *Approach*, *Testimonials*, *Get in Touch* links on all screen sizes from Tablet in Landscape orientation upwards.
     - On phones and tablets in portrait orientation all navigation links are removed from the page. A "hamburger" icon is provided.  When the "hamburger" icon is clicked a navigation menu appears which covers the entire page.  This navigation menu includes the main navigation links. It also include a large close button.  When the close button is clicked, the navigation menu disappears and the previous page is displayed.  When a link on the navigation menu is clicked, the navigation menu disappears and the appropriate page is shown.
     - Links to *My Profile*, *Shopping Cart* and *Search* above the main navbar on all screen sizes.
 
-- Image Treatment 
+- **Image Treatment** 
     - Images are compressed to reduce download times.  [tinypng.com](https://tinypng.com) was used to compress the  image files.
     - Multiple versions of all static images are used, with a smaller image used for smaller devices.  This reduces the download times for tablets and especially mobile devices.  
 
 
 ### Static Files
+[Back to Top](#top)
+
 All static files are hosted with **WhiteNoise**.  [WhiteNoise](http://whitenoise.evans.io/en/stable/django.html) allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere without relying on an external server.  During deployment to Heroku, Django collects the static files, whitenoise then serves these files, and updates the links in the html pages to point to the appropriate file on WhiteNoise.
 
 ### Media files
+[Back to Top](#top)
+
 All uploadable media files are hosted on **Cloudinary**.  [Cloudinary](https://cloudinary.com/) allows you to store, transform, optimize, and deliver all your media assets with easy-to-use APIs, widgets, or user interface.  When a user uploads a media file on the OT4U website, it is uploaded to Cloudinary and the appropriate link to that file in Cloudinary is placed in the html.
 
 ## Software Development Process
+[Back to Top](#top)
 
 ### Agile methodology
 <a id="agile"></a>The use cases were arranged as Epics, the Epics were broken down into User Stories.  Acceptance criteria were developed for every User Story.
@@ -825,47 +964,73 @@ When a Story is being coded it is moved from the **ToDo** list into the **In Pro
 At the end of the project, all User Stories will be in the **Done** list and the project will be finished.
 
 ### Project Planning
-<a id="planning"></a>The OT4U project's User Stories have been allocated into Sprints.  The stories in each Sprint will go through the full process of *ToDo* **>** *In Process* **>** *Testing* **>** *Code Review*, before the next Sprint begins.  When all User Stories are in *Code Review*, the project will be peer reviewed. After any changes highlighted by the peer review are made, all the User Stories will be moved into the *Done* column.
+<a id="planning"></a>
+[Back to Top](#top)
+
+The OT4U project's User Stories have been allocated into Sprints.  The stories in each Sprint will go through the full process of *ToDo* **>** *In Process* **>** *Testing* **>** *Code Review*, before the next Sprint begins.  When all User Stories are in *Code Review*, the project will be peer reviewed. After any changes highlighted by the peer review are made, all the User Stories will be moved into the *Done* column.
 
 
 <img src="documentation/agile-planning/user-story-map-sprints.png" alt="User Story Map Sprint plan" width="100%"/>
 
 #### Initial Plan
+[Back to Top](#top)
+
 
 ![Initial Trello board](documentation/agile-planning/trello-beginning.png)
 
 #### After Sprint 1
+[Back to Top](#top)
+
 ![Trello board after Sprint 1](documentation/agile-planning/trello-after-sprint1.png)
 
 #### After Sprint 2
+[Back to Top](#top)
+
 ![Trello board after Sprint 2](documentation/agile-planning/trello-after-sprint2.png)
 
 #### After Sprint 3
+[Back to Top](#top)
+
 ![Trello board after Sprint 3](documentation/agile-planning/trello-after-sprint3.png)
 
 
 #### After Sprint 4
+[Back to Top](#top)
+
 ![Trello board after Sprint 4](documentation/agile-planning/trello-after-sprint4.png)
 
 #### After Sprint 5
+[Back to Top](#top)
+
 ![Trello board after Sprint 5](documentation/agile-planning/trello-after-sprint5.png)
 
 #### After Sprint 6
+[Back to Top](#top)
+
 ![Trello board after Sprint 6](documentation/agile-planning/trello-after-sprint6.png)
 
 #### After Sprint 7
+[Back to Top](#top)
+
 ![Trello board after Sprint 7](documentation/agile-planning/trello-after-sprint7.png)
 
 #### After Sprint 8
+[Back to Top](#top)
+
 ![Trello board after Sprint 8](documentation/agile-planning/trello-after-sprint8.png)
 
 #### After Sprint 9
+[Back to Top](#top)
+
 ![Trello board after Sprint 9](documentation/agile-planning/trello-after-sprint9.png)
 
 
 
 ### Version Control 
-<a id="git"></a>**Git** is used for version control of this project
+<a id="git"></a>
+[Back to Top](#top)
+
+**Git** is used for version control of this project
 
 - Git commit message prefix convention denoting the type of change made in this commit:
     
@@ -883,15 +1048,24 @@ At the end of the project, all User Stories will be in the **Done** list and the
 
 **GitHub** is used as the central version control repository for this project.
 
+#### Branches
+[Back to Top](#top)
+
 ### Testing 
-<a id="testing"></a>Testing is documented in the [Testing document](TESTING.md)
+<a id="testing"></a>
+[Back to Top](#top)
+
+Testing is documented in the [Testing document](TESTING.md)
 
 ### Bug Fixes
+[Back to Top](#top)
  
 
 
 ### Validation
 <a id="validation"></a>
+[Back to Top](#top)
+
 In order to ensure that the code for the OT4U application complies with the latest standards, each aspect of the code was run through an appropriate validator.
 
 #### Python/Django
@@ -901,6 +1075,8 @@ Source code was validated with [PEP8 Validator](http://pep8online.com/).
 ![PEP8 Validation](documentation/validation/PEP8/Python.png)
 
 #### CSS
+[Back to Top](#top)
+
 CSS was validated using [W3C CSS validator](https://jigsaw.w3.org/css-validator/validator)
 
 
@@ -908,6 +1084,8 @@ CSS was validated using [W3C CSS validator](https://jigsaw.w3.org/css-validator/
 
 
 #### HTML
+[Back to Top](#top)
+
 HTML was validated on all pages using [W3C HTML validator](https://validator.w3.org/)
 ##### Login
 ![Login validation](documentation/validation/HTML/login.png)
@@ -932,13 +1110,17 @@ Javascript was validated using [JSHint](https://jshint.com/)
 
 ### Documentation  
 <a id="documentation"></a>
+[Back to Top](#top)
 
-- README.md :  Comprehensive overview of the OT4U application detailing how it works, what its features are, the technologies involved and all the design decisions that were made in creating this web-based application.
+- **README.md** :  Comprehensive overview of the OT4U application detailing how it works, what its features are, the technologies involved and all the design decisions that were made in creating this web-based application.
 - [Vision doc](documentation/requirements/vision-doc.docx) :  Business needs and feature list.
  
 
 ### Deployment
-<a id="deployment"></a>This project is deployed to [Heroku](https://ot4u-ci.herokuapp.com/)
+<a id="deployment"></a>
+[Back to Top](#top)
+
+This project is deployed to [Heroku](https://ot4u-ci.herokuapp.com/)
 
 1. Push the code to Github using `git push`.
 
@@ -994,6 +1176,7 @@ Javascript was validated using [JSHint](https://jshint.com/)
 16. Once the app has been deployed you can access it by navigating to [OT4U application](https://ot4u-ci.herokuapp.com/) to run the application.
 
 ## Technology Used
+[Back to Top](#top)
 
 ### Some of the technology used includes:
 <a id="technology"></a>
@@ -1014,6 +1197,7 @@ Javascript was validated using [JSHint](https://jshint.com/)
 
 
 ## Contributing
+[Back to Top](#top)
 
 ### Clone
 <a id="clone"></a>
@@ -1035,6 +1219,7 @@ Javascript was validated using [JSHint](https://jshint.com/)
 
 ### Fork
 <a id="fork"></a>
+[Back to Top](#top)
 
 1. Log into [Github](https://github.com/)
 
@@ -1063,7 +1248,10 @@ Javascript was validated using [JSHint](https://jshint.com/)
 
 
 ### Cloning versus Forking
-<a id="clone-fork"></a>The major difference between cloning and forking is where your updates go when you perform a `git push`.
+<a id="clone-fork"></a>
+[Back to Top](#top)
+
+The major difference between cloning and forking is where your updates go when you perform a `git push`.
 
 With cloning you are pushing the updates to the `Liz-Conway/OT4U` repo on github.
 
@@ -1072,6 +1260,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 
 ## Credit
 <a id="credit"></a>
+[Back to Top](#top)
 
 ### Code
 | Code purpose                    | Author               | Link                                                                                 |
@@ -1103,6 +1292,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 
 
 ### Pictures
+[Back to Top](#top)
 
 | Picture                    | Name | Owner           | Downloaded and/or adapted from|
 | --- | --- | --- | --- |
@@ -1124,5 +1314,6 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |<img src="static/images/magnifying-glass.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Magnifying Glass          | Eren Li   | [Pexels.com](https://www.pexels.com/photo/photo-of-magnifying-glass-on-top-of-braille-7188802/)|
 
 ### Others
+[Back to Top](#top)
 An incredible mentor : Daisy McGirr
 Fellow students for peer-reviewing this application.

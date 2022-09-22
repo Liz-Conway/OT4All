@@ -5,7 +5,8 @@ from profiles.models import UserProfile
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        # Render all fields except for the user field since that should never change
+        # Render all fields except for the user field
+        # since that should never change
         exclude = ("user",)
 
     def __init__(self, *args, **kwargs):

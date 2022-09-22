@@ -2529,6 +2529,36 @@ select:invalid, select option[value=""] {
   color: #aab7c4;
 }
 
+#saveInfo {
+  margin-top: 1.3rem;
+  margin-right: 4rem;
+}
+@media only screen and (min-width: 37.5em) {
+  #saveInfo {
+    margin-right: 6rem;
+  }
+}
+@media only screen and (min-width: 50em) {
+  #saveInfo {
+    margin-right: 7rem;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  #saveInfo {
+    margin-right: 8rem;
+  }
+}
+@media only screen and (min-width: 75em) {
+  #saveInfo {
+    margin-right: 4.6rem;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  #saveInfo {
+    margin-right: 4.7rem;
+  }
+}
+
 /*~~~~~~~  Sort  ~~~~~~~ */
 .sortRow {
   margin-top: 0.5rem;
@@ -2891,6 +2921,9 @@ ul.errorlist {
 }
 .emailConfirm p {
   padding: 0 2rem;
+}
+.emailConfirm .userName {
+  font-weight: 700;
 }
 
 .loginPage {

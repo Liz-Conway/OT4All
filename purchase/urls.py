@@ -18,4 +18,5 @@ urlpatterns = [
     ),
     path("wh/", webhook, name="webhook"),
 ]
-# Path "wh/" will return a function called "webhook()" with the name of "webhook"
+# Path "wh/" will return a function
+# called "webhook()" with the name of "webhook"

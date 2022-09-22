@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import TemplateView
-from django.template import context
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from django.contrib import messages
@@ -35,18 +34,21 @@ class ProfileView(TemplateView):
         profile = get_object_or_404(UserProfile, user=request.user)
 
         # Create a new instance of the UserProfileForm using the POST data.
-        # Tell it the instance we're updating is the profile we've just retrieved above
+        # Tell it the instance we're updating is
+        # the profile we've just retrieved above
         form = UserProfileForm(request.POST, instance=profile)
 
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully")
         else:
-            # Attach a generic error message telling the user to check their form
+            # Attach a generic error message
+            # telling the user to check their form
             # which will display the errors.
             messages.error(
                 request,
-                "Failed to save your profile.  Please ensure the form is valid.",
+                "Failed to save your profile. \
+                 Please ensure the form is valid.",
             )
 
         # Will be rendering an order history on this page.
@@ -62,7 +64,8 @@ class ProfileView(TemplateView):
 class OrderHistory(TemplateView):
 
     # Use the purchase success template
-    # since that template already has the layout for rendering a nice order confirmation
+    # since that template already has the
+    # layout for rendering a nice order confirmation
     template_name = "purchase/purchase-success.html"
 
     def get_context_data(self, **kwargs):
@@ -70,7 +73,8 @@ class OrderHistory(TemplateView):
         # Get the order
         order = get_object_or_404(Order, order_number=order_number)
 
-        # Add a message letting the user know they're looking at a past order confirmation
+        # Add a message letting the user know
+        # they're looking at a past order confirmation
         messages.info(
             self.request,
             f"This is a past confirmation for order number :  {order_number}."
@@ -80,7 +84,8 @@ class OrderHistory(TemplateView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add another variable to the context called "from_profile"
-        # So we can check in the template if the user got there via the order history view
+        # So we can check in the template
+        # if the user got there via the order history view
         context["order"] = order
         context["from_profile"] = True
 
