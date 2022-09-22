@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_title %}Profile{% endblock %}
+
+{% block content %}
+	<div class="containerProfile">
+		<div class="profileHead">
+			<hr>
+			<h2 class="profileTitle">My Profile</h2>
+			<hr>
+		</div>
+		<!-- Half of this page will be the profile 
+		and the other half will be the order history -->
+		<div class="profileWrapper">
+			<div class="profileDetails">
+				<p class="profileHeading">Default client information</p>
+				<form class="profileDetailsForm" action="{% url 'profile' %}" method="POST" id="profileUpdateForm">
+					{% csrf_token %}
+					{{ form }}
+					<button class="profileDetailsButton btn btnPrimary">Update Information</button>
+				</form>
+		</div>
+		<div class="profileOrders">
+			<p class="profileHeading">Order History</p>
+			<div class="profileOrdersHistory">
+				<table class="profileOrdersTable">
+					<thead class="tableHead">
+						<tr>
+							<th>Order Number</th>
+							<th>Date</th>
+							<th>Therapies</th>
+							<th>Order Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in orders %}
+							<tr>
+								<td>
+									<a href="{% url 'orderHistory' order.order_number %}"
+										 title="{{ order.order_number }}">
+										 {{ order.order_number }}
+									</a>
+								</td>
+								<td>{{ order.date }}</td>
+								<td>
+									<!-- An unordered unstyled list. -->
+									<ul>
+										<!-- For each item in the orders list of line-items :
+										Make a small text summary of it, including
+										the therapy, and the number of sessions purchased -->
+										{% for item in order.lineitems.all %}
+											{{ item.therapy.name }} x {{ item.sessions }}<br>
+										{% endfor %}
+									</ul>
+								</td>
+								<td>€{{ order.grand_total|floatformat:0 }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	
+{% endblock %}

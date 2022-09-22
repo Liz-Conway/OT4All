@@ -22,7 +22,6 @@ Except that they're sent securely from stripe to a URL we specify.
 """
 from django.http.response import HttpResponse
 from purchase.models import OrderLineItem, Order
-import therapy
 from therapy.models import Therapy
 import json
 import time
@@ -31,10 +30,8 @@ import time
 class StripeWH_Handler:
     """Handle Stripe WebHooks"""
 
-    # A setup method that's called every time an instance of the class is created
     def __init__(self, request):
         # Assign the request as an attribute of the class
-        # just in case we need to access any attributes of the request coming from stripe
         self.request = request
 
     # Take the event stripe is sending us
@@ -78,7 +75,6 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
-        # Most of the time when a user checks out,
         # everything will go well and the form will be submitted
         # so the order should already be in our database
         # when we receive this webhook.
@@ -102,17 +98,14 @@ class StripeWH_Handler:
             # STEP 2
             # We'll try to find an order with the same
             # customer information and the same grand total,
-            # Which was created with the exact same shopping bag.
+            # Which was created with the exact same bookings.
             # And is associated with the same payment intent.
 
             # To remove all doubt as to which order we're looking for,
             # here in the webhook handler;
             # Add the bookings and the stripe pid
-            # to the list of attributes we want to match on when finding the order
             try:
-                # Get the order using all the information from the payment intent
                 order = Order.objects.get(
-                    # Using the "iexact" lookup field to make it an exact match but case-insensitive
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
@@ -125,8 +118,7 @@ class StripeWH_Handler:
                     grand_total=grand_total,
                     # To remove all doubt as to which order we're looking for,
                     # here in the webhook handler;
-                    # Add thebookings and the stripe pid
-                    # to the list of attributes we want to match on when finding the order
+                    # Add the bookings and the stripe pid
                     original_booking=bookings,
                     stripe_pid=pid,
                 )
@@ -136,13 +128,11 @@ class StripeWH_Handler:
                 break
 
             except Order.DoesNotExist:
-                print("Exception Order.DoesNotExist")
                 attempts += 1
                 # Use python's time module to sleep for one second
                 time.sleep(1)
 
         if order_exists:
-            print("This order already exists")
             # STEP 3a
             # When we find the existing order
             # Return a 200 response
@@ -157,7 +147,6 @@ class StripeWH_Handler:
             # Create an order with the details from the form
             order = None
             try:
-                # We don't have a form to save in this webhook to create the order
                 # but we can do it just as easily with Order.objects.create()
                 # using all the data from the payment intent.
                 # After all, it came from the form originally anyway
@@ -175,15 +164,16 @@ class StripeWH_Handler:
                     original_booking=bookings,
                     stripe_pid=pid,
                 )
-                # Iterate through the bag items to create each line item
-                # Load the bag from the JSON version in the PaymentIntent
+                # Iterate through the bookings items to create each line item
+                # Load the bookings from the JSON version in the PaymentIntent
                 # instead of from the session
-                # First variable is the key from the bag item (we call it 'therapy_id')
-                # Second variable is the value of that key (we are calling it 'number_of_sessions')
+                # First variable is the key from the
+                # bookings item (we call it 'therapy_id')
+                # Second variable is the value of that
+                # key (we are calling it 'number_of_sessions')
                 for therapy_id, number_of_sessions in json.loads(
                     bookings
                 ).items():
-                    # For each therapy id and number of sessions in bookings.items
                     # First get the therapy
                     therapy = Therapy.objects.get(id=therapy_id)
                     # For each therapy ordered
@@ -197,7 +187,6 @@ class StripeWH_Handler:
             except Exception as ex:
                 # If anything goes wrong - delete the order if it was created.
                 # And return a 500 server error response to stripe.
-                # This will cause stripe to automatically try the webhook again later.
                 if order:
                     order.delete()
 
@@ -207,7 +196,6 @@ class StripeWH_Handler:
                 )
 
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200,
         )
 

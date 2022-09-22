@@ -12,7 +12,7 @@ class TherapyAdmin(admin.ModelAdmin):
         "image",
     )
 
-    # Sort the products by Style and Name using the ordering attribute.
+    # Sort the therapies by Style and Name using the ordering attribute.
     # Since it's possible to sort on multiple columns note that this does
     # have to be a tuple even when it's only one field.
     # To reverse it you can simply stick a minus in front of the field name.

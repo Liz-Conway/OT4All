@@ -12,7 +12,7 @@
   <div class="toastBody">
  		{{ message | safe }}
  		<hr>
- 		{% if grand_total %}
+ 		{% if grand_total and not on_profile_page %}
  			<p>Your Bookings ({{ therapy_sessions }})</p>
  		<div class="toastBookingsWrapper">
  			{% for item in booking_items %}
@@ -35,7 +35,6 @@
  			</a>
  			
  		</div>
- 		{% else %}
  		{% endif %}
   </div>
 </div>

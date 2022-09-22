@@ -35,14 +35,15 @@
 								            <a href="{% url 'home' %}">Home</a>
 							    		</menuitem>
 								        {% if request.user.is_authenticated %}
-									            {% if request.user.is_superuser %}
-				                                	<menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
-												{% endif %}
-												<menuitem><a href="{% url 'account_logout' %}">Logout</a></menuitem>
-											{% else %}
-												<menuitem><a href="{% url 'account_signup' %}">Register</a></menuitem>
-												<menuitem><a href="{% url 'account_login' %}">Login</a></menuitem>
+								        	<menuitem><a href="{% url 'profile' %}">My Profile</a></menuitem>
+								            {% if request.user.is_superuser %}
+			                                	<menuitem><a href="{% url 'home' %}">Maintain Therapies</a></menuitem>
 											{% endif %}
+											<menuitem><a href="{% url 'account_logout' %}">Logout</a></menuitem>
+										{% else %}
+											<menuitem><a href="{% url 'account_signup' %}">Register</a></menuitem>
+											<menuitem><a href="{% url 'account_login' %}">Login</a></menuitem>
+										{% endif %}
 									</menu>
 								</menuitem>
 							</menu>

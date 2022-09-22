@@ -90,7 +90,7 @@ function handleEnableDisable(therapyId) {
 }
 
 /*Call the handle enable/disable function
-if the user uses the built-in up and down arrows in the number box to change the quantity.
+if the user uses the built-in up and down arrows in the number box to change the number of sessions.
 by listening to the change event on the sessions input*/
 /*Check enable/disable every time the input is changed*/
 $(".sessionsInput").change(function() {
@@ -121,7 +121,7 @@ $(".removeLink").click(removeSessions);
 
 /*Post some data to a URL
 Once the response comes back from the server,
- reload the page to reflect the updated bag*/
+ reload the page to reflect the updated bookings*/
 function removeSessions(event) {
     /*CSRF token which we can store as a string by just rendering it here. */
     let csrfToken = getCSRF();
