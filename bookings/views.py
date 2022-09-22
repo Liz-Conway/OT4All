@@ -61,7 +61,7 @@ class AddToBookings(TemplateView):
             booking[therapy_id] += therapy_sessions
             messages.success(
                 request,
-                f"Updated {therapy.name} quantity to {booking[therapy_id]}",
+                f"Updated {therapy.name} sessions to {booking[therapy_id]}",
             )
         else:
             # This therapy has not been booked (does not exist).
@@ -122,7 +122,7 @@ class UpdateBooking(TemplateView):
         bookings = request.session.get("booking", {})
 
         # Basic idea :
-        # If quantity > zero, Set the therapy's quantity accordingly
+        # If number_of_sessions > zero, Set the therapy's sessions accordingly
         #  Otherwise we'll just remove the therapy.
         if number_of_sessions > 0:
             # Set the therapy's number of sessions to the updated value
@@ -195,7 +195,7 @@ class RemoveBooking(TemplateView):
 
             # Since this view will be posted to from a JavaScript function.
             # Return a 200 HTTP response.
-            # Implying that the product was successfully removed
+            # Implying that the therapy was successfully removed
             return HttpResponse(status=200)
         # Catch any exceptions that happen
         # in order to return a 500 server error

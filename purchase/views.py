@@ -38,9 +38,9 @@ class Purchase(TemplateView):
             # by typing "/purchase"
             return redirect(reverse("therapies"))
 
-        # Pass in the request and get the bag dictionary
+        # Pass in the request and get the bookings dictionary
         current_bookings = booking_contents(request)
-        # Retrieve the grand total from the current bag
+        # Retrieve the grand total from the current bookings
         total = current_bookings["grand_total"]
         # Stripe requires the amount to charge to be an integer
         stripe_total = total * 100
