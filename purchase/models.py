@@ -14,7 +14,8 @@ class Order(models.Model):
     # so users can find their previous orders.
     order_number = models.CharField(max_length=32, null=False, editable=False)
     #  Foreign key to "userprofile" on the order.
-    # Use models.SET_NULL if the profile is deleted since that will allow us to keep
+    # Use models.SET_NULL
+    # if the profile is deleted since that will allow us to keep
     # an order history in the admin even if the user is deleted.
     # Allow this to be either "null" or "blank"
     # UNTIL we force clients to login to make a booking.
@@ -30,7 +31,8 @@ class Order(models.Model):
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    # blank_label - use "Country" with the star to indicate it's a required field
+    # blank_label -
+    # use "Country" with the star to indicate it's a required field
     # since select boxes don't have a placeholder
     country = CountryField(blank_label="Country *", null=False, blank=False)
     # The postcode field is used to compare orders
@@ -71,7 +73,8 @@ class Order(models.Model):
         """
         max_id = Order.objects.aggregate(Max("id"))
         last_id = max_id.get("id__max")
-        # If this is the first order there will not be any max id in the database
+        # If this is the first order
+        # there will not be any max id in the database
         # Instead it will return 'None'
         # Convert this to 0 (zero)
         if not last_id:
