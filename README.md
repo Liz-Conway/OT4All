@@ -449,6 +449,8 @@ Supporting screens - **Bookings**
 | Empty |  ![Empty cart - Desktop](documentation/pages/empty-cart.png)   |  ![Empty cart - mobile](documentation/pages/mobile/empty-cart.png)   |
 | Filled | ![Bookings - Desktop](documentation/pages/bookings.png) | ![Bookings - mobile](documentation/pages/mobile/bookings.png) |
 
+An additional feature is the checkout button itself, in addition to the word "checkout" this button has the word "SECURE" and a 'lock' icon.  These serve to enhance the client's confidence that the OT4U website is secure and reliable.
+
 Supporting screen elements - **Booking totals**
 
 |  Desktop   |  Mobile   |
@@ -491,6 +493,80 @@ Supporting screen elements - **Update number of sessions**
 |  Desktop   |  Mobile   |
 | --- | --- |
 |  ![Booking buttons - Desktop](documentation/pages/booking-total-buttons.png)   |  ![Booking buttons - mobile](documentation/pages/mobile/booking-total-buttons.png)   |
+
+
+#### Purchase Therapy Sessions
+
+The central purpose of the OT4U website is to allow clients to purchase OT therapy sessions.  This feature is of utmost importance for the client.  They need this feature in order to get their therapy sessions.  Once a client has booked some sessions they can click on the "Secure Checkout" button and will be brought to a "Purchase" page.  The page will show a summary of the therapies that have been booked and an empty form for the clients to enter their details and card information.  Once the details have been entered the client will click the "Complete Order" button.  The card details and amount are sent to the Stripe credit card service.  Once the money has been transferred a "Purchase Succeeded" page is shown, with a summary of all the details of the order.
+
+All required fields are marked with an asterisk (\*).  This is a common signifier for a required field that should be in everybodies mental model of how web pages work.  This means that the client will understand that these are required fields without any further information needed.  There will be no extra mental burden on the client.
+
+The "Country" field is a dropdown select box.  This makes it unambiguous as to what country has been selected as there can be no typing errors.  Furthermore, Stripe requires that the country input is in the ISO 2 digit form (E.G. IE for Ireland), and this dropdown selector provides the country input in the correct format required by Stripe in order to complete the purchase.
+
+The summary on the "Purchase" page gives the client a reminder of what it is they are purchasing.  This is important because it gives the client clarity on what therapies and sessions they will receive for their purchase.
+
+Supporting page - **Purchase**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Purchase page - Desktop](documentation/pages/purchase.png)   |  ![Purchase page - mobile](documentation/pages/mobile/purchase.png)   |
+
+Underneath the "Complete Order" button the amount to be charged is shown in red.  This means the client will know exactly how much they are spending when they complete the order.  There will be no confusion or surprises.  This up-front display of key information engenders a sense of trust in the OT4U website, and gives the client confidence in the website.
+
+Beside the "Complete Order" button is an "Adjust Bookings" button which will allow the client to amend their order.  This feature provides the client with the flexibility to change their order, if they have made a mistake or change their mind.
+
+Supporting page elements - **Purchase buttons & total**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Purchase buttons - Desktop](documentation/pages/purchase-buttons.png)   |  ![Purchase buttons - mobile](documentation/pages/mobile/purchase-buttons.png)   |
+
+Another feature of the "Purchase" page is that you can get to it in a number of different ways:
+1. Click on the "Secure Checkout" button from the "Bookings" page
+2. Click on the "Secure Checkout" button from the menu that appears whenever you book a therapy
+3. Click on the Shopping Cart icon.
+
+This gives the client great flexibility in accessing the "Purchase" page and makes the OT4U website very easy to use and very intuitive.
+
+While Stripe is processing the credit card, the "Purchase" page is disabled and a moving "loading" icon is shown.  This is a common icon that computer users will be aware of.  They know that it means that the website is working in the background.  The disabling of the "Purchase" page is visually signified to the client with an overlay which allows the client to see the page in the background, but disables any interactions with the page.  As well as informing the client that the order is being processed, this feature prevents the user from making changes to the order while it is being processed.  This prevents any errors, or corruption of an order.  The client is assured that the order will be exactly the same as what they ordered, and the charge to their card will be exactly the value that they expect.  This feature makes the OT4U website robust and reliable.
+
+Supporting page elements - **Loading overlay**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Loading overlay - Desktop](documentation/pages/loading-overlay.png)   |  ![Loading overlay - mobile](documentation/pages/mobile/loading-overlay.png)   |
+
+#### Purchase Success
+
+Once the payment has been processed, the client is shown a "Purchase Succeeded" page.  This page shows a large "Thank You".  Showing gratitude to the user helps to make them feel comfortable with the site.  It also shows them a "Purchase Succeeded" message, giving them their order number and telling them that they will shortly receive an email confirmation.  Keeping the client informed is important as it makes them feel more in control and happier with the website.  The "Purchase Succeeded" page also shows full details of the order, so that the client will know what it is they have ordered.
+
+Supporting pages - **Purchase Success**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Purchase Success & message - Desktop](documentation/pages/purchase-success-with-message.png)   |  ![Purchase Success & message - mobile](documentation/pages/mobile/purchase-success-with-message.png)   |
+|  ![Purchase Success - Desktop](documentation/pages/purchase-success.png)   |  ![Purchase Success - mobile](documentation/pages/mobile/purchase-success.png)   |
+
+This page also has two buttons.  One of these buttons allows the client to go back to home page, the other allows the client to keep shopping.  The purpose of these buttons is to not let the client feel lost on the website, or feel that they cannot get back to where they were.
+
+Supporting page elements - **Purchase success buttons**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Purchase success buttons - Desktop](documentation/pages/purchase-success-buttons.png)   |  ![Purchase success buttons - mobile](documentation/pages/mobile/purchase-success-buttons.png)   |
+
+On successful purchase the OT4U website will send a confirmation email to the client.  This is a more permanent record of the transaction, since when the client leaves the "Purchase Succeeded" page the order information will be gone from their view.  Having this email allows the client to revisit their order details outside of the OT4U website. 
+
+#### Back-end database checks
+When the OT4U website passes data to the Stripe system to make a payment, it not only passed card and payment information, it also passes the complete order information.  When the OT4U website receives confirmation from Stripe that a payment has been successful, it performs a number of checks to ensure that one and only one order is saved on the databases for that payment.
+
+The OT4U website validates that the order that was paid for exists in the database.  The OT4U website takes the order details from the Stripe payment information and checks to ensure that the exact same order exists in the OT4U databasse.  In order to take into account any delays on the server-side, the OT4U website will perform this validation up to 5 times with an appropriate wait between each validation.  Once the order has been validated the OT4U website skips the remaining validations.
+
+If a corresponding order is not found on the database, the OT4U website creates the order on the database, using the data from the Stripe payment information.
+
+A client could make more that one booking for the same OT therapy,  In order to verify that these back-end checks do not validate against a similar but different order, extra fields are added to the order.  These extra field guarantee that each order on the database is unique.
+
+This feature ensures the robustness of the OT4U website.  Once a client has made a purchase they are guaranteed that an order will exist.  It would be most frustrating for a client to have paid for something and not receive it.  The value of this feature is that it ensures that the OT4U website works as intended and as the client expects.
 
 #### View the OT approach
 

@@ -106,7 +106,7 @@ class AllTherapies(TemplateView):
 
                 # Django can't handle basic database OR logic
                 # We want to return results where the query was matched
-                # in either the product name OR the description
+                # in either the therapy name OR the description
                 # In order to accomplish this OR logic, we need to use Q
                 # Set a variable equal to a Q object
                 #  - Where the "name" contains the query

@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     "bookings",
     # Purchasing the booked therapy sessions
     "purchase",
+    # Set user profile
+    "profiles",
 ]
 
 MIDDLEWARE = [
@@ -89,12 +91,17 @@ TEMPLATES = [
         "DIRS": [
             os.path.join(BASE_DIR, "templates"),
             os.path.join(BASE_DIR, "templates", "allauth"),
+            # os.path.join(BASE_DIR, "templates", "purchase"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
-                "django.template.context_processors.request",  # required by allauth
+                # if we want to access request.user or request.user.email
+                # in our django templates.
+                # We'll be able to do it with this context processor.
+                # required by allauth
+                "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 # Without this the media URL template tag doesn't work
