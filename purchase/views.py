@@ -125,7 +125,7 @@ class Purchase(TemplateView):
         # Create an instance of the form using the form data
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            # If the form is valid --> save the order.
+            # If the form is valid --> save the order
             # but delay saving to Database until further data
             # which is in the model but not in the OrderForm is collected
             order = order_form.save(commit=False)

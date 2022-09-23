@@ -293,7 +293,11 @@ Supporting page - **Logout page**
 
 ![Client Registration user flow](documentation/user-flow/client-registration.png)
 
+<<<<<<< Updated upstream
 Before a client can log into the OT4U website they must have registered on the website.
+=======
+Before a client can log into the OT4U website they must have registered on the website.  A gmail account was created for the OT4U website (ot4u.mail@gmail.com).  A google app was created for this account.  The OT4U website was set up to use the google mail server, via this google app to send the appropriate emails.
+>>>>>>> Stashed changes
 
 Supporting Page - **Registration page**
 
@@ -574,6 +578,7 @@ Supporting screen elements - **Update number of sessions**
 
 
 #### Purchase Therapy Sessions
+[Back to Top](#top)
 
 The central purpose of the OT4U website is to allow clients to purchase OT therapy sessions.  This feature is of utmost importance for the client.  They need this feature in order to get their therapy sessions.  Once a client has booked some sessions they can click on the "Secure Checkout" button and will be brought to a "Purchase" page.  The page will show a summary of the therapies that have been booked and an empty form for the clients to enter their details and card information.  Once the details have been entered the client will click the "Complete Order" button.  The card details and amount are sent to the Stripe credit card service.  Once the money has been transferred a "Purchase Succeeded" page is shown, with a summary of all the details of the order.
 
@@ -615,6 +620,7 @@ Supporting page elements - **Loading overlay**
 |  ![Loading overlay - Desktop](documentation/pages/loading-overlay.png)   |  ![Loading overlay - mobile](documentation/pages/mobile/loading-overlay.png)   |
 
 #### Purchase Success
+[Back to Top](#top)
 
 Once the payment has been processed, the client is shown a "Purchase Succeeded" page.  This page shows a large "Thank You".  Showing gratitude to the user helps to make them feel comfortable with the site.  It also shows them a "Purchase Succeeded" message, giving them their order number and telling them that they will shortly receive an email confirmation.  Keeping the client informed is important as it makes them feel more in control and happier with the website.  The "Purchase Succeeded" page also shows full details of the order, so that the client will know what it is they have ordered.
 
@@ -636,6 +642,8 @@ Supporting page elements - **Purchase success buttons**
 On successful purchase the OT4U website will send a confirmation email to the client.  This is a more permanent record of the transaction, since when the client leaves the "Purchase Succeeded" page the order information will be gone from their view.  Having this email allows the client to revisit their order details outside of the OT4U website. 
 
 #### Back-end database checks
+[Back to Top](#top)
+
 When the OT4U website passes data to the Stripe system to make a payment, it not only passed card and payment information, it also passes the complete order information.  When the OT4U website receives confirmation from Stripe that a payment has been successful, it performs a number of checks to ensure that one and only one order is saved on the databases for that payment.
 
 The OT4U website validates that the order that was paid for exists in the database.  The OT4U website takes the order details from the Stripe payment information and checks to ensure that the exact same order exists in the OT4U databasse.  In order to take into account any delays on the server-side, the OT4U website will perform this validation up to 5 times with an appropriate wait between each validation.  Once the order has been validated the OT4U website skips the remaining validations.
@@ -1361,6 +1369,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |How to change the colour of a placeholder | W3 Schools |https://www.w3schools.com/howto/howto_css_placeholder.asp |
 |Django model data types | Naveen Arora |https://www.geeksforgeeks.org/positiveintegerfield-django-models/ |
 |Layout components in a grid using Flexbox | Kevin Powell |https://www.youtube.com/watch?v=vQAvjof1oe4 |
+| Use email with Django | Daniel Diaz |https://www.sitepoint.com/django-send-email/ |
 
 
 ### Pictures

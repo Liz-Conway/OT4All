@@ -79,7 +79,7 @@ function handleCardChange(event) {
 }
 
 // Handle form submit
-let form = document.getElementById('paymentForm');
+let form = $('#paymentForm')[0];
 
 form.addEventListener('submit', formSubmit);
 

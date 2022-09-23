@@ -26,6 +26,9 @@ from therapy.models import Therapy
 import json
 import time
 from profiles.models import UserProfile
+from django.template.loader import render_to_string
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 class StripeWH_Handler:
@@ -38,6 +41,42 @@ class StripeWH_Handler:
         # just in case we need to access any attributes
         # of the request coming from stripe
         self.request = request
+
+    # Prepended with an underscore by convention
+    # to indicate it's a private method
+    # which will only be used inside this class
+    def _send_confirmation_email(self, order):
+        """Send the user a confirmation email"""
+        # The best place to do this is the webhook handler
+        # since at that point we know the payment has definitely been made.
+        # Since the only thing that can trigger it is a webhook from Stripe.
+        print("Sending an email ?????")
+        cust_email = order.email
+
+        # Use the render_to_string() method to render
+        # both the confirmation text files as two strings.
+        # With the first parameter being the file we want to render.
+        # And the second being at context just like we would pass to a template.
+        # This is how we'll be able to render the
+        # various context variables in the confirmation email.
+        subject = render_to_string(
+            "purchase/confirmation-emails/confirmation-email-subject.txt",
+            {"order": order},
+        )
+        body = render_to_string(
+            "purchase/confirmation-emails/confirmation-email-body.txt",
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+        )
+
+        print(f"Email subject :  {subject}")
+        print(f"Email body :  {body}")
+        print(f"From Email :  {settings.DEFAULT_FROM_EMAIL}")
+        print(f"Customer Email :  {cust_email}")
+
+        # Giving it the subject, the body, the email address we want to send from.
+        # and a list of emails we're sending to -
+        # which in this case will be only the customer's email
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     # Take the event stripe is sending us
     # and simply return an HTTP response indicating it was received.
@@ -54,6 +93,8 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
+        print("In WebHook handler")
+        print("Handling payment succeeded")
         # STEP 1
         # When we receive a webhook from stripe
         # that a payment has been processed successfully.
@@ -183,6 +224,14 @@ class StripeWH_Handler:
         if order_exists:
             # STEP 3a
             # When we find the existing order
+
+            # Since in the webhook payment_succeeded handler,
+            # the payment has definitely been completed at this point.
+            # Found the order in the database
+            # because it was already created by the form.
+            # Send the confirmation email just before returning the response to Stripe
+            self._send_confirmation_email(order)
+
             # Return a 200 response
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS\
@@ -257,6 +306,12 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {ex}',
                     status=500,
                 )
+
+        # Since in the webhook payment_succeeded handler,
+        # the payment has definitely been completed at this point.
+        # If the order was created by the webhook handler
+        # Send the confirmation email just before returning the response to Stripe
+        self._send_confirmation_email(order)
 
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | \
