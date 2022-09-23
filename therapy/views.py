@@ -1,10 +1,12 @@
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.base import TemplateView
 from therapy.models import Therapy, Style
-from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models.functions.text import Lower
 from django.contrib import messages
 from django.urls.base import reverse
 from django.db.models.query_utils import Q
+from therapy.models import Style
+from django.db.models.functions.text import Lower
+from therapy.forms import TherapyForm
 
 
 # Create your views here.
@@ -162,3 +164,17 @@ class SingleTherapy(TemplateView):
         }
 
         return render(request, self.template_name, context)
+
+
+class AddTherapy(TemplateView):
+    """
+    A view to allow Admin users to add a therapy to the store
+    """
+
+    template_name = "therapy/add-therapy.html"
+
+    def get_context_data(self, **kwargs):
+        form = TherapyForm()
+        context = {"form": form}
+
+        return context
