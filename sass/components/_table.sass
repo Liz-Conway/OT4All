@@ -1,3 +1,4 @@
+/*~~~~~~~  Table  ~~~~~~~*/
 .ot4u
 	&Table
 		tr:nth-child(odd)
@@ -14,3 +15,14 @@
 
 #therapyListTable
 	font-size: 2rem
+	margin-left: auto
+	margin-right: auto
+	width: 100%
+	td, th
+		padding: 1rem 0
+	@include respond(tabletPortrait)
+		td, th
+			padding: 1rem 1.5rem
+
+
+/*===== END  Table  =====*/

@@ -118,12 +118,13 @@ button[class$="crementSessions"]
 	margin-right: -.5rem
 
 #therapyListButtons, #addTherapyButtons
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	margin-top: 2rem
+	align-items: center
 	a, button
 		margin-right: 0
-		@include respond(375)
-			margin-right: 1.5rem
-			&.btnPrimary
-				margin-right: 3rem
 
 
 /*===== END  Button  =====*/
