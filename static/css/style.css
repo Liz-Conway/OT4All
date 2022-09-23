@@ -83,6 +83,11 @@ body {
   color: #808080;
 }
 
+ul.errorlist > li {
+  list-style: none;
+  color: #e84610;
+}
+
 /*===== END  Typography  ===== */
 /*~~~~~~~  Reset  ~~~~~~~ */
 /* Josh's Custom CSS Reset

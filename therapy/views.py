@@ -179,6 +179,26 @@ class AddTherapy(TemplateView):
 
         return context
 
+    def post(self, request):
+        # Instantiate a new instance of the TherapyForm from request.POST and
+        # include request .FILES also in order to make sure to capture
+        # the image of the product if one was submitted
+        form = TherapyForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Successfully added new Therapy!")
+            return redirect(reverse("addTherapy"))
+        else:
+            # Attach a generic error message telling the user to check their form
+            # which will display the errors.
+            messages.error(
+                request,
+                "Failed to add Therapy.  Please ensure the form is valid.",
+            )
+            context = {"form": form}
+
+            return render(request, self.template_name, context)
+
 
 class ListTherapies(TemplateView):
     """

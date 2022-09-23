@@ -19,7 +19,7 @@ s{% extends "base.html" %}
 				{% csrf_token %}
 				{{ form }}
 				<div id="addTherapyButtons">
-					<a class="btn btnGhost" href="{% url 'therapies' %}">Cancel</a>
+					<a class="btn btnGhost" href="{% url 'listTherapies' %}">Cancel</a>
 					<button class="btn btnPrimary" type="submit">Add Therapy</button> 
 				</div>
 			</form>
