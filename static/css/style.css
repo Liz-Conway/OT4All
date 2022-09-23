@@ -744,6 +744,24 @@ footer {
 }
 
 /*===== END  Header  ===== */
+/*~~~~~~~  Grid  ~~~~~~~ */
+.messageContainer {
+  z-index: 9999;
+}
+
+[class^="container"], [class$="Container"] {
+  margin: 1rem auto;
+  width: 80%;
+}
+[class^="container"] > hr, [class$="Container"] > hr {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+[class^="container"] h1, [class$="Container"] h1 {
+  text-align: center;
+}
+
+/*===== END  Grid  ===== */
 /*~~~~~~~  Home Page  ~~~~~~~ */
 .homePage {
   background-image: url(../images/occupational-therapist-playing-with-child-small.jpg);
@@ -2331,6 +2349,18 @@ button[class$="crementSessions"]:disabled {
   margin-right: -0.5rem;
 }
 
+#therapyListButtons a {
+  margin-right: 0;
+}
+@media only screen and (min-width: 23.4375em) {
+  #therapyListButtons a {
+    margin-right: 1.5rem;
+  }
+  #therapyListButtons a.btnPrimary {
+    margin-right: 3rem;
+  }
+}
+
 /*===== END  Button  ===== */
 .search {
   -webkit-box-flex: 0;
@@ -2904,6 +2934,29 @@ select:invalid, select option[value=""] {
 .yellowBackground {
   background-color: #fffe87;
   border: 1px solid #878600;
+}
+
+.ot4uTable tr:nth-child(odd) {
+  background-color: #ffb299;
+}
+.ot4uTable tr:nth-child(even) {
+  background-color: #ffcdbd;
+}
+.ot4uTable .tableHead > tr {
+  background-color: #751c00;
+  color: #b299ff;
+}
+.ot4uTable td:last-child {
+  text-align: right;
+}
+@media only screen and (min-width: 59.375em) {
+  .ot4uTable {
+    margin-top: 5rem;
+  }
+}
+
+#therapyListTable {
+  font-size: 2rem;
 }
 
 /*~~~~~~~  Django AllAuth  ~~~~~~~ */

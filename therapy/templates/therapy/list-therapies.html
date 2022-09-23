@@ -4,14 +4,15 @@
 {% block extra_title %}Therapy List{% endblock %}
 
 {% block content %}
-	<div id="therapyListContainer">
-		
+	<div class="therapyListContainer">
+		<hr>
 		<h1>List of Therapies</h1>
+		<hr>
 		<div class="therapyList">
 			<div>
 				<!-- Table containing the list of therapies -->
-				<table id="therapyListTable" class="therapyTable">
-					<thead>
+				<table id="therapyListTable" class="ot4uTable">
+					<thead class="tableHead">
 						<tr>
 							<th class="therapyListName">Name</th>
 							<th class="therapyListStyle">Style</th>
@@ -30,7 +31,7 @@
 								{{ therapy.style }}
 							</td>
 							<td class="therapyListCentre">
-								{{ therapy.price }}
+								€{{ therapy.price }}
 							</td>
 							<td class="therapyListActions">
 								<!-- This "button" allows the Occupational Therapist to edit this therapy's details -->
@@ -47,14 +48,14 @@
 					
 				</table>
 			</div>
-			<div class="therapyListButtons">
-				<a href="{% url 'home' %}" class="btn btnGhost">
+			<div id="therapyListButtons">
+				<a href="{% url 'home' %}" class="btn btnGhost btnThin">
 					<span class="icon">
 						<i class="fas fa-house"></i>
 					</span>
 					Home
 				</a>
-				<a href="{% url 'addTherapy' %}" class="btn btnPrimary">
+				<a href="{% url 'addTherapy' %}" class="btn btnPrimary btnThis">
 					Add New Therapy
 				</a>
 			</div>
