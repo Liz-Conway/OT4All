@@ -1,6 +1,4 @@
-from django.template.context_processors import request
 import stripe
-import json
 from django.http.response import HttpResponse
 from django.conf import settings
 from .webhook_handler import StripeWH_Handler

@@ -25,6 +25,10 @@ from purchase.models import OrderLineItem, Order
 from therapy.models import Therapy
 import json
 import time
+from django.template.loader import render_to_string
+from django.conf import settings
+from django.core.mail import send_mail
+import profile
 
 
 class StripeWH_Handler:
@@ -96,7 +100,7 @@ class StripeWH_Handler:
 
         pid = intent.Id
         bookings = intent.metadata.bookings
-        save_info = intent.metadata.saveInfo
+        # save_info = intent.metadata.saveInfo
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
@@ -112,8 +116,8 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
-            # If they've got the save info box checked
-            # (from the metadata we added).
+        # If the client has got the save info box checked
+        # (from the metadata we added).
         # everything will go well and the form will be submitted
         # so the order should already be in our database
         # when we receive this webhook.

@@ -240,6 +240,8 @@ Support screen elements - **Save Info checkbox**
 | --- | --- |
 |  ![Save info - Desktop](documentation/pages/save-info.png)   |  ![Save info - mobile](documentation/pages/mobile/save-info.png)   |
 
+If there are any problems with saving the client's profile to the database, the WebHook will retrieve the profile details from the Order and save the client profile to the database.  This improves the reliability of the OT4U website by correcting errors when they occur.  This happens without the client being aware of any problem.
+
 #### Update Client Profile
 [Back to Top](#top)
 
@@ -636,6 +638,12 @@ Supporting page elements - **Purchase success buttons**
 |  Desktop   |  Mobile   |
 | --- | --- |
 |  ![Purchase success buttons - Desktop](documentation/pages/purchase-success-buttons.png)   |  ![Purchase success buttons - mobile](documentation/pages/mobile/purchase-success-buttons.png)   |
+
+
+#### Purchase Confirmation E-mail
+[Back to Top](#top)
+
+![Purchase Confirmation Email](documentation/pages/confirmation-email.png)
 
 On successful purchase the OT4U website will send a confirmation email to the client.  This is a more permanent record of the transaction, since when the client leaves the "Purchase Succeeded" page the order information will be gone from their view.  Having this email allows the client to revisit their order details outside of the OT4U website. 
 
