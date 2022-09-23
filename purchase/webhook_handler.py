@@ -30,9 +30,46 @@ import time
 class StripeWH_Handler:
     """Handle Stripe WebHooks"""
 
+    # A setup method that's called
+    # every time an instance of the class is created
     def __init__(self, request):
         # Assign the request as an attribute of the class
+        # just in case we need to access any attributes
+        # of the request coming from stripe
         self.request = request
+
+    # Prepended with an underscore by convention
+    # to indicate it's a private method
+    # which will only be used inside this class
+    def _send_confirmation_email(self, order):
+        """Send the user a confirmation email"""
+        # The best place to do this is the webhook handler
+        # since at that point we know the payment has definitely been made.
+        # Since the only thing that can trigger it is a webhook from Stripe.
+        print("Sending an email ?????")
+        cust_email = order.email
+
+        # Use the render_to_string() method to render
+        # both the confirmation text files as two strings.
+        # With the first parameter being the file we want to render.
+        # And the second being a context
+        # just like we would pass to a template.
+        # This is how we'll be able to render the
+        # various context variables in the confirmation email.
+        subject = render_to_string(
+            "purchase/confirmation-emails/confirmation-email-subject.txt",
+            {"order": order},
+        )
+        body = render_to_string(
+            "purchase/confirmation-emails/confirmation-email-body.txt",
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+        )
+
+        # Giving it the subject, the body,
+        # the email address we want to send from.
+        # and a list of emails we're sending to -
+        # which in this case will be only the customer's email
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     # Take the event stripe is sending us
     # and simply return an HTTP response indicating it was received.
@@ -75,6 +112,8 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+            # If they've got the save info box checked
+            # (from the metadata we added).
         # everything will go well and the form will be submitted
         # so the order should already be in our database
         # when we receive this webhook.
@@ -105,7 +144,11 @@ class StripeWH_Handler:
             # here in the webhook handler;
             # Add the bookings and the stripe pid
             try:
+                # Get the order using all the information
+                # from the payment intent
                 order = Order.objects.get(
+                    # Using the "iexact" lookup field
+                    # to make it an exact match but case-insensitive
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
@@ -119,6 +162,8 @@ class StripeWH_Handler:
                     # To remove all doubt as to which order we're looking for,
                     # here in the webhook handler;
                     # Add the bookings and the stripe pid
+                    # to the list of attributes we want to match on
+                    # when finding the order
                     original_booking=bookings,
                     stripe_pid=pid,
                 )
@@ -135,6 +180,15 @@ class StripeWH_Handler:
         if order_exists:
             # STEP 3a
             # When we find the existing order
+
+            # Since in the webhook payment_succeeded handler,
+            # the payment has definitely been completed at this point.
+            # Found the order in the database
+            # because it was already created by the form.
+            # Send the confirmation email
+            # just before returning the response to Stripe
+            self._send_confirmation_email(order)
+
             # Return a 200 response
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS\
@@ -147,12 +201,23 @@ class StripeWH_Handler:
             # Create an order with the details from the form
             order = None
             try:
+                # We don't have a form to save in this webhook
+                # to create the order
                 # but we can do it just as easily with Order.objects.create()
                 # using all the data from the payment intent.
                 # After all, it came from the form originally anyway
                 order = Order.objects.create(
                     full_name=shipping_details.name,
                     email=billing_details.email,
+                    # Set the user's profile,
+                    # if they weren't logged in it will just be None.
+                    # Add their profile to their order
+                    # when the webhook creates it.
+                    # In this way, the webhook handler can create orders
+                    # for both authenticated users by attaching their profile.
+                    # and for anonymous users
+                    # by setting the user_profile field to None.
+                    user_profile=profile,
                     phone_number=shipping_details.phone,
                     country=shipping_details.address.country,
                     postcode=shipping_details.address.postal_code,
@@ -174,6 +239,8 @@ class StripeWH_Handler:
                 for therapy_id, number_of_sessions in json.loads(
                     bookings
                 ).items():
+                    # For each therapy id and
+                    # number of sessions in bookings.items
                     # First get the therapy
                     therapy = Therapy.objects.get(id=therapy_id)
                     # For each therapy ordered
@@ -187,6 +254,8 @@ class StripeWH_Handler:
             except Exception as ex:
                 # If anything goes wrong - delete the order if it was created.
                 # And return a 500 server error response to stripe.
+                # This will cause stripe to automatically
+                # try the webhook again later.
                 if order:
                     order.delete()
 
@@ -195,7 +264,16 @@ class StripeWH_Handler:
                     status=500,
                 )
 
+        # Since in the webhook payment_succeeded handler,
+        # the payment has definitely been completed at this point.
+        # If the order was created by the webhook handler
+        # Send the confirmation email
+        # just before returning the response to Stripe
+        self._send_confirmation_email(order)
+
         return HttpResponse(
+            content=f'Webhook received: {event["type"]} | \
+            SUCCESS: Created order in webhook',
             status=200,
         )
 
