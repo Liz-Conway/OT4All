@@ -19,3 +19,4 @@ class TherapyForm(forms.ModelForm):
             for field_name, field in self.fields.items():
                 # Set some classes on them to make them match the theme of the rest of our store
                 field.widget.attrs["class"] = "formInput"
+                # field.widget.attrs.update({'class': 'formInput'})

@@ -1878,6 +1878,119 @@ p.therapyDetailsPrice {
 }
 
 /*===== END  User Profile  ===== */
+/*~~~~~~~  Add Therapy Page  ~~~~~~~ */
+.containerAddTherapy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem 2rem;
+}
+@media only screen and (min-width: 75em) {
+  .containerAddTherapy {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+.addTherapyHeader {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  padding: 0 1.3rem;
+}
+.addTherapyHeader > hr {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.addTherapyBody {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+.addTherapyBody form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1rem;
+  /* Since Django refuses to apply a class to its form elements
+   * will have to manually force them here.
+   * Have to copy .formInput styles into here */
+}
+.addTherapyBody form input, .addTherapyBody form select, .addTherapyBody form textarea {
+  /*Always when padding an element give it a bit more on the sides to look better */
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #b299ff;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  /*Add a transparent border at the bottom to match the border when the input is focussed */
+  /*Otherwise the form elements will 'jump' when focus switches */
+  border-bottom: 3px solid transparent;
+  /*Full width on its own line */
+  width: 90%;
+  display: block;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.addTherapyBody form input:focus, .addTherapyBody form select:focus, .addTherapyBody form textarea:focus {
+  /*Browser highlights a border (outline) around the input element when it has focus */
+  /*We want to remove this */
+  outline: none;
+  /*This focus is important for ARIA, i.e. keyboard navigation */
+  /*Always make form elements that are focussed visible */
+  /*Give it a box shadow and a border at the bottom */
+  -webkit-box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
+          box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
+  border-bottom: 3px solid #b299ff;
+  /*Apply this style when we have an invalid focussed input element */
+}
+.addTherapyBody form input:focus:invalid, .addTherapyBody form select:focus:invalid, .addTherapyBody form textarea:focus:invalid {
+  border-bottom: 3px solid #191970;
+}
+.addTherapyBody form input::-webkit-input-placeholder, .addTherapyBody form select::-webkit-input-placeholder, .addTherapyBody form textarea::-webkit-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.addTherapyBody form input:-ms-input-placeholder, .addTherapyBody form select:-ms-input-placeholder, .addTherapyBody form textarea:-ms-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.addTherapyBody form input::-ms-input-placeholder, .addTherapyBody form select::-ms-input-placeholder, .addTherapyBody form textarea::-ms-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.addTherapyBody form input::placeholder, .addTherapyBody form select::placeholder, .addTherapyBody form textarea::placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.addTherapyBody form label {
+  font-size: 2rem;
+}
+.addTherapyBody form span.helpText {
+  margin-top: -3rem;
+  margin-bottom: 2rem;
+}
+.addTherapyTitle {
+  margin-bottom: 1rem;
+}
+.addTherapyButtons {
+  margin-top: 1.3rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+/*===== END  Add Therapy Page  ===== */
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
