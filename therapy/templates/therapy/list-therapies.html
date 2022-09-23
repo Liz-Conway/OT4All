@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Therapy List{% endblock %}
+
+{% block content %}
+	<div id="therapyListContainer">
+		
+		<h1>List of Therapies</h1>
+		<div class="therapyList">
+			<div>
+				<!-- Table containing the list of therapies -->
+				<table id="therapyListTable" class="therapyTable">
+					<thead>
+						<tr>
+							<th class="therapyListName">Name</th>
+							<th class="therapyListStyle">Style</th>
+							<th class="therapyListCost">Cost</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for therapy in therapies %}
+					<!-- Show identifying information for each therapy -->
+						<tr class="therapyListRow">
+							<td class="therapyListLabel" title="{{ therapy.name }}">
+								{{ therapy }}
+							</td>
+							<td class="therapyListCentre">
+								{{ therapy.style }}
+							</td>
+							<td class="therapyListCentre">
+								{{ therapy.price }}
+							</td>
+							<td class="therapyListActions">
+								<!-- This "button" allows the Occupational Therapist to edit this therapy's details -->
+								<a class="ui-button ui-widget ui-corner-all ui-button-icon-only" href="{#% url 'editTherapy' therapy.id %#}"><span class="ui-icon ui-icon-pencil"></span></a>
+								<!-- This button allows the Occupational Therapist to delete this therapy from the OT4U website -->
+								<a class="ui-button ui-widget ui-corner-all ui-button-icon-only deleteAction" href="{#% url 'deleteTherapy' therapy.id %#}"><span class="ui-icon ui-icon-trash"></span></a>
+							</td>
+						</tr>
+					{% empty %}
+						<!-- If there are no therapies then show an appropriate message -->
+						<tr><td colspan="4">You have no therapies yet!  Please add some Therapies <a href="{% url 'addTherapy' %}">here</a></td></tr>
+					{% endfor %}
+					</tbody>
+					
+				</table>
+			</div>
+			<div class="therapyListButtons">
+				<a href="{% url 'home' %}" class="btn btnGhost">
+					<span class="icon">
+						<i class="fas fa-house"></i>
+					</span>
+					Home
+				</a>
+				<a href="{% url 'addTherapy' %}" class="btn btnPrimary">
+					Add New Therapy
+				</a>
+			</div>
+		</div>
+		
+	</div>
+
+
+{% endblock content %}				

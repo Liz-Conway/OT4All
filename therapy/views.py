@@ -178,3 +178,19 @@ class AddTherapy(TemplateView):
         context = {"form": form}
 
         return context
+
+
+class ListTherapies(TemplateView):
+    """
+    A view to allow Admin users to view the therapies that are in the store
+    """
+
+    template_name = "therapy/list-therapies.html"
+
+    def get_context_data(self, **kwargs):
+        therapies = Therapy.objects.all()
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context["therapies"] = therapies
+
+        return context
