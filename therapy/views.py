@@ -1,10 +1,12 @@
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.base import TemplateView
 from therapy.models import Therapy, Style
-from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models.functions.text import Lower
 from django.contrib import messages
 from django.urls.base import reverse
 from django.db.models.query_utils import Q
+from therapy.models import Style
+from django.db.models.functions.text import Lower
+from therapy.forms import TherapyForm
 
 
 # Create your views here.
@@ -162,3 +164,53 @@ class SingleTherapy(TemplateView):
         }
 
         return render(request, self.template_name, context)
+
+
+class AddTherapy(TemplateView):
+    """
+    A view to allow Admin users to add a therapy to the store
+    """
+
+    template_name = "therapy/add-therapy.html"
+
+    def get_context_data(self, **kwargs):
+        form = TherapyForm()
+        context = {"form": form}
+
+        return context
+
+    def post(self, request):
+        # Instantiate a new instance of the TherapyForm from request.POST and
+        # include request .FILES also in order to make sure to capture
+        # the image of the product if one was submitted
+        form = TherapyForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Successfully added new Therapy!")
+            return redirect(reverse("addTherapy"))
+        else:
+            # Attach a generic error message telling the user to check their form
+            # which will display the errors.
+            messages.error(
+                request,
+                "Failed to add Therapy.  Please ensure the form is valid.",
+            )
+            context = {"form": form}
+
+            return render(request, self.template_name, context)
+
+
+class ListTherapies(TemplateView):
+    """
+    A view to allow Admin users to view the therapies that are in the store
+    """
+
+    template_name = "therapy/list-therapies.html"
+
+    def get_context_data(self, **kwargs):
+        therapies = Therapy.objects.all()
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context["therapies"] = therapies
+
+        return context

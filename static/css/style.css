@@ -83,6 +83,11 @@ body {
   color: #808080;
 }
 
+ul.errorlist > li {
+  list-style: none;
+  color: #e84610;
+}
+
 /*===== END  Typography  ===== */
 /*~~~~~~~  Reset  ~~~~~~~ */
 /* Josh's Custom CSS Reset
@@ -744,6 +749,24 @@ footer {
 }
 
 /*===== END  Header  ===== */
+/*~~~~~~~  Grid  ~~~~~~~ */
+.messageContainer {
+  z-index: 9999;
+}
+
+[class^="container"], [class$="Container"] {
+  margin: 1rem auto;
+  width: 80%;
+}
+[class^="container"] > hr, [class$="Container"] > hr {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+[class^="container"] h1, [class$="Container"] h1 {
+  text-align: center;
+}
+
+/*===== END  Grid  ===== */
 /*~~~~~~~  Home Page  ~~~~~~~ */
 .homePage {
   background-image: url(../images/occupational-therapist-playing-with-child-small.jpg);
@@ -1878,6 +1901,147 @@ p.therapyDetailsPrice {
 }
 
 /*===== END  User Profile  ===== */
+/*~~~~~~~  Add Therapy Page  ~~~~~~~ */
+.containerAddTherapy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem 2rem;
+}
+@media only screen and (min-width: 75em) {
+  .containerAddTherapy {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+.addTherapyHeader {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  padding: 0 1.3rem;
+}
+.addTherapyHeader > hr {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.addTherapyBody {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+.addTherapyBody form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1rem;
+  /* Since Django refuses to apply a class to its form elements
+   * will have to manually force them here.
+   * Have to copy .formInput styles into here */
+}
+.addTherapyBody form input, .addTherapyBody form select, .addTherapyBody form textarea {
+  /*Always when padding an element give it a bit more on the sides to look better */
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #b299ff;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  /*Add a transparent border at the bottom to match the border when the input is focussed */
+  /*Otherwise the form elements will 'jump' when focus switches */
+  border-bottom: 3px solid transparent;
+  /*Full width on its own line */
+  width: 90%;
+  display: block;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.addTherapyBody form input:focus, .addTherapyBody form select:focus, .addTherapyBody form textarea:focus {
+  /*Browser highlights a border (outline) around the input element when it has focus */
+  /*We want to remove this */
+  outline: none;
+  /*This focus is important for ARIA, i.e. keyboard navigation */
+  /*Always make form elements that are focussed visible */
+  /*Give it a box shadow and a border at the bottom */
+  -webkit-box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
+          box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
+  border-bottom: 3px solid #b299ff;
+  /*Apply this style when we have an invalid focussed input element */
+}
+.addTherapyBody form input:focus:invalid, .addTherapyBody form select:focus:invalid, .addTherapyBody form textarea:focus:invalid {
+  border-bottom: 3px solid #191970;
+}
+.addTherapyBody form input::-webkit-input-placeholder, .addTherapyBody form select::-webkit-input-placeholder, .addTherapyBody form textarea::-webkit-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.addTherapyBody form input:-ms-input-placeholder, .addTherapyBody form select:-ms-input-placeholder, .addTherapyBody form textarea:-ms-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.addTherapyBody form input::-ms-input-placeholder, .addTherapyBody form select::-ms-input-placeholder, .addTherapyBody form textarea::-ms-input-placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.addTherapyBody form input::placeholder, .addTherapyBody form select::placeholder, .addTherapyBody form textarea::placeholder {
+  /*Target the placeholder text */
+  color: #999999;
+}
+.addTherapyBody form label {
+  font-size: 2rem;
+}
+.addTherapyBody form span.helpText {
+  margin-top: -3rem;
+  margin-bottom: 2rem;
+}
+.addTherapyTitle {
+  margin-bottom: 1rem;
+}
+.addTherapyButtons {
+  margin-top: 1.3rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+/*===== END  Add Therapy Page  ===== */
+.therapyListing {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 37.5em) {
+  .therapyListing {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .therapyListing {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .therapyListing {
+    width: 50%;
+  }
+}
+
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
@@ -2216,6 +2380,26 @@ button[class$="crementSessions"]:disabled {
 
 .decrementSessions {
   margin-right: -0.5rem;
+}
+
+#therapyListButtons, #addTherapyButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#therapyListButtons a, #therapyListButtons button, #addTherapyButtons a, #addTherapyButtons button {
+  margin-right: 0;
 }
 
 /*===== END  Button  ===== */
@@ -2793,6 +2977,42 @@ select:invalid, select option[value=""] {
   border: 1px solid #878600;
 }
 
+/*~~~~~~~  Table  ~~~~~~~ */
+.ot4uTable tr:nth-child(odd) {
+  background-color: #ffb299;
+}
+.ot4uTable tr:nth-child(even) {
+  background-color: #ffcdbd;
+}
+.ot4uTable .tableHead > tr {
+  background-color: #751c00;
+  color: #b299ff;
+}
+.ot4uTable td:last-child {
+  text-align: right;
+}
+@media only screen and (min-width: 59.375em) {
+  .ot4uTable {
+    margin-top: 5rem;
+  }
+}
+
+#therapyListTable {
+  font-size: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+#therapyListTable td, #therapyListTable th {
+  padding: 1rem 0;
+}
+@media only screen and (min-width: 37.5em) {
+  #therapyListTable td, #therapyListTable th {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/*===== END  Table  ===== */
 /*~~~~~~~  Django AllAuth  ~~~~~~~ */
 ul.errorlist {
   color: #e84610;
@@ -3104,6 +3324,74 @@ label[for="id_remember"] {
 #stripeError {
   background-color: #ffece5;
   /*===== END  Stripe  ===== */
+}
+
+.widgetImage {
+  width: 96px;
+  height: 96px;
+  border-radius: 0.4rem;
+  -webkit-box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
+          box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
+}
+.widgetCheckbox {
+  margin-top: 0.75rem;
+  position: relative;
+  min-height: 1rem;
+  padding-left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.widgetInput {
+  position: absolute;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.widgetInput:checked ~ .widgetLabel::before {
+  background-color: #e84610;
+  border-color: #e84610;
+  border-radius: 0;
+}
+.widgetLabel {
+  position: relative;
+  margin-left: 1rem;
+  color: #e84610;
+}
+.widgetLabel::before {
+  border-radius: 0;
+  border-color: #e84610;
+}
+
+#widgetFilename {
+  color: #e84610;
+}
+
+.btnFile {
+  position: relative;
+  overflow: hidden;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 0.75rem;
+}
+.btnFile input[type="file"] {
+  /* Make sure that the entire input, which is clickable, */
+  /* lives inside this span that looks like a button. */
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  /* Then making it invisible so it appears you're clicking the button */
+  opacity: 0;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
