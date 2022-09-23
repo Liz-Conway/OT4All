@@ -21,8 +21,7 @@
             currentUrl.searchParams.set("sort", sort);
             currentUrl.searchParams.set("direction", direction);
 
-            /* Replacing the location will also cause the page to reload which will resort the
-            products accordingly */
+            /* Replacing the location will also cause the page to reload which will resort the therapies accordingly */
             window.location.replace(currentUrl);
         } else {
             // If the user has selected the reset option

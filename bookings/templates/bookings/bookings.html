@@ -78,13 +78,10 @@
 										</form>
 										<!-- Rather than add a submit button. Let's keep the visual impact minimal.
 										Just use a simple link and handle its click event with JavaScript. -->
-										<!-- One for updating the quantity which will submit the form. -->
+										<!-- One for updating the number of sessions which will submit the form. -->
 										<div class="editLinks">
 											<a class="updateLink"><i class="fas fa-arrows-rotate"></i> <small>Update</small></a>
-											<!-- And the other for removing the item from the bag entirely. -->
-											<!-- Has a data attribute similar to the data item ID attributes on the buttons,
-											which will be used to discern which specific item the customer wants to remove
-											if there are multiple sizes of this item in the bag -->
+											<!-- And the other for removing the item from the bookings entirely. -->
 											<a class="removeLink" id="remove{{item.therapy_id}}"><i class="fas fa-trash"></i> <small>Remove</small></a>
 										</div>
 								</div>
@@ -102,6 +99,12 @@
 		        			<img alt="Empty Search Result" 
 		        			src="{% static 'images/empty-cart-min.jpg' %}">
 		        		</picture>
+				<a href="{% url 'therapies' %}" class="btn btnGhost btnThin">
+					<span class="icon">
+						<i class="fas fa-chevron-left"></i>
+					</span>
+					Keep Shopping
+				</a>
 			{% endif %}
 		</div>
 	</div>

@@ -8,13 +8,13 @@ from .webhook_handler import StripeWH_Handler
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 
+
 # Will make this view require a post request and will reject get requests
 @require_POST
 # Stripe won't send a CSRF token like we'd normally use
 @csrf_exempt
 def webhook(request):
     """Listen for webhooks from Stripe"""
-    print("Stripe Webhook was called")
     # Setup
     wh_secret = settings.STRIPE_WH_SECRET
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -26,17 +26,15 @@ def webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(payload, sig_header, wh_secret)
-    except ValueError as ve:
+    except ValueError:
         # Invalid payload
         return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as sve:
+    except stripe.error.SignatureVerificationError:
         # Invalid signature
         return HttpResponse(status=400)
     # Generic exception handler
     except Exception as ex:
         return HttpResponse(content=ex, status=400)
-
-    print("Webhook Success!")
 
     # Set up a webhook handler
     handler = StripeWH_Handler(request)

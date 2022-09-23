@@ -3,6 +3,7 @@ from django.db.models import Sum
 from therapy.models import Therapy
 from django.db.models.aggregates import Max
 from django_countries.fields import CountryField
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
@@ -12,10 +13,26 @@ class Order(models.Model):
     # And we'll want it to be unique and permanent
     # so users can find their previous orders.
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    #  Foreign key to "userprofile" on the order.
+    # Use models.SET_NULL
+    # if the profile is deleted since that will allow us to keep
+    # an order history in the admin even if the user is deleted.
+    # Allow this to be either "null" or "blank"
+    # UNTIL we force clients to login to make a booking.
+    # Add a related name of "orders" so we can access
+    # the user's orders by calling something like user.userprofile.orders
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="orders",
+    )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    # blank_label - use "Country" with the star to indicate it's a required field
+    # blank_label -
+    # use "Country" with the star to indicate it's a required field
     # since select boxes don't have a placeholder
     country = CountryField(blank_label="Country *", null=False, blank=False)
     # The postcode field is used to compare orders
@@ -33,7 +50,7 @@ class Order(models.Model):
     # The last field will be calculated using a model method.
     # whenever an order is saved
     grand_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
+        max_digits=5, decimal_places=0, null=False, default=0
     )
 
     # It's possible for the same customer to purchase
@@ -56,7 +73,8 @@ class Order(models.Model):
         """
         max_id = Order.objects.aggregate(Max("id"))
         last_id = max_id.get("id__max")
-        # If this is the first order there will not be any max id in the database
+        # If this is the first order
+        # there will not be any max id in the database
         # Instead it will return 'None'
         # Convert this to 0 (zero)
         if not last_id:

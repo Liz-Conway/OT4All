@@ -25,7 +25,7 @@ def booking_contents(request):
     # . total
     # . therapy_sessions
     # We need to iterate through all the items in the booking.
-    # And along the way, tally up the total cost and product count.
+    # And along the way, tally up the total cost and number of sessions.
     # And add the therapies and their data to the booking items list.
     # So we can display them on the booking page.
     # And elsewhere throughout the site.

@@ -18,7 +18,7 @@
 <div class="emailConfirm">
 	<p>{% blocktrans with confirmation.email_address.email as email %}
 		Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> 
-		is an e-mail address for user {{ user_display }}.{% endblocktrans %}
+		is an e-mail address for user <span class="userName">{{ user_display }}</span>.{% endblocktrans %}
 	</p>
 	
 	<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
