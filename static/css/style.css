@@ -2349,14 +2349,14 @@ button[class$="crementSessions"]:disabled {
   margin-right: -0.5rem;
 }
 
-#therapyListButtons a {
+#therapyListButtons a, #therapyListButtons button, #addTherapyButtons a, #addTherapyButtons button {
   margin-right: 0;
 }
 @media only screen and (min-width: 23.4375em) {
-  #therapyListButtons a {
+  #therapyListButtons a, #therapyListButtons button, #addTherapyButtons a, #addTherapyButtons button {
     margin-right: 1.5rem;
   }
-  #therapyListButtons a.btnPrimary {
+  #therapyListButtons a.btnPrimary, #therapyListButtons button.btnPrimary, #addTherapyButtons a.btnPrimary, #addTherapyButtons button.btnPrimary {
     margin-right: 3rem;
   }
 }

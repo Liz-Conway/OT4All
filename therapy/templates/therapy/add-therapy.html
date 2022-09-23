@@ -18,7 +18,7 @@ s{% extends "base.html" %}
 			<form method="POST" action="{% url 'addTherapy' %}" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{ form }}
-				<div class="addTherapyButtons">
+				<div id="addTherapyButtons">
 					<a class="btn btnGhost" href="{% url 'therapies' %}">Cancel</a>
 					<button class="btn btnPrimary" type="submit">Add Therapy</button> 
 				</div>
