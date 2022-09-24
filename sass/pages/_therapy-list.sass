@@ -11,3 +11,12 @@
 			width: 60%
 		@include respond(desktop)
 			width: 50%
+
+	&Container
+		> hr
+			@include respond(tabletPortrait)
+				width: 80%
+			@include respond(notebook)
+				width: 75%
+			@include respond(desktop)
+				width: 65%

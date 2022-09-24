@@ -7,8 +7,13 @@
 	margin: 1rem auto
 	width: 80%
 	> hr
-		margin-top: 1.2rem
-		margin-bottom: 1.2rem
+		margin: 1.2rem auto
+		@include respond(notebook)
+			margin: 1.5rem auto
+		@include respond(desktop)
+			margin: 1.7rem auto
+		@include respond(XL)
+			margin: 2rem auto
 	h1
 		text-align: center
 
