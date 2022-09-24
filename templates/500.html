@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block extra_title %}500 error{% endblock %}
+
+{% block content %}
+        <section class="errorSection">
+            
+	    	<h1 class="errorTitle">
+	       		This one's on us.  Sorry.
+	       	</h1>
+	       	<h2 class="errorSubtitle">
+	       		Our server is having a bad day.  Please try again later.
+	       	</h2>
+	       	<a href="{% url 'home' %}" class="btn"><i class="fas fa-house"></i> Home</a>
+        </section>
+{% endblock %}

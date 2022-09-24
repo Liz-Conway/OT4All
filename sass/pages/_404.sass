@@ -1,10 +1,17 @@
 /*~~~~~~~  404 Page  ~~~~~~~*/
 .error
 	&Section
-		background-color: $midtone
+		background-color: $midtoneDark
 		display: flex
 		flex-direction: column
 		align-items: center
+		justify-content: space-between
+		min-height: 75vh
+		padding: 3rem
+		@include respond(tabletLandscape)
+			min-height: 63vh
+		@include respond(desktop)
+			min-height: 55vh
 
 	&404
 		font:
@@ -14,5 +21,8 @@
 		margin: 3rem auto
 	&Subtitle
 		color: $shadow
+
+	&Text
+		color: $error
 
 /*===== END  404 Page  =====*/
