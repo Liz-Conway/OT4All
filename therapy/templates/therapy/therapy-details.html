@@ -76,7 +76,9 @@
 								</span>
 								Keep Shopping
 							</a>
-							<input type="submit" value="Book" class="btn btnPrimary">
+							{% if not request.user.is_superuser %}
+								<input type="submit" value="Book" class="btn btnPrimary">
+							{% endif %}
 						</div>
 						<!-- Part of the Post-Redirect-Get pattern -->
 						<input type="hidden" name="redirectUrl" value="{{ request.path }}">
