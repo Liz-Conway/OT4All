@@ -712,17 +712,26 @@ A client could make more that one booking for the same OT therapy,  In order to 
 
 This feature ensures the robustness of the OT4U website.  Once a client has made a purchase they are guaranteed that an order will exist.  It would be most frustrating for a client to have paid for something and not receive it.  The value of this feature is that it ensures that the OT4U website works as intended and as the client expects.
 
-#### View the OT approach
-[Back to Top](#top)
 
 #### View Testimonials
 [Back to Top](#top)
 
-#### Add a Testimonial
-[Back to Top](#top)
+This feature allows potential clients to view what other people think about the services Natalia gives.  The benefit of this is that sometimes people need "social proof", evidence that their peers like and use a product or service before they will buy it.  This feature will encourage new clients to book Natalia's therapies.
+
+Supporting pages - **View Testimonials**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![View Testimonials - Desktop](documentation/pages/view-testimonials.png)   |  ![View Testimonials - mobile](documentation/pages/mobile/view-testimonials.png)   |
+
+
 
 #### View details about Natalia
 [Back to Top](#top)
+
+This feature allows clients and potential clients to view information about Natalia herself.  They will judge whether to book sessions with her based on her experience and attitude.  This feature allows Natalia to sell herself to new clients.
+
+
 
 #### Get in Touch
 [Back to Top](#top)
