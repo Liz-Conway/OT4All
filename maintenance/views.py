@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
 from therapy.models import Therapy, Style
 from django.contrib import messages
-from django.urls.base import reverse
+from django.urls.base import reverse, reverse_lazy
 from .forms import TherapyForm
 
 
@@ -95,3 +95,26 @@ class EditTherapy(TemplateView):
         context = {"form": form}
 
         return render(request, self.template_name, context)
+
+
+class DeleteTherapy(View):
+    """
+    A view to allow Admin users to delete an existing therapy
+    """
+
+    def post(self, request, *args, **kwargs):
+        therapy_id = kwargs.get("therapy_id")
+        try:
+            # Remove the chosen therapy from the database
+            to_delete = Therapy.objects.get(pk=therapy_id)
+            delete_name = to_delete.name
+            to_delete.delete()
+            messages.success(
+                self.request, f"{delete_name} was successfully removed"
+            )
+        except Therapy.DoesNotExist as dne:
+            messages.error(self.request, dne.message)
+        except Exception as ex:
+            messages.error(self.request, f"Exception :  {ex.message}")
+
+        return redirect(reverse("listTherapies"))

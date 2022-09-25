@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.urls.base import reverse
 from django.db.models.query_utils import Q
 from django.db.models.functions.text import Lower
-from therapy.forms import TherapyForm
 
 
 # Create your views here.
