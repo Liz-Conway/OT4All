@@ -1,19 +1,23 @@
 from django import forms
-from therapy.models import Therapy, Style
+from therapy.models import Therapy
 from .widgets import CustomClearableFileInput
+from django.contrib import messages
 
 
 class TherapyForm(forms.ModelForm):
     class Meta:
         model = Therapy
 
-        # Special dunder string called __all__ which will include all the fields
+        # Special dunder string called __all__
+        # which will include all the fields
         fields = "__all__"
 
-        # Replace the image field on the form with the custom one which utilises the widget
+        # Replace the image field on the form
+        # with the custom one which utilises the widget
         image = forms.ImageField(
             label="Image", required=False, widget=CustomClearableFileInput
         )
+
         # Override the __init__ method to make a couple changes to the fields
         def __init__(self, *args, **kwargs):
             """
@@ -35,23 +39,18 @@ class TherapyForm(forms.ModelForm):
                 "location": "Where takes place (if any)",
                 "extra_requirements": "Any additional requirements this therapy will need",
             }
-            print(f"Placeholders :  {placeholders}")
 
             try:
                 # Set the "autofocus" attribute on the name field to True
                 # so the cursor will start in the name field
                 # when the client loads the page
                 self.fields["name"].widget.attrs["autofocus"] = True
-                print(f"Autofocus done")
                 # Iterate through the forms fields
                 for field in self.fields:
-                    print(f"Field :  {field}")
                     if self.fields[field].required and field != "style":
-                        print(f"Gold star")
                         # Add a star to the placeholder
                         # if it's a "required" field on the model.
                         placeholder = f"{placeholders[field]} *"
-                        print("Placeholder")
                     else:
                         placeholder = placeholders[field]
 
@@ -62,8 +61,6 @@ class TherapyForm(forms.ModelForm):
                             self.fields[field].widget.attrs[
                                 "placeholder"
                             ] = placeholder
-                            print(f"{field} placeholder set")
                     self.fields[field].widget.attrs["class"] = "formInput"
-                    print(f"{field} class set")
             except Exception as ex:
-                print(f"Error :  {ex.message}")
+                messages.error(f"Error :  {ex.message}")

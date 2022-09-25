@@ -18,7 +18,7 @@
  		<div class="toastBookingsWrapper">
  			{% for item in booking_items %}
  			<div class="toastBookings">
-				{% if item.product.image %}
+				{% if item.therapy.image %}
  					<img class="toastBookingsImage" src="{{ item.therapy.image.url }}" alt="{{ item.therapy.name }}">
  				{% else %}
  					<img class="toastBookingsImage" src="{% static 'images/noimage.png' %}" alt="{{ item.therapy.name }}">

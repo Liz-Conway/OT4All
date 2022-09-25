@@ -50,7 +50,6 @@ class StripeWH_Handler:
         # The best place to do this is the webhook handler
         # since at that point we know the payment has definitely been made.
         # Since the only thing that can trigger it is a webhook from Stripe.
-        print("Sending an email ?????")
         cust_email = order.email
 
         # Use the render_to_string() method to render
