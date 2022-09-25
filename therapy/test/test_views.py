@@ -1,11 +1,9 @@
 """
 @author: liz
 """
-from django.test import TestCase, Client
+from django.test import TestCase
 from therapy.models import Therapy, Style
 from django.urls.base import reverse
-from datetime import datetime
-from django.contrib.messages.api import get_messages
 
 
 class TherapyViewsTest(TestCase):
@@ -21,7 +19,8 @@ class TherapyViewsTest(TestCase):
 
         self.optional_therapy = Therapy.objects.create(
             name="Test Therapy optional fields",
-            description="A test therapy for use in unit testing.  Some optional fields are included",
+            description="A test therapy for use in unit testing. \
+             Some optional fields are included",
             price=200,
             course_sessions=6,
             style=self.style,
@@ -42,7 +41,8 @@ class TherapyViewsTest(TestCase):
         self.assertEqual(
             response.status_code,
             200,
-            "Going to 'Our Therapies' page should return a Status Code of 200 (OK)",
+            "Going to 'Our Therapies' page \
+                should return a Status Code of 200 (OK)",
         )
         self.assertTemplateUsed(
             response,
@@ -56,7 +56,8 @@ class TherapyViewsTest(TestCase):
         self.assertEqual(
             response.status_code,
             200,
-            "Going to 'Book Therapy' page should return a Status Code of 200 (OK)",
+            "Going to 'Book Therapy' page \
+                should return a Status Code of 200 (OK)",
         )
         self.assertTemplateUsed(
             response,
@@ -70,7 +71,8 @@ class TherapyViewsTest(TestCase):
         self.assertEqual(
             response.status_code,
             200,
-            "Going to 'Therapies List' page should return a Status Code of 200 (OK)",
+            "Going to 'Therapies List' page\
+                 should return a Status Code of 200 (OK)",
         )
         self.assertTemplateUsed(
             response,
@@ -84,7 +86,8 @@ class TherapyViewsTest(TestCase):
         self.assertEqual(
             response.status_code,
             200,
-            "Going to 'Add Therapy' page should return a Status Code of 200 (OK)",
+            "Going to 'Add Therapy' page \
+                should return a Status Code of 200 (OK)",
         )
         self.assertTemplateUsed(
             response,
@@ -173,8 +176,8 @@ class TherapyViewsTest(TestCase):
         )
 
     def compare_image_fields(self, image_field1, image_field2):
-        if image_field1 == None or image_field1 == "":
-            if image_field2 == None or image_field2 == "":
+        if image_field1 is None or image_field1 == "":
+            if image_field2 is None or image_field2 == "":
                 # Both are blank so test passes
                 return
 
@@ -183,8 +186,8 @@ class TherapyViewsTest(TestCase):
         )
 
     def compare_text_fields(self, text_field1, text_field2, field_name):
-        if text_field1 == None or text_field1 == "":
-            if text_field2 == None or text_field2 == "":
+        if text_field1 is None or text_field1 == "":
+            if text_field2 is None or text_field2 == "":
                 # Both are blank so test passes
                 return
 

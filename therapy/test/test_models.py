@@ -1,6 +1,5 @@
 from django.test import TestCase
 from therapy.models import Therapy, Style
-from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 class TherapyTest(TestCase):
@@ -20,7 +19,8 @@ class TherapyTest(TestCase):
 
         self.full_therapy = Therapy.objects.create(
             name="Full Therapy",
-            description="A test therapy for use in unit testing.  Has optional text fields filled.",
+            description="A test therapy for use in unit testing. \
+             Has optional text fields filled.",
             price=100,
             course_sessions=3,
             style=self.style_equipped,
@@ -43,11 +43,6 @@ class TherapyTest(TestCase):
     def test_therapy_optional_empty(self):
         self.assertEqual(self.therapy.location, None)
         self.assertEqual(self.therapy.extra_requirements, None)
-
-    # def test_therapy_image(self):
-    #     image_path = '../staticfiles/images/'
-    #     self.therapy.image = SimpleUploadedFile(name='noimage.png', content=open(image_path, 'rb').read(), content_type='image/png')
-    #     self.assertEqual(self.therapy.location, None)
 
     def test_full_therapy_optional_fields(self):
         self.assertEqual(self.full_therapy.location, "My therapeutic offices")
