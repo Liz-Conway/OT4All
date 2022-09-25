@@ -23,7 +23,7 @@
 					<tbody>
 					{% for therapy in therapies %}
 					<!-- Show identifying information for each therapy -->
-						<tr class="therapyListRow">
+						<tr class="therapyListRow"  id="therapy{{ therapy.id }}">
 							<td class="therapyListLabel" title="{{ therapy.name }}">
 								{{ therapy.name }}
 							</td>
@@ -35,9 +35,9 @@
 							</td>
 							<td class="therapyListActions">
 								<!-- This "button" allows the Occupational Therapist to edit this therapy's details -->
-								<a class="ui-button ui-widget ui-corner-all ui-button-icon-only" href="{#% url 'editTherapy' therapy.id %#}"><span class="ui-icon ui-icon-pencil"></span></a>
+								<a href="{% url 'editTherapy' therapy.id %}"><i class="fas fa-pencil"></i></a>
 								<!-- This button allows the Occupational Therapist to delete this therapy from the OT4U website -->
-								<a class="ui-button ui-widget ui-corner-all ui-button-icon-only deleteAction" href="{#% url 'deleteTherapy' therapy.id %#}"><span class="ui-icon ui-icon-trash"></span></a>
+								<a class="errorText" onclick="deleteTherapy({{ therapy.id }});"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>
 					{% empty %}
@@ -60,8 +60,30 @@
 				</a>
 			</div>
 		</div>
+		<!-- Empty form to use to POST the delete therapy -->
+		<form method="POST" id="deleteForm">
+			{% csrf_token %}
+		</form>
 		
 	</div>
 
+{% endblock content %}
 
-{% endblock content %}				
+{% block postloadjs %}
+	{{ block.super }}
+	<script>
+	const deleteTherapy = (pk) => {
+		/*If the user cancels the deletion*/
+		/*Do not continue - just return from this method*/
+		if (!confirm("Are you certain you want to delete this therapy?")) {
+			return;
+		}
+		/*Otherwise we will continue with deleting the therapy*/
+		deleteUrl = '/maintenance/delete/' + pk + '/';
+
+		$("#deleteForm").attr("action", deleteUrl);
+		$("#deleteForm").submit();
+		
+	}
+	</script>
+{% endblock %}			

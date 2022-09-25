@@ -71,7 +71,7 @@
 							{% if therapy.image %}
 									<img  class="" src="{{ therapy.image.url }}" alt="{{ therapy.name }}">
 							{% else %}
-									<img  class="" src="{{ MEDIA_URL }}noimage.png" alt="{{ therapy.name }}">
+									<img  class="" src="{% static 'images/noimage.png' %}" alt="{{ therapy.name }}">
 							{% endif %}
 							<div class="therapyCardBody">
 								<h2>{{ therapy.name }}</h2>

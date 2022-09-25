@@ -2027,6 +2027,10 @@ p.therapyDetailsPrice {
       align-self: flex-end;
 }
 
+label[for="id_course_sessions"] {
+  margin-top: 2rem;
+}
+
 /*===== END  Add Therapy Page  ===== */
 .therapyListing {
   width: 100%;
@@ -3402,46 +3406,46 @@ label[for="id_remember"] {
   /*===== END  Stripe  ===== */
 }
 
-.widgetImage {
+.addTherapyBody form .widgetImage {
   width: 96px;
   height: 96px;
   border-radius: 0.4rem;
   -webkit-box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
           box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
 }
-.widgetCheckbox {
+.addTherapyBody form .widgetCheckbox {
   margin-top: 0.75rem;
-  position: relative;
   min-height: 1rem;
   padding-left: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
-.widgetInput {
-  position: absolute;
-  left: 0;
+.addTherapyBody form .widgetInput {
   width: 1.5rem;
   height: 1.5rem;
+  margin-top: 1rem;
 }
-.widgetInput:checked ~ .widgetLabel::before {
+.addTherapyBody form .widgetInput:checked ~ .widgetLabel::before {
   background-color: #e84610;
   border-color: #e84610;
   border-radius: 0;
 }
-.widgetLabel {
-  position: relative;
-  margin-left: 1rem;
+.addTherapyBody form .widgetLabel {
+  margin-right: 1rem;
   color: #e84610;
 }
-.widgetLabel::before {
+.addTherapyBody form .widgetLabel::before {
   border-radius: 0;
   border-color: #e84610;
 }
@@ -3457,9 +3461,10 @@ label[for="id_remember"] {
       align-self: flex-start;
   margin-top: 0.75rem;
 }
-.btnFile input[type="file"] {
-  /* Make sure that the entire input, which is clickable, */
-  /* lives inside this span that looks like a button. */
+
+#newImage {
+  /* Make sure that the entire input, which is clickable,
+   * lives inside this span that looks like a button. */
   position: absolute;
   top: 0;
   right: 0;

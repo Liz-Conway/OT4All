@@ -1,4 +1,4 @@
-
+// static
 $(".close").click(closeToast);
 
 function closeToast(event) {
