@@ -759,8 +759,22 @@ footer {
   width: 80%;
 }
 [class^="container"] > hr, [class$="Container"] > hr {
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
+  margin: 1.2rem auto;
+}
+@media only screen and (min-width: 59.375em) {
+  [class^="container"] > hr, [class$="Container"] > hr {
+    margin: 1.5rem auto;
+  }
+}
+@media only screen and (min-width: 75em) {
+  [class^="container"] > hr, [class$="Container"] > hr {
+    margin: 1.7rem auto;
+  }
+}
+@media only screen and (min-width: 90em) {
+  [class^="container"] > hr, [class$="Container"] > hr {
+    margin: 2rem auto;
+  }
 }
 [class^="container"] h1, [class$="Container"] h1 {
   text-align: center;
@@ -2041,10 +2055,25 @@ p.therapyDetailsPrice {
     width: 50%;
   }
 }
+@media only screen and (min-width: 37.5em) {
+  .therapyListContainer > hr {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 59.375em) {
+  .therapyListContainer > hr {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .therapyListContainer > hr {
+    width: 65%;
+  }
+}
 
 /*~~~~~~~  404 Page  ~~~~~~~ */
 .errorSection {
-  background-color: #ffcdbd;
+  background-color: #ffb299;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     "purchase",
     # Set user profile
     "profiles",
+    "maintenance",
 ]
 
 MIDDLEWARE = [
