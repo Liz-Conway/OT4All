@@ -64,16 +64,43 @@ class EditTherapy(TemplateView):
     template_name = "maintenance/edit-therapy.html"
 
     def get_context_data(self, **kwargs):
-        therapy = Therapy.objects.get(pk=kwargs["therapy_id"])
-        form = TherapyForm(instance=therapy)
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        context["form"] = form
-        context["therapy"] = therapy
+        try:
+            # print(f"Args :  {args}")
+            print(f"KeyWord Args :  {kwargs}")
+            therapy = Therapy.objects.get(pk=kwargs["therapy_id"])
+            form_data = {
+                "name": therapy.name,
+                "style": therapy.style,
+                "description": therapy.description,
+                "price": therapy.price,
+                "image": therapy.image,
+                "course_sessions": therapy.course_sessions,
+                "location": therapy.location,
+                "extra_requirements": therapy.extra_requirements,
+            }
+
+            print(f"Therapy :  {therapy}")
+            try:
+                # form = TherapyForm(self.request.FILES, instance=therapy)
+                form = TherapyForm(self.request.FILES, form_data)
+            except Exception as formEx:
+                print(f"Form Error :  {formEx}")
+            print(f"Form :  {form}")
+            # Call the base implementation first to get a context
+            context = super().get_context_data(**kwargs)
+            # print(f"Super context :  {context}")
+            context["form"] = form
+            # print(f"Context :  {context}")
+            context["therapy"] = therapy
+            print(f"Context :  {context}")
+        except Exception as ex:
+            print(f"Error : {ex.message}")
 
         return context
 
     def post(self, request, *args, **kwargs):
+        print(f"Args :  {args}")
+        print(f"KeyWord Args :  {kwargs}")
         therapy = get_object_or_404(Therapy, pk=kwargs.get("therapy_id"))
 
         # Create a new instance of the TherapyForm using the POST data.

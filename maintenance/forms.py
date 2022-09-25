@@ -35,21 +35,35 @@ class TherapyForm(forms.ModelForm):
             "location": "Where takes place (if any)",
             "extra_requirements": "Any additional requirements this therapy will need",
         }
+        print(f"Placeholders :  {placeholders}")
 
-        # Set the "autofocus" attribute on the name field to True
-        # so the cursor will start in the name field
-        # when the client loads the page
-        self.fields["name"].widget.attrs["autofocus"] = True
-        # Iterate through the forms fields
-        for field in self.fields:
-            if self.fields[field].required and field != "style":
-                # Add a star to the placeholder
-                # if it's a "required" field on the model.
-                placeholder = f"{placeholders[field]} *"
-            else:
-                placeholder = placeholders[field]
+        try:
+            # Set the "autofocus" attribute on the name field to True
+            # so the cursor will start in the name field
+            # when the client loads the page
+            self.fields["name"].widget.attrs["autofocus"] = True
+            print(f"Autofocus done")
+            # Iterate through the forms fields
+            for field in self.fields:
+                print(f"Field :  {field}")
+                if self.fields[field].required and field != "style":
+                    print(f"Gold star")
+                    # Add a star to the placeholder
+                    # if it's a "required" field on the model.
+                    placeholder = f"{placeholders[field]} *"
+                    print("Placeholder")
+                else:
+                    placeholder = placeholders[field]
 
-            # Set all the placeholder attributes
-            # to their values in the dictionary above.
-            self.fields[field].widget.attrs["placeholder"] = placeholder
-            self.fields[field].widget.attrs["class"] = "formInput"
+                # Set all the placeholder attributes
+                # to their values in the dictionary above.
+                if field != "style":
+                    if field != "image":
+                        self.fields[field].widget.attrs[
+                            "placeholder"
+                        ] = placeholder
+                        print(f"{field} placeholder set")
+                self.fields[field].widget.attrs["class"] = "formInput"
+                print(f"{field} class set")
+        except Exception as ex:
+            print(f"Error :  {ex.message}")
