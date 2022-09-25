@@ -46,21 +46,53 @@ class ListTherapies(TemplateView):
     """
 
     template_name = "maintenance/list-therapies.html"
-    # template_name = "home/index.html"
-    # template_name = "therapy/therapies.html"
 
     def get_context_data(self, **kwargs):
-        print("In get_context_data)_")
         therapies = Therapy.objects.all()
-        print("Got therapies")
-        print(therapies)
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        print("Got super context")
-        print(context)
         context["therapies"] = therapies
-        print(context)
-        print("Set therapies in the context")
-        print("Returning the context")
 
         return context
+
+
+class EditTherapy(TemplateView):
+    """
+    A view to allow Admin users to edit an existing therapy
+    """
+
+    template_name = "maintenance/edit-therapy.html"
+
+    def get_context_data(self, **kwargs):
+        print(f"KeyWord Args :  {kwargs}")
+        therapy = Therapy.objects.get(pk=kwargs["therapy_id"])
+        form = TherapyForm(instance=therapy)
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context["form"] = form
+        context["therapy"] = therapy
+
+        return context
+
+    def post(self, request, *args, **kwargs):
+        therapy = get_object_or_404(Therapy, pk=kwargs.get("therapy_id"))
+
+        # Create a new instance of the TherapyForm using the POST data.
+        # Tell it the instance we're updating is the therapy we've just retrieved above
+        form = TherapyForm(request.POST, request.FILES, instance=therapy)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Therapy updated successfully")
+            return redirect(reverse("listTherapies"))
+        else:
+            # Attach a generic error message telling the user to check their form
+            # which will display the errors.
+            messages.error(
+                request,
+                "Failed to add therapy.  Please ensure the form is valid.",
+            )
+
+        context = {"form": form}
+
+        return render(request, self.template_name, context)

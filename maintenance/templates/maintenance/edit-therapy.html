@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_title %}Add Therapy{% endblock %}
+{% block extra_title %}Edit Therapy{% endblock %}
 
 {% block content %}
 	<div class="containerAddTherapy">
 		<div class="addTherapyHeader">
 			<hr>
 			<h2 class="addTherapyTitle">Therapy Maintenance</h2>
-			<h3 class="muted">Add a new Therapy</h3>
+			<h3 class="muted">Edit a Therapy</h3>
 			<hr>
 		</div>
 		<div class="addTherapyBody">
 			<!-- Add the encoding type attribute on this form.
 			Since it will potentially be submitting an image file, 
 			and without this the image won't be uploaded properly -->
-			<form method="POST" action="{% url 'addTherapy' %}" enctype="multipart/form-data">
+			<form method="POST" action="{% url 'editTherapy' therapy.id %}" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{ form }}
 				<div id="addTherapyButtons">
 					<a class="btn btnGhost" href="{% url 'listTherapies' %}">Cancel</a>
-					<button class="btn btnPrimary" type="submit">Add Therapy</button> 
+					<button class="btn btnPrimary" type="submit">Edit Therapy</button> 
 				</div>
 			</form>
 		</div>

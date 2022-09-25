@@ -35,7 +35,7 @@
 							</td>
 							<td class="therapyListActions">
 								<!-- This "button" allows the Occupational Therapist to edit this therapy's details -->
-								<a class="ui-button ui-widget ui-corner-all ui-button-icon-only" href="{#% url 'editTherapy' therapy.id %#}"><span class="ui-icon ui-icon-pencil"></span></a>
+								<a href="{% url 'editTherapy' therapy.id %}"><i class="fas fa-pencil"></i></a>
 								<!-- This button allows the Occupational Therapist to delete this therapy from the OT4U website -->
 								<a class="ui-button ui-widget ui-corner-all ui-button-icon-only deleteAction" href="{#% url 'deleteTherapy' therapy.id %#}"><span class="ui-icon ui-icon-trash"></span></a>
 							</td>
