@@ -64,7 +64,6 @@ class EditTherapy(TemplateView):
     template_name = "maintenance/edit-therapy.html"
 
     def get_context_data(self, **kwargs):
-        print(f"KeyWord Args :  {kwargs}")
         therapy = Therapy.objects.get(pk=kwargs["therapy_id"])
         form = TherapyForm(instance=therapy)
         # Call the base implementation first to get a context
