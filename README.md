@@ -476,6 +476,8 @@ The Single Therapy page will give more information on the therapy, such as equip
 #### Add Therapies
 [Back to Top](#top)
 
+![Add Therapy user flow](documentation/user-flow/add-therapy.png)
+
 When logged in with an Admin role the user has access to the 'Maintain Therapies' features.  The first feature is "Add Therapies" this allows the Site Owner to add new therapies to the website.  The benefit of this feature is that it makes the website flexible and keeps it fresh.  Natalia can add new therapies as her skillset improves, new facilities become available and new innovations in Occupational Therapy are invented.
 
 Supporting page elements -  **Maintain Therapies link**
@@ -497,6 +499,36 @@ Supporting pages - **Therapy List**
 |  Desktop   |  Mobile   |
 | --- | --- |
 |  ![Add Therapy - desktop](documentation/pages/add-therapy.png)   |   ![Add Therapy page - mobile](documentation/pages/mobile/add-therapy.png)  |
+
+
+#### Edit Theraphy
+This feature allows Natalia to make changes to Therapies that she has already added to the OT4U website.  It gives her the flexibility to keep the website up to date and fresh.
+
+![Edit therapy user flow](documentation/user-flow/edit-therapy.png)
+
+On the Therapy List page there are rows of therapies, one per row.  At the end of each row is the well recognised pencil symbol.  This symbol is well known as the symbol for editing.  This means that Natalia already has a mental model of it means, she does not have to think or remember.  When Natalia clicks this icon she is taken to the Edit Therapy page.  This page has a form similar to the Add Therapy page, except that the details for the chosen therapy are filled in.  Natalia can change any of them, or even the picture.  She then clicks the Edit Therapy button and the OT4U website saves the amndments to the therapy.  These changes are visible immediately.  However, if Natalia changes her mind or wants to amend a different therapy she can click the Cancel button instead and she will be taken  back to the therapy list.  This leaves Natalia in control and she is never forced into an action she cannot back out of.
+
+Supporting pages - **Edit Therapy**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Edit Therapy page - desktop](documentation/pages/edit-therapy.png)   |   ![Edit Therapy page - mobile](documentation/pages/mobile/edit-therapy.png)  |
+
+
+#### Delete Therapy
+If Natalia needs to remove a therapy from the OT4U website, she will use this feature.  It helps to prevent the website from growing stale, or accumulating lots of therapies that no client needs.
+
+![Delete therapy user flow](documentation/user-flow/delete-therapy.png)
+
+On the Therapy List page there are rows of therapies, one per row.  At the end of each row is the well recognised bin symbol.  This symbol is well known as the symbol for deleting.  This means that Natalia already has a mental model of it means, she does not have to think or remember.  When Natalia clicks this icon she is given a prompt asking whether she is certain that she wants to delete this therapy.  This  feature helps prevent mistakes from happening and therapies being accidentally removed from the website.  Once Natalia confirms that she wants to delete the therapy the OT4U website removes the therapy and it is no longer available.
+
+Supporting pages - **Therapy List**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Delete Therapy - desktop](documentation/pages/delete-therapy.png)   |   ![Delete Therapy - mobile](documentation/pages/mobile/delete-therapy.png)  |
+
+A message confirming which therapy was deleted is shown after the therapy is deleted.  This keeps Natalia informed of what the OT4U website is doing.
 
 
 #### Book Sessions
