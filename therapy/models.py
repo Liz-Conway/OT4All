@@ -10,9 +10,7 @@ class Style(models.Model):
 
 
 class Therapy(models.Model):
-    style = models.ForeignKey(
-        "Style", null=True, blank=True, on_delete=models.SET_NULL
-    )
+    style = models.ForeignKey("Style", on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=3, decimal_places=0)
