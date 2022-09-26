@@ -1,0 +1,27 @@
+[
+	{
+		"model": "testimonials.Testimonial",
+		"pk": 1,
+		"fields": {
+			"first_name": "Mary",
+			"last_name": "Reilly",
+			"image_url": "https://res.cloudinary.com/foxywolf/image/upload/v1664136532/ot4u/client-mary_frf54f.jpg",
+			"testimony_title": "I had the best week ever with my family",
+			"testimony": "I cannot express my gratitude enough.  We have been working with Natalia, our Occupational Therapist for our five year old for close to six months.  In this short time our son has learned more than I could imagine while Natalia has also taught us as parents how to help him.  Our son has some sensory issues and we were finding it very difficult to teach him the basics. We would try and it was like beating our heads against a brick wall. Natalia has shown our son ways to cope with tough situations and he has exceeded all of our expectations.",
+			"date": "2022-09-25"
+		}
+	},
+	{
+		"model": "testimonials.Testimonial",
+		"pk": 2,
+		"fields": {
+			"first_name": "Jilly",
+			"last_name": "Maguire",
+			"image_url": "https://res.cloudinary.com/foxywolf/image/upload/v1664136532/ot4u/client-jilly_epqtwq.jpg",
+			"testimony_title": "WOW!  My life is completely different now",
+			"testimony": "I love that Occupational Therapy takes a holistic approach to  engage the person in meaningful occupations to reach their full potential.  Natalia really looks at each client as a whole and what is important to them.   Choosing Natalia Campbell has definitely been one of the best decisions in my life, but I know it was the right decision because of the passion and drive Natalia constantly has to learn and help others live their lives to the best possible level.",
+			"date": "2022-09-25"
+		}
+	}
+	
+]

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}Edit Therapy{% endblock %}
+
+{% block content %}
+<div class="containerTestimonial">
+				<div class="testimonialHeader">
+					<hr>
+					<h2 class="testimonialTitle">Testimonials</h2>
+					<h3 class="muted">We make people genuinely happy</h3>
+					<hr>
+				</div>
+	        	<div class="testimonialBody">
+	        	
+	        		{% for testimonial in testimonials %}
+	        		<div class="testimonial">
+	        			<figure class="testimonialShape">
+	        				<img alt="{{testimonial.first_name}} {{testimonial.last_name}}" src="{{ testimonial.image_url }}" class="testimonialImage">
+	        				<figcaption class="testimonialCaption">{{testimonial.first_name}} {{testimonial.last_name}}</figcaption>
+	        			</figure>
+	        			<div class="testimonialText">
+	        				<h3>{{ testimonial.testimony_title }}</h3>
+	        				<p>{{ testimonial.testimony }}</p>
+	        			</div>
+	        		</div>
+	        		{% endfor %}
+				
+	        	</div>
+
+{% endblock %}
