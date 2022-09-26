@@ -1,12 +1,12 @@
-/*~~~~~~~  Typography  ~~~~~~~ */
+/*~~~~~~~  Typography  ~~~~~~~*/
 @import url("https://fonts.googleapis.com/css2?family=Gabriela&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
 body {
   font-family: Gabriela;
   font-weight: 400;
   font-size: 1.6rem;
-  /* For accessibility - The WCAG criteria states that line-height should be at least 1.5 */
-  /* The WCAG criteria is meant for "body" text, not headings. */
-  /* So we can calculate the proper line height for all elements : */
+  /* For accessibility - The WCAG criteria states that line-height should be at least 1.5*/
+  /* The WCAG criteria is meant for "body" text, not headings.*/
+  /* So we can calculate the proper line height for all elements :*/
   /* Instead of calculating the line height by multiplying the font-size with a number like 1.5, */
   /* this alternative uses the font-size as a base, and adds a fixed amount of space to each line. */
   line-height: calc(1em + 0.7rem);
@@ -30,16 +30,9 @@ body {
   margin-right: auto;
   margin-left: auto;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
 @media only screen and (min-width: 75em) {
   .headingTitle {
@@ -88,13 +81,12 @@ ul.errorlist > li {
   color: #e84610;
 }
 
-/*===== END  Typography  ===== */
-/*~~~~~~~  Reset  ~~~~~~~ */
-/* Josh's Custom CSS Reset
+/*===== END  Typography  =====*/
+/*~~~~~~~  Reset  ~~~~~~~*/
+/*	Josh's Custom CSS Reset
  * https://www.joshwcomeau.com/css/custom-css-reset */
 *, *::before, *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   text-decoration: none;
   padding: 0;
   margin: 0;
@@ -102,20 +94,20 @@ ul.errorlist > li {
 
 /* The height of an element is calculated based on its CHILDREN.
  * So setting height: 100% on an element will cause it to be 100% of the child's height.
- * This setting causes the height to be calculated from the parent */
+ * This setting causes the height to be calculated from the parent*/
 html, body {
   height: 100%;
 }
 
 body {
-  /* MacOS browsers like Chrome and Safari still use subpixel antialiasing by default. */
-  /* We need to explicitly turn it off. */
+  /* MacOS browsers like Chrome and Safari still use subpixel antialiasing by default.*/
+  /* We need to explicitly turn it off.*/
   -webkit-font-smoothing: antialiased;
 }
 
 img, picture, video, canvas, svg {
   /* Using "display: block" on these elements would remove extra space from under it
-   * - Use flexbox on its parent instead */
+  * - Use flexbox on its parent instead */
   /* Keep large images from overflowing, if theyre placed in a container that isnt wide enough to contain them. */
   max-width: 100%;
 }
@@ -133,9 +125,9 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-/*===== END  Reset  ===== */
+/*===== END  Reset  =====*/
 html {
-  /* Since browser default font-size is 16px */
+  /* Since browser default font-size is 16px*/
   /* Set it to 10px (on a desktop) to make converting px to rem easier. */
   /* Use a percentage so that if a user changes the font size */
   /* on their browser or zooms the font sizes,  */
@@ -161,17 +153,11 @@ html {
 }
 
 body {
-  /* Inheritable properties */
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  /* Set up page for sticky footer */
-  display: -webkit-box;
-  display: -ms-flexbox;
+  /* Inheritable properties*/
+  box-sizing: border-box;
+  /* Set up page for sticky footer*/
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   font-size: 1.6rem;
   /* Mobile devices do not honour the "vh" property properly */
   /* So setting the view height to less than 100 for mobile devices */
@@ -186,7 +172,7 @@ body {
   }
 }
 
-/*~~~~~~~  Utilities  ~~~~~~~ */
+/*~~~~~~~  Utilities  ~~~~~~~*/
 .centreText {
   text-align: center;
 }
@@ -229,25 +215,23 @@ body {
   display: none;
 }
 
-/*===== END  Utilities  ===== */
-/*~~~~~~~  Navbar  ~~~~~~~ */
+/*===== END  Utilities  =====*/
+/*~~~~~~~  Navbar  ~~~~~~~*/
 #navigationNav {
   /*	Setting the "position" property allows us to use z-index */
   position: fixed;
   /*	NO top value will centre the menu vertically on mobile screens */
   left: 0;
   z-index: 15;
-  /*Hide the navigation initially */
+  /*Hide the navigation initially*/
   opacity: 0;
-  /*It is not enough to have an opacity of zero */
+  /*It is not enough to have an opacity of zero*/
   /*The elements are still there and are clickable
-   * Need to set the width to zero as well
-   * the menu elements are hidden but on the left edge of the screen & clickable
-   * Need to move the menu off screen completely, so none of the menus are clickable */
+  * Need to set the width to zero as well
+  * the menu elements are hidden but on the left edge of the screen & clickable
+  * Need to move the menu off screen completely, so none of the menus are clickable */
   width: 0;
-  -webkit-transform: translateX(-300px);
-          transform: translateX(-300px);
-  -webkit-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: translateX(-300px);
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 @media only screen and (min-width: 59.375em) {
@@ -259,9 +243,8 @@ body {
     position: relative;
     top: 0;
     /*	In the mobile version the menu is initially push off the screen
-     * This is not done on the desktop version - so have to translate to position 0 */
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    * This is not done on the desktop version - so have to translate to position 0 */
+    transform: translateX(0);
   }
 }
 
@@ -272,7 +255,7 @@ body {
 .navigationButton {
   display: inline;
   background-color: #FFFFFF;
-  /*Make this slightly larger than the navigationBackground, to be sure to cover it */
+  /*Make this slightly larger than the navigationBackground, to be sure to cover it*/
   width: 6.5rem;
   height: 6.5rem;
   border-radius: 50%;
@@ -280,8 +263,7 @@ body {
   top: 1rem;
   right: 0.5rem;
   z-index: 2000;
-  -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
   /* Align the "hamburger" icon horizontally */
   text-align: center;
   cursor: pointer;
@@ -292,25 +274,22 @@ body {
   }
 }
 .navigationBackground {
-  /*Coloured background for the navigation */
-  /*It will start as a small circle behind the white circle containing the "hamburger" icon */
-  /*It will expand to fill the screen when the "hamburger" icon is clicked */
+  /*Coloured background for the navigation*/
+  /*It will start as a small circle behind the white circle containing the "hamburger" icon*/
+  /*It will expand to fill the screen when the "hamburger" icon is clicked*/
   display: block;
   width: 5.5rem;
   height: 5.5rem;
   border-radius: 50%;
-  /*Stays in the same position even if we scroll down the page */
+  /*Stays in the same position even if we scroll down the page*/
   position: fixed;
   top: 1.5rem;
   right: 1rem;
   background-image: radial-gradient(#ffcdbd, #ffb299);
   z-index: 10;
-  /*Custom transition function, uses a cubic bezier curve for ease-in and ease-out */
-  /*See easings.net & cubic-bezier.com */
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-  transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  /*Custom transition function, uses a cubic bezier curve for ease-in and ease-out*/
+  /*See easings.net & cubic-bezier.com*/
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
 }
 @media only screen and (min-width: 59.375em) {
   .navigationBackground {
@@ -320,38 +299,24 @@ body {
 .navigationList {
   list-style: none;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   margin-top: 10rem;
   margin-right: auto;
   margin-left: auto;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-direction: column;
-      flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 @media only screen and (min-width: 59.375em) {
   .navigationList {
     margin: 0;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
 .navigationLink {
-  -webkit-transform: translateX(-200px);
-          transform: translateX(-200px);
+  transform: translateX(-200px);
 }
 .navigationLink:link, .navigationLink:visited {
   display: inline-block;
@@ -362,27 +327,24 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #b299ff 50%);
-  /*Increasing the background shoves the RHS of the linear gradient off the element, so it is invisible */
+  /*Increasing the background shoves the RHS of the linear gradient off the element, so it is invisible*/
   background-size: 235%;
-  -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
 @media only screen and (min-width: 59.375em) {
   .navigationLink:link, .navigationLink:visited {
     font-size: 1.8rem;
-    -webkit-transform: none;
-            transform: none;
+    transform: none;
   }
 }
 .navigationLink:hover, .navigationLink:active {
   background-position: 100%;
   color: #ffcdbd;
-  -webkit-transform: translateX(1rem);
-          transform: translateX(1rem);
+  transform: translateX(1rem);
 }
 .navigationItem {
   margin: 1rem;
-  /*Hide the navigation list item initially */
+  /*Hide the navigation list item initially*/
   width: 0;
 }
 @media only screen and (min-width: 59.375em) {
@@ -391,32 +353,30 @@ body {
   }
 }
 .navigationCheckbox:checked ~ .navigationBackground {
-  -webkit-transform: scale(80);
-          transform: scale(80);
+  transform: scale(80);
 }
 .navigationCheckbox:checked ~ #navigationNav {
   /*	When the 'hamburger' menu is clicked
-   * 1) Make the menu full width */
+  * 1) Make the menu full width */
   width: 100%;
   /*	2) Show the menu */
   opacity: 1;
   /*	3) The menu is initially shoved off the edge of the viewport
-   * Need to move it back into the middle */
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  * Need to move it back into the middle */
+  transform: translateX(0);
 }
 .navigationIcon {
   display: inline-block;
   position: relative;
   margin-top: 3.5rem;
   color: #FFFFFF;
-  /*A bar before the span, the span is a bar, a bar after the span */
-  /*Each bar is 3rem x 2px and is coloured dark grey */
-  /*For ::before and ::after to show they need content and display properties to be set */
+  /*A bar before the span, the span is a bar, a bar after the span*/
+  /*Each bar is 3rem x 2px and is coloured dark grey*/
+  /*For ::before and ::after to show they need content and display properties to be set*/
 }
 .navigationIcon, .navigationIcon::before, .navigationIcon::after {
   width: 3rem;
-  /*Always stays the same height, no matter what the base font size is */
+  /*Always stays the same height, no matter what the base font size is*/
   height: 2px;
   background-color: #333333;
   display: inline-block;
@@ -425,18 +385,17 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 .navigationIcon::before {
   top: -0.8rem;
-  /*By default elements will rotate around the centre. */
-  /*If you want to rotate around the edge you can set the transform-origin */
-  /*transform-origin: right */
+  /*By default elements will rotate around the centre.*/
+  /*If you want to rotate around the edge you can set the transform-origin*/
+  /*transform-origin: right*/
 }
 .navigationIcon::after {
   top: 0.8rem;
-  /*transform-origin: left */
+  /*transform-origin: left*/
 }
 @media only screen and (min-width: 59.375em) {
   .navigationIcon {
@@ -450,24 +409,22 @@ body {
   top: 1rem;
 }
 .navigationCheckbox:checked + .navigationButton > .navigationIcon {
-  /*When the button is clicked change the "hamburger" to a cross */
+  /*When the button is clicked change the "hamburger" to a cross*/
   /*When the checkbox is selected - get its adjacent sibling and */
-  /*select the child element of the adjacent sibling */
-  /*Step 1 make the middle bar invisible (this is the span in the navigationIcon) */
+  /*select the child element of the adjacent sibling*/
+  /*Step 1 make the middle bar invisible (this is the span in the navigationIcon)*/
   background-color: transparent;
 }
 .navigationCheckbox:checked + .navigationButton > .navigationIcon::before {
-  /*Step 2 make the top bar rotate (this is the navigationIcon::before) */
-  /*Rotate 180 degrees - 45 degrees : Takes longer, so looks better */
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
+  /*Step 2 make the top bar rotate (this is the navigationIcon::before)*/
+  /*Rotate 180 degrees - 45 degrees : Takes longer, so looks better*/
+  transform: rotate(135deg);
   top: 0;
 }
 .navigationCheckbox:checked + .navigationButton > .navigationIcon::after {
-  /*Step 3 make the bottom bar rotate (this is the navigationIcon::after) */
-  /*Rotate 180 degrees - 45 degrees : Takes longer, so looks better */
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
+  /*Step 3 make the bottom bar rotate (this is the navigationIcon::after)*/
+  /*Rotate 180 degrees - 45 degrees : Takes longer, so looks better*/
+  transform: rotate(-135deg);
   top: 0;
 }
 .navigationActive {
@@ -495,15 +452,9 @@ body {
 .navList {
   list-style: none;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
   margin-right: 8rem;
   padding-top: 1rem;
 }
@@ -518,10 +469,10 @@ body {
   height: auto;
 }
 
-/*===== END  Navbar  ===== */
-/*~~~~~~~  Footer  ~~~~~~~ */
+/*===== END  Navbar  =====*/
+/*~~~~~~~  Footer  ~~~~~~~*/
 footer {
-  /*Sticky footer */
+  /*Sticky footer*/
   margin-top: auto;
 }
 
@@ -551,75 +502,50 @@ footer {
   height: auto;
 }
 .footerRow {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   max-width: 114rem;
   margin: 0 auto;
 }
 @media only screen and (min-width: 59.375em) {
   .footerRow {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
 .footerBlock {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 .footerBlock:first-child {
   margin-bottom: 2rem;
 }
 @media only screen and (min-width: 59.375em) {
   .footerBlock {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
     width: calc((100% - 7.5rem) / 2);
   }
   .footerBlock:first-child {
     margin-right: 7.5rem;
   }
   .footerBlock:last-child {
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    justify-content: flex-end;
   }
 }
 .footerNavigation {
   border-top: 1px solid #333333;
   padding-top: 2rem;
-  /*This works because 'inline-block' does not occupy the full width. */
-  /*It only occupies the width of the elements in its container. */
+  /*This works because 'inline-block' does not occupy the full width.*/
+  /*It only occupies the width of the elements in its container.*/
   display: inline-block;
 }
 .footerList {
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 @media only screen and (min-width: 59.375em) {
   .footerList {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
 .footerItem {
@@ -641,21 +567,18 @@ footer {
   text-transform: uppercase;
   display: inline-block;
   padding: 1rem 3px;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 .footerLink:hover, .footerLink:active {
   color: #ffb299;
-  -webkit-box-shadow: 0 1rem 2rem rgba(153, 255, 178, 0.4);
-          box-shadow: 0 1rem 2rem rgba(153, 255, 178, 0.4);
-  -webkit-transform: rotate(5deg) scale(1.3);
-          transform: rotate(5deg) scale(1.3);
+  box-shadow: 0 1rem 2rem rgba(153, 255, 178, 0.4);
+  transform: rotate(5deg) scale(1.3);
 }
 .footerCopyright {
   border-top: 1px solid #333333;
   padding-top: 2rem;
-  /*This works because 'inline-block' does not occupy the full width. */
-  /*It only occupies the width of the elements in its container. */
+  /*This works because 'inline-block' does not occupy the full width.*/
+  /*It only occupies the width of the elements in its container.*/
   display: inline-block;
   line-height: 2.2rem;
 }
@@ -668,19 +591,13 @@ footer {
   border-bottom: 3px solid #ffcdbd;
 }
 
-/*===== END  Footer  ===== */
-/*~~~~~~~  Header  ~~~~~~~ */
+/*===== END  Footer  =====*/
+/*~~~~~~~  Header  ~~~~~~~*/
 .headerNav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   /* Not enough space to display all items in one row so wrap them */
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   /*	Margin to give space for the hamburger button */
   margin-right: 4rem;
   /* Need the element to be positioned for z-index to work */
@@ -690,8 +607,7 @@ footer {
 @media only screen and (min-width: 37.5em) {
   .headerNav {
     /* All items will fit on one row so no need to wrap */
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 }
 .headerNavLogo {
@@ -699,13 +615,8 @@ footer {
 }
 
 .shopAccounts {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   list-style: none;
   /* Minimum margin to keep 'My Profile' & Cart on the top row */
   margin-right: 3rem;
@@ -722,66 +633,57 @@ footer {
 }
 .shopAccountsBlock .shopAccountsLabel {
   /*	Need both classes to increase the specifity
-   * to over-ride the text sizing from ".mainMenu a" */
+  * to over-ride the text sizing from ".mainMenu a" */
   font-size: 1.8rem;
   /*	Match the padding from the menu a for "My Profile" */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 .shopAccountsBlock {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #cartIcon {
   color: #191970;
 }
 
-/*===== END  Header  ===== */
-/*~~~~~~~  Grid  ~~~~~~~ */
+/*===== END  Header  =====*/
+/*~~~~~~~  Grid  ~~~~~~~*/
 .messageContainer {
   z-index: 9999;
 }
 
-[class^="container"], [class$="Container"] {
+[class^=container], [class$=Container] {
   margin: 1rem auto;
   width: 80%;
 }
-[class^="container"] > hr, [class$="Container"] > hr {
+[class^=container] > hr, [class$=Container] > hr {
   margin: 1.2rem auto;
 }
 @media only screen and (min-width: 59.375em) {
-  [class^="container"] > hr, [class$="Container"] > hr {
+  [class^=container] > hr, [class$=Container] > hr {
     margin: 1.5rem auto;
   }
 }
 @media only screen and (min-width: 75em) {
-  [class^="container"] > hr, [class$="Container"] > hr {
+  [class^=container] > hr, [class$=Container] > hr {
     margin: 1.7rem auto;
   }
 }
 @media only screen and (min-width: 90em) {
-  [class^="container"] > hr, [class$="Container"] > hr {
+  [class^=container] > hr, [class$=Container] > hr {
     margin: 2rem auto;
   }
 }
-[class^="container"] h1, [class$="Container"] h1 {
+[class^=container] h1, [class$=Container] h1 {
   text-align: center;
 }
 
-/*===== END  Grid  ===== */
-/*~~~~~~~  Home Page  ~~~~~~~ */
+/*===== END  Grid  =====*/
+/*~~~~~~~  Home Page  ~~~~~~~*/
 .homePage {
   background-image: url(../images/occupational-therapist-playing-with-child-small.jpg);
   background-repeat: no-repeat;
@@ -790,16 +692,9 @@ footer {
   height: calc(100vh - 130px);
   position: relative;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  flex-direction: column;
 }
 @media only screen and (min-width: 59.375em) {
   .homePage {
@@ -886,8 +781,8 @@ footer {
   }
 }
 
-/*===== END  Home Page  ===== */
-/*~~~~~~~  Therapies Page  ~~~~~~~ */
+/*===== END  Home Page  =====*/
+/*~~~~~~~  Therapies Page  ~~~~~~~*/
 .therapyTitle {
   text-align: center;
   margin-top: 1rem;
@@ -959,33 +854,24 @@ footer {
   }
 }
 .therapyList {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   /* External & Internal border padding */
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
+  column-gap: 2rem;
   row-gap: 2rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-/*===== END  Therapies Page  ===== */
-/*~~~~~~~  Single Therapy Page  ~~~~~~~ */
+/*===== END  Therapies Page  =====*/
+/*~~~~~~~  Single Therapy Page  ~~~~~~~*/
 .therapyWrapper {
   padding: 2rem 1rem;
 }
 @media only screen and (min-width: 75em) {
   .therapyWrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
 @media only screen and (min-width: 75em) {
@@ -1009,16 +895,9 @@ footer {
 @media only screen and (min-width: 75em) {
   .therapyDetails {
     width: 50%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 @incude respond(XL) {
@@ -1059,21 +938,14 @@ p.therapyDetailsPrice {
   margin-top: 1.2rem;
 }
 
-/*===== END  Single Therapy Page  ===== */
-/*~~~~~~~  Bookings Page  ~~~~~~~ */
+/*===== END  Single Therapy Page  =====*/
+/*~~~~~~~  Bookings Page  ~~~~~~~*/
 .containerBookings {
   width: 100%;
   padding: 0 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 @media only screen and (min-width: 75em) {
   .containerBookings {
@@ -1107,16 +979,9 @@ p.therapyDetailsPrice {
   font-size: 2.75rem;
 }
 .bookingsItems {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 1rem;
 }
 .bookingsItems p {
@@ -1127,21 +992,16 @@ p.therapyDetailsPrice {
 @media only screen and (min-width: 50em) {
   .bookingsItems {
     width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
   .bookingsItems picture img {
     max-height: 50vh;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
 }
 @media only screen and (min-width: 75em) {
   .bookingsTotals {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    align-self: flex-end;
   }
 }
 .bookingsTotals p {
@@ -1178,44 +1038,23 @@ p.therapyDetailsPrice {
   }
 }
 .bookingsTherapy {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 100%;
 }
 @media only screen and (min-width: 50em) {
   .bookingsTherapy {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 @media only screen and (min-width: 50em) {
   .bookingsTherapyDetail {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-flex: 4;
-        -ms-flex: 4;
-            flex: 4;
+    flex-direction: column-reverse;
+    align-items: center;
+    flex: 4;
   }
 }
 .bookingsTherapyDescription {
@@ -1236,25 +1075,19 @@ p.therapyDetailsPrice {
 @media only screen and (min-width: 50em) {
   .bookingsTherapyPrice {
     margin-top: 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
     text-align: center;
   }
 }
 @media only screen and (min-width: 50em) {
   .bookingsTherapySessions {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
     text-align: center;
   }
 }
 @media only screen and (min-width: 50em) {
   .bookingsTherapySubtotal {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
 }
 .bookingsTherapyImage {
@@ -1275,9 +1108,7 @@ p.therapyDetailsPrice {
 }
 @media only screen and (min-width: 50em) {
   .bookingsTherapySubtotal {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    order: 2;
     text-align: right;
   }
 }
@@ -1295,56 +1126,37 @@ p.therapyDetailsPrice {
 }
 @media only screen and (min-width: 75em) {
   .bookingsTherapyTitles {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
     font-weight: 700;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
 }
 .bookingsTherapyTitlesInfo {
-  -webkit-box-flex: 4;
-      -ms-flex: 4;
-          flex: 4;
+  flex: 4;
 }
 @media only screen and (min-width: 50em) {
   .bookingsTherapyTitlesPrice {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
     text-align: center;
   }
 }
 @media only screen and (min-width: 50em) {
   .bookingsTherapyTitlesSessions {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
     text-align: center;
   }
 }
 @media only screen and (min-width: 50em) {
   .bookingsTherapyTitlesSubtotal {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
     text-align: right;
   }
 }
 
 .editLinks {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   margin-top: 2rem;
   width: 60%;
 }
@@ -1354,14 +1166,9 @@ p.therapyDetailsPrice {
 }
 @media only screen and (min-width: 50em) {
   .editLinks {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     width: 100%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
@@ -1379,8 +1186,8 @@ p.therapyDetailsPrice {
   color: #e84610;
 }
 
-/*===== END  Bookings Page  ===== */
-/*~~~~~~~  Purchase  ~~~~~~~ */
+/*===== END  Bookings Page  =====*/
+/*~~~~~~~  Purchase  ~~~~~~~*/
 .containerPurchase {
   max-width: 95%;
   margin: 0 auto;
@@ -1401,9 +1208,7 @@ p.therapyDetailsPrice {
 }
 
 .purchase {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   width: 100%;
 }
 @media only screen and (min-width: 75em) {
@@ -1416,33 +1221,18 @@ p.therapyDetailsPrice {
   margin-bottom: 1.3rem;
 }
 .purchaseOrder {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 @media only screen and (min-width: 75em) {
   .purchaseOrder {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 }
 .purchaseOrder .orderSummary {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex: 1 1 50%;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-bottom: 1.5rem;
 }
 .purchaseOrder .orderSummary hr {
@@ -1450,17 +1240,10 @@ p.therapyDetailsPrice {
 }
 .purchaseOrder .orderTitles {
   margin-bottom: 1rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  align-self: flex-end;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 85%;
 }
 .purchaseOrder .orderTitles p {
@@ -1470,35 +1253,24 @@ p.therapyDetailsPrice {
   color: #333333;
 }
 .purchaseOrder .orderItem {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 60%;
-          flex: 1 1 60%;
+  flex: 1 1 60%;
 }
 .purchaseOrder .orderSubtotal {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 25%;
-          flex: 1 1 25%;
+  flex: 1 1 25%;
   text-align: right;
 }
 .purchaseOrder .orderContent {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .purchaseOrder .orderImage {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 30%;
-          flex: 1 1 30%;
+  flex: 1 1 30%;
 }
 .purchaseOrder .orderImage img {
   width: 100%;
 }
 .purchaseOrder .orderDetails {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   text-align: center;
 }
 .purchaseOrder .orderDetails p {
@@ -1506,9 +1278,7 @@ p.therapyDetailsPrice {
   margin-bottom: 0;
 }
 .purchaseOrder .orderPrice {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 20%;
-          flex: 1 1 20%;
+  flex: 1 1 20%;
   text-align: right;
 }
 .purchaseOrder .orderPrice p {
@@ -1516,11 +1286,8 @@ p.therapyDetailsPrice {
   margin-bottom: 0;
 }
 .purchaseOrder .orderTotals {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   text-align: right;
 }
 .purchaseOrder .orderTotals p {
@@ -1528,14 +1295,10 @@ p.therapyDetailsPrice {
   margin-bottom: 0;
 }
 .purchaseOrder .orderTotalsTitles {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 60%;
-          flex: 1 1 60%;
+  flex: 1 1 60%;
 }
 .purchaseOrder .orderTotalsCosts {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 25%;
-          flex: 1 1 25%;
+  flex: 1 1 25%;
   margin-left: auto;
 }
 
@@ -1547,19 +1310,10 @@ p.therapyDetailsPrice {
   margin-top: 4rem;
   margin-bottom: 0.65rem;
   font-size: 1.6rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .payButtons span {
   text-transform: none;
@@ -1596,12 +1350,8 @@ p.therapyDetailsPrice {
   padding: 0 1.3rem;
 }
 #paymentForm .formCheck {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 #paymentForm .formCheckLabel {
   margin-bottom: 0;
@@ -1624,27 +1374,18 @@ p.therapyDetailsPrice {
 }
 
 .loadingSpinner {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   margin: 0;
   height: 100%;
   color: #b299ff;
 }
 
-/*===== END  Purchase  ===== */
-/*~~~~~~~  Purchase Success Page ~~~~~~~ */
+/*===== END  Purchase  =====*/
+/*~~~~~~~  Purchase Success Page ~~~~~~~*/
 .containerPurchaseSuccess hr {
   margin: 1rem auto;
   max-width: 70%;
@@ -1688,16 +1429,9 @@ p.therapyDetailsPrice {
   padding: 0.5rem 1rem;
 }
 .purchaseSuccessButtons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-evenly;
   margin-bottom: 2rem;
 }
 
@@ -1734,22 +1468,13 @@ p.therapyDetailsPrice {
   margin-top: 1.6rem;
 }
 .orderConfirmationRow {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 @media only screen and (min-width: 25em) {
   .orderConfirmationRow {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
 .orderConfirmationRow > p {
@@ -1757,52 +1482,37 @@ p.therapyDetailsPrice {
   padding-left: 1.2rem;
 }
 .orderConfirmationRow > p:first-child {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
+  flex: 3;
   font-weight: 700;
   font-size: 2rem;
 }
 @media only screen and (min-width: 37.5em) {
   .orderConfirmationRow > p:first-child {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
 }
 .orderConfirmationRow > p:not(:first-child) {
-  -webkit-box-flex: 7;
-      -ms-flex: 7;
-          flex: 7;
+  flex: 7;
   text-align: left;
   color: #191970;
   font-size: 2rem;
 }
 @media only screen and (min-width: 37.5em) {
   .orderConfirmationRow > p:not(:first-child) {
-    -webkit-box-flex: 2;
-        -ms-flex: 2;
-            flex: 2;
+    flex: 2;
   }
 }
 .orderConfirmationNumber {
   font-weight: 700;
 }
 
-/*===== END  Purchase Success Page ===== */
-/*~~~~~~~  User Profile  ~~~~~~~ */
+/*===== END  Purchase Success Page =====*/
+/*~~~~~~~  User Profile  ~~~~~~~*/
 .containerProfile {
   width: 90%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   margin: 1.5rem auto;
 }
 
@@ -1810,22 +1520,14 @@ p.therapyDetailsPrice {
   margin: 1rem 0;
 }
 .profileWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding: 1rem 0;
 }
 @media only screen and (min-width: 59.375em) {
   .profileWrapper {
     width: 100%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
 .profileTitle {
@@ -1838,21 +1540,12 @@ p.therapyDetailsPrice {
   margin-bottom: 3rem;
 }
 .profileDetails {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
 }
 .profileDetailsForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  flex-direction: column;
+  align-items: stretch;
   margin-top: 1.3rem;
 }
 .profileDetailsForm .formInput {
@@ -1860,15 +1553,12 @@ p.therapyDetailsPrice {
 }
 .profileDetailsButton {
   margin-left: auto;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   text-transform: uppercase;
   margin-top: 1rem;
 }
 .profileOrders {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   margin-top: 2rem;
 }
 @media only screen and (min-width: 59.375em) {
@@ -1901,29 +1591,15 @@ p.therapyDetailsPrice {
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
 }
-.profileFormInputinput::-webkit-input-placeholder {
-  color: #aab7c4;
-}
-.profileFormInputinput:-ms-input-placeholder {
-  color: #aab7c4;
-}
-.profileFormInputinput::-ms-input-placeholder {
-  color: #aab7c4;
-}
 .profileFormInputinput::placeholder {
   color: #aab7c4;
 }
 
-/*===== END  User Profile  ===== */
-/*~~~~~~~  Add Therapy Page  ~~~~~~~ */
+/*===== END  User Profile  =====*/
+/*~~~~~~~  Add Therapy Page  ~~~~~~~*/
 .containerAddTherapy {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding: 1rem 2rem;
 }
 @media only screen and (min-width: 75em) {
@@ -1935,9 +1611,7 @@ p.therapyDetailsPrice {
 
 .addTherapyHeader {
   text-align: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   padding: 0 1.3rem;
 }
 .addTherapyHeader > hr {
@@ -1945,70 +1619,48 @@ p.therapyDetailsPrice {
   margin-bottom: 1.2rem;
 }
 .addTherapyBody {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
 }
 .addTherapyBody form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-bottom: 1rem;
   /* Since Django refuses to apply a class to its form elements
-   * will have to manually force them here.
-   * Have to copy .formInput styles into here */
+  * will have to manually force them here.
+  * Have to copy .formInput styles into here */
 }
 .addTherapyBody form input, .addTherapyBody form select, .addTherapyBody form textarea {
-  /*Always when padding an element give it a bit more on the sides to look better */
+  /*Always when padding an element give it a bit more on the sides to look better*/
   padding: 1.5rem 2rem;
   margin-bottom: 1rem;
   border-radius: 2px;
   background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid #b299ff;
-  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  /*Add a transparent border at the bottom to match the border when the input is focussed */
-  /*Otherwise the form elements will 'jump' when focus switches */
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  /*Add a transparent border at the bottom to match the border when the input is focussed*/
+  /*Otherwise the form elements will 'jump' when focus switches*/
   border-bottom: 3px solid transparent;
-  /*Full width on its own line */
+  /*Full width on its own line*/
   width: 90%;
   display: block;
-  -webkit-transition: all 1s;
   transition: all 1s;
 }
 .addTherapyBody form input:focus, .addTherapyBody form select:focus, .addTherapyBody form textarea:focus {
-  /*Browser highlights a border (outline) around the input element when it has focus */
-  /*We want to remove this */
+  /*Browser highlights a border (outline) around the input element when it has focus*/
+  /*We want to remove this*/
   outline: none;
-  /*This focus is important for ARIA, i.e. keyboard navigation */
-  /*Always make form elements that are focussed visible */
-  /*Give it a box shadow and a border at the bottom */
-  -webkit-box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
-          box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
+  /*This focus is important for ARIA, i.e. keyboard navigation*/
+  /*Always make form elements that are focussed visible*/
+  /*Give it a box shadow and a border at the bottom*/
+  box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
   border-bottom: 3px solid #b299ff;
-  /*Apply this style when we have an invalid focussed input element */
+  /*Apply this style when we have an invalid focussed input element*/
 }
 .addTherapyBody form input:focus:invalid, .addTherapyBody form select:focus:invalid, .addTherapyBody form textarea:focus:invalid {
   border-bottom: 3px solid #191970;
 }
-.addTherapyBody form input::-webkit-input-placeholder, .addTherapyBody form select::-webkit-input-placeholder, .addTherapyBody form textarea::-webkit-input-placeholder {
-  /*Target the placeholder text */
-  color: #999999;
-}
-.addTherapyBody form input:-ms-input-placeholder, .addTherapyBody form select:-ms-input-placeholder, .addTherapyBody form textarea:-ms-input-placeholder {
-  /*Target the placeholder text */
-  color: #999999;
-}
-.addTherapyBody form input::-ms-input-placeholder, .addTherapyBody form select::-ms-input-placeholder, .addTherapyBody form textarea::-ms-input-placeholder {
-  /*Target the placeholder text */
-  color: #999999;
-}
 .addTherapyBody form input::placeholder, .addTherapyBody form select::placeholder, .addTherapyBody form textarea::placeholder {
-  /*Target the placeholder text */
+  /*Target the placeholder text*/
   color: #999999;
 }
 .addTherapyBody form label {
@@ -2023,11 +1675,10 @@ p.therapyDetailsPrice {
 }
 .addTherapyButtons {
   margin-top: 1.3rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
-label[for="id_course_sessions"] {
+label[for=id_course_sessions] {
   margin-top: 2rem;
 }
 
@@ -2036,16 +1687,11 @@ label[for="id_course_sessions"] {
   margin-top: -3rem;
 }
 
-/*===== END  Add Therapy Page  ===== */
+/*===== END  Add Therapy Page  =====*/
 .therapyListing {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2080,22 +1726,13 @@ label[for="id_course_sessions"] {
   }
 }
 
-/*~~~~~~~  404 Page  ~~~~~~~ */
+/*~~~~~~~  404 Page  ~~~~~~~*/
 .errorSection {
   background-color: #ffb299;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   min-height: 75vh;
   padding: 3rem;
 }
@@ -2122,11 +1759,9 @@ label[for="id_course_sessions"] {
   color: #e84610;
 }
 
-/*===== END  404 Page  ===== */
-/*~~~~~~~  Dropdown Menu  ~~~~~~~ */
+/*===== END  404 Page  =====*/
+/*~~~~~~~  Dropdown Menu  ~~~~~~~*/
 li.navigationItem {
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
   min-width: fit-content;
 }
 
@@ -2137,19 +1772,11 @@ menuitem {
 }
 
 menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 menu.headMenu {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 menu.headMenu > menuitem > a {
   padding-left: 0;
@@ -2164,7 +1791,6 @@ menu menuitem a {
 .subMenu {
   overflow: hidden;
   max-height: 0;
-  -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
   background-color: #ffb299;
 }
@@ -2195,8 +1821,6 @@ menu menuitem a {
 }
 @media only screen and (min-width: 59.375em) {
   #accountOptions + .subMenu {
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
     max-width: fit-content;
   }
 }
@@ -2212,12 +1836,12 @@ menu menuitem a {
 
 .mainMenu {
   /* Need a bottom margin otherwise the menu is written
-   * on top of the rest of the page */
+  * on top of the rest of the page */
 }
 @media only screen and (min-width: 59.375em) {
   .mainMenu {
     /*	Showing the submenu shoves the rest of the page down
-     * So remove the bottom margin on the main menu to counter-act this */
+    * So remove the bottom margin on the main menu to counter-act this */
   }
   .mainMenu:hover {
     margin-bottom: 0;
@@ -2237,12 +1861,12 @@ menu menuitem a {
  * we're changing the subMenu's max-height from 0 to 200px; */
 .mainMenu menuitem:hover .subMenu {
   /*	In the mobile view we want the "appearing" submenu to
-   * shove the other main menu items down */
+  * shove the other main menu items down */
   display: block;
   max-height: 200px;
   width: auto;
   /*	In the desktop view we want the "appearing" submenu to
-   * overlap the existing page items and not shove anything down */
+  * overlap the existing page items and not shove anything down */
 }
 @media only screen and (min-width: 59.375em) {
   .mainMenu menuitem:hover .subMenu {
@@ -2253,10 +1877,7 @@ menu menuitem a {
 menu a {
   color: #751c00;
   min-width: 9rem;
-  -webkit-transition: background 0.5s, color 0.5s, -webkit-transform 0.5s;
-  transition: background 0.5s, color 0.5s, -webkit-transform 0.5s;
   transition: background 0.5s, color 0.5s, transform 0.5s;
-  transition: background 0.5s, color 0.5s, transform 0.5s, -webkit-transform 0.5s;
   margin: 0;
   text-align: left;
   padding-left: 1.5rem;
@@ -2295,10 +1916,10 @@ menu a {
 .dropMenuTopLink {
   text-align: center;
   /*	Since touch devices do not have a "hover" event
-   * We need to click on the "Therapies" label to open the submenu
-   * However this will activate the link and the user will never see the subMenu
-   * We need to disable the pointer on the anchor in mobile view.
-   * The parent menu is still clickable and will show the subMenu, but the anchor will not be activated. */
+  * We need to click on the "Therapies" label to open the submenu
+  * However this will activate the link and the user will never see the subMenu
+  * We need to disable the pointer on the anchor in mobile view.
+  * The parent menu is still clickable and will show the subMenu, but the anchor will not be activated. */
   pointer-events: none;
 }
 @media only screen and (min-width: 59.375em) {
@@ -2310,20 +1931,18 @@ menu a {
 
 /* For "search" & "My Account" dropdown */
 .headMenu > menuitem > menu > menuitem {
-  -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   opacity: 0;
 }
 
 .headMenu > menuitem:hover > menu > menuitem,
 .headMenu > menuitem.hover > menu > menuitem {
-  -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   opacity: 1;
 }
 
-/*===== END Dropdown Menu   ===== */
-/*~~~~~~~  Button  ~~~~~~~ */
+/*===== END Dropdown Menu   =====*/
+/*~~~~~~~  Button  ~~~~~~~*/
 .btn {
   text-transform: uppercase;
   display: inline-block;
@@ -2334,26 +1953,21 @@ menu a {
   color: #751c00;
   border: 3px solid #751c00;
   text-align: center;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 .btn:hover {
   /* Make the button pop up => 3D effect */
-  -webkit-transform: translateY(-0.5rem);
-          transform: translateY(-0.5rem);
-  /* Box Shadow X Y Blur Colour */
-  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.5rem);
+  /* Box Shadow X Y Blur Colour*/
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .btn:active {
   color: #b299ff;
   background-color: #751c00;
   /* Make the button appear to be pressed => 3D effect */
-  -webkit-transform: translateY(-0.1rem);
-          transform: translateY(-0.1rem);
-  /* Box Shadow X Y Blur Colour */
-  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.1rem);
+  /* Box Shadow X Y Blur Colour*/
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .btn:not(:last-child) {
   margin-right: 1.5rem;
@@ -2385,7 +1999,7 @@ menu a {
 }
 .btnThin {
   /* These thin buttons have too much padding above and below
-   * Override the default padding for these Buttons */
+  * Override the default padding for these Buttons */
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
 }
@@ -2400,7 +2014,6 @@ menu a {
   border: 1px solid #751c00;
   border-radius: 0;
   font-weight: 700;
-  -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
 }
 .btnStyle span:hover {
@@ -2416,24 +2029,14 @@ menu a {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   border: 1px solid #000000;
   color: #000000;
-  -webkit-box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.075);
-          box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.075);
+  box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.075);
 }
 .btnBackToTop a {
   cursor: pointer;
@@ -2442,7 +2045,7 @@ menu a {
   margin: auto;
 }
 
-button[class$="crementSessions"] {
+button[class$=crementSessions] {
   background-color: #751c00;
   color: #ffcdbd;
   cursor: pointer;
@@ -2450,7 +2053,7 @@ button[class$="crementSessions"] {
   height: 3.75rem;
   width: 3.75rem;
 }
-button[class$="crementSessions"]:disabled {
+button[class$=crementSessions]:disabled {
   background-color: #808080;
   cursor: not-allowed;
 }
@@ -2464,20 +2067,11 @@ button[class$="crementSessions"]:disabled {
 }
 
 #therapyListButtons, #addTherapyButtons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 2rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 #therapyListButtons a, #therapyListButtons button, #addTherapyButtons a, #addTherapyButtons button {
   margin-right: 0;
@@ -2487,41 +2081,27 @@ button[class$="crementSessions"]:disabled {
   background-color: #ffcdbd;
 }
 
-/*===== END  Button  ===== */
+/*===== END  Button  =====*/
 .search {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 80%;
-          flex: 0 0 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex: 0 0 80%;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   /* Since the search box will appear over the header and the mobile menu,
-   * both of which have different backgrounds,
-   * Need to set its background to transparent */
+  * both of which have different backgrounds,
+  * Need to set its background to transparent */
   background-color: transparent;
   margin-right: auto;
   margin-left: auto;
   /* Last one - move all the way to the end
-   * So that it will wrap onto the next row in the mobile view */
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  * So that it will wrap onto the next row in the mobile view */
+  order: 1;
 }
 @media only screen and (min-width: 37.5em) {
   .search {
     /* Move back inline with the rest of the top nav */
-    -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-            order: 0;
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 40%;
-            flex: 0 0 40%;
+    order: 0;
+    flex: 0 0 40%;
   }
 }
 .searchInput {
@@ -2536,7 +2116,6 @@ button[class$="crementSessions"]:disabled {
   border: 1px solid #aab7c4;
   padding: 0.7rem 2rem;
   width: 90%;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
   /* Move the button on top of this input  */
   margin-right: -3.25rem;
@@ -2545,61 +2124,22 @@ button[class$="crementSessions"]:disabled {
   outline: none;
   background-color: #aab7c4;
 }
-.searchInput:focus::-webkit-input-placeholder {
-  /*	Change the colour of the placeholder text
-   * when the background gets darker
-   * to ensure there is enough contrast */
-  color: #333333;
-}
-.searchInput:focus:-ms-input-placeholder {
-  /*	Change the colour of the placeholder text
-   * when the background gets darker
-   * to ensure there is enough contrast */
-  color: #333333;
-}
-.searchInput:focus::-ms-input-placeholder {
-  /*	Change the colour of the placeholder text
-   * when the background gets darker
-   * to ensure there is enough contrast */
-  color: #333333;
-}
 .searchInput:focus::placeholder {
   /*	Change the colour of the placeholder text
-   * when the background gets darker
-   * to ensure there is enough contrast */
+  * when the background gets darker
+  * to ensure there is enough contrast */
   color: #333333;
-}
-.searchInput::-webkit-input-placeholder {
-  /* Change the colour of the placeholder text
-   * to give enough contrast
-   * https://www.w3schools.com/howto/howto_css_placeholder.asp */
-  font-weight: 100;
-  color: #999999;
-}
-.searchInput:-ms-input-placeholder {
-  /* Change the colour of the placeholder text
-   * to give enough contrast
-   * https://www.w3schools.com/howto/howto_css_placeholder.asp */
-  font-weight: 100;
-  color: #999999;
-}
-.searchInput::-ms-input-placeholder {
-  /* Change the colour of the placeholder text
-   * to give enough contrast
-   * https://www.w3schools.com/howto/howto_css_placeholder.asp */
-  font-weight: 100;
-  color: #999999;
 }
 .searchInput::placeholder {
   /* Change the colour of the placeholder text
-   * to give enough contrast
-   * https://www.w3schools.com/howto/howto_css_placeholder.asp */
+  * to give enough contrast
+  * https://www.w3schools.com/howto/howto_css_placeholder.asp */
   font-weight: 100;
   color: #999999;
 }
 .searchInput:focus + .searchButton {
   /* When the input gets focus
-   * Change the background colour of its sibling(+) button */
+  * Change the background colour of its sibling(+) button */
   background-color: #aab7c4;
 }
 .searchButton {
@@ -2610,44 +2150,28 @@ button[class$="crementSessions"]:disabled {
   font-size: 1.4rem;
 }
 .searchButton:active {
-  -webkit-transform: translateY(2px);
-          transform: translateY(2px);
+  transform: translateY(2px);
 }
 
 .emptySearch {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 .emptySearch h2 {
   margin-bottom: 1.5rem;
 }
 
-/*~~~~~~~  Card  ~~~~~~~ */
+/*~~~~~~~  Card  ~~~~~~~*/
 .therapyCard {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   /* Layout card in a grid
-   * https://www.youtube.com/watch?v=vQAvjof1oe4 */
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 250px;
-          flex: 0 1 250px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  * https://www.youtube.com/watch?v=vQAvjof1oe4 */
+  flex: 0 1 250px;
+  flex-direction: column;
   position: relative;
   border-radius: 5px;
-  -webkit-box-shadow: 0 1.5rem 4rem rgba(25, 25, 112, 0.15);
-          box-shadow: 0 1.5rem 4rem rgba(25, 25, 112, 0.15);
+  box-shadow: 0 1.5rem 4rem rgba(25, 25, 112, 0.15);
 }
 .therapyCard p {
   font-size: 1.6rem;
@@ -2655,9 +2179,7 @@ button[class$="crementSessions"]:disabled {
 }
 .therapyCardBody {
   /* Push the cardFooter to the bottom of the card */
-  -webkit-box-flex: 1;
-      -ms-flex: auto 1 1;
-          flex: auto 1 1;
+  flex: auto 1 1;
   padding: 0 1rem;
 }
 .therapyCardBody h2 {
@@ -2665,21 +2187,14 @@ button[class$="crementSessions"]:disabled {
   font-size: 2rem;
 }
 .therapyCardFooter {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   background-color: #ffcdbd;
   padding: 0.75rem 1rem;
   text-align: left;
   /* Since the footer hides the card's border-radius on the bottom
-   * Need to set its border radius on the bottom too */
+  * Need to set its border radius on the bottom too */
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -2693,8 +2208,7 @@ button[class$="crementSessions"]:disabled {
   color: #999999;
 }
 .therapyCardFooter .bookButton {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 .therapyCardStyle {
   color: #751c00;
@@ -2702,12 +2216,9 @@ button[class$="crementSessions"]:disabled {
   font-family: Gabriela;
 }
 .therapyCardStyle a {
-  -webkit-text-decoration-color: #999999;
-          text-decoration-color: #999999;
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
-  -webkit-text-decoration-style: solid;
-          text-decoration-style: solid;
+  text-decoration-color: #999999;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
   text-decoration-thickness: auto;
 }
 .therapyCardStyle a:visited, .therapyCardStyle a:link {
@@ -2716,12 +2227,12 @@ button[class$="crementSessions"]:disabled {
 .therapyCard img {
   height: 21rem;
   /* Since the image hides the card's border-radius on the top
-   * Need to set its border radius on the top too */
+  * Need to set its border radius on the top too */
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-/*===== END  Card  ===== */
+/*===== END  Card  =====*/
 .sessionsInput {
   /* 7.5rem is twice the width of an increment/decrement button */
   width: 25%;
@@ -2732,62 +2243,42 @@ button[class$="crementSessions"]:disabled {
 }
 
 .shopButtons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .formInput, .form #id_country {
-  /*Always when padding an element give it a bit more on the sides to look better */
+  /*Always when padding an element give it a bit more on the sides to look better*/
   padding: 1.5rem 2rem;
   margin-bottom: 1rem;
   border-radius: 2px;
   background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid #b299ff;
-  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  /*Add a transparent border at the bottom to match the border when the input is focussed */
-  /*Otherwise the form elements will 'jump' when focus switches */
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  /*Add a transparent border at the bottom to match the border when the input is focussed*/
+  /*Otherwise the form elements will 'jump' when focus switches*/
   border-bottom: 3px solid transparent;
-  /*Full width on its own line */
+  /*Full width on its own line*/
   width: 90%;
   display: block;
-  -webkit-transition: all 1s;
   transition: all 1s;
 }
 .formInput:focus, .form #id_country:focus {
-  /*Browser highlights a border (outline) around the input element when it has focus */
-  /*We want to remove this */
+  /*Browser highlights a border (outline) around the input element when it has focus*/
+  /*We want to remove this*/
   outline: none;
-  /*This focus is important for ARIA, i.e. keyboard navigation */
-  /*Always make form elements that are focussed visible */
-  /*Give it a box shadow and a border at the bottom */
-  -webkit-box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
-          box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
+  /*This focus is important for ARIA, i.e. keyboard navigation*/
+  /*Always make form elements that are focussed visible*/
+  /*Give it a box shadow and a border at the bottom*/
+  box-shadow: 0 1rem 2rem rgba(117, 28, 0, 0.1);
   border-bottom: 3px solid #b299ff;
-  /*Apply this style when we have an invalid focussed input element */
+  /*Apply this style when we have an invalid focussed input element*/
 }
 .formInput:focus:invalid, .form #id_country:focus:invalid {
   border-bottom: 3px solid #191970;
 }
-.formInput::-webkit-input-placeholder, .form #id_country::-webkit-input-placeholder {
-  /*Target the placeholder text */
-  color: #999999;
-}
-.formInput:-ms-input-placeholder, .form #id_country:-ms-input-placeholder {
-  /*Target the placeholder text */
-  color: #999999;
-}
-.formInput::-ms-input-placeholder, .form #id_country::-ms-input-placeholder {
-  /*Target the placeholder text */
-  color: #999999;
-}
 .formInput::placeholder, .form #id_country::placeholder {
-  /*Target the placeholder text */
+  /*Target the placeholder text*/
   color: #999999;
 }
 
@@ -2828,32 +2319,22 @@ select:invalid, select option[value=""] {
   }
 }
 
-/*~~~~~~~  Sort  ~~~~~~~ */
+/*~~~~~~~  Sort  ~~~~~~~*/
 .sortRow {
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 2rem 0;
 }
 @media only screen and (min-width: 22.5em) {
   .sortRow {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 }
 
-/*===== END  Sort  ===== */
+/*===== END  Sort  =====*/
 .toast {
   min-width: 32rem;
   max-width: 75%;
@@ -2902,13 +2383,8 @@ select:invalid, select option[value=""] {
   line-height: 1;
 }
 .toastTitle {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   padding: 5px 8px;
 }
 .toastCapper {
@@ -2935,24 +2411,15 @@ select:invalid, select option[value=""] {
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 .toastBookings {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 .toastBookingsImage {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 0px;
-          flex: 1 1 0;
+  flex: 1 1 0;
   min-width: 25%;
 }
 .toastBookingsDetails {
-  -webkit-box-flex: 3;
-      -ms-flex: 3 3 0px;
-          flex: 3 3 0;
+  flex: 3 3 0;
 }
 .toastBookingsDetails p {
   margin-top: 0;
@@ -2969,67 +2436,12 @@ select:invalid, select option[value=""] {
   overflow-y: auto;
 }
 .toastBookingsTotal {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 1rem 0;
 }
 
-@-webkit-keyframes {
-  fadein {
-    from {
-      bottom: 0;
-      opacity: 0;
-    }
-    to {
-      bottom: 30px;
-      opacity: 1;
-    }
-  }
-}
-@keyframes {
-  fadein {
-    from {
-      bottom: 0;
-      opacity: 0;
-    }
-    to {
-      bottom: 30px;
-      opacity: 1;
-    }
-  }
-}
-@-webkit-keyframes {
-  fadeout {
-    from {
-      bottom: 30px;
-      opacity: 1;
-    }
-    to {
-      bottom: 0;
-      opacity: 0;
-    }
-  }
-}
-@keyframes {
-  fadeout {
-    from {
-      bottom: 30px;
-      opacity: 1;
-    }
-    to {
-      bottom: 0;
-      opacity: 0;
-    }
-  }
-}
 .messageContainer {
   position: fixed;
   top: 72px;
@@ -3062,7 +2474,7 @@ select:invalid, select option[value=""] {
   border: 1px solid #878600;
 }
 
-/*~~~~~~~  Table  ~~~~~~~ */
+/*~~~~~~~  Table  ~~~~~~~*/
 .ot4uTable tr:nth-child(odd) {
   background-color: #ffb299;
 }
@@ -3097,8 +2509,8 @@ select:invalid, select option[value=""] {
   }
 }
 
-/*===== END  Table  ===== */
-/*~~~~~~~  Django AllAuth  ~~~~~~~ */
+/*===== END  Table  =====*/
+/*~~~~~~~  Django AllAuth  ~~~~~~~*/
 ul.errorlist {
   color: #e84610;
 }
@@ -3144,26 +2556,17 @@ ul.errorlist {
   margin-bottom: 1rem;
   padding: 0.75rem 1rem;
 }
-.allauthFormInnerContent input::-webkit-input-placeholder {
-  color: #aab7c4;
-}
-.allauthFormInnerContent input:-ms-input-placeholder {
-  color: #aab7c4;
-}
-.allauthFormInnerContent input::-ms-input-placeholder {
-  color: #aab7c4;
-}
 .allauthFormInnerContent input::placeholder {
   color: #aab7c4;
 }
-.allauthFormInnerContent label:not([for="id_remember"]) {
+.allauthFormInnerContent label:not([for=id_remember]) {
   /* Hide the labels on everything except for the remember me checkbox on the login page */
-  /* since all the other inputs will have placeholders */
+  /* since all the other inputs will have placeholders*/
   display: none;
   /* Standard Bootstrap transition */
   transistion: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.allauthFormInnerContent label:not([for="id_remember"]):hover {
+.allauthFormInnerContent label:not([for=id_remember]):hover {
   color: #b299ff;
   background-color: #333333;
   border-color: #333333;
@@ -3173,21 +2576,13 @@ ul.errorlist {
 }
 
 .signup {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   margin: 1.5rem 0;
 }
 .signupButtons {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 .signup input {
   width: 80%;
@@ -3195,34 +2590,22 @@ ul.errorlist {
 
 .emailVerifySent {
   margin-bottom: 1.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding-left: 2rem;
 }
 .emailVerifySent a {
   margin-top: 1rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 .emailConfirm {
   margin-bottom: 1.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .emailConfirm form {
   margin-top: 1rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 .emailConfirm p {
   padding: 0 2rem;
@@ -3235,34 +2618,28 @@ ul.errorlist {
   padding: 0 2rem;
 }
 .loginForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin: 1.5rem 0;
   position: relative;
 }
 .loginButtons {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
 #id_remember {
   /*	The checkbox for the "Remember Me" label
-   * is laid out on the row after the label
-   * Need to move it so it is beside its label
-   * // transform: translate(0, -2rem)
-   * // transform: translateY(-2rem)
-   * // transform: translateX(0) */
+  * is laid out on the row after the label
+  * Need to move it so it is beside its label
+  * // transform: translate(0, -2rem)
+  * // transform: translateY(-2rem)
+  * // transform: translateX(0) */
   position: absolute;
   top: 11rem;
   left: 0;
 }
 
-label[for="id_remember"] {
+label[for=id_remember] {
   padding-left: 2rem;
 }
 
@@ -3276,38 +2653,26 @@ label[for="id_remember"] {
 @media only screen and (min-width: 59.375em) {
   .logoutPage {
     /* At the "notebook" size an outer div is set to 50%
-     * So reset the width back to full width again */
+    * So reset the width back to full width again */
     width: 100%;
   }
 }
 .logoutForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .logoutButtons {
   margin-top: 2rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
 .passwordResetForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-top: 1rem;
 }
 .passwordResetButtons {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 .passwordResetButtons input {
   border-radius: 10rem;
@@ -3316,79 +2681,49 @@ label[for="id_remember"] {
   padding-bottom: 1rem;
 }
 .passwordResetKey form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .passwordResetKey form input:last-of-type {
   border-radius: 10rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 .passwordResetKey form input:not(:last-of-type) {
   min-width: 23rem;
   max-width: 30rem;
 }
 .passwordResetKeyDone {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .passwordResetKeyDone a {
   margin-top: 1.5rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
-/*===== END  Django AllAuth  ===== */
-/*~~~~~~~  Stripe  ~~~~~~~ */
+/*===== END  Django AllAuth  =====*/
+/*~~~~~~~  Stripe  ~~~~~~~*/
 .StripeElement,
 .stripeStyleInput {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   height: 4rem;
   padding: 1rem 1.2rem;
   border: 1px solid transparent;
   border-radius: 0px;
   background-color: #FFFFFF;
-  -webkit-box-shadow: 0 1px 3px 0 #e6ebf1;
-          box-shadow: 0 1px 3px 0 #e6ebf1;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
-  -webkit-transition: -webkit-box-shadow 150ms ease;
-  transition: -webkit-box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripeStyleInput:focus,
 .stripeStyleInput:active {
-  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
-          box-shadow: 0 1px 3px 0 #cfd7df;
+  box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
-}
-
-.stripeStyleInput::-webkit-input-placeholder {
-  color: #aab7c4;
-}
-
-.stripeStyleInput:-ms-input-placeholder {
-  color: #aab7c4;
-}
-
-.stripeStyleInput::-ms-input-placeholder {
-  color: #aab7c4;
 }
 
 .stripeStyleInput::placeholder {
@@ -3408,33 +2743,23 @@ label[for="id_remember"] {
 
 #stripeError {
   background-color: #ffece5;
-  /*===== END  Stripe  ===== */
+  /*===== END  Stripe  =====*/
 }
 
 .addTherapyBody form .widgetImage {
   width: 96px;
   height: 96px;
   border-radius: 0.4rem;
-  -webkit-box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
-          box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
+  box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
 }
 .addTherapyBody form .widgetCheckbox {
   margin-top: 0.75rem;
   min-height: 1rem;
   padding-left: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
 }
 .addTherapyBody form .widgetInput {
   width: 1.5rem;
@@ -3462,8 +2787,7 @@ label[for="id_remember"] {
 .btnFile {
   position: relative;
   overflow: hidden;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
   margin-top: 0.75rem;
 }
 
@@ -3474,5 +2798,16 @@ label[for="id_remember"] {
 #newImage {
   opacity: 0;
 }
+
+/*~~~~~~~  MailChimp  ~~~~~~~*/
+#mc_embed_signup {
+  background: #fff;
+  font: 14px Helvetica, Arial, sans-serif;
+  width: 600px;
+}
+
+/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+ * We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+/*===== END  MailChimp  =====*/
 
 /*# sourceMappingURL=style.css.map */
