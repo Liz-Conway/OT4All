@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     # Set user profile
     "profiles",
     "maintenance",
+    "testimonials",
 ]
 
 MIDDLEWARE = [

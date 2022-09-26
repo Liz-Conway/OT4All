@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Get in Touch{% endblock %}
+
+{% block content %}
+	<hr>
+	<h2>Please send in your enquiry</h2>
+	<hr>
+	
+	<div>
+			<form method="POST" action="{% url 'getInTouch' %}">
+				{% csrf_token %}
+				{{ form }}
+				<div>
+					<a class="btn btnGhost" href="{% url 'products' %}">Cancel</a>
+					<button class="btn btnPrimary" type="submit">Send Query</button> 
+				</div>
+			</form>
+	
+	</div>
+{% endblock %}
