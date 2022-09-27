@@ -735,9 +735,19 @@ This feature allows clients and potential clients to view information about Nata
 
 #### Get in Touch
 [Back to Top](#top)
+The purpose of this feature is to allow Natalia's clients to establish contact and get their queries answered.  Being available to answer questions makes Natalia seem more friendly and trust worthy and will generate more bookings for her.
 
 #### Sign up for our Newsletter
 [Back to Top](#top)
+
+A MailChimp subscription service is used to allow clients and users to sign up to Natalia's regular newsletter.  This establishes ongoing contact between herself and her clients/potential clients.  She will always be in the forefront of their minds and should be the first person they think of when considering getting OT.
+
+Supporting page elements - **Newsletter Signup**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Newsletter signup - Desktop](documentation/pages/newsletter.png)   |  ![Newsletter signup - mobile](documentation/pages/mobile/newsletter.png)   |
+
 
 #### View our Privacy Policy
 [Back to Top](#top)
@@ -958,7 +968,7 @@ Using the [Grayscale Browsing extension](https://addons.mozilla.org/en-US/firefo
 <a id="colours"></a>
 [Back to Top](#top)
 
-The main colours for the OT4U application were deliberately chosen to invoke specific emotional reponses from the user.
+The main colours for the OT4U application were deliberately chosen to invoke specific emotional reponses from the user.  The colours were taken from the picture on the home page.  The light colours used to highlight/accent a particular area to draw the user's attention were taken from the purple and green balloons.  The pink hues used throughout the website were taken from the Occupational Therapist's face.  The brownish colour was taken from the darker shadows of her top.  The dark blue used to hightlight/accent against a light background was taken from the shadow of the girl's pocket.
 
 
 The use of colours in the OT4U application should make the user feel welcomed and trusting.  Whilst at the same time the user knows that this is not a "fun" app, but a serious tool that will be used by professionals.
@@ -1358,6 +1368,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |How to change the colour of a placeholder | W3 Schools |https://www.w3schools.com/howto/howto_css_placeholder.asp |
 |Django model data types | Naveen Arora |https://www.geeksforgeeks.org/positiveintegerfield-django-models/ |
 |Layout components in a grid using Flexbox | Kevin Powell |https://www.youtube.com/watch?v=vQAvjof1oe4 |
+| Wrap text around irregular shape | Nate Weiner |https://www.youtube.com/watch?v=vQAvjof1oe4 | |
 
 
 ### Pictures

@@ -1,10 +1,25 @@
 /*~~~~~~~  About  ~~~~~~~*/
 .about
-	Details
-		img
-			float: left
-			margin-right: 3rem
+	&Details
+		margin-top: 2rem
+		@include respond(notebook)
+			img
+				float: left
+				margin-right: 3rem
+				&:last-child
+					float: right
+					margin-left: 3rem
 
+	&Title
+		text-align: center
+		margin-top: 1rem
+		h1
+			margin-top: 3rem
+			font:
+				size: 3rem
+				weight: $thickWt
+			text-transform: uppercase
+			margin-bottom: 2.5rem
 
 
 
