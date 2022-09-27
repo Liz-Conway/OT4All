@@ -29,35 +29,36 @@ class ContactView(TemplateView):
     template_name = "home/contact.html"
 
     def get_context_data(self, **kwargs):
-        print("In get_context_data()")
 
         form = ContactForm()
-        print(f"form :\n {form}")
 
         context = {
             "form": form,
         }
 
-        print(f"Context :\n{context}")
-
         return context
 
-    # def post(self, request, *args, **kwargs):
-    #
-    #     # Create a new instance of the ContactForm using the POST data.
-    #     form = ContactForm(request.POST)
-    #
-    #     if form.is_valid():
-    #         form.save()
-    #         messages.success(request, "Contact enquiry sent successfully")
-    #
-    #         return redirect(reverse('getInTouch'))
-    #     else:
-    #         # Attach a generic error message telling the user to check their form
-    #         # which will display the errors.
-    #         messages.error(
-    #             request,
-    #             "Failed to log your enquiry.  Please ensure the form is valid.",
-    #         )
-    #
-    #         return render(request, self.template_name, {"form": form})
+    def post(self, request, *args, **kwargs):
+
+        # Create a new instance of the ContactForm using the POST data.
+        form = ContactForm(request.POST)
+        print(form)
+
+        if form.is_valid():
+            print("Form is valid")
+            form.save()
+            print("Saved form")
+            messages.success(request, "Contact enquiry sent successfully")
+
+            return redirect(reverse("home"))
+        else:
+            print("Form is INVALID")
+            # Attach a generic error message telling the user to check their form
+            # which will display the errors.
+            messages.error(
+                request,
+                "Failed to log your enquiry.  Please ensure the form is valid.",
+            )
+
+            # Reload the page
+            return render(request, self.template_name, {"form": form})
