@@ -40,13 +40,13 @@
 <meta name="msapplication-TileImage" content="{% static 'favico/ms-icon-144x144.png' %}">
 <meta name="theme-color" content="#ffcdbd"> -->
 
-    {% block extra_css %}
 	    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
-    
-    {% endblock %}
 
     {% block corecss %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% endblock %}
+    {% block extra_css %}
+    
     {% endblock %}
 
     <title>OT4U | {% block extra_title %}{% endblock %}</title>

@@ -126,5 +126,16 @@
 }
 
 /*===== END  About  ===== */
+/*~~~~~~~  Contact  ~~~~~~~ */
+.contactButtons .btn:not(:last-child) {
+  margin-right: 0;
+}
+@media only screen and (min-width: 25.625em) {
+  .contactButtons .btn:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+}
+
+/*===== END  Contact  ===== */
 
 /*# sourceMappingURL=home.css.map */
