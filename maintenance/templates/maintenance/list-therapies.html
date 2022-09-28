@@ -3,6 +3,11 @@
 
 {% block extra_title %}Therapy List{% endblock %}
 
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/maintenance.css' %}">
+{% endblock %}
+
 {% block content %}
 	<div class="therapyListContainer">
 		<hr>
