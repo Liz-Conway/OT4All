@@ -2,6 +2,11 @@
 {% load static %}
 {% block extra_title %}Edit Therapy{% endblock %}
 
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/testimonial.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="containerTestimonial">
 				<div class="testimonialHeader">
@@ -21,6 +26,7 @@
 	        			<div class="testimonialText">
 	        				<h3>{{ testimonial.testimony_title }}</h3>
 	        				<p>{{ testimonial.testimony }}</p>
+	        				<p class="testimonialDate">{{ testimonial.date }}</p>
 	        			</div>
 	        		</div>
 	        		{% endfor %}

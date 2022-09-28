@@ -1,0 +1,144 @@
+/*~~~~~~~  Testimonial  ~~~~~~~ */
+.testimonial {
+  width: 100%;
+  margin: 2rem auto;
+  -webkit-box-shadow: 0 3rem 6rem rgba(117, 28, 0, 0.1);
+          box-shadow: 0 3rem 6rem rgba(117, 28, 0, 0.1);
+  background-color: #b299ff;
+  border-radius: 3px;
+  font-size: 1.6rem;
+  /*When the .testimonial is hovered we want to change the .testimonialCaption */
+}
+@media only screen and (min-width: 50em) {
+  .testimonial {
+    width: 75%;
+    padding: 6rem;
+    padding-left: 9rem;
+    -webkit-transform: skewX(-12deg);
+            transform: skewX(-12deg);
+  }
+  .testimonial:nth-child(even) {
+    -webkit-transform: skewX(12deg);
+            transform: skewX(12deg);
+    background-color: #b299ff;
+  }
+  .testimonial:nth-child(even) .testimonialText {
+    -webkit-transform: skewX(-12deg);
+            transform: skewX(-12deg);
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .testimonial {
+    padding: 4rem 4rem 4rem 7rem;
+  }
+}
+.testimonialHeader {
+  text-align: center;
+}
+.testimonialShape {
+  width: 15rem;
+  height: 12rem;
+  -webkit-transform: translate(12rem, 3rem);
+          transform: translate(12rem, 3rem);
+  /* Flexible images for responsive web design always need a width */
+}
+@media only screen and (min-width: 50em) {
+  .testimonialShape {
+    float: left;
+    /* Radius 50% means the radius will be half the height/width of .testimonialShape element */
+    /* Centre at 50% 50% - centre of circle is exactly half way horizontally and vertically of the element */
+    /* Element must be floated for this property to work */
+    /* Element must have width AND height defined for this property to work */
+    /* Defines where the content flows around the element */
+    /* radius at centreX centreY */
+    shape-outside: circle(50% at 50% 50%);
+    /* Make this element a circle */
+    -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+    -webkit-transform: translateX(-3rem);
+            transform: translateX(-3rem);
+  }
+}
+.testimonialImage {
+  height: 90%;
+  -webkit-transform: translateY(-1.6rem);
+          transform: translateY(-1.6rem);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+@media only screen and (min-width: 50em) {
+  .testimonialImage {
+    /* Image is inside a .testimonialShape which has a height of 15rem */
+    height: 100%;
+    /* Height of this image is 100% of 15rem
+     * Move image to be more central
+     * and be slightly zoomed out initially */
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+}
+.testimonialCaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /*transform: translate(-50%, -50%)
+   * We want the name to start lower than this
+   * We will move it back up to the centre on hover
+   * So increase the translate Y number to move the name lower */
+  -webkit-transform: translate(-50%, 20%);
+          transform: translate(-50%, 20%);
+  color: #ffece5;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  text-align: center;
+  /*Initially hide the name */
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  /*Remove shake at end of translation */
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.testimonialDate {
+  font-family: "Roboto Slab", "Helvetica Neue", sans-serif;
+  text-align: right;
+}
+.testimonialText {
+  padding: 1rem;
+}
+@media only screen and (min-width: 59.375em) {
+  .testimonialText {
+    padding: 0;
+  }
+}
+.testimonial:hover .testimonialCaption {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.testimonial:hover .testimonialImage {
+  -webkit-transform: scale(1) translate(-4rem, -1.6rem);
+          transform: scale(1) translate(-4rem, -1.6rem);
+  /*Blurry and darker */
+  -webkit-filter: blur(3px) brightness(80%);
+          filter: blur(3px) brightness(80%);
+}
+@media only screen and (min-width: 59.375em) {
+  .testimonial:hover .testimonialImage {
+    -webkit-transform: scale(1) translate(-4rem);
+            transform: scale(1) translate(-4rem);
+  }
+}
+
+.containerTestimonial {
+  width: 95vw;
+}
+@media only screen and (min-width: 59.375em) {
+  .containerTestimonial {
+    width: 80%;
+  }
+}
+
+/*===== END  Testimonial  ===== */
+
+/*# sourceMappingURL=testimonial.css.map */
