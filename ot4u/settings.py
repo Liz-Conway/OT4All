@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import environ
 import os
 import dj_database_url
+import mimetypes
 
 from pathlib import Path
 from django.conf.global_settings import DEFAULT_FILE_STORAGE
@@ -35,6 +36,9 @@ DEBUG = env("DEBUG")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
+
+# Make sure Django sees CSS files as CSS
+mimetypes.add_type("text/css", ".css", True)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY", "")

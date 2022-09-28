@@ -3,6 +3,11 @@
 
 {% block extra_title %}Purchase Success{% endblock %}
 
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/purchase.css' %}">
+{% endblock %}
+
 {% block content %}
 	<div class="overlay"></div>
 	<div class="containerPurchaseSuccess">

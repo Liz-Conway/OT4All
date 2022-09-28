@@ -2,25 +2,20 @@
 .about
 	&Details
 		margin-top: 2rem
+		img
+			margin-left: calc((80vw - 194px) / 2)
+		@include respond(430)
+			img
+				float: left
+				margin-right: 3rem
+				margin-left: 0
+
+	&Image
+		// text-align: center
 		@include respond(notebook)
 			img
 				float: left
 				margin-right: 3rem
-				&:last-child
-					float: right
-					margin-left: 3rem
-
-	&Title
-		text-align: center
-		margin-top: 1rem
-		h1
-			margin-top: 3rem
-			font:
-				size: 3rem
-				weight: $thickWt
-			text-transform: uppercase
-			margin-bottom: 2.5rem
-
 
 
 /*===== END  About  =====*/

@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_title %}Home{% endblock %}
+{% block extra_title %}About{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock %}
 
 {% block content %}
 		<div class="aboutContainer">
-			<div class="aboutTitle">
-				<hr>
-				<h1>About Natalia</h1>
-				<hr>
-			</div>
+			<hr>
+			<h1>About Natalia</h1>
+			<hr>
 			<div class="aboutDetails">
-				<img src="{% static 'images/natalia.jpeg' %}" alt="Natalia with a client">
+				<!-- <div class="aboutImage"> -->
+					<img src="{% static 'images/natalia.jpeg' %}" alt="Natalia with a client">
+				<!-- </div> -->
 				<div>
 				<p>With over 20 years experience the opportunity to see people achieve new goals and climb new heights leaves me humbled and in complete awe.</p>
 				<br>

@@ -15,22 +15,14 @@
     {% block extra_meta %}
     {% endblock %}
 
-    {% block corecss %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    {% endblock %}
-
-    {% block extra_css %}
-	    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
-    
-    {% endblock %}
-
     {% block corejs %}
         <script src="https://kit.fontawesome.com/56b4ac2d56.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <!-- Stripe -->
-        <script src="https://js.stripe.com/v3/"></script>    {% endblock %}
+        <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
 
-<link rel="apple-touch-icon" sizes="57x57" href="{% static 'favico/apple-icon-57x57.png' %}">
+<!-- <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favico/apple-icon-57x57.png' %}">
 <link rel="apple-touch-icon" sizes="60x60" href="{% static 'favico/apple-icon-60x60.png' %}">
 <link rel="apple-touch-icon" sizes="72x72" href="{% static 'favico/apple-icon-72x72.png' %}">
 <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favico/apple-icon-76x76.png' %}">
@@ -46,7 +38,16 @@
 <link rel="manifest" href="{% static 'favico/manifest.json' %}">
 <meta name="msapplication-TileColor" content="#ffcdbd">
 <meta name="msapplication-TileImage" content="{% static 'favico/ms-icon-144x144.png' %}">
-<meta name="theme-color" content="#ffcdbd">
+<meta name="theme-color" content="#ffcdbd"> -->
+
+	    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+
+    {% block corecss %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% endblock %}
+    {% block extra_css %}
+    
+    {% endblock %}
 
     <title>OT4U | {% block extra_title %}{% endblock %}</title>
   </head>

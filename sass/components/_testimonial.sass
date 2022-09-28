@@ -1,16 +1,11 @@
 /*~~~~~~~  Testimonial  ~~~~~~~*/
 .testimonial
 	width: 100%
-	margin: 2rem auto  /* Centre a block element within another block element */
+	margin: 2rem auto
 	box-shadow: 0 3rem 6rem rgba($shadow, .1)
-	background-color: $accentLight
+	background-color: $highlight
 	border-radius: 3px
 	font-size: $baseFontSize
-	&:first-child
-		.testimonialCaption
-			color: $accentDark
-	&:nth-child(even)
-		background-color: $highlight
 	@include respond(tabletLandscape)
 		width: 75%
 		padding: 6rem
@@ -23,10 +18,7 @@
 				transform: skewX(-12deg)
 
 	@include respond(tabletPortrait)
-		// width: 100%
-		padding: 4rem
-		padding-left: 7rem
-
+		padding: 4rem 4rem 4rem 7rem
 
 	&Header
 		text-align: center
@@ -43,71 +35,72 @@
 			/* Element must be floated for this property to work */
 			/* Element must have width AND height defined for this property to work */
 			/* Defines where the content flows around the element */
-			-webkit-shape-outside: circle(50% at 50% 50%)
-			shape-outside: circle(50% at 50% 50%)  /* radius at centreX centreY */
+			/* radius at centreX centreY */
+			shape-outside: circle(50% at 50% 50%)
 
 			/* Make this element a circle */
-			-webkit-clip-path: circle(50% at 50% 50%)
 			clip-path: circle(50% at 50% 50%)
 
 			transform: translateX(-3rem)
-		// @include respond(tabletLandscape)
-		// 	transform: translateX(-3rem) skewX(12deg)
-		// 	position: relative
-
-
-
 
 		/* Flexible images for responsive web design always need a width */
 	&Image
 		height: 90%
 		transform: translateY(-1.6rem)
-		@include respond(tabletLandscape)
-			height: 100%  /* Image is inside a .testimonialShape which has a height of 15rem */
-						/* Height of this image is 100% of 15rem */
-		/*Move image to be more central*/
-		/*and be slightly zoomed out initially*/
-			transform: translateX(-4rem) scale(1.4)
 		transition: all .5s
-
-	&Text
-		// transform: translateY(5rem)
-
 		@include respond(tabletLandscape)
-			// transform: translateY(0)
+			/* Image is inside a .testimonialShape which has a height of 15rem */
+			height: 100%
+			/* Height of this image is 100% of 15rem
+				Move image to be more central
+				and be slightly zoomed out initially
+			// transform: translateX(-4rem) scale(1.4)
+			transform: scale(1.4)
 
 	&Caption
 		position: absolute
 		top: 50%
 		left: 50%
-		/*transform: translate(-50%, -50%)*/
-		/*We want the name to start lower than this*/
-		/*We will move it back up to the centre on hover*/
-		/*So increase the translate Y number to move the name lower*/
+		/*transform: translate(-50%, -50%)
+			We want the name to start lower than this
+			We will move it back up to the centre on hover
+			So increase the translate Y number to move the name lower
 		transform: translate(-50%, 20%)
 		color: $midtoneLight
 		text-transform: uppercase
 		font-size: 1.7rem
 		text-align: center
-		opacity: 0   /*Initially hide the name*/
+		/*Initially hide the name*/
+		opacity: 0
 		transition: all .5s
 
 		/*Remove shake at end of translation*/
 		backface-visibility: hidden
 
-		&:first-child
-			color: $accentDark
+	&Date
+		font-family: $roboto
+		text-align: right
 
-	/*When the .testimonial is hovered we want to change the .testimonialCaption*/
+	&Text
+		padding: 1rem
+		@include respond(notebook)
+			padding: 0
+
+	/*When the .testimonial is hovered we want to change the .testimonialCaption */
 	&:hover &Caption
 		opacity: 1
 		transform: translate(-50%, -50%)
 
 	&:hover &Image
-		transform: scale(1) translate(-4rem)
-		filter: blur(3px) brightness(80%)  /*Blurry and darker*/
+		transform: scale(1) translate(-4rem, -1.6rem)
+		/*Blurry and darker*/
+		filter: blur(3px) brightness(80%)
+		@include respond(notebook)
+			transform: scale(1) translate(-4rem)
 
 .containerTestimonial
 	width: 95vw
+	@include respond(notebook)
+		width: 80%
 
 /*===== END  Testimonial  =====*/

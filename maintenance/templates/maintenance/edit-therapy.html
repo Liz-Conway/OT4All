@@ -1,5 +1,13 @@
-{% extends "base.html" %} {% load static %} {% block extra_title %}Edit
-Therapy{% endblock %} {% block content %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block extra_title %}Edit Therapy{% endblock %} 
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/maintenance.css' %}">
+{% endblock %}
+
+{% block content %}
 <div class="containerAddTherapy">
 	<div class="addTherapyHeader">
 		<hr>
@@ -11,8 +19,7 @@ Therapy{% endblock %} {% block content %}
 		<!-- Add the encoding type attribute on this form.
 			Since it will potentially be submitting an image file, 
 			and without this the image won't be uploaded properly -->
-		<form method="POST" action="{% url 'editTherapy' therapy.id %}"
-			enctype="multipart/form-data">
+		<form method="POST" action="{% url 'editTherapy' therapy.id %}" enctype="multipart/form-data">
 			{% csrf_token %}
 			<label for="id_style">Style:</label>
 			<select name="style" class="formInput" required id="id_style">
@@ -42,12 +49,12 @@ Therapy{% endblock %} {% block content %}
 
 			<label for="id_image">Image:</label>
 			<p>Current Image:</p>
-			<a
-				href="https://res.cloudinary.com/liz-conway/image/upload/v1/media/ot4u/pen-control-min_ujx27y">
-				<!-- Replace the filename value with a small preview of our image -->
-				<img class="widgetImage"
-				src="https://res.cloudinary.com/liz-conway/image/upload/v1/media/ot4u/pen-control-min_ujx27y">
-			</a>
+			<!-- Replace the filename value with a small preview of our image -->
+			{% if therapy.image %}
+				<img src="{{ therapy.image.url }}" alt="{{ therapy.name }}" class="widgetImage">
+			{% else %}
+				<img src="{% static 'images/noimage.png' %}" alt="{{ therapy.name }}">
+			{% endif %}
 
 			<!-- Wrap the checkbox in a div with some CSS classes -->
 			<div class="widgetCheckbox">
