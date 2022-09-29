@@ -108,9 +108,5 @@
 		var file = $("#newImage")[0].files[0];
 		$("#widgetFilename").text(`Image will be set to :  ${file.name}`)
 	});
-	/* Had to manually recreate this page so also need to "chain" button click */
-	$(".btnFile").one('click', function() {
-		$("#newImage").click();
-	});
 </script>
 {% endblock %}
