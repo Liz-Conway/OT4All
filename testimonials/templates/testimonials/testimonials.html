@@ -20,7 +20,9 @@
 	        		{% for testimonial in testimonials %}
 	        		<div class="testimonial">
 	        			<figure class="testimonialShape">
-	        				<img alt="{{testimonial.first_name}} {{testimonial.last_name}}" src="{{ testimonial.image_url }}" class="testimonialImage">
+	        				<img alt="{{testimonial.first_name}} {{testimonial.last_name}}" 
+	        					src="{% if testimonial.image_url %}{{ testimonial.image_url }}{% else %}{% static 'images/user-icon-min.jpg' %}{% endif %}" 
+	        					class="testimonialImage">
 	        				<figcaption class="testimonialCaption">{{testimonial.first_name}} {{testimonial.last_name}}</figcaption>
 	        			</figure>
 	        			<div class="testimonialText">
@@ -30,6 +32,8 @@
 	        			</div>
 	        		</div>
 	        		{% endfor %}
+	        		
+	        		<a href="{% url 'addTestimonial' %}" class="btn btnPrimary">Add My Testimonial</a>
 				
 	        	</div>
 
