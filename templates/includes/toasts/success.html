@@ -1,3 +1,4 @@
+{% load static %}
 <!-- https://ordinarycoders.com/blog/article/django-messages-framework -->
 <div class="toast {{ message.tags }}" >
 	<div class="arrowUp arrowSuccess"></div>
@@ -17,7 +18,11 @@
  		<div class="toastBookingsWrapper">
  			{% for item in booking_items %}
  			<div class="toastBookings">
- 				<img class="toastBookingsImage" src="{{ item.therapy.image.url }}">
+				{% if item.therapy.image %}
+ 					<img class="toastBookingsImage" src="{{ item.therapy.image.url }}" alt="{{ item.therapy.name }}">
+ 				{% else %}
+ 					<img class="toastBookingsImage" src="{% static 'images/noimage.png' %}" alt="{{ item.therapy.name }}">
+ 				{% endif %}
  				<div class="toastBookingsDetails">
  					<p><strong>{{ item.therapy.name }}</strong></p>
  					<p>Sessions :  {{ item.number_sessions }}</p>

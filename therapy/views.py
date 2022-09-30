@@ -1,10 +1,10 @@
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.base import TemplateView
 from therapy.models import Therapy, Style
-from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models.functions.text import Lower
 from django.contrib import messages
 from django.urls.base import reverse
 from django.db.models.query_utils import Q
+from django.db.models.functions.text import Lower
 
 
 # Create your views here.

@@ -3,6 +3,10 @@
 
 {% block extra_title %}Therapy{% endblock %}
 
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/therapy.css' %}">
+{% endblock %}
 
 {% block content %}
 	<div class="containerFluid">
@@ -14,7 +18,7 @@
 					</a>
 				{% else %}
 					<a href="">
-						<img  class="" src="{{ MEDIA_URL }}noimage.png" alt="{{ therapy.name }}">
+						<img  class="" src="{% static 'images/noimage.png' %}" alt="{{ therapy.name }}">
 					</a>
 				{% endif %}
 			</div>
@@ -76,7 +80,9 @@
 								</span>
 								Keep Shopping
 							</a>
-							<input type="submit" value="Book" class="btn btnPrimary">
+							{% if not request.user.is_superuser %}
+								<input type="submit" value="Book" class="btn btnPrimary">
+							{% endif %}
 						</div>
 						<!-- Part of the Post-Redirect-Get pattern -->
 						<input type="hidden" name="redirectUrl" value="{{ request.path }}">

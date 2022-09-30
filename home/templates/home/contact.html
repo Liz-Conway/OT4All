@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Get in Touch{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+		<div class="contactContainer">
+			<hr>
+			<h1>Please send in your enquiry</h1>
+			<hr>
+			<div class="contactDetails">
+	
+				<form method="POST" action="{% url 'getInTouch' %}">
+					{% csrf_token %}
+					<div class="contactName">
+						<label for="id_name">Name:</label>
+						<input type="text" name="name" maxlength="50"
+								required id="id_name" class="formInput">
+					</div>
+					<div class="contactEmail">
+						<label for="id_email">Email:</label>
+						<input type="email" name="email" maxlength="254"
+							required id="id_email" class="formInput">
+					</div>
+					<div class="contactQuery">
+						<label for="id_query">Query:</label>
+						<textarea name="query" cols="40" rows="10" required id="id_query" class="formInput"></textarea>
+					</div>
+      
+					<div class="contactButtons">
+						<button type="reset" class="btn btnTextOnly">Reset</button>
+						<a class="btn btnGhost btnThin" href="{% url 'home' %}">Cancel</a>
+						<button class="btn btnPrimary btnThin" type="submit">Send Query</button> 
+					</div>
+				</form>
+		
+		</div>
+	</div>
+{% endblock %}

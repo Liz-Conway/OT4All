@@ -3,6 +3,11 @@
 
 {% block extra_title %}Therapies{% endblock %}
 
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/therapy.css' %}">
+{% endblock %}
+
 {% block content %}
 	<div class="containerFluid">
 		<div class="therapyTitle">
@@ -69,9 +74,12 @@
 					{% for therapy in therapies %}
 						<div class="therapyCard">
 							{% if therapy.image %}
-									<img  class="" src="{{ therapy.image.url }}" alt="{{ therapy.name }}">
+									<!-- Pass an id to the URL so that the chosen therapy's detail page is shown -->
+									<a href="{% url 'singleTherapy' therapy.id %}">
+										<img  class="" src="{{ therapy.image.url }}" alt="{{ therapy.name }}">
+									</a>
 							{% else %}
-									<img  class="" src="{{ MEDIA_URL }}noimage.png" alt="{{ therapy.name }}">
+									<img  class="" src="{% static 'images/noimage.png' %}" alt="{{ therapy.name }}">
 							{% endif %}
 							<div class="therapyCardBody">
 								<h2>{{ therapy.name }}</h2>

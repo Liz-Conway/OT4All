@@ -1,0 +1,112 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block extra_title %}Edit Therapy{% endblock %} 
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/maintenance.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="containerAddTherapy">
+	<div class="addTherapyHeader">
+		<hr>
+		<h2 class="addTherapyTitle">Therapy Maintenance</h2>
+		<h3 class="muted">Edit a Therapy</h3>
+		<hr>
+	</div>
+	<div class="addTherapyBody">
+		<!-- Add the encoding type attribute on this form.
+			Since it will potentially be submitting an image file, 
+			and without this the image won't be uploaded properly -->
+		<form method="POST" action="{% url 'editTherapy' therapy.id %}" enctype="multipart/form-data">
+			{% csrf_token %}
+			<label for="id_style">Style:</label>
+			<select name="style" class="formInput" required id="id_style">
+				<option value="" disabled>---------</option>
+				<option value="1" {% if therapy.style.id == 1 %}selected{% endif %}>Equine</option>
+				<option value="2"{% if therapy.style.id == 2 %}selected{% endif %}>Literacy</option>
+				<option value="3"{% if therapy.style.id == 3 %}selected{% endif %}>Self Care</option>
+			</select>
+			
+			<label for="id_name">Name:</label>
+			<input type="text" name="name"
+				maxlength="254" autofocus placeholder="Therapy name *"
+				class="formInput" required id="id_name" 
+				value="{{ therapy.name }}">
+
+			<label for="id_description">Description:</label>
+			<textarea name="description" cols="40" rows="10"
+				placeholder="Description of Therapy *" class="formInput" required
+				id="id_description">{{ therapy.description }}
+			</textarea>
+			
+			<label for="id_price">Price:</label>
+			<input type="number"
+				name="price" step="1" placeholder="Price in € *" class="formInput"
+				required id="id_price"
+				value="{{ therapy.price }}">
+
+			<label for="id_image">Image:</label>
+			<p>Current Image:</p>
+			<!-- Replace the filename value with a small preview of our image -->
+			{% if therapy.image %}
+				<img src="{{ therapy.image.url }}" alt="{{ therapy.name }}" class="widgetImage">
+			{% else %}
+				<img src="{% static 'images/noimage.png' %}" alt="{{ therapy.name }}">
+			{% endif %}
+
+			<!-- Wrap the checkbox in a div with some CSS classes -->
+			<div class="widgetCheckbox">
+				<input class="widgetInput" type="checkbox" name="image-clear"
+					id="image-clear_id"> <label class="widgetLabel"
+					for="image-clear_id">Remove</label>
+			</div>
+
+			<br>
+			<!-- Wrap the actual file input itself in a span which looks like a button.
+			And add a paragraph below it to hold the file name once one is selected -->
+			<span class="btn btnFile"> Select Image <input id="newImage"
+				type="file" name="image" accept="image/*" class="formInput"
+				id="id_image">
+			</span> <strong><p id="widgetFilename"></p></strong>
+			
+			<label for="id_course_sessions">Course sessions:</label>
+			<input
+				type="number" name="course_sessions" min="0"
+				placeholder="Default amount of sessions *" class="formInput"
+				required id="id_course_sessions"
+				value="{{ therapy.course_sessions }}">
+			<br>
+			<span
+				class="helptext">The recommended number of sessions for this
+				particular therapy.</span>
+			
+			<label for="id_location">Location:</label>
+			<input type="text" name="location" maxlength="254"
+				placeholder="Where takes place (if any)" class="formInput"
+				id="id_location"
+				value="{% if therapy.location %}{{ therapy.location }}{% endif %}">
+			
+			<label for="id_extra_requirements">Extra 	requirements:</label>
+			<textarea name="extra_requirements" cols="40" rows="10"
+				placeholder="Any additional requirements this therapy will need"
+				class="formInput" id="id_extra_requirements">{% if therapy.extra_requirements %}{{ therapy.extra_requirements }}{% endif %}</textarea>
+
+
+			<div id="addTherapyButtons">
+				<a class="btn btnGhost" href="{% url 'listTherapies' %}">Cancel</a>
+				<button class="btn btnPrimary" type="submit">Edit Therapy</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %} {% block postloadjs %} {{ block.super }}
+<script type="text/javascript">
+	$("#newImage").change(function() {
+		var file = $("#newImage")[0].files[0];
+		$("#widgetFilename").text(`Image will be set to :  ${file.name}`)
+	});
+</script>
+{% endblock %}

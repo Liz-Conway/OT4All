@@ -4,6 +4,11 @@
 
 {% block extra_title %}Bookings{% endblock %}
 
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}">
+{% endblock %}
+
 {% block content %}
 	<div class="containerBookings">
 		<hr>
@@ -43,7 +48,7 @@
 							<div class="bookingsTherapy">
 								<div class="bookingsTherapyDetail">
 				 					<img class="bookingsTherapyImage" alt="{{ item.therapy.name }}" 
-				 						src="{% if item.therapy.image %}{{ item.therapy.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" >
+				 						src="{% if item.therapy.image %}{{ item.therapy.image.url }}{% else %}{% static 'images/noimage.png' %}{% endif %}" >
 				 					<div class="bookingsTherapyDescription">
 											<p><strong>{{ item.therapy.name }}</strong></p>
 				 					</div>

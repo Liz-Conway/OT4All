@@ -1,0 +1,127 @@
+/*~~~~~~~  User Profile  ~~~~~~~ */
+.containerProfile {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1.5rem auto;
+}
+
+.profileHead hr {
+  margin: 1rem 0;
+}
+.profileWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem 0;
+}
+@media only screen and (min-width: 59.375em) {
+  .profileWrapper {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+.profileTitle {
+  text-align: center;
+}
+.profileHeading {
+  text-align: center;
+  font-size: 2rem;
+  color: #808080;
+  margin-bottom: 3rem;
+}
+.profileDetails {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+.profileDetailsForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-top: 1.3rem;
+}
+.profileDetailsForm .formInput {
+  width: 100%;
+}
+.profileDetailsButton {
+  margin-left: auto;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+.profileOrders {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  margin-top: 2rem;
+}
+@media only screen and (min-width: 59.375em) {
+  .profileOrders {
+    margin-left: 10%;
+    margin-top: 0;
+  }
+}
+.profileOrdersTable tr:nth-child(odd) {
+  background-color: #ffb299;
+}
+.profileOrdersTable tr:nth-child(even) {
+  background-color: #ffcdbd;
+}
+.profileOrdersTable .tableHead > tr {
+  background-color: #751c00;
+  color: #b299ff;
+}
+.profileOrdersTable td:last-child {
+  text-align: right;
+}
+@media only screen and (min-width: 59.375em) {
+  .profileOrdersTable {
+    margin-top: 5rem;
+  }
+}
+.profileFormInput {
+  color: #000000;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+.profileFormInputinput::-webkit-input-placeholder {
+  color: #aab7c4;
+}
+.profileFormInputinput:-ms-input-placeholder {
+  color: #aab7c4;
+}
+.profileFormInputinput::-ms-input-placeholder {
+  color: #aab7c4;
+}
+.profileFormInputinput::placeholder {
+  color: #aab7c4;
+}
+
+/*===== END  User Profile  ===== */
+
+/*# sourceMappingURL=profile.css.map */

@@ -4,6 +4,11 @@
 
 {% block extra_title %}Profile{% endblock %}
 
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
 {% block content %}
 	<div class="containerProfile">
 		<div class="profileHead">

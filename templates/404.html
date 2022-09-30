@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block extra_title %}404 error{% endblock %}
+
+{% block content %}
+	    <section class="errorSection">
+		<div class="error404">
+		    	404
+        	</div>
+	    	
+	    	<h1 class="errorTitle">
+	       		We can't find the page you are looking for
+	       	</h1>
+	       	<h2 class="errorSubtitle">
+	       		Let's find a better place for you to go!
+	       	</h2>
+	       	<a href="{% url 'home' %}" class="btn"><i class="fas fa-house"></i> Home</a>
+	    </section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block extra_title %}403 error{% endblock %}
+
+{% block content %}
+	    <section class="errorSection">
+	    	
+	    	<h1 class="errorTitle">
+	       		Unauthorised Access
+	       	</h1>
+	       	<h2 class="errorSubtitle">
+	       		You do not have permission to access this page, sorry.
+	       	</h2>
+	       	<a href="{% url 'home' %}" class="btn"><i class="fas fa-house"></i> Home</a>
+	    </section>
+{% endblock %}

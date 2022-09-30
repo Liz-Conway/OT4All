@@ -1,0 +1,25 @@
+/*~~~~~~~  Therapy List Page  ~~~~~~~*/
+.therapyList
+	&ing
+		width: 100%
+		display: flex
+		flex-direction: column
+		margin-left: auto
+		margin-right: auto
+		@include respond(tabletPortrait)
+			width: 70%
+		@include respond(notebook)
+			width: 60%
+		@include respond(desktop)
+			width: 50%
+
+	&Container
+		> hr
+			@include respond(tabletPortrait)
+				width: 80%
+			@include respond(notebook)
+				width: 75%
+			@include respond(desktop)
+				width: 65%
+
+/*===== END Therapy List Page  =====*/

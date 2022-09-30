@@ -48,7 +48,7 @@
 		background-color: transparent
 		&:hover, &:active
 			background-color: transparent
-			color: $midtone
+			// color: $midtoneDark
 
 
 	&Thin
@@ -117,6 +117,21 @@ button[class$="crementSessions"]
 .decrementSessions
 	margin-right: -.5rem
 
+#therapyListButtons, #addTherapyButtons
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	margin-top: 2rem
+	align-items: center
+	a, button
+		margin-right: 0
 
+.btnFile
+	background-color: $midtone
+
+#addTestimonyButtons
+	text-align: right
+	button:last-child
+		margin-top: 1rem
 
 /*===== END  Button  =====*/

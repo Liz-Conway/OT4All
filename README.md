@@ -293,11 +293,9 @@ Supporting page - **Logout page**
 
 ![Client Registration user flow](documentation/user-flow/client-registration.png)
 
-<<<<<<< Updated upstream
-Before a client can log into the OT4U website they must have registered on the website.
-=======
+
 Before a client can log into the OT4U website they must have registered on the website.  A gmail account was created for the OT4U website (ot4u.mail@gmail.com).  A google app was created for this account.  The OT4U website was set up to use the google mail server, via this google app to send the appropriate emails.
->>>>>>> Stashed changes
+
 
 Supporting Page - **Registration page**
 
@@ -463,11 +461,15 @@ Supporting page - **No Search results**
 #### View a single Therapy
 [Back to Top](#top)
 
-Once a client clicks on the "Read More" button for a particular therapy the Book Therapy page of the chosen therapy is displayed.  The purpose of the Book Therapy page is to entice the client to book a number of sessions for that therapy.
+Once a client clicks on the "Read More" button for a particular therapy the Single Therapy page of the chosen therapy is displayed.  The purpose of the Single Therapy page is to entice the client to book a number of sessions for that therapy.
 
-This page shows a larger image, the therapy name, details, style and cost.  If there is any equipment neeed, a specific location where the therapy takes place, or extra requirements for the therapy they are shown here as well.
+This page shows a larger image, the therapy name, details, style and cost.  If there is a location, or extra requirements for the therapy they are shown here as well.
+
+A "number of sessions" input is pre-filled with the recommended number of sessions for the specific therapy.  A "Book" button is the primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to visually draw the client's attention to where they need to look and prompt them to take action.
 
 The Single Therapy page will give more information on the therapy, such as equipment to be used, location where applicable and any additional requirements.
+
+The client can choose the number of sessions they wish to book, and still has the option to return back to the Therapies list.  These choices mean that the client is never forced down any one path and has the freedom to browse around until they find the correct fit for them.
 
 |  Desktop   |  Mobile   |
 | --- | --- |
@@ -478,7 +480,59 @@ The Single Therapy page will give more information on the therapy, such as equip
 #### Maintain Therapies
 [Back to Top](#top)
 
-When logged in with an Admin role the user has access to the 'Maintain Therapies' features.
+![Add Therapy user flow](documentation/user-flow/add-therapy.png)
+
+When logged in with an Admin role the user has access to the 'Maintain Therapies' features.  The first feature is "Add Therapies" this allows the Site Owner to add new therapies to the website.  The benefit of this feature is that it makes the website flexible and keeps it fresh.  Natalia can add new therapies as her skillset improves, new facilities become available and new innovations in Occupational Therapy are invented.
+
+Supporting page elements -  **Maintain Therapies link**
+
+![Maintain Therapies Link](documentation/pages/maintain-therapies-link.png)
+
+Natalia will see the Maintain Therapies option when she click on/hovers over the My Profile menu.  The OT4U website will provide with a list of existing therapies and a large button called "Add Therapy".  
+
+When she clicks the "Add Therapy" button she is presented with a form, which enables her to add details for the new therapy.  Required field have a placeholder with an asterisk which lets her know which fields she must put an entry into.  This means that she does not have to think about or remember which fields need entries.  She can choose the Style for the therapy from a dropdown list, so she does not have to memorise these either.  There is a large button which makes it easy for her to upload an image for the therapy.  Once she has added the therapy she is brought  back to the "Add Therapy" page.  This allows her to add more than one therapy at once, which speeds things up when she is setting up new therapies.
+
+When she is finished adding therapies she clicks the "Cancel" button and is brought back to the Therapies list page, where she can continue modifying therapies.
+
+Supporting pages - **Therapy List**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Therapy list - desktop](documentation/pages/therapy-list.png)   |   ![Therapy list - mobile](documentation/pages/mobile/therapy-list.png)  |
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Add Therapy - desktop](documentation/pages/add-therapy.png)   |   ![Add Therapy page - mobile](documentation/pages/mobile/add-therapy.png)  |
+
+
+#### Edit Theraphy
+This feature allows Natalia to make changes to Therapies that she has already added to the OT4U website.  It gives her the flexibility to keep the website up to date and fresh.
+
+![Edit therapy user flow](documentation/user-flow/edit-therapy.png)
+
+On the Therapy List page there are rows of therapies, one per row.  At the end of each row is the well recognised pencil symbol.  This symbol is well known as the symbol for editing.  This means that Natalia already has a mental model of it means, she does not have to think or remember.  When Natalia clicks this icon she is taken to the Edit Therapy page.  This page has a form similar to the Add Therapy page, except that the details for the chosen therapy are filled in.  Natalia can change any of them, or even the picture.  She then clicks the Edit Therapy button and the OT4U website saves the amndments to the therapy.  These changes are visible immediately.  However, if Natalia changes her mind or wants to amend a different therapy she can click the Cancel button instead and she will be taken  back to the therapy list.  This leaves Natalia in control and she is never forced into an action she cannot back out of.
+
+Supporting pages - **Edit Therapy**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Edit Therapy page - desktop](documentation/pages/edit-therapy.png)   |   ![Edit Therapy page - mobile](documentation/pages/mobile/edit-therapy.png)  |
+
+
+#### Delete Therapy
+If Natalia needs to remove a therapy from the OT4U website, she will use this feature.  It helps to prevent the website from growing stale, or accumulating lots of therapies that no client needs.
+
+![Delete therapy user flow](documentation/user-flow/delete-therapy.png)
+
+On the Therapy List page there are rows of therapies, one per row.  At the end of each row is the well recognised bin symbol.  This symbol is well known as the symbol for deleting.  This means that Natalia already has a mental model of it means, she does not have to think or remember.  When Natalia clicks this icon she is given a prompt asking whether she is certain that she wants to delete this therapy.  This  feature helps prevent mistakes from happening and therapies being accidentally removed from the website.  Once Natalia confirms that she wants to delete the therapy the OT4U website removes the therapy and it is no longer available.
+
+Supporting pages - **Therapy List**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Delete Therapy - desktop](documentation/pages/delete-therapy.png)   |   ![Delete Therapy - mobile](documentation/pages/mobile/delete-therapy.png)  |
+
+A message confirming which therapy was deleted is shown after the therapy is deleted.  This keeps Natalia informed of what the OT4U website is doing.
 
 
 #### Book Sessions
@@ -527,6 +581,8 @@ Supporting screens - **Bookings**
 | --- | --- | --- |
 | Empty |  ![Empty cart - Desktop](documentation/pages/empty-cart.png)   |  ![Empty cart - mobile](documentation/pages/mobile/empty-cart.png)   |
 | Filled | ![Bookings - Desktop](documentation/pages/bookings.png) | ![Bookings - mobile](documentation/pages/mobile/bookings.png) |
+
+An additional feature is the checkout button itself, in addition to the word "checkout" this button has the word "SECURE" and a 'lock' icon.  These serve to enhance the client's confidence that the OT4U website is secure and reliable.
 
 Supporting screen elements - **Booking totals**
 
@@ -639,83 +695,11 @@ Supporting page elements - **Purchase success buttons**
 | --- | --- |
 |  ![Purchase success buttons - Desktop](documentation/pages/purchase-success-buttons.png)   |  ![Purchase success buttons - mobile](documentation/pages/mobile/purchase-success-buttons.png)   |
 
-On successful purchase the OT4U website will send a confirmation email to the client.  This is a more permanent record of the transaction, since when the client leaves the "Purchase Succeeded" page the order information will be gone from their view.  Having this email allows the client to revisit their order details outside of the OT4U website. 
 
-#### Back-end database checks
+#### Purchase Confirmation E-mail
 [Back to Top](#top)
 
-When the OT4U website passes data to the Stripe system to make a payment, it not only passed card and payment information, it also passes the complete order information.  When the OT4U website receives confirmation from Stripe that a payment has been successful, it performs a number of checks to ensure that one and only one order is saved on the databases for that payment.
-
-The OT4U website validates that the order that was paid for exists in the database.  The OT4U website takes the order details from the Stripe payment information and checks to ensure that the exact same order exists in the OT4U databasse.  In order to take into account any delays on the server-side, the OT4U website will perform this validation up to 5 times with an appropriate wait between each validation.  Once the order has been validated the OT4U website skips the remaining validations.
-
-If a corresponding order is not found on the database, the OT4U website creates the order on the database, using the data from the Stripe payment information.
-
-A client could make more that one booking for the same OT therapy,  In order to verify that these back-end checks do not validate against a similar but different order, extra fields are added to the order.  These extra field guarantee that each order on the database is unique.
-
-This feature ensures the robustness of the OT4U website.  Once a client has made a purchase they are guaranteed that an order will exist.  It would be most frustrating for a client to have paid for something and not receive it.  The value of this feature is that it ensures that the OT4U website works as intended and as the client expects.
-
-
-#### Purchase Therapy Sessions
-[Back to Top](#top)
-
-The central purpose of the OT4U website is to allow clients to purchase OT therapy sessions.  This feature is of utmost importance for the client.  They need this feature in order to get their therapy sessions.  Once a client has booked some sessions they can click on the "Secure Checkout" button and will be brought to a "Purchase" page.  The page will show a summary of the therapies that have been booked and an empty form for the clients to enter their details and card information.  Once the details have been entered the client will click the "Complete Order" button.  The card details and amount are sent to the Stripe credit card service.  Once the money has been transferred a "Purchase Succeeded" page is shown, with a summary of all the details of the order.
-
-All required fields are marked with an asterisk (\*).  This is a common signifier for a required field that should be in everybodies mental model of how web pages work.  This means that the client will understand that these are required fields without any further information needed.  There will be no extra mental burden on the client.
-
-The "Country" field is a dropdown select box.  This makes it unambiguous as to what country has been selected as there can be no typing errors.  Furthermore, Stripe requires that the country input is in the ISO 2 digit form (E.G. IE for Ireland), and this dropdown selector provides the country input in the correct format required by Stripe in order to complete the purchase.
-
-The summary on the "Purchase" page gives the client a reminder of what it is they are purchasing.  This is important because it gives the client clarity on what therapies and sessions they will receive for their purchase.
-
-Supporting page - **Purchase**
-
-|  Desktop   |  Mobile   |
-| --- | --- |
-|  ![Purchase page - Desktop](documentation/pages/purchase.png)   |  ![Purchase page - mobile](documentation/pages/mobile/purchase.png)   |
-
-Underneath the "Complete Order" button the amount to be charged is shown in red.  This means the client will know exactly how much they are spending when they complete the order.  There will be no confusion or surprises.  This up-front display of key information engenders a sense of trust in the OT4U website, and gives the client confidence in the website.
-
-Beside the "Complete Order" button is an "Adjust Bookings" button which will allow the client to amend their order.  This feature provides the client with the flexibility to change their order, if they have made a mistake or change their mind.
-
-Supporting page elements - **Purchase buttons & total**
-
-|  Desktop   |  Mobile   |
-| --- | --- |
-|  ![Purchase buttons - Desktop](documentation/pages/purchase-buttons.png)   |  ![Purchase buttons - mobile](documentation/pages/mobile/purchase-buttons.png)   |
-
-Another feature of the "Purchase" page is that you can get to it in a number of different ways:
-1. Click on the "Secure Checkout" button from the "Bookings" page
-2. Click on the "Secure Checkout" button from the menu that appears whenever you book a therapy
-3. Click on the Shopping Cart icon.
-
-This gives the client great flexibility in accessing the "Purchase" page and makes the OT4U website very easy to use and very intuitive.
-
-While Stripe is processing the credit card, the "Purchase" page is disabled and a moving "loading" icon is shown.  This is a common icon that computer users will be aware of.  They know that it means that the website is working in the background.  The disabling of the "Purchase" page is visually signified to the client with an overlay which allows the client to see the page in the background, but disables any interactions with the page.  As well as informing the client that the order is being processed, this feature prevents the user from making changes to the order while it is being processed.  This prevents any errors, or corruption of an order.  The client is assured that the order will be exactly the same as what they ordered, and the charge to their card will be exactly the value that they expect.  This feature makes the OT4U website robust and reliable.
-
-Supporting page elements - **Loading overlay**
-
-|  Desktop   |  Mobile   |
-| --- | --- |
-|  ![Loading overlay - Desktop](documentation/pages/loading-overlay.png)   |  ![Loading overlay - mobile](documentation/pages/mobile/loading-overlay.png)   |
-
-#### Purchase Success
-[Back to Top](#top)
-
-Once the payment has been processed, the client is shown a "Purchase Succeeded" page.  This page shows a large "Thank You".  Showing gratitude to the user helps to make them feel comfortable with the site.  It also shows them a "Purchase Succeeded" message, giving them their order number and telling them that they will shortly receive an email confirmation.  Keeping the client informed is important as it makes them feel more in control and happier with the website.  The "Purchase Succeeded" page also shows full details of the order, so that the client will know what it is they have ordered.
-
-Supporting pages - **Purchase Success**
-
-|  Desktop   |  Mobile   |
-| --- | --- |
-|  ![Purchase Success & message - Desktop](documentation/pages/purchase-success-with-message.png)   |  ![Purchase Success & message - mobile](documentation/pages/mobile/purchase-success-with-message.png)   |
-|  ![Purchase Success - Desktop](documentation/pages/purchase-success.png)   |  ![Purchase Success - mobile](documentation/pages/mobile/purchase-success.png)   |
-
-This page also has two buttons.  One of these buttons allows the client to go back to home page, the other allows the client to keep shopping.  The purpose of these buttons is to not let the client feel lost on the website, or feel that they cannot get back to where they were.
-
-Supporting page elements - **Purchase success buttons**
-
-|  Desktop   |  Mobile   |
-| --- | --- |
-|  ![Purchase success buttons - Desktop](documentation/pages/purchase-success-buttons.png)   |  ![Purchase success buttons - mobile](documentation/pages/mobile/purchase-success-buttons.png)   |
+![Purchase Confirmation Email](documentation/pages/confirmation-email.png)
 
 On successful purchase the OT4U website will send a confirmation email to the client.  This is a more permanent record of the transaction, since when the client leaves the "Purchase Succeeded" page the order information will be gone from their view.  Having this email allows the client to revisit their order details outside of the OT4U website. 
 
@@ -732,26 +716,42 @@ A client could make more that one booking for the same OT therapy,  In order to 
 
 This feature ensures the robustness of the OT4U website.  Once a client has made a purchase they are guaranteed that an order will exist.  It would be most frustrating for a client to have paid for something and not receive it.  The value of this feature is that it ensures that the OT4U website works as intended and as the client expects.
 
-#### View the OT approach
-[Back to Top](#top)
 
 #### View Testimonials
 [Back to Top](#top)
 
-#### Add a Testimonial
-[Back to Top](#top)
+This feature allows potential clients to view what other people think about the services Natalia gives.  The benefit of this is that sometimes people need "social proof", evidence that their peers like and use a product or service before they will buy it.  This feature will encourage new clients to book Natalia's therapies.
+
+Supporting pages - **View Testimonials**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![View Testimonials - Desktop](documentation/pages/view-testimonials.png)   |  ![View Testimonials - mobile](documentation/pages/mobile/view-testimonials.png)   |
+
+
 
 #### View details about Natalia
 [Back to Top](#top)
 
+This feature allows clients and potential clients to view information about Natalia herself.  They will judge whether to book sessions with her based on her experience and attitude.  This feature allows Natalia to sell herself to new clients.
+
+
+
 #### Get in Touch
 [Back to Top](#top)
+The purpose of this feature is to allow Natalia's clients to establish contact and get their queries answered.  Being available to answer questions makes Natalia seem more friendly and trust worthy and will generate more bookings for her.
 
-#### Sign up for our Newsletter
-[Back to Top](#top)
+
+A MailChimp subscription service is used to allow clients and users to sign up to Natalia's regular newsletter.  This establishes ongoing contact between herself and her clients/potential clients.  She will always be in the forefront of their minds and should be the first person they think of when considering getting OT.
+
+Supporting page elements - **Newsletter Signup**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Newsletter signup - Desktop](documentation/pages/newsletter.png)   |  ![Newsletter signup - mobile](documentation/pages/mobile/newsletter.png)   |
+
 
 #### View our Privacy Policy
-[Back to Top](#top)
 
 #### Messages
 [Back to Top](#top)
@@ -969,7 +969,7 @@ Using the [Grayscale Browsing extension](https://addons.mozilla.org/en-US/firefo
 <a id="colours"></a>
 [Back to Top](#top)
 
-The main colours for the OT4U application were deliberately chosen to invoke specific emotional reponses from the user.
+The main colours for the OT4U application were deliberately chosen to invoke specific emotional reponses from the user.  The colours were taken from the picture on the home page.  The light colours used to highlight/accent a particular area to draw the user's attention were taken from the purple and green balloons.  The pink hues used throughout the website were taken from the Occupational Therapist's face.  The brownish colour was taken from the darker shadows of her top.  The dark blue used to hightlight/accent against a light background was taken from the shadow of the girl's pocket.
 
 
 The use of colours in the OT4U application should make the user feel welcomed and trusting.  Whilst at the same time the user knows that this is not a "fun" app, but a serious tool that will be used by professionals.
@@ -1370,6 +1370,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |Django model data types | Naveen Arora |https://www.geeksforgeeks.org/positiveintegerfield-django-models/ |
 |Layout components in a grid using Flexbox | Kevin Powell |https://www.youtube.com/watch?v=vQAvjof1oe4 |
 | Use email with Django | Daniel Diaz |https://www.sitepoint.com/django-send-email/ |
+| Wrap text around irregular shape | Nate Weiner |https://www.youtube.com/watch?v=vQAvjof1oe4 | |
 
 
 ### Pictures
@@ -1393,6 +1394,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |<img src="media/cooking.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Cooking          | PxHere   | [PxHere.com](https://pxhere.com/en/photo/1061452)|
 |<img src="static/images/empty-jigsaw.jpg" alt="empty jigsaw" width="30" height="30">| Empty jigsaw          | Willi Heidelbach   | [PxHere.com](https://pxhere.com/en/photo/1600619|
 |<img src="static/images/magnifying-glass.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Magnifying Glass          | Eren Li   | [Pexels.com](https://www.pexels.com/photo/photo-of-magnifying-glass-on-top-of-braille-7188802/)|
+|<img src="static/images/original/user-icon.jpg" alt="User Icon" width="30" height="30">| User Icon  | Mohamed Hassan   | [PxHere.com](https://pxhere.com/en/photo/1441529/)|
 
 ### Others
 [Back to Top](#top)

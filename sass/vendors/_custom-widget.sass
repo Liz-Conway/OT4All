@@ -1,0 +1,76 @@
+.widget
+	&Image
+		width: 96px
+		height: 96px
+		border-radius: .4rem
+		box-shadow: 2px 4px rgba(0,0,0,.075)
+
+	&Checkbox
+		margin-top: .75rem
+		min-height: 1rem
+		padding-left: 1rem
+		display: flex
+		flex-direction: row-reverse
+		align-items: center
+		justify-content: flex-end
+
+		.widgetInput
+			width: 1.5rem
+			height: 1.5rem
+			margin-top: 1rem
+
+			&:checked~.widgetLabel::before
+				background-color: $error
+				border-color: $error
+				border-radius: 0
+
+	&Label
+		margin-right: 1rem
+		color: $error
+
+		&::before
+			border-radius: 0
+			border-color: $error
+
+#widgetFilename
+	color: $error
+
+// #newImage
+// 	border: none
+// 	background-color: $midtone
+
+.btnFile
+	position: relative
+	overflow: hidden
+	align-self: flex-start
+	margin-top: .75rem
+
+	input[type="file"]
+		/* Make sure that the entire input, which is clickable,
+			lives inside this span that looks like a button.
+		position: absolute
+		top: 0
+		right: 0
+		min-width: 100%
+		min-height: 100%
+		/* Then making it invisible so it appears you're clicking the button
+		opacity: 0
+		cursor: pointer
+#newImage
+	/* Make sure that the entire input, which is clickable,
+		lives inside this span that looks like a button.
+	position: absolute
+	/* Then making it invisible so it appears you're clicking the button
+	opacity: 0
+	top: 0
+	right: 0
+	min-width: 100%
+	min-height: 100%
+	cursor: pointer
+
+// .btnFile
+// 	input
+// 		position: absolute
+//
+// #newImage
+// 		opacity: 0

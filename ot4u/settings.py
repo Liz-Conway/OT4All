@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import environ
 import os
 import dj_database_url
+import mimetypes
 
 from pathlib import Path
 from django.conf.global_settings import DEFAULT_FILE_STORAGE
@@ -34,6 +35,9 @@ DEBUG = env("DEBUG")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
+
+# Make sure Django sees CSS files as CSS
+mimetypes.add_type("text/css", ".css", True)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
@@ -69,6 +73,8 @@ INSTALLED_APPS = [
     "purchase",
     # Set user profile
     "profiles",
+    "maintenance",
+    "testimonials",
 ]
 
 MIDDLEWARE = [
@@ -170,7 +176,7 @@ else:
     EMAIL_PORT = 587
     EMAIL_HOST = "smtp.gmail.com"
     EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-    EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASS")
+    EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
     DEFAULT_FROM_EMAIL = env("EMAIL_HOST_USER")
 
 # Static files (CSS, JavaScript, Images)

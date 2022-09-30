@@ -18,6 +18,8 @@ import json
 from django.conf import settings
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 
 
 class Purchase(TemplateView):
@@ -187,7 +189,8 @@ class Purchase(TemplateView):
             # with the form errors shown
             messages.error(
                 request,
-                "There was an error with your form.  Please double check your information.",
+                "There was an error with your form.  \
+                Please double check your information.",
             )
 
             return render(request, self.template_name, {})
@@ -268,6 +271,9 @@ class PurchaseSuccess(TemplateView):
             extra_tags="safe",
         )
 
+        # Fire off a confirmation email
+        self._send_confirmation_email(order)
+
         # Delete the user's bookings from the session
         # since it'll no longer be needed
         if "booking" in request.session:
@@ -278,6 +284,38 @@ class PurchaseSuccess(TemplateView):
         context["order"] = order
 
         return context
+
+    # Prepended with an underscore by convention
+    # to indicate it's a private method
+    # which will only be used inside this class
+    def _send_confirmation_email(self, order):
+        """Send the user a confirmation email"""
+        # The best place to do this is the webhook handler
+        # since at that point we know the payment has definitely been made.
+        # Since the only thing that can trigger it is a webhook from Stripe.
+        cust_email = order.email
+
+        # Use the render_to_string() method to render
+        # both the confirmation text files as two strings.
+        # With the first parameter being the file we want to render.
+        # And the second being a
+        # context just like we would pass to a template.
+        # This is how we'll be able to render the
+        # various context variables in the confirmation email.
+        subject = render_to_string(
+            "purchase/confirmation-emails/confirmation-email-subject.txt",
+            {"order": order},
+        )
+        body = render_to_string(
+            "purchase/confirmation-emails/confirmation-email-body.txt",
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+        )
+
+        # Giving it the subject, the body,
+        # the email address we want to send from.
+        # and a list of emails we're sending to -
+        # which in this case will be only the customer's email
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
 
 class CachePurchaseData(View):
