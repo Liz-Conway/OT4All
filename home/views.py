@@ -42,17 +42,13 @@ class ContactView(TemplateView):
 
         # Create a new instance of the ContactForm using the POST data.
         form = ContactForm(request.POST)
-        print(form)
 
         if form.is_valid():
-            print("Form is valid")
             form.save()
-            print("Saved form")
             messages.success(request, "Contact enquiry sent successfully")
 
             return redirect(reverse("home"))
         else:
-            print("Form is INVALID")
             # Attach a generic error message
             # telling the user to check their form
             # which will display the errors.

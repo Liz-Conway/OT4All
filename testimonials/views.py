@@ -14,14 +14,12 @@ class Testimonials(TemplateView):
     # TemplateView does not need to define get() method
     # But here we need to tell the page what Testimonials to show
     def get_context_data(self, **kwargs):
-        print("Getting context data")
         all_testimonials = Testimonial.objects.all()
 
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         context["testimonials"] = all_testimonials
 
-        print("Returning Context")
         return context
 
 
