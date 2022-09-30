@@ -1392,6 +1392,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |<img src="media/cooking.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Cooking          | PxHere   | [PxHere.com](https://pxhere.com/en/photo/1061452)|
 |<img src="static/images/empty-jigsaw.jpg" alt="empty jigsaw" width="30" height="30">| Empty jigsaw          | Willi Heidelbach   | [PxHere.com](https://pxhere.com/en/photo/1600619|
 |<img src="static/images/magnifying-glass.jpg" alt="balancing money and potatoe on calculator" width="30" height="30">| Magnifying Glass          | Eren Li   | [Pexels.com](https://www.pexels.com/photo/photo-of-magnifying-glass-on-top-of-braille-7188802/)|
+|<img src="static/images/original/user-icon.jpg" alt="User Icon" width="30" height="30">| User Icon  | Mohamed Hassan   | [PxHere.com](https://pxhere.com/en/photo/1441529/)|
 
 ### Others
 [Back to Top](#top)
