@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Add Therapy{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/testimonial.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div class="containerAddTestimony">
+		<div class="addTestimonyHeader">
+			<hr>
+			<h1 class="addTestimonyTitle">Add your testimony</h2>
+			<hr>
+		</div>
+		<div class="addTestimonyBody">
+			<!-- Add the encoding type attribute on this form.
+			Since it will potentially be submitting an image file, 
+			and without this the image won't be uploaded properly -->
+			<form method="POST" action="{% url 'addTestimonial' %}" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="formGroup">
+					<input type="text" name="first_name"
+						maxlength="25" autofocus placeholder="First name *"
+						class="formInput fadeInLabel" required id="id_first_name">
+					<label for="id_first_name" class="formLabel">First Name:</label>
+				</div>
+		
+				<div class="formGroup">
+					<input type="text" name="last_name"
+						maxlength="25" autofocus placeholder="Last name *"
+						class="formInput fadeInLabel" required id="id_last_name">
+					<label for="id_last_name" class="formLabel">Last Name:</label>
+				</div>
+		
+					<label for="id_image">Your photo:</label>
+					<p>Current Photo:</p>
+					<img src="{% static 'images/user-icon-min.jpg' %}" alt="Generic User Icon" class="widgetImage">
+		
+					<!-- Wrap the checkbox in a div with some CSS classes -->
+					<div class="widgetCheckbox">
+						<input class="widgetInput" type="checkbox" name="image-clear"
+							id="image-clear_id"> <label class="widgetLabel"
+							for="image-clear_id">Remove</label>
+					</div>
+		
+					<br>
+					<!-- Wrap the actual file input itself in a span which looks like a button.
+					And add a paragraph below it to hold the file name once one is selected -->
+					<span class="btn btnFile"> Select Image <input id="newImage"
+						type="file" name="image" accept="image/*" class="formInput"
+						id="id_image">
+					</span> <strong><p id="widgetFilename"></p></strong>
+					
+					<div class="formGroup">
+						<input type="text" name="testimony_title" maxlength="25"
+							placeholder="Title" class="formInput fadeInLabel"
+							id="id_testimony_title">
+						<label for="id_testimony_title" class="formLabel">Title:</label>
+					</div>
+					
+					<div class="formGroup">
+						<textarea name="testimony" cols="40" rows="10"
+							placeholder="My Testimonial *" required
+							class="formInput fadeInLabel" id="id_testimony"></textarea>
+						<label for="id_testimony" class="formLabel">My Testimonial:</label>
+				</div>
+					
+	
+					<div id="addTestimonyButtons">
+						<button type="reset" class="btn btnTextOnly">Reset</button>
+						<a class="btn btnGhost" href="{% url 'testimonials' %}">Cancel</a>
+						<button class="btn btnPrimary" type="submit">Add Testimony</button> 
+					</div>
+			</form>
+		</div>
+	</div>
+	
+{% endblock %}
+
+{% block postloadjs %}
+	{{ block.super }}
+	<script type="text/javascript">
+		$("#newImage").change(function() {
+			var file = $("#newImage")[0].files[0];
+			$("#widgetFilename").text(`Image will be set to :  ${file.name}`)
+		});
+	</script>
+{% endblock %}

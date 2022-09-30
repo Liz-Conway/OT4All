@@ -20,7 +20,8 @@
 			<!-- Add the encoding type attribute on this form.
 			Since it will potentially be submitting an image file, 
 			and without this the image won't be uploaded properly -->
-			<form method="POST" action="{% url 'addTherapy' %}" enctype="multipart/form-data">
+			<form method="POST" action="{% url 'addTherapy' %}" 
+				class="widgetForm" enctype="multipart/form-data">
 				{% csrf_token %}
 				<label for="id_style">Style:</label>
 				<select name="style" class="formInput" required id="id_style">
@@ -87,6 +88,7 @@
 					class="formInput" id="id_extra_requirements">{% if therapy.extra_requirements %}{{ therapy.extra_requirements }}{% endif %}</textarea>
 
 				<div id="addTherapyButtons">
+					<button type="reset" class="btn btnTextOnly">Reset</button>
 					<a class="btn btnGhost" href="{% url 'listTherapies' %}">Cancel</a>
 					<button class="btn btnPrimary" type="submit">Add Therapy</button> 
 				</div>

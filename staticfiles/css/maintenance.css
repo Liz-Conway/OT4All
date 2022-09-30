@@ -201,14 +201,14 @@ label[for="id_course_sessions"] {
 }
 
 /*===== END  Table  ===== */
-.addTherapyBody form .widgetImage {
+.widgetImage {
   width: 96px;
   height: 96px;
   border-radius: 0.4rem;
   -webkit-box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
           box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
 }
-.addTherapyBody form .widgetCheckbox {
+.widgetCheckbox {
   margin-top: 0.75rem;
   min-height: 1rem;
   padding-left: 1rem;
@@ -226,21 +226,21 @@ label[for="id_course_sessions"] {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.addTherapyBody form .widgetInput {
+.widgetCheckbox .widgetInput {
   width: 1.5rem;
   height: 1.5rem;
   margin-top: 1rem;
 }
-.addTherapyBody form .widgetInput:checked ~ .widgetLabel::before {
+.widgetCheckbox .widgetInput:checked ~ .widgetLabel::before {
   background-color: #e84610;
   border-color: #e84610;
   border-radius: 0;
 }
-.addTherapyBody form .widgetLabel {
+.widgetLabel {
   margin-right: 1rem;
   color: #e84610;
 }
-.addTherapyBody form .widgetLabel::before {
+.widgetLabel::before {
   border-radius: 0;
   border-color: #e84610;
 }

@@ -1,21 +1,20 @@
-.addTherapyBody form
-	.widget
-		&Image
-			width: 96px
-			height: 96px
-			border-radius: .4rem
-			box-shadow: 2px 4px rgba(0,0,0,.075)
+.widget
+	&Image
+		width: 96px
+		height: 96px
+		border-radius: .4rem
+		box-shadow: 2px 4px rgba(0,0,0,.075)
 
-		&Checkbox
-			margin-top: .75rem
-			min-height: 1rem
-			padding-left: 1rem
-			display: flex
-			flex-direction: row-reverse
-			align-items: center
-			justify-content: flex-end
+	&Checkbox
+		margin-top: .75rem
+		min-height: 1rem
+		padding-left: 1rem
+		display: flex
+		flex-direction: row-reverse
+		align-items: center
+		justify-content: flex-end
 
-		&Input
+		.widgetInput
 			width: 1.5rem
 			height: 1.5rem
 			margin-top: 1rem
@@ -25,13 +24,13 @@
 				border-color: $error
 				border-radius: 0
 
-		&Label
-			margin-right: 1rem
-			color: $error
+	&Label
+		margin-right: 1rem
+		color: $error
 
-			&::before
-				border-radius: 0
-				border-color: $error
+		&::before
+			border-radius: 0
+			border-color: $error
 
 #widgetFilename
 	color: $error
