@@ -166,6 +166,13 @@ label[for="id_course_sessions"] {
 
 /*===== END  Add Therapy Page  ===== */
 /*~~~~~~~  Table  ~~~~~~~ */
+.ot4uTable {
+  font-size: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 1rem 0;
+}
 .ot4uTable tr:nth-child(odd) {
   background-color: #ffb299;
 }
@@ -179,24 +186,14 @@ label[for="id_course_sessions"] {
 .ot4uTable td:last-child {
   text-align: right;
 }
+@media only screen and (min-width: 37.5em) {
+  .ot4uTable {
+    padding: 1rem 1.5rem;
+  }
+}
 @media only screen and (min-width: 59.375em) {
   .ot4uTable {
     margin-top: 5rem;
-  }
-}
-
-#therapyListTable {
-  font-size: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-#therapyListTable td, #therapyListTable th {
-  padding: 1rem 0;
-}
-@media only screen and (min-width: 37.5em) {
-  #therapyListTable td, #therapyListTable th {
-    padding: 1rem 1.5rem;
   }
 }
 

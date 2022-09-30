@@ -1,13 +1,14 @@
 Hello {{ order.full_name }}!
 
-This is a confirmation of your order at OT4U.  Your order information is below:
+This is a confirmation of the sessions you have booked with OT4U Occupational Therapy.  Your order information is below:
 
 Order Number :  {{ order.order_number }}
 Order Date : {{ order.date }}
 
+
 Grand Total:  €{{ order.grand_total }}
 
-Your order address is :   {{ order.street_address1 }} in {{ order.city }}, {{ order.county }}.
+We have your address as : {{ order.street_address1 }} in {{ order.city }}, {{ order.county }}.
 
 We've got your phone number on file as :  {{ order.phone_number }}.
 

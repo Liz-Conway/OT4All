@@ -240,8 +240,6 @@ Support screen elements - **Save Info checkbox**
 | --- | --- |
 |  ![Save info - Desktop](documentation/pages/save-info.png)   |  ![Save info - mobile](documentation/pages/mobile/save-info.png)   |
 
-If there are any problems with saving the client's profile to the database, the WebHook will retrieve the profile details from the Order and save the client profile to the database.  This improves the reliability of the OT4U website by correcting errors when they occur.  This happens without the client being aware of any problem.
-
 #### Update Client Profile
 [Back to Top](#top)
 
@@ -295,7 +293,9 @@ Supporting page - **Logout page**
 
 ![Client Registration user flow](documentation/user-flow/client-registration.png)
 
-Before a client can log into the OT4U website they must have registered on the website.
+
+Before a client can log into the OT4U website they must have registered on the website.  A gmail account was created for the OT4U website (ot4u.mail@gmail.com).  A google app was created for this account.  The OT4U website was set up to use the google mail server, via this google app to send the appropriate emails.
+
 
 Supporting Page - **Registration page**
 
@@ -461,11 +461,15 @@ Supporting page - **No Search results**
 #### View a single Therapy
 [Back to Top](#top)
 
-Once a client clicks on the "Read More" button for a particular therapy the Book Therapy page of the chosen therapy is displayed.  The purpose of the Book Therapy page is to entice the client to book a number of sessions for that therapy.
+Once a client clicks on the "Read More" button for a particular therapy the Single Therapy page of the chosen therapy is displayed.  The purpose of the Single Therapy page is to entice the client to book a number of sessions for that therapy.
 
-This page shows a larger image, the therapy name, details, style and cost.  If there is any equipment neeed, a specific location where the therapy takes place, or extra requirements for the therapy they are shown here as well.
+This page shows a larger image, the therapy name, details, style and cost.  If there is a location, or extra requirements for the therapy they are shown here as well.
+
+A "number of sessions" input is pre-filled with the recommended number of sessions for the specific therapy.  A "Book" button is the primary 'call to action'.  It is deliberately out of sync with the colour scheme in order to visually draw the client's attention to where they need to look and prompt them to take action.
 
 The Single Therapy page will give more information on the therapy, such as equipment to be used, location where applicable and any additional requirements.
+
+The client can choose the number of sessions they wish to book, and still has the option to return back to the Therapies list.  These choices mean that the client is never forced down any one path and has the freedom to browse around until they find the correct fit for them.
 
 |  Desktop   |  Mobile   |
 | --- | --- |
@@ -473,7 +477,7 @@ The Single Therapy page will give more information on the therapy, such as equip
 
 
 
-#### Add Therapies
+#### Maintain Therapies
 [Back to Top](#top)
 
 ![Add Therapy user flow](documentation/user-flow/add-therapy.png)
@@ -737,8 +741,6 @@ This feature allows clients and potential clients to view information about Nata
 [Back to Top](#top)
 The purpose of this feature is to allow Natalia's clients to establish contact and get their queries answered.  Being available to answer questions makes Natalia seem more friendly and trust worthy and will generate more bookings for her.
 
-#### Sign up for our Newsletter
-[Back to Top](#top)
 
 A MailChimp subscription service is used to allow clients and users to sign up to Natalia's regular newsletter.  This establishes ongoing contact between herself and her clients/potential clients.  She will always be in the forefront of their minds and should be the first person they think of when considering getting OT.
 
@@ -750,7 +752,6 @@ Supporting page elements - **Newsletter Signup**
 
 
 #### View our Privacy Policy
-[Back to Top](#top)
 
 #### Messages
 [Back to Top](#top)
@@ -1368,6 +1369,7 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |How to change the colour of a placeholder | W3 Schools |https://www.w3schools.com/howto/howto_css_placeholder.asp |
 |Django model data types | Naveen Arora |https://www.geeksforgeeks.org/positiveintegerfield-django-models/ |
 |Layout components in a grid using Flexbox | Kevin Powell |https://www.youtube.com/watch?v=vQAvjof1oe4 |
+| Use email with Django | Daniel Diaz |https://www.sitepoint.com/django-send-email/ |
 | Wrap text around irregular shape | Nate Weiner |https://www.youtube.com/watch?v=vQAvjof1oe4 | |
 
 
