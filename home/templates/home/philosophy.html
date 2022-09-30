@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}philosopy{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+		<div class="philosophyContainer">
+			<hr>
+			<h1>Our Philosophy</h1>
+			<hr>
+			<div class="philosopyDetails">
+				<p>A skill we often teach our clients is how to approach a problem.  The steps involved are Goal, Plan, Do and Check.  This is also the core philosophy behind every therapy session. </p>
+				<br>
+				<h2>Goal</h2>
+				<p>Here we decide what needs to be accomplished both in the long-term and within each individual session.  It is important to talk with the client and assess their expectations as well as their current abilities.  From there we can establish what are achievable goals.</p>
+				<br>
+				<h2>Plan</h2>
+				<p>Once we have a clear idea of what we want to achieve, we break down the goals into the steps that are required to achieve that goal.</p>
+				<br>
+				<h2>Do</h2>
+				<p>Now that we have a plan of action, we need to implement that plan in our therapy session.</p>
+				<br>
+				<h2>Check</h2>
+				<p>Having executed the plan we will observe how the client got on.  Did they achieve what we set out to accomplish?  We use these "check" observations to re-align our goals if they need re-alignment, and also to inform our plan for the next session and series of sessions.</p>
+				<br>
+			</div>
+		</div>
+{% endblock %}

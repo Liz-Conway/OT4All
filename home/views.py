@@ -62,3 +62,11 @@ class ContactView(TemplateView):
 
             # Reload the page
             return render(request, self.template_name, {"form": form})
+
+
+class Philosophy(TemplateView):
+    """
+    Display the Philosophy page
+    """
+
+    template_name = "home/philosophy.html"
