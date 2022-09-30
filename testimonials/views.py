@@ -14,12 +14,14 @@ class Testimonials(TemplateView):
     # TemplateView does not need to define get() method
     # But here we need to tell the page what Testimonials to show
     def get_context_data(self, **kwargs):
+        print("Getting context data")
         all_testimonials = Testimonial.objects.all()
 
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         context["testimonials"] = all_testimonials
 
+        print("Returning Context")
         return context
 
 
@@ -31,12 +33,12 @@ class AddTestimonial(TemplateView):
     def post(self, request, *args, **kwargs):
         # Instantiate a new instance of the TherapyForm from request.POST and
         # include request .FILES also in order to make sure to capture
-        # the image of the therapy if one was submitted
+        # the user's photo if one was submitted
         form = TestimonialForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(
-                request, "Your testimonial has been added.\nThank You!"
+                request, "Your testimonial has been added.  Thank You!"
             )
             return redirect(reverse("testimonials"))
         else:

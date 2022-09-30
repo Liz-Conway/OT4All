@@ -1,3 +1,98 @@
+.widgetImage {
+  width: 96px;
+  height: 96px;
+  border-radius: 0.4rem;
+  -webkit-box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
+          box-shadow: 2px 4px rgba(0, 0, 0, 0.075);
+}
+.widgetCheckbox {
+  margin-top: 0.75rem;
+  min-height: 1rem;
+  padding-left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.widgetCheckbox .widgetInput {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 1rem;
+}
+.widgetCheckbox .widgetInput:checked ~ .widgetLabel::before {
+  background-color: #e84610;
+  border-color: #e84610;
+  border-radius: 0;
+}
+.widgetLabel {
+  margin-right: 1rem;
+  color: #e84610;
+}
+.widgetLabel::before {
+  border-radius: 0;
+  border-color: #e84610;
+}
+
+#widgetFilename {
+  color: #e84610;
+}
+
+.btnFile {
+  position: relative;
+  overflow: hidden;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 0.75rem;
+}
+.btnFile input[type="file"] {
+  /* Make sure that the entire input, which is clickable,
+   * lives inside this span that looks like a button. */
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  /* Then making it invisible so it appears you're clicking the button */
+  opacity: 0;
+  cursor: pointer;
+}
+
+#newImage {
+  /* Make sure that the entire input, which is clickable,
+   * lives inside this span that looks like a button. */
+  position: absolute;
+  /* Then making it invisible so it appears you're clicking the button */
+  opacity: 0;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  cursor: pointer;
+}
+
+.testimonialBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.widgetCheckbox .widgetInput {
+  margin-top: 0;
+}
+
 /*~~~~~~~  Testimonial  ~~~~~~~ */
 .testimonial {
   width: 100%;
@@ -34,6 +129,12 @@
 }
 .testimonialHeader {
   text-align: center;
+}
+.testimonialHeader hr {
+  margin: 1.5rem 0;
+}
+.testimonialTitle {
+  margin-bottom: 1.5rem;
 }
 .testimonialShape {
   width: 15rem;

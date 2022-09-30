@@ -1088,7 +1088,6 @@ menu a {
 }
 .btnTextOnly:hover, .btnTextOnly:active {
   background-color: transparent;
-  color: #ffcdbd;
 }
 .btnThin {
   /* These thin buttons have too much padding above and below
@@ -1192,6 +1191,13 @@ button[class$="crementSessions"]:disabled {
 
 .btnFile {
   background-color: #ffcdbd;
+}
+
+#addTestimonyButtons {
+  text-align: right;
+}
+#addTestimonyButtons button:last-child {
+  margin-top: 1rem;
 }
 
 /*===== END  Button  ===== */

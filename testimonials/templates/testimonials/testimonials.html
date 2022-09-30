@@ -21,7 +21,7 @@
 	        		<div class="testimonial">
 	        			<figure class="testimonialShape">
 	        				<img alt="{{testimonial.first_name}} {{testimonial.last_name}}" 
-	        					src="{% if testimonial.image_url %}{{ testimonial.image_url }}{% else %}{% static 'images/user-icon-min.jpg' %}{% endif %}" 
+	        					src="{% if testimonial.image %}{{ testimonial.image.url }}{% else %}{% static 'images/user-icon-min.jpg' %}{% endif %}" 
 	        					class="testimonialImage">
 	        				<figcaption class="testimonialCaption">{{testimonial.first_name}} {{testimonial.last_name}}</figcaption>
 	        			</figure>

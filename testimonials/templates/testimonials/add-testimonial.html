@@ -32,7 +32,7 @@
 					maxlength="25" autofocus placeholder="Last name *"
 					class="formInput" required id="id_last_name">
 	
-				<label for="id_image_url">Your photo:</label>
+				<label for="id_image">Your photo:</label>
 				<p>Current Photo:</p>
 				<img src="{% static 'images/user-icon-min.jpg' %}" alt="Generic User Icon" class="widgetImage">
 	
@@ -47,8 +47,8 @@
 				<!-- Wrap the actual file input itself in a span which looks like a button.
 				And add a paragraph below it to hold the file name once one is selected -->
 				<span class="btn btnFile"> Select Image <input id="newImage"
-					type="file" name="image_url" accept="image/*" class="formInput"
-					id="id_image_url">
+					type="file" name="image" accept="image/*" class="formInput"
+					id="id_image">
 				</span> <strong><p id="widgetFilename"></p></strong>
 				
 				<label for="id_testimony_title">Title:</label>
@@ -62,6 +62,7 @@
 					class="formInput" id="id_testimony"></textarea>
 
 				<div id="addTestimonyButtons">
+					<button type="reset" class="btn btnTextOnly">Reset</button>
 					<a class="btn btnGhost" href="{% url 'testimonials' %}">Cancel</a>
 					<button class="btn btnPrimary" type="submit">Add Testimony</button> 
 				</div>
