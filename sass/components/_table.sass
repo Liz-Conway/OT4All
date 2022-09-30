@@ -1,6 +1,12 @@
 /*~~~~~~~  Table  ~~~~~~~*/
 .ot4u
 	&Table
+		font-size: 2rem
+		margin-left: auto
+		margin-right: auto
+		width: 100%
+		td, th
+		padding: 1rem 0
 		tr:nth-child(odd)
 			background-color: $midtoneDark
 		tr:nth-child(even)
@@ -10,19 +16,10 @@
 			color: $highlight
 		td:last-child
 			text-align: right
+		@include respond(tabletPortrait)
+			td, th
+			padding: 1rem 1.5rem
 		@include respond(notebook)
 			margin-top: 5rem
-
-#therapyListTable
-	font-size: 2rem
-	margin-left: auto
-	margin-right: auto
-	width: 100%
-	td, th
-		padding: 1rem 0
-	@include respond(tabletPortrait)
-		td, th
-			padding: 1rem 1.5rem
-
 
 /*===== END  Table  =====*/
