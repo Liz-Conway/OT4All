@@ -26,7 +26,7 @@
 	        				<figcaption class="testimonialCaption">{{testimonial.first_name}} {{testimonial.last_name}}</figcaption>
 	        			</figure>
 	        			<div class="testimonialText">
-	        				<h3>{{ testimonial.testimony_title }}</h3>
+	        				<h3>{% if testimonial.testimony_title %}{{ testimonial.testimony_title }}{% endif %}</h3>
 	        				<p>{{ testimonial.testimony }}</p>
 	        				<p class="testimonialDate">{{ testimonial.date }}</p>
 	        			</div>

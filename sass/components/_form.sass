@@ -43,6 +43,59 @@
 			/*Target the placeholder text*/
 			color: $grey
 
+	&Group
+		&:not(:last-child)
+			margin-bottom: 2rem
+		display: flex
+		flex-direction: column-reverse
+
+	&Label
+		font:
+			//size: 1.2rem
+			weight: $boldWt
+		/*Use 'block' so we can apply margins to the element*/
+		display: block
+		margin:
+			left: 2rem
+			top: .7rem
+		transition: all .3s
+
+	&Input.fadeInLabel:placeholder-shown + &Label
+		/*Use adjacent sibling selector '+' to choose a label which is next to an input element*/
+		/*If there were elements between the label and the input we would have to use the general sibling selector '~'*/
+		/*The sibling we want to select/use always has to be after the other element in the HTML*/
+		/*When the placeholder is shown -> these attributes are applied to the label*/
+		/*Once we start typing -> these attributes will not be applied and the label will appear*/
+
+		/*Using opacity since we want to animate the label disappearing*/
+		opacity: 0
+		/*Using visibility since we want the element to be gone from the page*/
+		visibility: hidden
+		/*Move the label down to the same position as the placeholder text - at the start of the animation*/
+		transform: translateY(4.7rem)
+
+	// &InputHelp
+	// 	color: $greyHelp
+	//
+	// &Input.fadeInLabel:placeholder-shown > &Help
+	// 	/*Use adjacent sibling selector '+' to choose a label which is next to an input element*/
+	// 	/*If there were elements between the label and the input we would have to use the general sibling selector '~'*/
+	// 	/*The sibling we want to select/use always has to be after the other element in the HTML*/
+	// 	/*When the placeholder is shown -> these attributes are applied to the label*/
+	// 	/*Once we start typing -> these attributes will not be applied and the label will appear*/
+	//
+	// 	/*Using opacity since we want to animate the label disappearing*/
+	// 	opacity: 0
+	// 	/*Using visibility since we want the element to be gone from the page*/
+	// 	visibility: hidden
+	// 	/*Move the label down to the same position as the placeholder text - at the start of the animation*/
+	// 	transform: translateY(4.7rem)
+
+input:not([type="radio"]):required + label::after, select:required + label::after
+	content: " *"
+	color: $error
+
+
 select
 	&, & option
 		color: $black

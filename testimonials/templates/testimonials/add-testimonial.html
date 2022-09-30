@@ -21,51 +21,59 @@
 			and without this the image won't be uploaded properly -->
 			<form method="POST" action="{% url 'addTestimonial' %}" enctype="multipart/form-data">
 				{% csrf_token %}
-				
-				<label for="id_first_name">First Name:</label>
-				<input type="text" name="first_name"
-					maxlength="25" autofocus placeholder="First name *"
-					class="formInput" required id="id_first_name">
-	
-				<label for="id_last_name">Last Name:</label>
-				<input type="text" name="last_name"
-					maxlength="25" autofocus placeholder="Last name *"
-					class="formInput" required id="id_last_name">
-	
-				<label for="id_image">Your photo:</label>
-				<p>Current Photo:</p>
-				<img src="{% static 'images/user-icon-min.jpg' %}" alt="Generic User Icon" class="widgetImage">
-	
-				<!-- Wrap the checkbox in a div with some CSS classes -->
-				<div class="widgetCheckbox">
-					<input class="widgetInput" type="checkbox" name="image-clear"
-						id="image-clear_id"> <label class="widgetLabel"
-						for="image-clear_id">Remove</label>
+				<div class="formGroup">
+					<input type="text" name="first_name"
+						maxlength="25" autofocus placeholder="First name *"
+						class="formInput fadeInLabel" required id="id_first_name">
+					<label for="id_first_name" class="formLabel">First Name:</label>
 				</div>
-	
-				<br>
-				<!-- Wrap the actual file input itself in a span which looks like a button.
-				And add a paragraph below it to hold the file name once one is selected -->
-				<span class="btn btnFile"> Select Image <input id="newImage"
-					type="file" name="image" accept="image/*" class="formInput"
-					id="id_image">
-				</span> <strong><p id="widgetFilename"></p></strong>
-				
-				<label for="id_testimony_title">Title:</label>
-				<input type="text" name="testimony_title" maxlength="25"
-					placeholder="Title" class="formInput"
-					id="id_testimony_title">
-				
-				<label for="id_testimony">My Testimonial:</label>
-				<textarea name="testimony" cols="40" rows="10"
-					placeholder="My Testimonial *"
-					class="formInput" id="id_testimony"></textarea>
-
-				<div id="addTestimonyButtons">
-					<button type="reset" class="btn btnTextOnly">Reset</button>
-					<a class="btn btnGhost" href="{% url 'testimonials' %}">Cancel</a>
-					<button class="btn btnPrimary" type="submit">Add Testimony</button> 
+		
+				<div class="formGroup">
+					<input type="text" name="last_name"
+						maxlength="25" autofocus placeholder="Last name *"
+						class="formInput fadeInLabel" required id="id_last_name">
+					<label for="id_last_name" class="formLabel">Last Name:</label>
 				</div>
+		
+					<label for="id_image">Your photo:</label>
+					<p>Current Photo:</p>
+					<img src="{% static 'images/user-icon-min.jpg' %}" alt="Generic User Icon" class="widgetImage">
+		
+					<!-- Wrap the checkbox in a div with some CSS classes -->
+					<div class="widgetCheckbox">
+						<input class="widgetInput" type="checkbox" name="image-clear"
+							id="image-clear_id"> <label class="widgetLabel"
+							for="image-clear_id">Remove</label>
+					</div>
+		
+					<br>
+					<!-- Wrap the actual file input itself in a span which looks like a button.
+					And add a paragraph below it to hold the file name once one is selected -->
+					<span class="btn btnFile"> Select Image <input id="newImage"
+						type="file" name="image" accept="image/*" class="formInput"
+						id="id_image">
+					</span> <strong><p id="widgetFilename"></p></strong>
+					
+					<div class="formGroup">
+						<input type="text" name="testimony_title" maxlength="25"
+							placeholder="Title" class="formInput fadeInLabel"
+							id="id_testimony_title">
+						<label for="id_testimony_title" class="formLabel">Title:</label>
+					</div>
+					
+					<div class="formGroup">
+						<textarea name="testimony" cols="40" rows="10"
+							placeholder="My Testimonial *" required
+							class="formInput fadeInLabel" id="id_testimony"></textarea>
+						<label for="id_testimony" class="formLabel">My Testimonial:</label>
+				</div>
+					
+	
+					<div id="addTestimonyButtons">
+						<button type="reset" class="btn btnTextOnly">Reset</button>
+						<a class="btn btnGhost" href="{% url 'testimonials' %}">Cancel</a>
+						<button class="btn btnPrimary" type="submit">Add Testimony</button> 
+					</div>
 			</form>
 		</div>
 	</div>
