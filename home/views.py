@@ -53,11 +53,13 @@ class ContactView(TemplateView):
             return redirect(reverse("home"))
         else:
             print("Form is INVALID")
-            # Attach a generic error message telling the user to check their form
+            # Attach a generic error message
+            # telling the user to check their form
             # which will display the errors.
             messages.error(
                 request,
-                "Failed to log your enquiry.  Please ensure the form is valid.",
+                "Failed to log your enquiry.\
+                  Please ensure the form is valid.",
             )
 
             # Reload the page

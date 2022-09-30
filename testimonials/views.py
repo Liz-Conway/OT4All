@@ -47,7 +47,8 @@ class AddTestimonial(TemplateView):
             # which will display the errors.
             messages.error(
                 request,
-                "Failed to add your Testimonial.  Please ensure the form is valid.",
+                "Failed to add your Testimonial.\
+                  Please ensure the form is valid.",
             )
             context = {"form": form}
 

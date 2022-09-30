@@ -129,7 +129,8 @@ class StripeWH_Handler:
 
             # Get the user's profile using their username.
             profile = UserProfile.objects.get(user__username=username)
-            # If they've got the save info box checked (from the metadata we added).
+            # If they've got the save info box checked
+            # (from the metadata we added).
             if save_info:
                 # Update their profile by adding the shipping & billing details
                 # as their default client information.

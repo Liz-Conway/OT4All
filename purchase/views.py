@@ -20,7 +20,6 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
-from purchase.models import Order
 
 
 class Purchase(TemplateView):

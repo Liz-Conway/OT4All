@@ -2,10 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.base import TemplateView
 from therapy.models import Therapy, Style
 from django.contrib import messages
-from django.urls.base import reverse, resolve
+from django.urls.base import resolve
 from django.db.models.query_utils import Q
 from django.db.models.functions.text import Lower
-from django.http.response import HttpResponseRedirect
 
 
 # Create your views here.
@@ -101,7 +100,8 @@ class AllTherapies(TemplateView):
                     # to attach an error message to the request
                     messages.error(
                         self.request,
-                        "You didn't enter any search criteria.  Showing all therapies.",
+                        "You didn't enter any search criteria.\
+                          Showing all therapies.",
                     )
                     # Redirect back to the therapies URL
                     current_url = resolve(request.path_info).url_name
