@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Bookings{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/purchase.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div class="bookingListContainer">
+		<hr>
+		<h1>List of Bookings</h1>
+		<hr>
+		<div class="bookingListing">
+			<div>
+				<!-- Table containing the list of therapies -->
+				<table id="bookingListTable" class="ot4uTable">
+					<thead class="tableHead">
+					<thead class="tableHead">
+						<tr>
+							<th>Order Number</th>
+							<th>Date</th>
+							<th>Client</th>
+							<th>Therapies</th>
+							<th>Order Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in orders %}
+							<tr>
+								<td>
+										 {{ order.order_number }}
+								</td>
+								<td>{{ order.date }}</td>
+								<td title="{{ order.email }}">{{ order.full_name }}</td>
+								<td>
+									<!-- An unordered unstyled list. -->
+									<ul>
+										<!-- For each item in the orders list of line-items :
+										Make a small text summary of it, including
+										the therapy, and the number of sessions purchased -->
+										{% for booking in order.lineitems.all %}
+											{{ booking.therapy.name }} x {{ booking.sessions }}<br>
+										{% endfor %}
+									</ul>
+								</td>
+								<td>€{{ order.grand_total }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+					<!--  </thead>
+					<tbody>
+					{#% for order in orders %#}
+					Show identifying information for each therapy
+						<tr class="therapyListRow"  id="therapy{#{ therapy.id }#}">
+							<td class="therapyListLabel" title="{#{ therapy.name }#}">
+								{#{ therapy.name }#}
+							</td>
+							<td class="therapyListCentre">
+								{{ therapy.style }}
+							</td>
+							<td class="therapyListCentre">
+								€{#{ therapy.price }#}
+							</td>
+							<td class="therapyListActions">
+								This "button" allows the Occupational Therapist to edit this therapy's details
+								<a href="{#% url 'editTherapy' therapy.id %#}"><i class="fas fa-pencil"></i></a>
+								This button allows the Occupational Therapist to delete this therapy from the OT4U website
+								<a class="errorText" onclick="deleteTherapy({#{ therapy.id }#});"><i class="fas fa-trash"></i></a>
+							</td>
+						</tr>
+					{#% empty %#}
+						If there are no therapies then show an appropriate message
+						<tr><td colspan="4">You have no therapies yet!  Please add some Therapies <a href="{% url 'addTherapy' %}">here</a></td></tr>
+					{#% endfor %#}
+					</tbody>
+					
+				</table> -->
+			</div>
+			<div id="therapyListButtons">
+				<a href="{% url 'home' %}" class="btn btnGhost btnThin">
+					<span class="icon">
+						<i class="fas fa-house"></i>
+					</span>
+					Home
+				</a>
+			</div>
+		</div>
+		<!-- Empty form to use to POST the delete therapy -->
+		<form method="POST" id="deleteForm">
+			{% csrf_token %}
+		</form>
+		
+	</div>
+
+{% endblock content %}
+			

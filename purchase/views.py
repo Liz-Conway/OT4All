@@ -20,6 +20,7 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from purchase.models import Order
 
 
 class Purchase(TemplateView):
@@ -360,3 +361,20 @@ class CachePurchaseData(View):
                 Please try again later.",
             )
             return HttpResponse(content=ex, status=400)
+
+
+class ViewBookings(TemplateView):
+    """
+    Display all bookings that have been purchase
+    """
+
+    template_name = "purchase/view-bookings.html"
+
+    def get_context_data(self, *args, **kwargs):
+        orders = Order.objects.all().order_by("-date")
+
+        # Call the base implementation first to get a context
+        context = super().get_context_data(*args, **kwargs)
+        context["orders"] = orders
+
+        return context
