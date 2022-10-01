@@ -1,0 +1,7 @@
+User-Agent: *
+# Do not crawl any of the maintenance pages
+# I.E. List Therapies, Add Therapy, Edit Therapy, Delete Therapy
+Disallow: /maintenance/
+
+
+Sitemap: https://ot4u-ci.herokuapp.com/sitemap.xml
