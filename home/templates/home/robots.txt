@@ -3,5 +3,10 @@ User-Agent: *
 # I.E. List Therapies, Add Therapy, Edit Therapy, Delete Therapy
 Disallow: /maintenance/
 
+# There is no point in searching these pages 
+# as they are subsets of the main Therapies page
+Disallow: /therapy/?style=*
+
+
 
 Sitemap: https://ot4u-ci.herokuapp.com/sitemap.xml
