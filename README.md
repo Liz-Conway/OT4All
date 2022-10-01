@@ -1370,7 +1370,8 @@ With forking you are pushing the updates to *your own OT4U repo* on github.
 |Django model data types | Naveen Arora |https://www.geeksforgeeks.org/positiveintegerfield-django-models/ |
 |Layout components in a grid using Flexbox | Kevin Powell |https://www.youtube.com/watch?v=vQAvjof1oe4 |
 | Use email with Django | Daniel Diaz |https://www.sitepoint.com/django-send-email/ |
-| Wrap text around irregular shape | Nate Weiner |https://www.youtube.com/watch?v=vQAvjof1oe4 | |
+| Wrap text around irregular shape | Nate Weiner |https://www.youtube.com/watch?v=vQAvjof1oe4 |
+| robots.txt & sitemap.xml in Django | Jaysha |https://ordinarycoders.com/blog/article/robots-text-file-django |
 
 
 ### Pictures

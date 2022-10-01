@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/accounts/signup/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/accounts/login/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/accounts/logout/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/bookings/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/?style=Equine</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/?style=Literacy</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/?style=Self%20Care</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/testimonials/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/about/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/philosophy/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/contact/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/accounts/password/reset/</loc>
+	<lastmod>2022-10-01T14:00:16+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/1/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/2/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/3/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/6/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/4/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/8/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/7/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/9/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/10/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/therapy/5/</loc>
+	<lastmod>2022-10-01T14:00:17+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/testimonials/add/</loc>
+	<lastmod>2022-10-01T14:00:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/maintenance/list/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/maintenance/add/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/maintenance/edit/1</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/purchase/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/purchase/purchase-success/00000001</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/purchase/view/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/profiles/</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ot4u-ci.herokuapp.com/profiles/orderHistory/00000001</loc>
+	<lastmod>2022-10-01T14:00:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+</urlset>
