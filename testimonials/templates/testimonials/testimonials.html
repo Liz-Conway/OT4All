@@ -33,7 +33,11 @@
 	        		</div>
 	        		{% endfor %}
 	        		
-	        		<a href="{% url 'addTestimonial' %}" class="btn btnPrimary">Add My Testimonial</a>
+			        {% if request.user.is_authenticated %}
+			            {% if not request.user.is_superuser %}
+			        		<a href="{% url 'addTestimonial' %}" class="btn btnPrimary">Add My Testimonial</a>
+						{% endif %}
+					{% endif %}
 				
 	        	</div>
 

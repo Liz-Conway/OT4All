@@ -35,10 +35,11 @@
 								            <a href="{% url 'home' %}">Home</a>
 							    		</menuitem>
 								        {% if request.user.is_authenticated %}
-								        	<menuitem><a href="{% url 'profile' %}">My Profile</a></menuitem>
 								            {% if request.user.is_superuser %}
 			                                	<menuitem><a href="{% url 'listTherapies' %}">Maintain Therapies</a></menuitem>
 			                                	<menuitem><a href="{% url 'viewBookings' %}">View Bookings</a></menuitem>
+											{% else %}
+									        	<menuitem><a href="{% url 'profile' %}">My Profile</a></menuitem>
 											{% endif %}
 											<menuitem><a href="{% url 'account_logout' %}">Logout</a></menuitem>
 										{% else %}
