@@ -430,7 +430,7 @@
   text-align: right;
 }
 @media only screen and (min-width: 37.5em) {
-  .ot4uTable {
+  .ot4uTable td, .ot4uTable th {
     padding: 1rem 1.5rem;
   }
 }
@@ -441,4 +441,5 @@
 }
 
 /*===== END  Table  ===== */
+
 /*# sourceMappingURL=purchase.css.map */

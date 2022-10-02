@@ -52,7 +52,12 @@
 	                    </div>
                     </li>
     				<li>
-    		            <a class="navLink" href="{% url 'bookings' %}">
+    		            <a class="navLink" href="
+    		            	{% if request.user.is_superuser %}
+    		            		{% url 'viewBookings' %}
+    		            	{% else %}
+    		            		{% url 'bookings' %}
+    		            	{% endif %}">
                             <div class="shopAccountsBlock">
                                 <i class="fas fa-{% if grand_total %}shopping-cart{% else %}cart-plus{% endif %} shopAccountsIcon" id="cartIcon"></i>
                                 <p class="shopAccountsLabel">

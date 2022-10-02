@@ -4,9 +4,10 @@ from therapy.models import Therapy
 from django.contrib import messages
 from django.urls.base import reverse
 from .forms import TherapyForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
-class AddTherapy(TemplateView):
+class AddTherapy(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """
     A view to allow Admin users to add a therapy to the store
     """
@@ -40,8 +41,11 @@ class AddTherapy(TemplateView):
 
             return render(request, self.template_name, context)
 
+    def test_func(self):
+        return self.request.user.is_superuser
 
-class ListTherapies(TemplateView):
+
+class ListTherapies(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """
     A view to allow Admin users to view the therapies that are in the store
     """
@@ -56,8 +60,11 @@ class ListTherapies(TemplateView):
 
         return context
 
+    def test_func(self):
+        return self.request.user.is_superuser
 
-class EditTherapy(TemplateView):
+
+class EditTherapy(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """
     A view to allow Admin users to edit an existing therapy
     """
@@ -116,8 +123,11 @@ class EditTherapy(TemplateView):
 
         return render(request, self.template_name, context)
 
+    def test_func(self):
+        return self.request.user.is_superuser
 
-class DeleteTherapy(View):
+
+class DeleteTherapy(LoginRequiredMixin, UserPassesTestMixin, View):
     """
     A view to allow Admin users to delete an existing therapy
     """
@@ -138,3 +148,6 @@ class DeleteTherapy(View):
             messages.error(self.request, f"Exception :  {ex.message}")
 
         return redirect(reverse("listTherapies"))
+
+    def test_func(self):
+        return self.request.user.is_superuser

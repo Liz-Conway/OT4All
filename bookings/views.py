@@ -4,15 +4,19 @@ from django.urls.base import reverse
 from django.http.response import HttpResponse
 from therapy.models import Therapy
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
-class BookingsContents(TemplateView):
+class BookingsContents(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """A class for rendering the bookings contents page"""
 
     template_name = "bookings/bookings.html"
 
+    def test_func(self):
+        return not self.request.user.is_superuser
 
-class AddToBookings(TemplateView):
+
+class AddToBookings(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """
     Book a number of sessions for a specific therapy
     """
@@ -81,8 +85,11 @@ class AddToBookings(TemplateView):
         # I.E. The form will never be POSTed twice in a row.
         return redirect(redirect_url)
 
+    def test_func(self):
+        return not self.request.user.is_superuser
 
-class UpdateBooking(TemplateView):
+
+class UpdateBooking(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """
     Adjust the number of sessions of a particular therapy
     to the specified amount
@@ -146,8 +153,11 @@ class UpdateBooking(TemplateView):
         # Redirect back to the view bookings URL
         return redirect(reverse("bookings"))
 
+    def test_func(self):
+        return not self.request.user.is_superuser
 
-class RemoveBooking(TemplateView):
+
+class RemoveBooking(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """
     Remove the therapy from the bookings
     """
@@ -203,3 +213,6 @@ class RemoveBooking(TemplateView):
         except Exception as ex:
             messages.error(request, f"Error removing therapy :  {ex}")
             return HttpResponse(status=500)
+
+    def test_func(self):
+        return self.request.user.is_superuser
