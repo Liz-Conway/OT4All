@@ -1801,20 +1801,27 @@ ul.errorlist {
       align-self: flex-end;
 }
 
-#id_remember {
-  /*	The checkbox for the "Remember Me" label
-   * is laid out on the row after the label
-   * Need to move it so it is beside its label
-   * // transform: translate(0, -2rem)
-   * // transform: translateY(-2rem)
-   * // transform: translateX(0) */
-  position: absolute;
-  top: 11rem;
-  left: 0;
+.rememberMe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.rememberMe #id_remember {
+  margin-top: 1rem;
 }
 
 label[for="id_remember"] {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 @media only screen and (min-width: 37.5em) {

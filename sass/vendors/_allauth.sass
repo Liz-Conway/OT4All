@@ -104,19 +104,27 @@ ul.errorlist
 	&Buttons
 		align-self: flex-end
 
-#id_remember
+// #id_remember
 	/*	The checkbox for the "Remember Me" label
 		is laid out on the row after the label
 		Need to move it so it is beside its label
 		// transform: translate(0, -2rem)
 		// transform: translateY(-2rem)
 		// transform: translateX(0)
-	position: absolute
-	top: 11rem
-	left: 0
+	// position: absolute
+	// top: 11rem
+	// left: 0
+
+.rememberMe
+	display: flex
+	flex-direction: row-reverse
+	justify-content: flex-end
+	align-items: center
+	#id_remember
+		margin-top: 1rem
 
 label[for="id_remember"]
-	padding-left: 2rem
+	padding-left: 1rem
 
 .logout
 	&Page
