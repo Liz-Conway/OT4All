@@ -157,11 +157,12 @@ class SingleTherapy(TemplateView):
 
     template_name = "therapy/therapy-details.html"
 
-    def get(self, request, therapy_id):
+    def get_context_data(self, *args, **kwargs):
+        therapy_id = kwargs.get("therapy_id")
         single_therapy = get_object_or_404(Therapy, pk=therapy_id)
 
-        context = {
-            "therapy": single_therapy,
-        }
+        # Call the base implementation first to get a context
+        context = super().get_context_data(*args, **kwargs)
+        context["therapy"] = single_therapy
 
-        return render(request, self.template_name, context)
+        return context

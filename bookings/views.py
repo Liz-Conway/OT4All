@@ -16,7 +16,7 @@ class BookingsContents(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         return not self.request.user.is_superuser
 
 
-class AddToBookings(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+class AddToBookings(UserPassesTestMixin, TemplateView):
     """
     Book a number of sessions for a specific therapy
     """
