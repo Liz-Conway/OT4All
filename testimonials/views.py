@@ -4,6 +4,7 @@ from .forms import TestimonialForm
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls.base import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class Testimonials(TemplateView):
@@ -23,7 +24,7 @@ class Testimonials(TemplateView):
         return context
 
 
-class AddTestimonial(TemplateView):
+class AddTestimonial(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """A class for allowing a client to add a testimonial"""
 
     template_name = "testimonials/add-testimonial.html"
@@ -51,3 +52,6 @@ class AddTestimonial(TemplateView):
             context = {"form": form}
 
             return render(request, self.template_name, context)
+
+    def test_func(self):
+        return not self.request.user.is_superuser

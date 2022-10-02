@@ -4,9 +4,10 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from django.contrib import messages
 from purchase.models import Order
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
-class ProfileView(TemplateView):
+class ProfileView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """
     Display the user's profile
     """
@@ -21,7 +22,7 @@ class ProfileView(TemplateView):
         # Will be rendering an order history on this page.
         # Use the profile and the related name on the order model
         # to get the users orders and return those to the template
-        orders = profile.orders.all()
+        orders = profile.orders.all().order_by("date", "order_number")
 
         # Call the base implementation first to get a context
         context = super().get_context_data(*args, **kwargs)
@@ -54,14 +55,17 @@ class ProfileView(TemplateView):
         # Will be rendering an order history on this page.
         # Use the profile and the related name on the order model
         # to get the users orders and return those to the template
-        orders = profile.orders.all()
+        orders = profile.orders.all().order_by("date", "order_number")
 
         context = {"form": form, "orders": orders, "on_profile_page": True}
 
         return render(request, self.template_name, context)
 
+    def test_func(self):
+        return not self.request.user.is_superuser
 
-class OrderHistory(TemplateView):
+
+class OrderHistory(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
 
     # Use the purchase success template
     # since that template already has the
@@ -90,3 +94,6 @@ class OrderHistory(TemplateView):
         context["from_profile"] = True
 
         return context
+
+    def test_func(self):
+        return not self.request.user.is_superuser

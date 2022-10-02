@@ -20,6 +20,7 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class Purchase(TemplateView):
@@ -71,7 +72,7 @@ class Purchase(TemplateView):
                     initial={
                         # Fill in the full_name with the built in
                         # get_full_name() method on their user account.
-                        "full_name": profile.user.get_full_name(),
+                        "full_name": profile.user.full_name(),
                         # Fill in their email from their user account.
                         "email": profile.user.email,
                         # Fill everything else from
@@ -362,7 +363,7 @@ class CachePurchaseData(View):
             return HttpResponse(content=ex, status=400)
 
 
-class ViewBookings(TemplateView):
+class ViewBookings(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """
     Display all bookings that have been purchase
     """
@@ -377,3 +378,6 @@ class ViewBookings(TemplateView):
         context["orders"] = orders
 
         return context
+
+    def test_func(self):
+        return self.request.user.is_superuser
