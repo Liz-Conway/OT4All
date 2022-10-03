@@ -1,5 +1,34 @@
-/*~~~~~~~  Typography  ~~~~~~~ */
+/*~~~~~~~  MailChimp  ~~~~~~~ */
 @import url("https://fonts.googleapis.com/css2?family=Gabriela&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+#mc_embed_signup {
+  background: #ffcdbd;
+  font: 14px Helvetica, Arial, sans-serif;
+  width: 100%;
+}
+#mc_embed_signup h2 {
+  margin: 1rem 0;
+}
+#mc_embed_signup .helper-text {
+  background-color: #ffcdbd;
+}
+#mc_embed_signup #mce-EMAIL-HELPERTEXT {
+  background-color: #ffcdbd;
+}
+
+.indicates-required {
+  margin-bottom: -3rem;
+}
+
+#mc_embed_signup .helper_text {
+  background-color: #ffcdbd;
+}
+
+#mc_embed_signup #mc-embedded-subscribe {
+  margin-left: auto;
+}
+
+/*===== END  MailChimp  ===== */
+/*~~~~~~~  Typography  ~~~~~~~ */
 body {
   font-family: Gabriela;
   font-weight: 400;
@@ -838,6 +867,20 @@ footer {
 }
 
 /*===== END  404 Page  ===== */
+.policyHeading {
+  margin-bottom: 1.2rem;
+}
+
+.policyList {
+  margin-left: 2.2rem;
+  margin-bottom: 1.2rem;
+}
+@media only screen and (min-width: 37.5em) {
+  .policyList {
+    margin-left: 3rem;
+  }
+}
+
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
@@ -1976,35 +2019,5 @@ label[for="id_remember"] {
   background-color: #ffece5;
   /*===== END  Stripe  ===== */
 }
-
-/*~~~~~~~  MailChimp  ~~~~~~~ */
-#mc_embed_signup {
-  background: #ffcdbd;
-  font: 14px Helvetica, Arial, sans-serif;
-  width: 100%;
-}
-#mc_embed_signup h2 {
-  margin: 1rem 0;
-}
-#mc_embed_signup .helper-text {
-  background-color: #ffcdbd;
-}
-#mc_embed_signup #mce-EMAIL-HELPERTEXT {
-  background-color: #ffcdbd;
-}
-
-.indicates-required {
-  margin-bottom: -3rem;
-}
-
-#mc_embed_signup .helper_text {
-  background-color: #ffcdbd;
-}
-
-#mc_embed_signup #mc-embedded-subscribe {
-  margin-left: auto;
-}
-
-/*===== END  MailChimp  ===== */
 
 /*# sourceMappingURL=style.css.map */

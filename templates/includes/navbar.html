@@ -12,7 +12,7 @@
 				<li class="navigationItem">
 					    <menu class="mainMenu">
 					    <menuitem id="homeLink">
-						    <a class="navLink {% if '/' == request.path %}navigationActive{% endif %}"
+						    <a class="navLink {% if '/' == request.path or 'privacy' in request.path %}navigationActive{% endif %}"
 						    		 href="{% url 'home' %}" 
 						    		aria-haspopup="true" aria-expanded="false">
 						        Home

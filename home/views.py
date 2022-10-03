@@ -68,3 +68,11 @@ class Philosophy(TemplateView):
     """
 
     template_name = "home/philosophy.html"
+
+
+class PrivacyPolicy(TemplateView):
+    """
+    Display the Privacy Policy page
+    """
+
+    template_name = "home/privacy-policy.html"
