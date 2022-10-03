@@ -38,6 +38,11 @@
 											My Profile
 									</a>
 									<menu class="subMenu">
+								    	{% if request.user.is_authenticated %}
+								    		<menuitem id="userName">
+								    			{{ request.user.get_username|slice:":10" }} {% if request.user.get_username|length > 10 %}...{% endif %}
+								    		</menuitem>
+								    	{% endif %}
 								    	<menuitem id="homeLink">
 								            <a href="{% url 'home' %}">Home</a>
 							    		</menuitem>

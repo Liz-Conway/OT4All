@@ -1080,6 +1080,22 @@ menu a {
   opacity: 1;
 }
 
+/*	Special styling to show the User name */
+#userName {
+  text-transform: uppercase;
+  background-color: #b299ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 /*===== END Dropdown Menu   ===== */
 /*~~~~~~~  Button  ~~~~~~~ */
 .btn {
