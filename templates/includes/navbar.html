@@ -12,7 +12,8 @@
 				<li class="navigationItem">
 					    <menu class="mainMenu">
 					    <menuitem id="homeLink">
-						    <a class="navLink" href="{% url 'home' %}" 
+						    <a class="navLink {% if '/' == request.path %}navigationActive{% endif %}"
+						    		 href="{% url 'home' %}" 
 						    		aria-haspopup="true" aria-expanded="false">
 						        Home
 						    </a>
@@ -22,7 +23,10 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu dropMenu">
 					    <menuitem>
-						        <a href="{% url 'therapies' %}" class="dropMenuTopLink" id="therapiesMenuLabel">Therapies</a>
+						        <a href="{% url 'therapies' %}" class="dropMenuTopLink {% if 'therapy' in request.path %}navigationActive{% endif %}"
+						        	 id="therapiesMenuLabel">
+						        		Therapies
+						        </a>
 						    <menu class="subMenu" aria-labelledby="therapiesMenuLabel">
 						    	<!-- Pass a 'style' parameter to the "therapies" URL -->
 						    	<!-- These parameters will use the "name" field from the
@@ -44,28 +48,36 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'testimonials'%}">Testimonials</a>
+					    	<a href="{% url 'testimonials'%}" class=" {% if 'testimonial' in request.path %}navigationActive{% endif %}">
+					    		Testimonials
+					    	</a>
 					    </menuitem>
 				    </menu>
 				</li>
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'about'%}">About</a>
+					    	<a href="{% url 'about'%}" class=" {% if 'about' in request.path %}navigationActive{% endif %}">
+					    		About
+					    	</a>
 					    </menuitem>
 				    </menu>
 				</li>
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'philosophy'%}">Philosophy</a>
+					    	<a href="{% url 'philosophy'%}" class="{% if 'philosophy' in request.path %}navigationActive{% endif %}">
+					    		Philosophy
+					    	</a>
 					    </menuitem>
 				    </menu>
 				</li>
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'getInTouch'%}">Get in Touch</a>
+					    	<a href="{% url 'getInTouch'%}" class="{% if 'contact' in request.path %}navigationActive{% endif %}">
+					    		Get in Touch
+					    	</a>
 					    </menuitem>
 				    </menu>
 				</li>

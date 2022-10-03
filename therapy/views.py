@@ -98,7 +98,7 @@ class AllTherapies(TemplateView):
                 if not query:
                     # Use the Django messages framework
                     # to attach an error message to the request
-                    messages.error(
+                    messages.warning(
                         self.request,
                         "You didn't enter any search criteria.\
                           Showing all therapies.",
