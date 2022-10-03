@@ -1462,6 +1462,17 @@ Sitemap: https://ot4u-ci.herokuapp.com/sitemap.xml
 </urlset>
 ```
 
+## Web Marketing
+
+### Business Model
+The OT4U website is a B2C business model that it does the business directly with the end customer. Customer is able to search the product on the site, complete the order, make a payment through secured payment system and receive goods in the end.
+
+### Marketing
+A mockup of a Facebook marketing page has been created for the OT4U website.  OT4U has a Facebook page for reaching all Natalia's clients instantly. On a real Facebook site Natalia would be able to post any updates, new therapies or promotions to generate interest in the OT4U website. The Facebook page provides an efficient and effective way of communicating with clients and potential clients.  Since clients can post on the Facebook site this allows Natalia to receive feedback, which can be used to improve the services she offers.
+
+![Facebook Marketing page](documentation/facebook/facebook-page.png)
+
+Also on the OT4U website, existing clients can add testimonials, which help market Natalia's therapies.  People often need "social proof" before committing to investing time and money.  The testimonials provide potential clients with insights into what Natalia does and proves to interested parties that Natalia does provide a useful and beneficial service.  This makes it much more likely that the interested party will turn into a valuable client.
 
 
 ## Technology Used
