@@ -1149,10 +1149,56 @@ Testing is documented in the [Testing document](TESTING.md)
 In order to ensure that the code for the OT4U application complies with the latest standards, each aspect of the code was run through an appropriate validator.
 
 #### Python/Django
-Source code was validated with [PEP8 Validator](http://pep8online.com/).
+Unfortunately, the [Online PEP8 Validator](http://pep8online.com/) website was down when I was validating the Python code in this project.  Instead I use the command line tool [pycodestyle](https://pypi.org/project/pycodestyle/).  The pycodestyle tool shows PEP8 errors, but does not show anything if the code being checked is valid.  In the following images the line "@vivo ~/code/code institute/ot4u" is the command prompt returned after the validator returns without finding any errors.
 
+##### bookings app
+![valid python bookings context.py](documentation/validation/pep8/bookings-context.png)
+![valid python bookings urls.py](documentation/validation/pep8/bookings-urls.png)
+![valid python bookings views.py](documentation/validation/pep8/bookings-views.png)
 
-![PEP8 Validation](documentation/validation/PEP8/Python.png)
+##### home app
+![valid python home forms.py](documentation/validation/pep8/home-forms.png)
+![valid python home models.py](documentation/validation/pep8/home-models.png)
+![valid python home urls.py](documentation/validation/pep8/home-urls.png)
+![valid python home views.py](documentation/validation/pep8/home-views.png)
+
+##### maintenance app
+![valid python maintenance forms.py](documentation/validation/pep8/maintenance-forms.png)
+![valid python maintenance models.py](documentation/validation/pep8/maintenance-models.png)
+![valid python maintenance urls.py](documentation/validation/pep8/maintenance-urls.png)
+![valid python maintenance views.py](documentation/validation/pep8/maintenance-views.png)
+
+##### ot4u app
+![valid python ot4u urls.py](documentation/validation/pep8/ot4u-urls.png)
+
+##### profiles app
+![valid python profiles forms.py](documentation/validation/pep8/profiles-forms.png)
+![valid python profiles models.py](documentation/validation/pep8/profiles-models.png)
+![valid python profiles urls.py](documentation/validation/pep8/profiles-urls.png)
+![valid python profiles views.py](documentation/validation/pep8/profiles-views.png)
+
+##### purchase app
+![valid python purchase apps.py](documentation/validation/pep8/purchase-apps.png)
+![valid python purchase forms.py](documentation/validation/pep8/purchase-forms.png)
+![valid python purchase models.py](documentation/validation/pep8/purchase-models.png)
+![valid python purchase signals.py](documentation/validation/pep8/purchase-signals.png)
+![valid python purchase urls.py](documentation/validation/pep8/purchase-urls.png)
+![valid python purchase views.py](documentation/validation/pep8/purchase-views.png)
+![valid python purchase webhook handler.py](documentation/validation/pep8/purchase-webhook-handler.png)
+![valid python purchase webhooks.py](documentation/validation/pep8/purchase-webhooks.png)
+
+##### testimonials app
+![valid python home testimonials.py](documentation/validation/pep8/testimonials-forms.png)
+![valid python testimonials models.py](documentation/validation/pep8/testimonials-models.png)
+![valid python testimonials urls.py](documentation/validation/pep8/testimonials-urls.png)
+![valid python testimonials views.py](documentation/validation/pep8/testimonials-views.png)
+
+##### therapy app
+![valid python therapy models.py](documentation/validation/pep8/therapy-models.png)
+![valid python therapy urls.py](documentation/validation/pep8/therapy-urls.png)
+![valid python therapy views.py](documentation/validation/pep8/therapy-views.png)
+![valid python therapy widgets.py](documentation/validation/pep8/therapy-widgets.png)
+
 
 #### CSS
 [Back to Top](#top)
