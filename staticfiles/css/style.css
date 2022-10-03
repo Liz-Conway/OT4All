@@ -1113,9 +1113,6 @@ menu a {
   -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-.btn:not(:last-child) {
-  margin-right: 1.5rem;
-}
 .btnCTA {
   background-color: #b299ff;
 }
@@ -1220,7 +1217,7 @@ button[class$="crementSessions"]:disabled {
   margin-right: -0.5rem;
 }
 
-#therapyListButtons, #addTherapyButtons {
+.formButtons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1228,16 +1225,33 @@ button[class$="crementSessions"]:disabled {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-top: 2rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
-#therapyListButtons a, #therapyListButtons button, #addTherapyButtons a, #addTherapyButtons button {
-  margin-right: 0;
+.formButtons button:last-child {
+  margin-top: 1rem;
+}
+.formButtons button:first-child, .formButtons a {
+  margin: 0;
+}
+@media only screen and (min-width: 25.625em) {
+  .formButtons {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .formButtons button:last-child {
+    margin: 0;
+  }
+  .formButtons a {
+    margin-right: 1.5rem;
+  }
 }
 
 .btnFile {
@@ -1247,8 +1261,13 @@ button[class$="crementSessions"]:disabled {
 #addTestimonyButtons {
   text-align: right;
 }
-#addTestimonyButtons button:last-child {
-  margin-top: 1rem;
+
+#paymentForm #submitButton {
+  margin-right: 0.5rem;
+}
+
+#addTherapyForm #submitButton, #editTherapyForm #submitButton {
+  margin-right: 2rem;
 }
 
 /*===== END  Button  ===== */
@@ -1538,6 +1557,10 @@ select:invalid, select option[value=""] {
   #saveInfo {
     margin-right: 4.7rem;
   }
+}
+
+#paymentForm {
+  margin-bottom: 1rem;
 }
 
 .toast {

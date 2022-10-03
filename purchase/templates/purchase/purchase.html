@@ -100,7 +100,8 @@
 						<!-- Pass the client secret to the view so we can get the Payment Intent id -->
 						<input type="hidden" value="{{ client_secret }}" name="client_secret">
 					</fieldset>
-					<div class="payButtons">
+					<div class="formButtons">
+						<button type="reset" class="btn btnTextOnly">Reset</button>
 						<a href="{% url 'bookings' %}" class="btn btnGhost btnThin">
 							<span class="icon"><i class="fas fa-chevron-left"></i></span>
 							<span>Adjust Bookings</span>
@@ -110,11 +111,11 @@
 							<span class="icon"><i class="fas fa-lock"></i></span>
 						</button>
 					</div>
-					<div>
-						<span class="icon"><i class="fas fa-exclamation-circle"></i></span>
-						<span>Your card will be charged <strong>€{{ grand_total }}</strong></span>
-					</div>
 				</form>
+				<div>
+					<span class="icon"><i class="fas fa-exclamation-circle"></i></span>
+					<span class="purchaseCharge">Your card will be charged <strong>€{{ grand_total }}</strong></span>
+				</div>
 			</div>
 		</div>
 	</div>
