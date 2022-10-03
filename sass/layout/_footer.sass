@@ -56,16 +56,18 @@ footer
 		list-style: none
 		display: flex
 		flex-direction: column
+		align-items: center
 		@include respond(notebook)
 			flex-direction: row
 
 	&Item
 		display: inline-block
-		&:not(:last-child)
-			margin-right: 1.5rem
-			margin-bottom: .5rem
-			@include respond(notebook)
-				margin-bottom: 0
+		margin-bottom: .75rem
+		@include respond(notebook)
+			&:not(:last-child)
+				margin-right: 1.5rem
+				margin-bottom: .5rem
+			margin-bottom: 0
 
 	&Link
 		&:link, &:visited
@@ -74,8 +76,9 @@ footer
 			text-decoration: none
 			text-transform: uppercase
 			display: inline-block
-			padding: 1rem 3px
+			padding: 1rem 1rem
 			transition: all .2s
+			border-radius: $borderRadius
 		&:hover, &:active
 			color: $midtoneDark
 			box-shadow: 0 1rem 2rem rgba($accentLight, .4)
@@ -94,5 +97,7 @@ footer
 			margin-top: 2rem
 		a:first-of-type
 			border-bottom: 3px solid $midtone
+		.footerLink
+			margin-bottom: 1rem
 
 /*===== END  Footer  =====*/
