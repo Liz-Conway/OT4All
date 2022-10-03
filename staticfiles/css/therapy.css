@@ -15,59 +15,9 @@
   margin: 1.5rem auto 0 auto;
 }
 .therapyContainer {
-  width: 80%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
-}
-@media only screen and (min-width: 32.25em) {
-  .therapyContainer {
-    width: 100%;
-  }
-}
-@media only screen and (min-width: 33.9375em) {
-  .therapyContainer {
-    width: 95%;
-  }
-}
-@media only screen and (min-width: 40.3125em) {
-  .therapyContainer {
-    width: 80%;
-  }
-}
-@media only screen and (min-width: 48.875em) {
-  .therapyContainer {
-    width: 100%;
-  }
-}
-@media only screen and (min-width: 51.75em) {
-  .therapyContainer {
-    width: 95%;
-  }
-}
-@media only screen and (min-width: 61.4375em) {
-  .therapyContainer {
-    width: 80%;
-  }
-}
-@media only screen and (min-width: 68.75em) {
-  .therapyContainer {
-    width: 96%;
-  }
-}
-@media only screen and (min-width: 82.8125em) {
-  .therapyContainer {
-    width: 80%;
-  }
-}
-@media only screen and (min-width: 90.625em) {
-  .therapyContainer {
-    width: 95%;
-  }
-}
-@media only screen and (min-width: 105.1875em) {
-  .therapyContainer {
-    width: 80%;
-  }
 }
 .therapyList {
   display: -webkit-box;
@@ -179,8 +129,8 @@ p.therapyDetailsPrice {
   /* Layout card in a grid
    * https://www.youtube.com/watch?v=vQAvjof1oe4 */
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 250px;
-          flex: 0 1 250px;
+      -ms-flex: 0 1 300px;
+          flex: 0 1 300px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
