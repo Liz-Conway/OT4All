@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
-class BookingsContents(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+class BookingsContents(UserPassesTestMixin, TemplateView):
     """A class for rendering the bookings contents page"""
 
     template_name = "bookings/bookings.html"
@@ -16,7 +16,7 @@ class BookingsContents(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         return not self.request.user.is_superuser
 
 
-class AddToBookings(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+class AddToBookings(UserPassesTestMixin, TemplateView):
     """
     Book a number of sessions for a specific therapy
     """

@@ -17,8 +17,12 @@
     		<div class="headerNavShopAcc">
     			<ul class="shopAccounts">
                     <li>
-	                    <div class="shopAccountsBlock">
-	                        <i class="
+	                    <div class="shopAccountsBlock
+	                    	{% if 'profile' in request.path or 'account' in request.path or 'maintenance' in request.path %}
+	                       	 	navigationActive
+	                       	 {% endif %}
+	                    ">
+	                        <i  id="accountIcon" class="
 	                        	 {% if request.user.is_authenticated %}
 	                        	 	{# If the user is logged in then show a solid 'user' icon #}
 	                        	 	fas
@@ -26,11 +30,19 @@
 	                        	 	{# If the user is NOT logged in then show an outline 'user' icon #}
 	                        		far
 	                        	{% endif %}
-	                        	 fa-user shopAccountsIcon" id="accountIcon"></i>
+	                        	 fa-user shopAccountsIcon"></i>
 	                        <menu class="mainMenu">
 	                        	<menuitem>
-									<a id="accountOptions" class="shopAccountsLabel dropMenuTopLink">My Profile</a>
+									<a id="accountOptions" 
+										class="shopAccountsLabel dropMenuTopLink">
+											My Profile
+									</a>
 									<menu class="subMenu">
+								    	{% if request.user.is_authenticated %}
+								    		<menuitem id="userName">
+								    			{{ request.user.get_username|slice:":10" }} {% if request.user.get_username|length > 10 %}...{% endif %}
+								    		</menuitem>
+								    	{% endif %}
 								    	<menuitem id="homeLink">
 								            <a href="{% url 'home' %}">Home</a>
 							    		</menuitem>
@@ -58,7 +70,7 @@
     		            	{% else %}
     		            		{% url 'bookings' %}
     		            	{% endif %}">
-                            <div class="shopAccountsBlock">
+                            <div class="shopAccountsBlock {% if 'ooking' in request.path or 'purchase' in request.path %}navigationActive{% endif %}">
                                 <i class="fas fa-{% if grand_total %}shopping-cart{% else %}cart-plus{% endif %} shopAccountsIcon" id="cartIcon"></i>
                                 <p class="shopAccountsLabel">
                                     {# Read the grand_total from the booking_contents context preprocessor #}

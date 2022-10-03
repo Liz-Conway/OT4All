@@ -19,7 +19,8 @@
 		<!-- Add the encoding type attribute on this form.
 			Since it will potentially be submitting an image file, 
 			and without this the image won't be uploaded properly -->
-		<form method="POST" action="{% url 'editTherapy' therapy.id %}" enctype="multipart/form-data">
+		<form method="POST" action="{% url 'editTherapy' therapy.id %}" 
+			enctype="multipart/form-data" id="editTherapyForm">
 			{% csrf_token %}
 			<label for="id_style">Style:</label>
 			<select name="style" class="formInput" required id="id_style">
@@ -88,15 +89,16 @@
 				id="id_location"
 				value="{% if therapy.location %}{{ therapy.location }}{% endif %}">
 			
-			<label for="id_extra_requirements">Extra 	requirements:</label>
+			<label for="id_extra_requirements">Extra requirements:</label>
 			<textarea name="extra_requirements" cols="40" rows="10"
 				placeholder="Any additional requirements this therapy will need"
 				class="formInput" id="id_extra_requirements">{% if therapy.extra_requirements %}{{ therapy.extra_requirements }}{% endif %}</textarea>
 
 
-			<div id="addTherapyButtons">
+			<div class="formButtons">
+				<button type="reset" class="btn btnTextOnly">Reset</button>
 				<a class="btn btnGhost" href="{% url 'listTherapies' %}">Cancel</a>
-				<button class="btn btnPrimary" type="submit">Edit Therapy</button>
+				<button class="btn btnPrimary" type="submit" id="submitButton">Edit Therapy</button>
 			</div>
 		</form>
 	</div>

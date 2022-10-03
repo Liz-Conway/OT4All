@@ -171,7 +171,9 @@ label[for="id_course_sessions"] {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  padding: 1rem 0;
+}
+.ot4uTable td, .ot4uTable th {
+  padding: 1rem 1px;
 }
 .ot4uTable tr:nth-child(odd) {
   background-color: #ffb299;

@@ -70,9 +70,7 @@ class Purchase(TemplateView):
                 profile = UserProfile.objects.get(user=self.request.user)
                 order_form = OrderForm(
                     initial={
-                        # Fill in the full_name with the built in
-                        # get_full_name() method on their user account.
-                        "full_name": profile.user.full_name(),
+                        "full_name": profile.default_full_name,
                         # Fill in their email from their user account.
                         "email": profile.user.email,
                         # Fill everything else from

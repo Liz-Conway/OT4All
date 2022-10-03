@@ -156,6 +156,9 @@
           flex: 1 1 25%;
   margin-left: auto;
 }
+.purchaseCharge {
+  color: #e84610;
+}
 
 #stripeError {
   color: #e84610;
@@ -193,11 +196,6 @@
 .payButtons + div {
   color: #e84610;
   text-align: right;
-}
-
-#submitButton {
-  margin-right: 0;
-  font-weight: 700;
 }
 
 #paymentForm fieldset {
@@ -414,7 +412,9 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  padding: 1rem 0;
+}
+.ot4uTable td, .ot4uTable th {
+  padding: 1rem 1px;
 }
 .ot4uTable tr:nth-child(odd) {
   background-color: #ffb299;

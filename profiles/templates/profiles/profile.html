@@ -24,7 +24,11 @@
 				<form class="profileDetailsForm" action="{% url 'profile' %}" method="POST" id="profileUpdateForm">
 					{% csrf_token %}
 					{{ form }}
-					<button class="profileDetailsButton btn btnPrimary">Update Information</button>
+					<div class="formButtons">
+						<button type="reset" class="btn btnTextOnly">Reset</button>
+						<a class="btn btnGhost" href="{% url 'home' %}">Cancel</a>
+						<button class="profileDetailsButton btn btnPrimary">Update Information</button>
+					</div>
 				</form>
 		</div>
 		<div class="profileOrders">
