@@ -40,7 +40,7 @@
 									<menu class="subMenu">
 								    	{% if request.user.is_authenticated %}
 								    		<menuitem id="userName">
-								    			{{ request.user.get_username|slice:":10" }} {% if request.user.get_username|length > 10 %}...{% endif %}
+								    			{{ request.user.get_username|slice:":9" }} {% if request.user.get_username|length > 9 %}...{% endif %}
 								    		</menuitem>
 								    	{% endif %}
 								    	<menuitem id="homeLink">
