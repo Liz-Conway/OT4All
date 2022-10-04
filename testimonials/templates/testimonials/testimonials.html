@@ -8,37 +8,39 @@
 {% endblock %}
 
 {% block content %}
-<div class="containerTestimonial">
-				<div class="testimonialHeader">
-					<hr>
-					<h1 class="testimonialTitle">Testimonials</h1>
-					<h2 class="muted">We make people genuinely happy</h2>
-					<hr>
-				</div>
-	        	<div class="testimonialBody">
-	        	
-	        		{% for testimonial in testimonials %}
-	        		<div class="testimonial">
-	        			<figure class="testimonialShape">
-	        				<img alt="{{testimonial.first_name}} {{testimonial.last_name}}" 
-	        					src="{% if testimonial.image %}{{ testimonial.image.url }}{% else %}{% static 'images/user-icon-min.jpg' %}{% endif %}" 
-	        					class="testimonialImage">
-	        				<figcaption class="testimonialCaption">{{testimonial.first_name}} {{testimonial.last_name}}</figcaption>
-	        			</figure>
-	        			<div class="testimonialText">
-	        				<h3>{% if testimonial.testimony_title %}{{ testimonial.testimony_title }}{% endif %}</h3>
-	        				<p>{{ testimonial.testimony }}</p>
-	        				<p class="testimonialDate">{{ testimonial.date }}</p>
-	        			</div>
-	        		</div>
-	        		{% endfor %}
-	        		
-			        {% if request.user.is_authenticated %}
-			            {% if not request.user.is_superuser %}
-			        		<a href="{% url 'addTestimonial' %}" class="btn btnPrimary">Add My Testimonial</a>
-						{% endif %}
-					{% endif %}
+	<div class="containerTestimonial">
+		<div class="testimonialHeader">
+			<hr>
+			<h1 class="testimonialTitle">Testimonials</h1>
+			<h2 class="muted">We make people genuinely happy</h2>
+			<hr>
+		</div>
 				
-	        	</div>
+        	<div class="testimonialBody">
+	        	
+        		{% for testimonial in testimonials %}
+        		<div class="testimonial">
+        			<figure class="testimonialShape">
+        				<img alt="{{testimonial.first_name}} {{testimonial.last_name}}" 
+        					src="{% if testimonial.image %}{{ testimonial.image.url }}{% else %}{% static 'images/user-icon-min.jpg' %}{% endif %}" 
+        					class="testimonialImage">
+        				<figcaption class="testimonialCaption">{{testimonial.first_name}} {{testimonial.last_name}}</figcaption>
+        			</figure>
+        			<div class="testimonialText">
+        				<h3>{% if testimonial.testimony_title %}{{ testimonial.testimony_title }}{% endif %}</h3>
+        				<p>{{ testimonial.testimony }}</p>
+        				<p class="testimonialDate">{{ testimonial.date }}</p>
+        			</div>
+        		</div>
+        		{% endfor %}
+	        		
+		        {% if request.user.is_authenticated %}
+		            {% if not request.user.is_superuser %}
+		        		<a href="{% url 'addTestimonial' %}" class="btn btnPrimary">Add My Testimonial</a>
+					{% endif %}
+				{% endif %}
+				
+       	</div>
+     </div>
 
 {% endblock %}
