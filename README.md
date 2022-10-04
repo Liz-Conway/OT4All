@@ -926,22 +926,17 @@ The Django structure for the OT4U application is broken into 4 apps.
 #### Lighthouse Report
 [Back to Top](#top)
 
-**Desktop**
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Lighthouse repot - Desktop](documentation/a11y/validation/lighthouse-desktop.png)   |  ![Lighthouse report - mobile](documentation/validation/a11y/lighthouse-mobile.png)   |
 
-
-![Lighthouse Report for OT4U application](documentation/accessibility/lighthouse-report.png)
-
-**Mobile**
-
-
-![Lighthouse report for mobile](documentation/accessibility/lighthouse-report-mobile.png)
 
 #### WAVE Accessibility tool
 [Back to Top](#top)
 
 The OT4U application was checked to ensure accessibility using the [WAVE](https://wave.webaim.org/) web accessibility evaluation tool. 
 
-![WAVE tool report](documentation/accessibility/wave-tool.png)
+![WAVE tool report](documentation/validation/a11y/wave-validation.png)
 
 #### Contrast
 [Back to Top](#top)
