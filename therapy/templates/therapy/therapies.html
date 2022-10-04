@@ -16,8 +16,8 @@
 				The client can choose a button to only show the Therapies in that style -->
 				{% for style in all_styles %}
 					<a class="btnStyle {% if style in chosen_styles %}btnStyleActive{% endif %}" 
-						href="{% url 'therapies' %}?style={{ style.name }}">
-						<span>{{ style.name|slugify }}</span>
+						href="{% url 'therapies' %}?style={% if style.name == 'Self Care' %}Self-Care{% else %}{{ style.name }}{% endif %}">
+						<span>style.name</span>
 					</a>
 				{% endfor %}
 					<a class="btnStyle {% if chosen_styles == None %}btnStyleActive{% endif %}" href="{% url 'therapies' %}">
@@ -43,7 +43,7 @@
 							{% if current_sorting == 'style_desc' %}selected{% endif %}
 							{% if chosen_styles %} class="invisible"{% endif %}
 							>Style (Z-A)</option>
-						<option  disabled></option>
+						<option  disabled>---</option>
 						<option value="reset">Reset...</option>
 					</select>
 				</div>
