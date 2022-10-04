@@ -7,9 +7,12 @@
     		</div>
     		<!-- Search form -->
        		<form action="{% url 'therapies' %}" method="get" class="search">
-       			<input type="text" class="searchInput" name="q" placeholder="Search Therapies">
+       			<label for="searchBox" class="invisible">Search Box</label>
+       			<input type="text" id="searchBox" class="searchInput" name="q" 
+       				placeholder="Search Therapies" tabindex="7">
        			<button class="searchButton">
                         <i class="fas fa-search"></i>
+                        <span class="invisible">Search Button</span>
        			</button>
        		</form>
 
@@ -33,7 +36,7 @@
 	                        	 fa-user shopAccountsIcon"></i>
 	                        <menu class="mainMenu">
 	                        	<menuitem>
-									<a id="accountOptions" 
+									<a id="accountOptions" tabindex="8"
 										class="shopAccountsLabel dropMenuTopLink">
 											My Profile
 									</a>
@@ -64,7 +67,7 @@
 	                    </div>
                     </li>
     				<li>
-    		            <a class="navLink" href="
+    		            <a class="navLink" tabindex="9" href="
     		            	{% if request.user.is_superuser %}
     		            		{% url 'viewBookings' %}
     		            	{% else %}
@@ -76,6 +79,8 @@
                                     {# Read the grand_total from the booking_contents context preprocessor #}
                                     {% if grand_total %}
                                         €{{ grand_total }}
+                                    {% else %}
+                                    	€0
                                     {% endif %}
                                 </p>
                             </div>
