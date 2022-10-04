@@ -1193,10 +1193,19 @@ Unfortunately, the [Online PEP8 Validator](http://pep8online.com/) website was d
 #### CSS
 [Back to Top](#top)
 
-CSS was validated using [W3C CSS validator](https://jigsaw.w3.org/css-validator/validator)
+CSS was validated using [W3C CSS validator](https://jigsaw.w3.org/css-validator/).  The CSS for the OT4U website was split into different CSS files.  One file was for CSS that was common to all apps within the project.  Other CSS files were created which contain the CSS appicable only to each app within the projects.
 
 
-![CSS Validation](documentation/validation/CSS/css-validation.png)
+| app    | CSS Validation    |
+| --- | --- |
+| Common    |  ![Common CSS validated](documentation/validation/css/style.png)   |
+| Bookings    |  ![Bookings CSS validated](documentation/validation/css/bookings.png)   |
+| Home    |  ![Home CSS validated](documentation/validation/css/home.png)   |
+| Maintenance    |  ![Maintenance CSS validated](documentation/validation/css/maintenance.png)   |
+| Profile    |  ![Profile CSS validated](documentation/validation/css/profile.png)   |
+| Purchase    |  ![Purchase CSS validated](documentation/validation/css/purchase.png)   |
+| Testimonial    |  ![Testimonial CSS validated](documentation/validation/css/testimonial.png)   |
+| Therapy    |  ![Therapy CSS validated](documentation/validation/css/therapy.png)   |
 
 
 #### HTML

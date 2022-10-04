@@ -870,6 +870,7 @@ footer {
 }
 
 /*===== END  404 Page  ===== */
+/*~~~~~~~  Privacy Policy  ~~~~~~~ */
 .policyHeading {
   margin-bottom: 1.2rem;
 }
@@ -884,6 +885,7 @@ footer {
   }
 }
 
+/*===== END  Privacy Policy  ===== */
 /*~~~~~~~  Dropdown Menu  ~~~~~~~ */
 li.navigationItem {
   min-width: -webkit-fit-content;
@@ -1295,6 +1297,7 @@ button[class$="crementSessions"]:disabled {
 }
 
 /*===== END  Button  ===== */
+/*~~~~~~~  Search  ~~~~~~~ */
 .search {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 80%;
@@ -1437,6 +1440,8 @@ button[class$="crementSessions"]:disabled {
   margin-bottom: 1.5rem;
 }
 
+/*===== END  Search  ===== */
+/*~~~~~~~  Form  ~~~~~~~ */
 .sessionsInput {
   /* 7.5rem is twice the width of an increment/decrement button */
   width: 25%;
@@ -1587,6 +1592,8 @@ select:invalid, select option[value=""] {
   margin-bottom: 1rem;
 }
 
+/*===== END  Form  ===== */
+/*~~~~~~~  Toast  ~~~~~~~ */
 .toast {
   min-width: 32rem;
   max-width: 75%;
@@ -1691,9 +1698,6 @@ select:invalid, select option[value=""] {
   margin-top: 0;
   margin-bottom: 0;
 }
-.toastBookingsDetails p:not(:first-child) {
-  @extends .small;
-}
 .toastBookingsWrapper {
   height: 100px;
   /* horizontal overflow hidden */
@@ -1747,6 +1751,7 @@ select:invalid, select option[value=""] {
   border: 1px solid #878600;
 }
 
+/*===== END  Toast  ===== */
 /*~~~~~~~  Django AllAuth  ~~~~~~~ */
 ul.errorlist {
   color: #A5310A;
@@ -1810,7 +1815,10 @@ ul.errorlist {
   /* since all the other inputs will have placeholders */
   display: none;
   /* Standard Bootstrap transition */
-  transistion: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 .allauthFormInnerContent label:not([for="id_remember"]):hover {
   color: #b299ff;
