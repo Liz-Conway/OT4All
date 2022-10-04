@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.urls.base import resolve
 from django.db.models.query_utils import Q
 from django.db.models.functions.text import Lower
+from bs4.builder import HTML
 
 
 # Create your views here.
@@ -76,6 +77,11 @@ class AllTherapies(TemplateView):
 
                 # Retrieve the style from the GET parameter
                 selected_style = request.GET["style"]
+                # Space not allowed in HTML
+                # So replaced with dash
+                # Now set it back
+                if selected_style == "Self-Care":
+                    selected_style = "Self Care"
 
                 # Use the requested style to
                 # filter the current query set of all therapies
