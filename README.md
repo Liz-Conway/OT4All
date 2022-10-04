@@ -703,6 +703,8 @@ Supporting page elements - **Purchase success buttons**
 
 On successful purchase the OT4U website will send a confirmation email to the client.  This is a more permanent record of the transaction, since when the client leaves the "Purchase Succeeded" page the order information will be gone from their view.  Having this email allows the client to revisit their order details outside of the OT4U website. 
 
+#### View Bookings
+
 #### Back-end database checks
 [Back to Top](#top)
 
@@ -728,7 +730,7 @@ Supporting pages - **View Testimonials**
 | --- | --- |
 |  ![View Testimonials - Desktop](documentation/pages/view-testimonials.png)   |  ![View Testimonials - mobile](documentation/pages/mobile/view-testimonials.png)   |
 
-
+#### Add Testimonial
 
 #### View details about Natalia
 [Back to Top](#top)
@@ -1135,7 +1137,77 @@ Testing is documented in the [Testing document](TESTING.md)
 ### Bug Fixes
 [Back to Top](#top)
  
-
+| Bug    | Fix    |
+| --- | --- |
+| Last item on the drop down menu has the same background colour as the page beneath it,  This makes it blend into the page since there is nothing with a different colour below it to separate it visually from the page.
+    | Added a border to the menuitems when they are hovered.  Now there is a thin line separating the last item in the drop down from the rest of the page.
+    |
+| “Therapies” menu item is not aligned with the other menu items in desktop view.
+    | Change this menu item to be an anchor like the rest of the menu items
+    |
+| Clicking on the “Therapies” menu on mobile devices, goes straight to the linked page, rather than displaying the submenu.
+    | Set the pointer-events property to ‘none’ for the “Therapies” anchor on mobile devices.  Reset the pointer-events to work on non-mobile devices.
+    |
+| Grand total for the shopping bag is misaligned
+    | Apply same style to both My Profile block and Cart block
+    |
+| Initially the Django secret key was push to the Github repository
+    | The secret key has been changed.  All sensitive information has been stored in a ‘.env’ file which is not pushed to the Github repository.
+    |
+| The submenu for Therapies sometimes disappears when moving from the menu heading to the submenu
+    | There was a gap between the menu heading and the submenu.  When the cursor hit this gap the submenu disappeared.  The gap has been removed.
+    |
+| Extra details showing on the main “All Therapies” page
+    | Removed Django & html code for the offending elements
+    |
+| Login page : “Remember me” checkbox is too far separated to the right of its label
+    | Move to absolute position on left of “Remember Me” label
+    |
+| My profiles dropdown not wide enough to fit content on non-mobile pages
+    | Widen this dropdown to fit content on all sizes above tablet landscape
+    |
+| Search button needs to be clicked twice to run the search
+    | Removed some formatting of search input box on focus.  One click is enough now
+    |
+| Therapies menu items not returning any therapies
+    | Incorrect capitalisation on query paramaters was corrected.
+    |
+| Bookings page – Update link not appearing when user manually edits the number of sessions input box
+    | Added an ‘onchange’ event listener to catch the edit and show the Update link
+    |
+| Purchase page – click complete order with no card details – No error notification
+    | Added to the the javascript code into the page, so the Stripe functionality is called
+    |
+| Searching with an empty query gives a Server 500 error
+    | Switched the view method from ‘get_context_data()’ to ‘get()’ to allow returning a HTTPResponse instead of a Context
+    |
+| Login page : “Remember me” checkbox is too high if there is an error message on the page
+    | Manually laid out the Login page in order to apply the appropriate CSS to catch this error
+    |
+| No “Reset” option on any pages
+    | Add a “Reset” text type button to the buttons on all forms
+    |
+| Info box not showing with correct background (After sign up)
+    | Changed the type of message to info in the View logic
+    |
+| Name and email not showing in “My Profile”
+    | Save default_full_name and default_email when saving order
+    |
+| Error message box, will not close when clicking the “x”
+    | Added javascript code to close the box when the ‘X’ is clicked
+    |
+| Images are not showing in the Message box after booking a therapy
+    | Set the correct path for the images in the success toast message
+    |
+| Going to “Therapies” list gives an error
+    | Add “maintenance” to list of installed apps
+    |
+| Images not showing for newly added/edited Therapies
+    | Changed from looking for a static file to using Cloudinary media file
+    |
+| if have items booked and edit a therapy (maintenance), the items show in the success message
+    | Removed the ability for the site owner to Book a Session.
+    |
 
 ### Validation
 <a id="validation"></a>
