@@ -55,7 +55,7 @@
     margin-right: 2rem;
   }
 }
-@incude respond(XL) {
+@media only screen and (min-width: 90em) {
   .therapyImageWrapper {
     margin-top: 5rem;
     margin-bottom: 5rem;
@@ -82,7 +82,7 @@
             justify-content: space-between;
   }
 }
-@incude respond(XL) {
+@media only screen and (min-width: 90em) {
   .therapyDetails {
     width: 33%;
     margin-left: 15%;

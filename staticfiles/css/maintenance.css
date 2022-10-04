@@ -200,6 +200,7 @@ label[for="id_course_sessions"] {
 }
 
 /*===== END  Table  ===== */
+/*~~~~~~~  Custom Widget  ~~~~~~~ */
 .widgetImage {
   width: 96px;
   height: 96px;
@@ -280,6 +281,7 @@ label[for="id_course_sessions"] {
   min-width: 100%;
   min-height: 100%;
   cursor: pointer;
+  /*===== END  Custom Widget  ===== */
 }
 
 /*# sourceMappingURL=maintenance.css.map */

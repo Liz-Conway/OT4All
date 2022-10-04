@@ -1,3 +1,4 @@
+/*~~~~~~~  Custom Widget  ~~~~~~~ */
 .widgetImage {
   width: 96px;
   height: 96px;
@@ -78,8 +79,10 @@
   min-width: 100%;
   min-height: 100%;
   cursor: pointer;
+  /*===== END  Custom Widget  ===== */
 }
 
+/*~~~~~~~  Testimonial  ~~~~~~~ */
 .testimonialBody {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -94,6 +97,7 @@
   margin-top: 0;
 }
 
+/*===== END  Testimonial  ===== */
 /*~~~~~~~  Testimonial  ~~~~~~~ */
 .testimonial {
   width: 100%;

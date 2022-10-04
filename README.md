@@ -1193,10 +1193,19 @@ Unfortunately, the [Online PEP8 Validator](http://pep8online.com/) website was d
 #### CSS
 [Back to Top](#top)
 
-CSS was validated using [W3C CSS validator](https://jigsaw.w3.org/css-validator/validator)
+CSS was validated using [W3C CSS validator](https://jigsaw.w3.org/css-validator/).  The CSS for the OT4U website was split into different CSS files.  One file was for CSS that was common to all apps within the project.  Other CSS files were created which contain the CSS appicable only to each app within the projects.
 
 
-![CSS Validation](documentation/validation/CSS/css-validation.png)
+| app    | CSS Validation    |
+| --- | --- |
+| Common    |  ![Common CSS validated](documentation/validation/css/style.png)   |
+| Bookings    |  ![Bookings CSS validated](documentation/validation/css/bookings.png)   |
+| Home    |  ![Home CSS validated](documentation/validation/css/home.png)   |
+| Maintenance    |  ![Maintenance CSS validated](documentation/validation/css/maintenance.png)   |
+| Profile    |  ![Profile CSS validated](documentation/validation/css/profile.png)   |
+| Purchase    |  ![Purchase CSS validated](documentation/validation/css/purchase.png)   |
+| Testimonial    |  ![Testimonial CSS validated](documentation/validation/css/testimonial.png)   |
+| Therapy    |  ![Therapy CSS validated](documentation/validation/css/therapy.png)   |
 
 
 #### HTML
@@ -1227,10 +1236,18 @@ HTML was validated on all pages using [W3C HTML validator](https://validator.w3.
 
 
 #### Javascript
-Javascript was validated using [JSHint](https://jshint.com/)
-##### script.js
-![Javascript validation](documentation/validation/Javascript/jshint-script.png)
+[Back to Top](#top)
 
+Javascript was validated using [JSHint](https://jshint.com/)
+
+| Javascript file    | Validation    |
+| --- | --- |
+|  adjust-sessions.js   |  ![Adjust Sessions validation](documentation/validation/js/adjust-sessions.png)   |
+|  sorting.js   |  ![Therapy sorting validation](documentation/validation/js/sort.png)   |
+|  stripe-elements.js   |  ![Stripe code validation](documentation/validation/js/stripe.png)   |
+|  toast.js   |  ![Toast code validation](documentation/validation/js/toast.png)   |
+
+The only error that JSHint shows is in the `stripe-elements.js` file.  This error refers to an undefined variable called 'Stripe'.  This is a reference to the Stripe API used to access Stripe, upon which the javascript code works.  This "undefined variable" is required as the javascript code would not work without it.
 
 
 ### Documentation  
