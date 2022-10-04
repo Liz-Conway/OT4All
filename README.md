@@ -1140,7 +1140,10 @@ The OT4U project's User Stories have been allocated into Sprints.  The stories i
 
 ![Trello board after Sprint 9](documentation/agile-planning/trello-after-sprint9.png)
 
+#### Project Complete
+[Back to top](#top)
 
+![Trello project complete](documentation/agile-planning/trello-done.png)
 
 ### Version Control 
 <a id="git"></a>
@@ -1166,6 +1169,35 @@ The OT4U project's User Stories have been allocated into Sprints.  The stories i
 
 #### Branches
 [Back to Top](#top)
+
+The following branches were used in git to manage the development of the OT4U website:
+*  documentation
+*   feature/bookSession
+*   feature/profiles
+*   feature/purchase
+*   feature/registration
+*   feature/search
+*   feature/testimonials
+*   feature/toast
+*   fix/css
+*   main
+*   maintain/config
+*   media-files
+*   newletter
+*   page/about
+*   page/home
+*   page/philosophy
+*   page/therapies
+*   page/therapy
+*   peer-review
+*   security
+*   seo
+*   spike/context
+*   spike/email
+*   testabout
+*   testing
+*   validation
+
 
 ### Testing 
 <a id="testing"></a>
@@ -1638,7 +1670,7 @@ Sitemap: https://ot4u-ci.herokuapp.com/sitemap.xml
 ## Web Marketing
 
 ### Business Model
-The OT4U website is a B2C business model that it does the business directly with the end customer. Customer is able to search the product on the site, complete the order, make a payment through secured payment system and receive goods in the end.
+The OT4U website is a B2C (Business 2 Customer) business model that it does the business directly with the end customer. Customer is able to search the product on the site, complete the order, make a payment through secured payment system and receive goods in the end.
 
 ### Marketing
 A mockup of a Facebook marketing page has been created for the OT4U website.  OT4U has a Facebook page for reaching all Natalia's clients instantly. On a real Facebook site Natalia would be able to post any updates, new therapies or promotions to generate interest in the OT4U website. The Facebook page provides an efficient and effective way of communicating with clients and potential clients.  Since clients can post on the Facebook site this allows Natalia to receive feedback, which can be used to improve the services she offers.
