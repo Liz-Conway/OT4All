@@ -826,6 +826,10 @@ footer {
   line-height: 3.2rem;
 }
 
+.orderHistoryItem {
+  list-style-type: none;
+}
+
 /*===== END  Grid  ===== */
 /*~~~~~~~  404 Page  ~~~~~~~ */
 .errorSection {

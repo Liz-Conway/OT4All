@@ -705,6 +705,18 @@ On successful purchase the OT4U website will send a confirmation email to the cl
 
 #### View Bookings
 
+Once a client has booked and paid for some therapy sessions, it is vital that Natalia can see those bookings.  This is a key element of reporting for Natalia, without this feature the rest of the website does not provide any value to Natalia.  When she is logged in as the Site Owner she can click on the "My Profile" link and choose "View Bookings".  This will bring up a page showing a list of all the bookings that have been made, the most recent first.
+
+For further information, Natalia can hover over the Client name and their email address will appear.
+
+Supporting pages - **View Bookings**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![View Bookings - Desktop](documentation/pages/view-bookings.png)   |  ![View Bookings - mobile](documentation/pages/mobile/view-bookings.png)   |
+
+
+
 #### Back-end database checks
 [Back to Top](#top)
 
@@ -732,11 +744,27 @@ Supporting pages - **View Testimonials**
 
 #### Add Testimonial
 
+This feature allows clients to add their own testimonials to the OT4U website.  The benefit of this feature is that the more client testimonials there are on the site, the more potentials clients will come to believe that this is a service they will want to buy (Social Proof).  
+
+When a client visits the View Testimonials page, they will see an "Add My Testimonial" button if they are logged in.  When they click on this button they are taken to a page where they can add a testimonial and optionally add their own picture.  Having a client's picture next to the testimonial makes it feel more genuine and will make potential clients more likely to trust the testimonial.
+
+Supporting pages - **Add Testimonial**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![Add Testimonial - Desktop](documentation/pages/add-testimonial.png)   |  ![Add Testimonial - mobile](documentation/pages/mobile/add-testimonial.png)   |
+
+
 #### View details about Natalia
 [Back to Top](#top)
 
 This feature allows clients and potential clients to view information about Natalia herself.  They will judge whether to book sessions with her based on her experience and attitude.  This feature allows Natalia to sell herself to new clients.
 
+Supporting pages - **About**
+
+|  Desktop   |  Mobile   |
+| --- | --- |
+|  ![About - Desktop](documentation/pages/about.png)   |  ![About - mobile](documentation/pages/mobile/about.png)   |
 
 
 #### Get in Touch
