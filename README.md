@@ -1203,17 +1203,26 @@ CSS was validated using [W3C CSS validator](https://jigsaw.w3.org/css-validator/
 [Back to Top](#top)
 
 HTML was validated on all pages using [W3C HTML validator](https://validator.w3.org/)
-##### Login
-![Login validation](documentation/validation/HTML/login.png)
 
-##### Logout
-![Logout validation](documentation/validation/HTML/logout.png)
-
-##### My Profile
-![My Account validation](documentation/validation/HTML/my-profile.png)
-
-##### Home page
-![Home page validation](documentation/validation/HTML/home.png)
+| Page    | Validation    |
+| --- | --- |
+| Login    | ![Login page validated](documentation/validation/html/login.png)    |
+| Logout    | ![Logout page validated](documentation/validation/html/logout.png)    |
+| About    | ![About page validated](documentation/validation/html/about.png)    |
+| Add Testimonial    | ![Add Testimonial page validated](documentation/validation/html/add-testimonial.png)    |
+| Add Therapy    | ![Add Therapy page validated](documentation/validation/html/add-therapy.png)    |
+| Edit Therapy    | ![Edit Therapy page validated](documentation/validation/html/edit-therapy.png)    |
+| Get in Touch    | ![Get in Touch page validated](documentation/validation/html/get-in-touch.png)    |
+| Home    | ![Home page validated](documentation/validation/html/home.png)    |
+| List Therapies    | ![List Therapies page validated](documentation/validation/html/list-therapies.png)    |
+| Philosophy    | ![Philosophy page validated](documentation/validation/html/philosophy.png)    |
+| Profile    | ![Profile page validated](documentation/validation/html/profile.png)    |
+| Purchase    | ![Purchase page validated](documentation/validation/html/purchase.png)    |
+| Purchase Success    | ![Purchase Success page validated](documentation/validation/html/purchase-success.png)    |
+| Book therapy    | ![Book Therapy page validated](documentation/validation/html/single-therapy.png)    |
+| Testimonials    | ![Testimonials page validated](documentation/validation/html/testimonials.png)    |
+| Therapies    | ![Therapies page validated](documentation/validation/html/therapies.png)    |
+| View Bookings    | ![View Bookings page validated](documentation/validation/html/view-bookings.png)    |
 
 
 
