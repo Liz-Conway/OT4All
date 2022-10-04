@@ -1149,10 +1149,51 @@ Testing is documented in the [Testing document](TESTING.md)
 In order to ensure that the code for the OT4U application complies with the latest standards, each aspect of the code was run through an appropriate validator.
 
 #### Python/Django
-Source code was validated with [PEP8 Validator](http://pep8online.com/).
+Unfortunately, the [Online PEP8 Validator](http://pep8online.com/) website was down when I was validating the Python code in this project.  Instead I use the command line tool [pycodestyle](https://pypi.org/project/pycodestyle/).  The pycodestyle tool shows PEP8 errors, but does not show anything if the code being checked is valid.  In the following images the line "@vivo ~/code/code institute/ot4u" is the command prompt returned after the validator returns without finding any errors.
 
+|  app    |  Validation   |
+| --- | --- |
+|  bookings   |  ![valid python bookings context.py](documentation/validation/pep8/bookings-context.png)
+![valid python bookings urls.py](documentation/validation/pep8/bookings-urls.png)
+![valid python bookings views.py](documentation/validation/pep8/bookings-views.png)
+   |
+|  home   |  ![valid python home forms.py](documentation/validation/pep8/home-forms.png)
+![valid python home models.py](documentation/validation/pep8/home-models.png)
+![valid python home urls.py](documentation/validation/pep8/home-urls.png)
+![valid python home views.py](documentation/validation/pep8/home-views.png)
+   |
+|   maintenance  |  ![valid python maintenance forms.py](documentation/validation/pep8/maintenance-forms.png)
+![valid python maintenance models.py](documentation/validation/pep8/maintenance-models.png)
+![valid python maintenance urls.py](documentation/validation/pep8/maintenance-urls.png)
+![valid python maintenance views.py](documentation/validation/pep8/maintenance-views.png)
+   |
+|  ot4u   |  ![valid python ot4u urls.py](documentation/validation/pep8/ot4u-urls.png)
+   |
+|  profiles   |  ![valid python profiles forms.py](documentation/validation/pep8/profiles-forms.png)
+![valid python profiles models.py](documentation/validation/pep8/profiles-models.png)
+![valid python profiles urls.py](documentation/validation/pep8/profiles-urls.png)
+![valid python profiles views.py](documentation/validation/pep8/profiles-views.png)
+   |
+|  purchase   |  ![valid python purchase apps.py](documentation/validation/pep8/purchase-apps.png)
+![valid python purchase forms.py](documentation/validation/pep8/purchase-forms.png)
+![valid python purchase models.py](documentation/validation/pep8/purchase-models.png)
+![valid python purchase signals.py](documentation/validation/pep8/purchase-signals.png)
+![valid python purchase urls.py](documentation/validation/pep8/purchase-urls.png)
+![valid python purchase views.py](documentation/validation/pep8/purchase-views.png)
+![valid python purchase webhook handler.py](documentation/validation/pep8/purchase-webhook-handler.png)
+![valid python purchase webhooks.py](documentation/validation/pep8/purchase-webhooks.png)
+   |
+|  testimonials  |  ![valid python home testimonials.py](documentation/validation/pep8/testimonials-forms.png)
+![valid python testimonials models.py](documentation/validation/pep8/testimonials-models.png)
+![valid python testimonials urls.py](documentation/validation/pep8/testimonials-urls.png)
+![valid python testimonials views.py](documentation/validation/pep8/testimonials-views.png)
+   |
+|  therapy   |  ![valid python therapy models.py](documentation/validation/pep8/therapy-models.png)
+![valid python therapy urls.py](documentation/validation/pep8/therapy-urls.png)
+![valid python therapy views.py](documentation/validation/pep8/therapy-views.png)
+![valid python therapy widgets.py](documentation/validation/pep8/therapy-widgets.png)
+   |
 
-![PEP8 Validation](documentation/validation/PEP8/Python.png)
 
 #### CSS
 [Back to Top](#top)
@@ -1462,6 +1503,17 @@ Sitemap: https://ot4u-ci.herokuapp.com/sitemap.xml
 </urlset>
 ```
 
+## Web Marketing
+
+### Business Model
+The OT4U website is a B2C business model that it does the business directly with the end customer. Customer is able to search the product on the site, complete the order, make a payment through secured payment system and receive goods in the end.
+
+### Marketing
+A mockup of a Facebook marketing page has been created for the OT4U website.  OT4U has a Facebook page for reaching all Natalia's clients instantly. On a real Facebook site Natalia would be able to post any updates, new therapies or promotions to generate interest in the OT4U website. The Facebook page provides an efficient and effective way of communicating with clients and potential clients.  Since clients can post on the Facebook site this allows Natalia to receive feedback, which can be used to improve the services she offers.
+
+![Facebook Marketing page](documentation/facebook/facebook-page.png)
+
+Also on the OT4U website, existing clients can add testimonials, which help market Natalia's therapies.  People often need "social proof" before committing to investing time and money.  The testimonials provide potential clients with insights into what Natalia does and proves to interested parties that Natalia does provide a useful and beneficial service.  This makes it much more likely that the interested party will turn into a valuable client.
 
 
 ## Technology Used

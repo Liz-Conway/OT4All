@@ -13,8 +13,10 @@
 					    <menu class="mainMenu">
 					    <menuitem id="homeLink">
 						    <a class="navLink {% if '/' == request.path or 'privacy' in request.path %}navigationActive{% endif %}"
-						    		 href="{% url 'home' %}" 
-						    		aria-haspopup="true" aria-expanded="false">
+						    		 href="{% if '/' != request.path %}
+								    		 	{% url 'home' %}
+								    		 {% endif %}" 
+						    		aria-haspopup="true" aria-expanded="false" tabindex="1">
 						        Home
 						    </a>
 					</menuitem>
@@ -24,7 +26,7 @@
 				    <menu class="mainMenu dropMenu">
 					    <menuitem>
 						        <a href="{% url 'therapies' %}" class="dropMenuTopLink {% if 'therapy' in request.path %}navigationActive{% endif %}"
-						        	 id="therapiesMenuLabel">
+						        	 id="therapiesMenuLabel" tabindex="2">
 						        		Therapies
 						        </a>
 						    <menu class="subMenu" aria-labelledby="therapiesMenuLabel">
@@ -48,7 +50,8 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'testimonials'%}" class=" {% if 'testimonial' in request.path %}navigationActive{% endif %}">
+					    	<a href="{% url 'testimonials'%}" tabindex="3" 
+					    		class=" {% if 'testimonial' in request.path %}navigationActive{% endif %}">
 					    		Testimonials
 					    	</a>
 					    </menuitem>
@@ -57,7 +60,8 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'about'%}" class=" {% if 'about' in request.path %}navigationActive{% endif %}">
+					    	<a href="{% url 'about'%}" tabindex="4" 
+					    		class=" {% if 'about' in request.path %}navigationActive{% endif %}">
 					    		About
 					    	</a>
 					    </menuitem>
@@ -66,7 +70,8 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'philosophy'%}" class="{% if 'philosophy' in request.path %}navigationActive{% endif %}">
+					    	<a href="{% url 'philosophy'%}" tabindex="5" 
+					    		class="{% if 'philosophy' in request.path %}navigationActive{% endif %}">
 					    		Philosophy
 					    	</a>
 					    </menuitem>
@@ -75,7 +80,8 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'getInTouch'%}" class="{% if 'contact' in request.path %}navigationActive{% endif %}">
+					    	<a href="{% url 'getInTouch'%}" tabindex="6"
+					    		class="{% if 'contact' in request.path %}navigationActive{% endif %}">
 					    		Get in Touch
 					    	</a>
 					    </menuitem>

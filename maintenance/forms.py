@@ -37,7 +37,8 @@ class TherapyForm(forms.ModelForm):
                 "image": "No placeholder needed",
                 "course_sessions": "Default amount of sessions",
                 "location": "Where takes place (if any)",
-                "extra_requirements": "Any additional requirements this therapy will need",
+                "extra_requirements":
+                    "Any additional requirements this therapy will need",
             }
 
             try:

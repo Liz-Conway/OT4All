@@ -157,11 +157,11 @@
   margin-left: auto;
 }
 .purchaseCharge {
-  color: #e84610;
+  color: #A5310A;
 }
 
 #stripeError {
-  color: #e84610;
+  color: #A5310A;
 }
 
 .payButtons {
@@ -191,10 +191,10 @@
 .payButtons p {
   margin-top: 0.5rem;
   margin-bottom: 0;
-  color: #e84610;
+  color: #A5310A;
 }
 .payButtons + div {
-  color: #e84610;
+  color: #A5310A;
   text-align: right;
 }
 

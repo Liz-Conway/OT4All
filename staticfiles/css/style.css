@@ -14,6 +14,9 @@
 #mc_embed_signup #mce-EMAIL-HELPERTEXT {
   background-color: #ffcdbd;
 }
+#mc_embed_signup .asterisk {
+  color: #A5310A;
+}
 
 .indicates-required {
   margin-bottom: -3rem;
@@ -114,7 +117,7 @@ body {
 
 ul.errorlist > li {
   list-style: none;
-  color: #e84610;
+  color: #A5310A;
 }
 
 /*===== END  Typography  ===== */
@@ -863,7 +866,7 @@ footer {
   color: #751c00;
 }
 .errorText {
-  color: #e84610;
+  color: #A5310A;
 }
 
 /*===== END  404 Page  ===== */
@@ -1535,7 +1538,7 @@ button[class$="crementSessions"]:disabled {
 
 input:not([type="radio"]):required + label::after, select:required + label::after {
   content: " *";
-  color: #e84610;
+  color: #A5310A;
 }
 
 select, select option {
@@ -1643,7 +1646,7 @@ select:invalid, select option[value=""] {
   background-color: #197019;
 }
 .toastCapperError {
-  background-color: #e84610;
+  background-color: #A5310A;
 }
 .toastCapperWarning {
   background-color: orange;
@@ -1720,8 +1723,8 @@ select:invalid, select option[value=""] {
 }
 
 .redBackground {
-  background-color: #f05522;
-  border: 1px solid #e84610;
+  background-color: #bd380b;
+  border: 1px solid #A5310A;
 }
 
 .blueBackground {
@@ -1741,7 +1744,7 @@ select:invalid, select option[value=""] {
 
 /*~~~~~~~  Django AllAuth  ~~~~~~~ */
 ul.errorlist {
-  color: #e84610;
+  color: #A5310A;
 }
 
 .allauth {
