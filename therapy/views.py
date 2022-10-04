@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.urls.base import resolve
 from django.db.models.query_utils import Q
 from django.db.models.functions.text import Lower
-from bs4.builder import HTML
 
 
 # Create your views here.
