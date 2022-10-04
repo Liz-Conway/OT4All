@@ -23,7 +23,12 @@
 				<p class="profileHeading">Default client information</p>
 				<form class="profileDetailsForm" action="{% url 'profile' %}" method="POST" id="profileUpdateForm">
 					{% csrf_token %}
+					<!-- Django sticks things in <tr>, <th> & <td> elements?????
+					HTML validator objects to this
+					Try wrapping the form in a table and see if this works? -->
+					<table>
 					{{ form }}
+					</table>
 					<div class="formButtons">
 						<button type="reset" class="btn btnTextOnly">Reset</button>
 						<a class="btn btnGhost" href="{% url 'home' %}">Cancel</a>
@@ -60,7 +65,7 @@
 										Make a small text summary of it, including
 										the therapy, and the number of sessions purchased -->
 										{% for item in order.lineitems.all %}
-											{{ item.therapy.name }} x {{ item.sessions }}<br>
+											<li class="orderHistoryItem">{{ item.therapy.name }} x {{ item.sessions }}</li>
 										{% endfor %}
 									</ul>
 								</td>

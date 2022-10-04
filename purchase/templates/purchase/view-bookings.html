@@ -18,7 +18,6 @@
 				<!-- Table containing the list of therapies -->
 				<table id="bookingListTable" class="ot4uTable">
 					<thead class="tableHead">
-					<thead class="tableHead">
 						<tr>
 							<th>Order Number</th>
 							<th>Date</th>
@@ -42,7 +41,7 @@
 										Make a small text summary of it, including
 										the therapy, and the number of sessions purchased -->
 										{% for booking in order.lineitems.all %}
-											{{ booking.therapy.name }} x {{ booking.sessions }}<br>
+											<li class="orderHistoryItem">{{ booking.therapy.name }} x {{ booking.sessions }}</li>
 										{% endfor %}
 									</ul>
 								</td>

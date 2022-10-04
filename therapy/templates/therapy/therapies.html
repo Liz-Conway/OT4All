@@ -17,7 +17,7 @@
 				{% for style in all_styles %}
 					<a class="btnStyle {% if style in chosen_styles %}btnStyleActive{% endif %}" 
 						href="{% url 'therapies' %}?style={{ style.name }}">
-						<span>{{style.name}}</span>
+						<span>{{ style.name|slugify }}</span>
 					</a>
 				{% endfor %}
 					<a class="btnStyle {% if chosen_styles == None %}btnStyleActive{% endif %}" href="{% url 'therapies' %}">
@@ -43,8 +43,8 @@
 							{% if current_sorting == 'style_desc' %}selected{% endif %}
 							{% if chosen_styles %} class="invisible"{% endif %}
 							>Style (Z-A)</option>
-						<option  disabled role="separator">
-						<option value="reset" >Reset...</option>
+						<option  disabled></option>
+						<option value="reset">Reset...</option>
 					</select>
 				</div>
 				{% endif %}

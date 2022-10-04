@@ -122,6 +122,10 @@
   color: #aab7c4;
 }
 
+.orderHistoryItem {
+  list-style-type: none;
+}
+
 /*===== END  User Profile  ===== */
 
 /*# sourceMappingURL=profile.css.map */
