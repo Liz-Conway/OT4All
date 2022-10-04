@@ -892,9 +892,10 @@ li.navigationItem {
 }
 
 /* HTML Nav Styles */
-menuitem {
+.menuitem {
   cursor: pointer;
   z-index: 40;
+  list-style: none;
 }
 
 menu {
@@ -912,10 +913,10 @@ menu.headMenu {
       -ms-flex-direction: row;
           flex-direction: row;
 }
-menu.headMenu > menuitem > a {
+menu.headMenu > .menuitem > a {
   padding-left: 0;
 }
-menu menuitem a {
+menu .menuitem a {
   white-space: nowrap;
   display: block;
 }
@@ -936,18 +937,18 @@ menu menuitem a {
     z-index: 50;
   }
 }
-.subMenu > menuitem > a {
+.subMenu > .menuitem > a {
   border-top: 1px solid #ffcdbd;
   border-bottom: 1px solid #ff6533;
 }
 @media only screen and (min-width: 59.375em) {
-  .subMenu > menuitem > a {
+  .subMenu > .menuitem > a {
     width: 100%;
     padding-left: 1.5rem;
     padding-right: 0.5rem;
   }
 }
-.subMenu > menuitem > a:hover {
+.subMenu > .menuitem > a:hover {
   background-color: #ffece5;
   border: 1px solid #ffcdbd;
 }
@@ -996,7 +997,7 @@ menu menuitem a {
 /*	when hovering over a .mainMenu item,
  * display the subMenu below it.
  * we're changing the subMenu's max-height from 0 to 200px; */
-.mainMenu menuitem:hover .subMenu {
+.mainMenu .menuitem:hover .subMenu {
   /*	In the mobile view we want the "appearing" submenu to
    * shove the other main menu items down */
   display: block;
@@ -1006,7 +1007,7 @@ menu menuitem a {
    * overlap the existing page items and not shove anything down */
 }
 @media only screen and (min-width: 59.375em) {
-  .mainMenu menuitem:hover .subMenu {
+  .mainMenu .menuitem:hover .subMenu {
     position: absolute;
   }
 }
@@ -1027,22 +1028,22 @@ menu a {
   border-radius: 3px;
 }
 
-.mainMenu > menuitem {
+.mainMenu > .menuitem {
   position: relative;
 }
-.mainMenu > menuitem > .subMenu {
+.mainMenu > .menuitem > .subMenu {
   width: 0;
 }
 
 .dropMenu {
   /* Place an arrow underneath the mainMenu text */
 }
-.dropMenu:hover > menuitem::after {
+.dropMenu:hover > .menuitem::after {
   content: "";
   position: absolute;
 }
 @media only screen and (min-width: 59.375em) {
-  .dropMenu:hover > menuitem::after {
+  .dropMenu:hover > .menuitem::after {
     /* Show an arrow in desktop view */
     width: 0;
     height: 0;
@@ -1070,14 +1071,13 @@ menu a {
 }
 
 /* For "search" & "My Account" dropdown */
-.headMenu > menuitem > menu > menuitem {
+.headMenu > .menuitem > menu > .menuitem {
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   opacity: 0;
 }
 
-.headMenu > menuitem:hover > menu > menuitem,
-.headMenu > menuitem.hover > menu > menuitem {
+.headMenu > .menuitem.hover > menu > .menuitem {
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   opacity: 1;
