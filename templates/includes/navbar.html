@@ -11,18 +11,18 @@
 			<ul class="navigationList">
 				<li class="navigationItem">
 					    <menu class="mainMenu">
-					    <menuitem>
-						    <a class="navLink {% if '/' == request.path or 'privacy' in request.path %}navigationActive{% endif %}"
-						    		 href="{% url 'home' %}" 
-						    		aria-haspopup="true" aria-expanded="false">
-						        Home
-						    </a>
-					</menuitem>
-					    </menu>
+						    <li class="menuitem">
+							    <a class="navLink {% if '/' == request.path or 'privacy' in request.path %}navigationActive{% endif %}"
+							    		 href="{% url 'home' %}" 
+							    		aria-haspopup="true" aria-expanded="false">
+							        Home
+							    </a>
+						</li>
+					  </menu>
 				</li>
 				<li class="navigationItem">
 				    <menu class="mainMenu dropMenu">
-					    <menuitem>
+					    <li class="menuitem">
 						        <a href="{% url 'therapies' %}" class="dropMenuTopLink {% if 'therapy' in request.path %}navigationActive{% endif %}"
 						        	 id="therapiesMenuLabel">
 						        		Therapies
@@ -33,56 +33,56 @@
 						    	Type model so we have a programmatic way to access them
 						    	Of course we could also use the type id.
 								But this makes the URLs a little more semantic which is nice for the user -->
-						    	<menuitem><a href="{% url 'therapies'%}?style=Equine">Equine Therapy</a></menuitem>
-						    	<menuitem><a href="{% url 'therapies'%}?style=Literacy">Literacy Therapy</a></menuitem>
-						    	<menuitem><a href="{% url 'therapies'%}?style=Self Care">Self Care Therapy</a></menuitem>
+						    	<li class="menuitem"><a href="{% url 'therapies'%}?style=Equine">Equine Therapy</a></li>
+						    	<li class="menuitem"><a href="{% url 'therapies'%}?style=Literacy">Literacy Therapy</a></li>
+						    	<li class="menuitem"><a href="{% url 'therapies'%}?style=Self Care">Self Care Therapy</a></li>
 								<!-- The "therapies" URL is followed by a question mark
 								to indicate we're about to pass the 'style' parameter.
 								Followed by "equine", "literacy", and "selfcare" separated by a comma.
 								This syntax ensures we end up with a comma-separated string in the view. -->
-						    	<menuitem><a href="{% url 'therapies'%}">All Therapies</a></menuitem>
+						    	<li class="menuitem"><a href="{% url 'therapies'%}">All Therapies</a></li>
 					    	</menu>
-					    </menuitem>
+					    </li>
 				    </menu>
 				</li>
 				<li class="navigationItem">
 				    <menu class="mainMenu">
-					    <menuitem>
+					    <li class="menuitem">
 					    	<a href="{% url 'testimonials'%}" 
 					    		class=" {% if 'testimonial' in request.path %}navigationActive{% endif %}">
 					    		Testimonials
 					    	</a>
-					    </menuitem>
+					    </li>
 				    </menu>
 				</li>
 				<li class="navigationItem">
 				    <menu class="mainMenu">
-					    <menuitem>
+					    <li class="menuitem">
 					    	<a href="{% url 'about'%}" 
 					    		class=" {% if 'about' in request.path %}navigationActive{% endif %}">
 					    		About
 					    	</a>
-					    </menuitem>
+					    </li>
 				    </menu>
 				</li>
 				<li class="navigationItem">
 				    <menu class="mainMenu">
-					    <menuitem>
+					    <li class="menuitem">
 					    	<a href="{% url 'philosophy'%}" 
 					    		class="{% if 'philosophy' in request.path %}navigationActive{% endif %}">
 					    		Philosophy
 					    	</a>
-					    </menuitem>
+					    </li>
 				    </menu>
 				</li>
 				<li class="navigationItem">
 				    <menu class="mainMenu">
-					    <menuitem>
+					    <li class="menuitem">
 					    	<a href="{% url 'getInTouch'%}" 
 					    		class="{% if 'contact' in request.path %}navigationActive{% endif %}">
 					    		Get in Touch
 					    	</a>
-					    </menuitem>
+					    </li>
 				    </menu>
 				</li>
 			</ul>

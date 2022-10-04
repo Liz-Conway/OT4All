@@ -35,34 +35,34 @@
 	                        	{% endif %}
 	                        	 fa-user shopAccountsIcon"></i>
 	                        <menu class="mainMenu">
-	                        	<menuitem>
+	                        	<li class="menuitem">
 									<a id="accountOptions" 
 										class="shopAccountsLabel dropMenuTopLink">
 											My Profile
 									</a>
 									<menu class="subMenu">
 								    	{% if request.user.is_authenticated %}
-								    		<menuitem id="userName">
+								    		<li class="menuitem" id="userName">
 								    			{{ request.user.get_username|slice:":10" }} {% if request.user.get_username|length > 10 %}...{% endif %}
-								    		</menuitem>
+								    		</li>
 								    	{% endif %}
-								    	<menuitem>
+								    	<li class="menuitem">
 								            <a href="{% url 'home' %}">Home</a>
-							    		</menuitem>
+							    		</li>
 								        {% if request.user.is_authenticated %}
 								            {% if request.user.is_superuser %}
-			                                	<menuitem><a href="{% url 'listTherapies' %}">Maintain Therapies</a></menuitem>
-			                                	<menuitem><a href="{% url 'viewBookings' %}">View Bookings</a></menuitem>
+			                                	<li class="menuitem"><a href="{% url 'listTherapies' %}">Maintain Therapies</a></li>
+			                                	<li class="menuitem"><a href="{% url 'viewBookings' %}">View Bookings</a></li>
 											{% else %}
-									        	<menuitem><a href="{% url 'profile' %}">My Profile</a></menuitem>
+									        	<li class="menuitem"><a href="{% url 'profile' %}">My Profile</a></li>
 											{% endif %}
-											<menuitem><a href="{% url 'account_logout' %}">Logout</a></menuitem>
+											<li class="menuitem"><a href="{% url 'account_logout' %}">Logout</a></li>
 										{% else %}
-											<menuitem><a href="{% url 'account_signup' %}">Register</a></menuitem>
-											<menuitem><a href="{% url 'account_login' %}">Login</a></menuitem>
+											<li class="menuitem"><a href="{% url 'account_signup' %}">Register</a></li>
+											<li class="menuitem"><a href="{% url 'account_login' %}">Login</a></li>
 										{% endif %}
 									</menu>
-								</menuitem>
+								</li>
 							</menu>
 	                    </div>
                     </li>
