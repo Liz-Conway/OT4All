@@ -157,11 +157,11 @@ function showUpdatedLink(input) {
 	/*From the input box traverse UP to the closest parent form*/
 	let form = input.closest("form");
 	/*From the parent form traverse to the NEXT sibling with a class of "editLinks"*/
-	let parentLink = form.next(".editLinks")
+	let parentLink = form.next(".editLinks");
 	/*The div with class of "editLinks" is the parent of the update link we need to show.
 	Use find() to traverse DOWN into the children of the editLinks div.
 	Find the child with a class of "updateLink"*/
-	let updateLink = parentLink.find(".updateLink")
+	let updateLink = parentLink.find(".updateLink");
 
 	updateLink.css("display", "block");
 }

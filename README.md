@@ -1236,10 +1236,18 @@ HTML was validated on all pages using [W3C HTML validator](https://validator.w3.
 
 
 #### Javascript
-Javascript was validated using [JSHint](https://jshint.com/)
-##### script.js
-![Javascript validation](documentation/validation/Javascript/jshint-script.png)
+[Back to Top](#top)
 
+Javascript was validated using [JSHint](https://jshint.com/)
+
+| Javascript file    | Validation    |
+| --- | --- |
+|  adjust-sessions.js   |  ![Adjust Sessions validation](documentation/validation/js/adjust-sessions.png)   |
+|  sorting.js   |  ![Therapy sorting validation](documentation/validation/js/sort.png)   |
+|  stripe-elements.js   |  ![Stripe code validation](documentation/validation/js/stripe.png)   |
+|  toast.js   |  ![Toast code validation](documentation/validation/js/toast.png)   |
+
+The only error that JSHint shows is in the `stripe-elements.js` file.  This error refers to an undefined variable called 'Stripe'.  This is a reference to the Stripe API used to access Stripe, upon which the javascript code works.  This "undefined variable" is required as the javascript code would not work without it.
 
 
 ### Documentation  

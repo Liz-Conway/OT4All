@@ -45,7 +45,7 @@ let style = {
 		iconColor: '#E84610',
 		color: '#E84610',
 	},
-}
+};
 
 /*Made possible by the stripe js included in the base template.
 All we need to do to set up stripe is create a variable using our stripe public key*/
@@ -192,14 +192,6 @@ function formSubmit(event) {
 		if our view sends a 400 bad request response*/
         // just reload the page, the error will be in django messages
         location.reload();
-    })
+    });
 }
 
-
-function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
