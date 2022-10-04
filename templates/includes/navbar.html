@@ -13,9 +13,7 @@
 					    <menu class="mainMenu">
 					    <menuitem id="homeLink">
 						    <a class="navLink {% if '/' == request.path or 'privacy' in request.path %}navigationActive{% endif %}"
-						    		 href="{% if '/' != request.path %}
-								    		 	{% url 'home' %}
-								    		 {% endif %}" 
+						    		 href="{% url 'home' %}" 
 						    		aria-haspopup="true" aria-expanded="false" tabindex="1">
 						        Home
 						    </a>
@@ -26,7 +24,7 @@
 				    <menu class="mainMenu dropMenu">
 					    <menuitem>
 						        <a href="{% url 'therapies' %}" class="dropMenuTopLink {% if 'therapy' in request.path %}navigationActive{% endif %}"
-						        	 id="therapiesMenuLabel" tabindex="2">
+						        	 id="therapiesMenuLabel">
 						        		Therapies
 						        </a>
 						    <menu class="subMenu" aria-labelledby="therapiesMenuLabel">
@@ -50,7 +48,7 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'testimonials'%}" tabindex="3" 
+					    	<a href="{% url 'testimonials'%}" 
 					    		class=" {% if 'testimonial' in request.path %}navigationActive{% endif %}">
 					    		Testimonials
 					    	</a>
@@ -60,7 +58,7 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'about'%}" tabindex="4" 
+					    	<a href="{% url 'about'%}" 
 					    		class=" {% if 'about' in request.path %}navigationActive{% endif %}">
 					    		About
 					    	</a>
@@ -70,7 +68,7 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'philosophy'%}" tabindex="5" 
+					    	<a href="{% url 'philosophy'%}" 
 					    		class="{% if 'philosophy' in request.path %}navigationActive{% endif %}">
 					    		Philosophy
 					    	</a>
@@ -80,7 +78,7 @@
 				<li class="navigationItem">
 				    <menu class="mainMenu">
 					    <menuitem>
-					    	<a href="{% url 'getInTouch'%}" tabindex="6"
+					    	<a href="{% url 'getInTouch'%}" 
 					    		class="{% if 'contact' in request.path %}navigationActive{% endif %}">
 					    		Get in Touch
 					    	</a>

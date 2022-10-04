@@ -1289,6 +1289,11 @@ button[class$="crementSessions"]:disabled {
   margin-right: 2rem;
 }
 
+#mc_embed_signup .button {
+  /* MailChimp subscribe button */
+  background-color: #191970;
+}
+
 /*===== END  Button  ===== */
 .search {
   -webkit-box-flex: 0;
