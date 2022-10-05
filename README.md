@@ -212,7 +212,7 @@ In the footer of every page there are a number of navigation links:
 
 
 
-#### Track Clients Profile
+#### Track Client's Profile
 [Back to Top](#top)
 
 In the top right of every screen there is a "My Profile" link, which exposes a number of options.
@@ -316,7 +316,7 @@ Supporting Page - **Registration page**
 
 ![Reset Password user flow](documentation/user-flow/reset-password.png)
 
-This feature can be a life-saver for any client who forgets their password and needs to login to the OT4U website.  It can be very frustrating for an end-user if they cannot a service that they need, so the benefits of this feature cannot be underestimated.
+This feature can be a life-saver for any client who forgets their password and needs to login to the OT4U website.  It can be very frustrating for an end-user if they cannot access a service that they need, so the benefits of this feature cannot be underestimated.
 
 When the client requests a reset of their password, they are taken to the password reset request page, where they submit their email address.  If their email address is one of the clients' email addresses a password reset email is sent to that address.  This is a key step in resetting the client's password and is required so that the password reset process can begin.
 
@@ -386,7 +386,7 @@ Once on the Therapies page, the client can filter the Therapies by clicking on o
 
 The options are the same whether clicking on a menu item, or choosing a "Styles" button.  The client can filter by:
 1. Equine therapies
-2. Literact therapies
+2. Literacy therapies
 3. Self-care therapies
 4. All therapies
 
@@ -939,7 +939,7 @@ The Django structure for the OT4U website is broken into 7 apps.
 <a id="personas"></a>
 [Back to Top](#top)
 
-![Site User](documentation/ux/persona/site-user.png)
+
 ![Site Owner](documentation/ux/persona/site-owner.png)
 ![Client](documentation/ux/persona/client.png)
 
@@ -948,42 +948,24 @@ The Django structure for the OT4U website is broken into 7 apps.
 <a id="wireframes"></a>
 [Back to Top](#top)
 
-**Login**
-
-![Login page wireframe](documentation/ux/wireframes/Login.png)
-
-**Home Page**
-
-![Home page wireframe](documentation/ux/wireframes/HomePage.png)
-
-**OT Therapies**
-
-![OT Services page wireframe](documentation/ux/wireframes/OTServices.png)
-
-**Single OT Therapy**
-
-![OT Service Detail page wireframe](documentation/ux/wireframes/ServiceDetail.png)
-
-**About**
-
-
-![About page wireframe](documentation/ux/wireframes/About.png)
-
-**Get in Touch**
-
-![Get in Touch page wireframe](documentation/ux/wireframes/Contact.png)
-
-**Shopping Cart**
-
-![Shopping Cart page wireframe](documentation/ux/wireframes/ShoppingCart.png)
-
-**Payment**
-
-![Payment page wireframe](documentation/ux/wireframes/Payment.png)
-
-**Order Confirmation**
-
-![Order Confirmation page wireframe](documentation/ux/wireframes/OrderConfirmation.png)
+| Page    | Desktop    | Mobile    |
+| --- | --- | --- |
+| About    | ![About page wireframe - Desktop](documentation/wireframes/about.png)    | ![About page wireframe - mobile](documentation/wireframes/mobile/about.png)    |
+| Home    | ![Home page wireframe - Desktop](documentation/wireframes/home.png)    | ![Home page wireframe - mobile](documentation/wireframes/mobile/home.png)    |
+| Approach    | ![Approach page wireframe - Desktop](documentation/wireframes/approach.png)    | ![Approach page wireframe - mobile](documentation/wireframes/mobile/approach.png)    |
+| Get in Touch    | ![Get in touch page wireframe - Desktop](documentation/wireframes/get-in-touch.png)    | ![Get in touch page wireframe - mobile](documentation/wireframes/mobile/get-in-touch.png)    |
+| View Therapies    | ![View therapies page wireframe - Desktop](documentation/wireframes/therapies.png)    | ![View therapies page wireframe - mobile](documentation/wireframes/mobile/therapies.png)    |
+| Book Therapy    | ![Book Therapy page wireframe - Desktop](documentation/wireframes/book-therapy.png)    | ![Book Therapy page wireframe - mobile](documentation/wireframes/mobile/book-therapy.png)    |
+| Bookings    | ![Bookings page wireframe - Desktop](documentation/wireframes/bookings.png)    | ![Bookings page wireframe - mobile](documentation/wireframes/mobile/bookings.png)    |
+| Purchase    | ![Purchase page wireframe - Desktop](documentation/wireframes/purchase.png)    | ![Purchase page wireframe - mobile](documentation/wireframes/mobile/purchase.png)    |
+| Purchase Success    | ![Purchase Success page wireframe - Desktop](documentation/wireframes/purchase-success.png)    | ![Purchase Success page wireframe - mobile](documentation/wireframes/mobile/purchase-success.png)    |
+| View Testimonials    | ![View Testimonials page wireframe - Desktop](documentation/wireframes/view-testimonials.png)    | ![View Testimonials page wireframe - mobile](documentation/wireframes/mobile/view-testimonials.png)    |
+| Add Testimonial    | ![Add Testimonial page wireframe - Desktop](documentation/wireframes/add-testimonial.png)    | ![Add Testimonial page wireframe - mobile](documentation/wireframes/mobile/add-testimonial.png)    |
+| Profile    | ![Profile page wireframe - Desktop](documentation/wireframes/profile.png)    | ![Profile page wireframe - mobile](documentation/wireframes/mobile/profile.png)    |
+| View Bookings    | ![View Bookings page wireframe - Desktop](documentation/wireframes/view-bookings.png)    | ![View Bookings page wireframe - mobile](documentation/wireframes/mobile/view-bookings.png)    |
+| List Therapies    | ![List Therapies page wireframe - Desktop](documentation/wireframes/list-therapies.png)    | ![List Therapies page wireframe - mobile](documentation/wireframes/mobile/list-therapies.png)    |
+| Add Therapy    | ![Add Therapy page wireframe - Desktop](documentation/wireframes/add-therapy.png)    | ![Add Therapy page wireframe - mobile](documentation/wireframes/mobile/add-therapy.png)    |
+| Edit Therapy    | ![Edit Therapy page wireframe - Desktop](documentation/wireframes/edit-therapy.png)    | ![Edit Therapy page wireframe - mobile](documentation/wireframes/mobile/edit-therapy.png)    |
 
 
 ### Site Map
@@ -1226,8 +1208,7 @@ Testing is documented in the [Testing document](TESTING.md)
  
 | Bug    | Fix    |
 | --- | --- |
-| Last item on the drop down menu has the same background colour as the page beneath it,  This makes it blend into the page since there is nothing with a different colour below it to separate it visually from the page. | Added a border to the menuitems when they are hovered.  Now there is a thin line separating the last item in the drop down from the rest of the page.
-    |
+| Last item on the drop down menu has the same background colour as the page beneath it,  This makes it blend into the page since there is nothing with a different colour below it to separate it visually from the page. | Added a border to the menuitems when they are hovered.  Now there is a thin line separating the last item in the drop down from the rest of the page.  |
 | “Therapies” menu item is not aligned with the other menu items in desktop view.  | Change this menu item to be an anchor like the rest of the menu items  |
 | Clicking on the “Therapies” menu on mobile devices, goes straight to the linked page, rather than displaying the submenu. | Set the pointer-events property to ‘none’ for the “Therapies” anchor on mobile devices.  Reset the pointer-events to work on non-mobile devices.  |
 | Grand total for the shopping bag is misaligned  | Apply same style to both My Profile block and Cart block  |
@@ -1263,10 +1244,8 @@ Unfortunately, the [Online PEP8 Validator](http://pep8online.com/) website was d
 |  app    |  Validation   |
 | --- | --- |
 |  bookings  |  ![valid python bookings context.py](documentation/validation/pep8/bookings-context.png)|
-|   |
-![valid python bookings urls.py](documentation/validation/pep8/bookings-urls.png)|
-|   |
-![valid python bookings views.py](documentation/validation/pep8/bookings-views.png)   |
+|   | ![valid python bookings urls.py](documentation/validation/pep8/bookings-urls.png)|
+|   | ![valid python bookings views.py](documentation/validation/pep8/bookings-views.png)   |
 |  home   |  ![valid python home forms.py](documentation/validation/pep8/home-forms.png)|
 |   | ![valid python home models.py](documentation/validation/pep8/home-models.png)|
 |   |![valid python home urls.py](documentation/validation/pep8/home-urls.png)|
@@ -1441,7 +1420,7 @@ A list of key search words and phrases was defined for the OT4U website.  This l
 * All images have an `alt` tag
 * The sitemap.xml file is referenced in the robots.txt file
 * No links to CSS or Javascript files are broken
-* All anchor `a` tags have descriptive texxt
+* All anchor `a` tags have descriptive text
 
 ### robots.txt
 ```
