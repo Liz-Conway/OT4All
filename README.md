@@ -18,6 +18,12 @@
 
 </details>
 <details>
+<summary>User Stories</summary>
+
+[User Stories](#user-stories)
+
+</details>
+<details>
 <summary>Features</summary>
 
 [Existing Features](#existing-features)
@@ -30,8 +36,6 @@
 <details>
 <summary>Data Model</summary>
 
-[Entity Model](#entity-diagram)
-
 [Entity Relationship Model](#erd)
 
 [Python Structure](#python-structure)
@@ -40,15 +44,10 @@
 <details>
 <summary>UX</summary>
 
-[Storyboard](#storyboard)
-
 [Personas](#personas)
 
-[Customer Journey Maps](#cjm)
 
 [Wireframes](#wireframes)
-
-[Flow Chart](#flow-chart)
 
 [Site Map](#site-map)
 
@@ -62,6 +61,14 @@
 
 [Usability](#usability)
 
+[Favicon](#favicon)
+	
+[Layout](#layout)
+
+[Static Files](#static-files)
+	
+[Media Files](#media-files)
+
 </details>
 <details>
 <summary>Software Development Process</summary>
@@ -74,12 +81,27 @@
 
 [Testing](#testing)
 
-[Documentation](#documentation)
+</details>
+<details>
+<summary>Validation</summary>
 
-[Deployment](#deployment)
+[Python / Django](#python)
+
+[CSS](#css)
+
+[HTML](#html)
+
+[Javascript](#javascript)
 
 </details>
 <details>
+<summary>SEO and Web Marketing</summary>
+
+[SEO](#seo)
+
+[Web Marketing](#planning)
+
+</details><details>
 <summary>Technology Used</summary>
 
 [Technology Used](#technology)
