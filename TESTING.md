@@ -11,3 +11,5 @@
 ### Views
 ![Therapy app views testing](documentation/testing/therapy-views.png)
 
+## Robots.txt
+![Test Robots.txt](documentation/testing/robots.png)

@@ -18,6 +18,12 @@
 
 </details>
 <details>
+<summary>User Stories</summary>
+
+[User Stories](#user-stories)
+
+</details>
+<details>
 <summary>Features</summary>
 
 [Existing Features](#existing-features)
@@ -30,8 +36,6 @@
 <details>
 <summary>Data Model</summary>
 
-[Entity Model](#entity-diagram)
-
 [Entity Relationship Model](#erd)
 
 [Python Structure](#python-structure)
@@ -40,15 +44,10 @@
 <details>
 <summary>UX</summary>
 
-[Storyboard](#storyboard)
-
 [Personas](#personas)
 
-[Customer Journey Maps](#cjm)
 
 [Wireframes](#wireframes)
-
-[Flow Chart](#flow-chart)
 
 [Site Map](#site-map)
 
@@ -62,6 +61,14 @@
 
 [Usability](#usability)
 
+[Favicon](#favicon)
+	
+[Layout](#layout)
+
+[Static Files](#static-files)
+	
+[Media Files](#media-files)
+
 </details>
 <details>
 <summary>Software Development Process</summary>
@@ -74,12 +81,29 @@
 
 [Testing](#testing)
 
-[Documentation](#documentation)
+[Bug Fixes](#bug-fixes)
+	
+</details>
+<details>
+<summary>Validation</summary>
 
-[Deployment](#deployment)
+[Python / Django](#python)
+
+[CSS](#css)
+
+[HTML](#html)
+
+[Javascript](#javascript)
 
 </details>
 <details>
+<summary>SEO and Web Marketing</summary>
+
+[SEO](#seo)
+
+[Web Marketing](#marketing)
+
+</details><details>
 <summary>Technology Used</summary>
 
 [Technology Used](#technology)
@@ -984,7 +1008,7 @@ Client
 
 |  Desktop   |  Mobile   |
 | --- | --- |
-|  ![Lighthouse repot - Desktop](documentation/a11y/validation/lighthouse-desktop.png)   |  ![Lighthouse report - mobile](documentation/validation/a11y/lighthouse-mobile.png)   |
+|  ![Lighthouse repot - Desktop](documentation/validation/a11y/lighthouse-desktop.png)   |  ![Lighthouse report - mobile](documentation/validation/a11y/lighthouse-mobile.png)   |
 
 
 #### WAVE Accessibility tool
@@ -1030,6 +1054,7 @@ The use of colours in the OT4U application should make the user feel welcomed an
 The favicon for the OT4U project was created using [Real Favicon Generator](https://realfavicongenerator.net).  It was created using the OT4U logo.
 
 ### Layout and Visual Impact
+<a id="layout"></a>
 [Back to Top](#top)
 
 - **Responsive Design** 
@@ -1241,6 +1266,7 @@ Testing is documented in the [Testing document](TESTING.md)
 In order to ensure that the code for the OT4U application complies with the latest standards, each aspect of the code was run through an appropriate validator.
 
 #### Python/Django
+<a id="python"></a>
 Unfortunately, the [Online PEP8 Validator](http://pep8online.com/) website was down when I was validating the Python code in this project.  Instead I use the command line tool [pycodestyle](https://pypi.org/project/pycodestyle/).  The pycodestyle tool shows PEP8 errors, but does not show anything if the code being checked is valid.  In the following images the line "`@vivo ~/code/code institute/ot4u`" is the command prompt returned after the validator returns without finding any errors.
 
 |  app    |  Validation   |
@@ -1406,6 +1432,7 @@ This project is deployed to [Heroku](https://ot4u-ci.herokuapp.com/)
 16. Once the app has been deployed you can access it by navigating to [OT4U application](https://ot4u-ci.herokuapp.com/) to run the application.
 
 ## Search Engine Optimisation
+<a id="seo"></a>
 [Back to Top](#top)
 
 A list of key search words and phrases was defined for the OT4U website.  This list of phrases was included in the `meta keyword` tag in the base HTML template.  A description containing some essential keywords was used as the `meta description` for the OT4U website.  This meta description is the text that will be displayed below the title in the Search Results page.  This is very important as it is what any client will read to determine if they want to visit the OT4U website.  This meta description was limited to 160 characters, since this is the maximum number of characters that the search engine will show.  The message was crafted to appeal to clients' emotions and get them to react by clicking the link.
@@ -1614,6 +1641,8 @@ Sitemap: https://ot4u-ci.herokuapp.com/sitemap.xml
 ```
 
 ## Web Marketing
+<a id="marketing"></a>
+[Back to top](#top)
 
 ### Business Model
 The OT4U website is a B2C (Business 2 Customer) business model that it does the business directly with the end customer. Customer is able to search the product on the site, complete the order, make a payment through secured payment system and receive a service.
