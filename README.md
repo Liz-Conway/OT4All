@@ -939,9 +939,11 @@ The Django structure for the OT4U website is broken into 7 apps.
 <a id="personas"></a>
 [Back to Top](#top)
 
+Site Owner
+![Site Owner](documentation/personas/natalia-campbell.png)
 
-![Site Owner](documentation/ux/persona/site-owner.png)
-![Client](documentation/ux/persona/client.png)
+Client
+![Client Persona](documentation/personas/jilly-reilly.png)
 
 
 ### Wireframes
